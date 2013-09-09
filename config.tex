@@ -24,6 +24,9 @@
     
 \setboolean{@drafting}{true}
 
+\newboolean{enable-backrefs} % enable backrefs in the bibliography
+\setboolean{enable-backrefs}{true} % true false
+
 \usepackage{polyglossia}
 \setdefaultlanguage{french}
 
@@ -36,6 +39,16 @@
       ItalicFont     = texgyrepagella-italic.otf,
       BoldItalicFont = texgyrepagella-bolditalic.otf]{texgyrepagella-regular.otf}
       
+% Lato font
+% \setmainfont
+%      [Ligatures={Common}, Fractions=On, Mapping=tex-text,
+%       Path           = fonts/,
+%       Extension      = .otf,
+%       UprightFont    = *-Reg,
+%       BoldFont       = *-Bol,
+%       ItalicFont     = *-RegIta,
+%       BoldItalicFont = *-BolIta]{Lato}
+      
 \setsansfont[
     Ligatures={Common}, Mapping=tex-text,
     Extension=.otf,
@@ -45,6 +58,7 @@
     BoldItalicFont=*-BoldItalic,
 ]{Iwona}
 
+\usepackage[protrusion=true]{microtype} % character protruding and other micro-typography stuff
 \RequirePackage{amsmath} % ``Proper'' math commands and environments
 \RequirePackage{braket} % Dirac bra-ket notation
 \RequirePackage{slashed} % also for slash notation: take your pick!
@@ -59,8 +73,8 @@
 \linespread{1.05}
 
 % Font for chapter numbers
-\newfontface{\chapterNumber}[Scale=4.5]{euler.otf}
-\newfontface{\chapterName}[Scale=4]{euler.otf}
+\newfontface{\chapterNumber}[Scale=4.5,Path=fonts/]{euler.otf}
+\newfontface{\chapterName}[Scale=4,Path=fonts/]{euler.otf}
 
 \newcounter{dummy} % Necessary for correct hyperlinks (to index, bib, etc.)
 
@@ -79,6 +93,15 @@
 \definecolor{halfgray}{gray}{0.55} % chapter numbers will be semi transparent .5 .55 .6 .0
 \definecolor{webgreen}{rgb}{0,.5,0}
 \definecolor{webbrown}{rgb}{.6,0,0}
+
+%\definecolor{darkblue}{HTML}{054D73} % URL colors
+%\definecolor{darkblue}{HTML}{044262} % URL colors
+\definecolor{darkblue}{HTML}{033651} % URL colors
+
+\definecolor{chapter_in_toc}{HTML}{8B1B26}
+
+
+
 
 \usepackage{graphicx}
 \graphicspath{{figs/}}
@@ -109,10 +132,10 @@
 \RequirePackage{booktabs} % for better rules in tables
 \RequirePackage{textcase} % for \MakeTextUppercase
 
-\newcommand\textls[2]{{\addfontfeature{LetterSpace=#1}#2}}
+\newcommand\xetextls[2]{{\addfontfeature{LetterSpace=#1}#2}}
 %\DeclareRobustCommand{\spacedallcaps}[1]{\MakeTextUppercase{#1}}%
-\DeclareRobustCommand{\spacedallcaps}[1]{\sffamily\textls{10}{\MakeTextUppercase{#1}}}%
-\DeclareRobustCommand{\spacedlowsmallcaps}[1]{\sffamily\textls{10}{\scshape\MakeTextLowercase{#1}}}%
+\DeclareRobustCommand{\spacedallcaps}[1]{\sffamily\xetextls{10}{\MakeTextUppercase{#1}}}%
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{\sffamily\xetextls{10}{\scshape\MakeTextLowercase{#1}}}%
 
 % ********************************************************************                
 % headlines
@@ -285,7 +308,7 @@
  		\RequirePackage{prelim2e}
        \renewcommand{\PrelimWords}{Version préliminaire}
      %    \renewcommand{\PrelimText}{\myVersion}
- }{\relax}   
+ }{\relax}
 
 \usepackage{fixltx2e} % fixes some LaTeX stuff 
 \PassOptionsToPackage{smaller}{acronym}
@@ -303,6 +326,28 @@
 %\pdfcompresslevel=9
 %\pdfadjustspacing=1
 
+% Back references
+
+\newcommand{\backrefnotcitedstring}{\relax}%(Not cited.)
+\newcommand{\backrefcitedsinglestring}[1]{(Cité en page~#1.)}
+\newcommand{\backrefcitedmultistring}[1]{(Cité en pages~#1.)}
+\ifthenelse{\boolean{enable-backrefs}}%
+{%
+		\PassOptionsToPackage{hyperpageref}{backref}
+		\usepackage{backref} % to be loaded after hyperref package 
+		   \renewcommand{\backreftwosep}{ et~} % separate 2 pages
+		   \renewcommand{\backreflastsep}{, et~} % separate last of longer list
+		   \renewcommand*{\backref}[1]{}  % disable standard
+		   \renewcommand*{\backrefalt}[4]{% detailed backref
+		      \ifcase #1 %
+		         \backrefnotcitedstring%
+		      \or%
+		         \backrefcitedsinglestring{#2}%
+		      \else%
+		         \backrefcitedmultistring{#2}%
+		      \fi}%
+}{\relax}
+
 \hypersetup{
  % Uncomment the line below to remove all links (to references, figures, tables, etc)
  %draft, 
@@ -311,7 +356,7 @@
  %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV, 
  breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,
  plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,
- hypertexnames=true, pdfhighlight=/O, urlcolor=webbrown, linkcolor=MidnightBlue, citecolor=webgreen,
+ hypertexnames=true, pdfhighlight=/O, urlcolor=webbrown, linkcolor=darkblue, citecolor=webgreen,
  %------------------------------------------------
  % PDF file meta-information
  % pdftitle={\myTitle},
@@ -324,12 +369,12 @@
 \contentsmargin{2.5em}
 
 % Mini-toc style
-\titlecontents{minisection}[2.3em]{\color{MidnightBlue}}{\contentslabel{2.3em}}{\hspace*{-2.3em}}{\titlerule*[0.8pc]{.}\contentspage}
-\titlecontents{minisubsection}[5.5em]{\color{MidnightBlue}}{\contentslabel{3.2em}}{\hspace*{-3.2em}}{\titlerule*[0.8pc]{.}\contentspage}
+\titlecontents{minisection}[2.3em]{\color{darkblue}}{\contentslabel{2.3em}}{\hspace*{-2.3em}}{\titlerule*[0.8pc]{.}\contentspage}
+\titlecontents{minisubsection}[5.5em]{\color{darkblue}}{\contentslabel{3.2em}}{\hspace*{-3.2em}}{\titlerule*[0.8pc]{.}\contentspage}
 
 % Main toc style
 
-\titlecontents{chapter}[1.3em]{\addvspace{1pc}\hypersetup{linkcolor=Maroon}\color{Maroon}}{\contentslabel{1.3em}}{\hspace*{-1.3em}}{\titlerule*[0.8pc]{.}\contentspage}
+\titlecontents{chapter}[1.3em]{\addvspace{1pc}\hypersetup{linkcolor=chapter_in_toc}\color{chapter_in_toc}}{\contentslabel{1.3em}}{\hspace*{-1.3em}}{\titlerule*[0.8pc]{.}\contentspage}
 \titlecontents{section}[3.2em]{\addvspace{0.6pc}\hypersetup{linkcolor=black}}{\contentslabel{1.9em}}{\hspace*{-1.9em}}{\titlerule*[0.8pc]{.}\contentspage}
 \titlecontents{subsection}[5.8em]{\addvspace{0.2em}\hypersetup{linkcolor=black}}{\contentslabel{2.6em}}{\hspace*{0em}}{\titlerule*[0.8pc]{.}\contentspage}
 

@@ -1,4 +1,4 @@
-$out_dir = 'output';
+#$out_dir = 'output';
 #add_cus_dep('mp', '1', 0, 'mpost');
 #sub mpost {
 #    my $file = $_[0];

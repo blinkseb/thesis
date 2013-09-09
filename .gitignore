@@ -30,6 +30,13 @@
 *.vrb
 *.xdy
 *.tdo
-*.tex~
+*.brf
+*.fls
+*.pdf
+*.ptc
 output/**
 templates/**
+
+# Vim
+*.tex~
+*.bib~
