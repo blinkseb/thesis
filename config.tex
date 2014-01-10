@@ -64,11 +64,14 @@
 \RequirePackage{slashed} % also for slash notation: take your pick!
 \RequirePackage{hepnicenames} % A ``friendly'' macro set for selected PEN symbols 
                               % which includes hepparticles and heppennames
-\RequirePackage{hepunits} % imports SIunits with sensible options and HEP-specific units
+
+\RequirePackage{siunitx}
 
 \usepackage[]{unicode-math}
 \setmathfont{TeX Gyre Pagella Math}
 %\setmathfont{Asana Math}
+
+\setmonofont{Source Code Pro}
 
 \linespread{1.05}
 
@@ -379,12 +382,12 @@
 \titlecontents{subsection}[5.8em]{\addvspace{0.2em}\hypersetup{linkcolor=black}}{\contentslabel{2.6em}}{\hspace*{0em}}{\titlerule*[0.8pc]{.}\contentspage}
 
 % Usefull macro
-\newcommand{\MeVc}{\MeVoverc}
-\newcommand{\MeVcc}{\MeVovercsq}
-\newcommand{\GeVc}{\GeVoverc}
-\newcommand{\GeVcc}{\GeVovercsq}
-\newcommand{\TeVc}{\TeVoverc}
-\newcommand{\TeVcc}{\TeVovercsq}
+% \newcommand{\MeVc}{\MeVoverc}
+% \newcommand{\MeVcc}{\MeVovercsq}
+% \newcommand{\GeVc}{\GeVoverc}
+% \newcommand{\GeVcc}{\GeVovercsq}
+% \newcommand{\TeVc}{\TeVoverc}
+% \newcommand{\TeVcc}{\TeVovercsq}
 
 \newcommand{\lumi}{\ensuremath{\mathcal{L}}\xspace}
 \newcommand{\Lumi}{\ensuremath{\mathcal{L}}\xspace} % both upper and lower
@@ -410,3 +413,30 @@
 \newcommand{\ttbar}{\ensuremath{\Pqt\Paqt}\xspace}
 \newcommand{\mtt}{\ensuremath{m_{\Pqt\Paqt}}\xspace}
 \newcommand{\mzp}{\ensuremath{m_{\PZpr}}\xspace}
+
+% High energy physics
+\DeclareSIUnit\c{c}
+\DeclareSIUnit\micron{\micro\metre}
+\DeclareSIUnit\mrad{\milli\rad}
+\DeclareSIUnit\gauss{G}
+\DeclareSIUnit\eVperc{\eV\per\clight}
+\DeclareSIUnit\nanobarn{\nano\barn}
+\DeclareSIUnit\picobarn{\pico\barn}
+\DeclareSIUnit\femtobarn{\femto\barn}
+\DeclareSIUnit\attobarn{\atto\barn}
+\DeclareSIUnit\zeptobarn{\zepto\barn}
+\DeclareSIUnit\yoctobarn{\yocto\barn}
+\DeclareSIUnit\nb{\nano\barn}
+\DeclareSIUnit\pb{\pico\barn}
+\DeclareSIUnit\fb{\femto\barn}
+\DeclareSIUnit\ab{\atto\barn}
+\DeclareSIUnit\zb{\zepto\barn}
+\DeclareSIUnit\yb{\yocto\barn}
+
+\DeclareSIUnit\invpb{\per\pico\barn}
+\DeclareSIUnit\invfb{\per\femto\barn}
+
+\DeclareSIUnit\GeVc{\GeV\per\c}
+\DeclareSIUnit\GeVcc{\GeV\per\square\c}
+\DeclareSIUnit\TeVc{\TeV\per\c}
+\DeclareSIUnit\TeVcc{\TeV\per\square\c}
