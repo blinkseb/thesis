@@ -15,7 +15,6 @@
     \newboolean{@minionpro} % setup for minion pro font
     \newboolean{@minionprospacing} % use minion pro's textssc for letter spacing
     \newboolean{@pdfspacing} % use pdftex for letterspacing (via microtype)
-    \newboolean{@subfig} % setup for preloaded @subfig package
     \newboolean{@a5paper} % use those tiny DIN A5 pages
     \newboolean{@dottedtoc} % page numbers in ToC flushed right
   	\newboolean{@listings} % load listings package (if not already) and setup LoL
@@ -29,6 +28,9 @@
 
 \usepackage{polyglossia}
 \setdefaultlanguage{french}
+\usepackage[autostyle,french=guillemets*]{csquotes}
+\MakeOuterQuote{"}
+\frenchspacing
 
 \usepackage{fontspec}
 
@@ -88,7 +90,6 @@
 \usepackage{lipsum}
 
 %\usepackage{listings}
-\usepackage{subfig}
 \usepackage{tabularx} % Better tables
 
 \PassOptionsToPackage{dvipsnames}{xcolor}
@@ -107,8 +108,7 @@
 
 
 \usepackage{graphicx}
-\graphicspath{{figs/}}
-\graphicspath{{logos/}}
+\graphicspath{{figs/}{logos/}{chapitre1/figs/}}
 
 % Disable single lines at the start of a paragraph (Schusterjungen)
 \clubpenalty = 10000
@@ -273,6 +273,10 @@
 %************************************************************
 % caption
 %************************************************************
+\usepackage{subcaption}
+\DeclareCaptionSubType{figure}
+\DeclareCaptionSubType{table}
+
 \captionsetup{format=hang,font=small,labelfont={sf,bf}}
 \captionsetup[table]{skip=\medskipamount}
 	 		
@@ -291,7 +295,7 @@
   		"flushmargin" for footnote setup (not 100\% the same as with KOMA)}% 
 \fi
 
-\PassOptionsToPackage{titles,subfigure}{tocloft}
+\PassOptionsToPackage{titles}{tocloft}
 	\RequirePackage{tocloft}
 
 % ********************************************************************
@@ -321,8 +325,6 @@
 \setlength{\extrarowheight}{3pt} % Increase table row height
 \newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
 \newcommand{\myfloatalign}{\centering} % To be used with each float for alignment
-\usepackage{caption}
-\captionsetup{format=hang,font=small}
 
 \PassOptionsToPackage{hyperfootnotes=false,pdfpagelabels}{hyperref}
 \usepackage{hyperref}  % backref linktocpage pagebackref
@@ -381,6 +383,15 @@
 \titlecontents{section}[3.2em]{\addvspace{0.6pc}\hypersetup{linkcolor=black}}{\contentslabel{1.9em}}{\hspace*{-1.9em}}{\titlerule*[0.8pc]{.}\contentspage}
 \titlecontents{subsection}[5.8em]{\addvspace{0.2em}\hypersetup{linkcolor=black}}{\contentslabel{2.6em}}{\hspace*{0em}}{\titlerule*[0.8pc]{.}\contentspage}
 
+% Reset footnote counter each time a new chapter starts
+\makeatletter
+\pretocmd{\@schapter}{\setcounter{footnote}{0}}{}{}
+\pretocmd{\@chapter}{\setcounter{footnote}{0}}{}{}
+\makeatother
+
+\usepackage{feynmp}
+\DeclareGraphicsRule{*}{eps}{*}{}
+
 % Usefull macro
 % \newcommand{\MeVc}{\MeVoverc}
 % \newcommand{\MeVcc}{\MeVovercsq}
@@ -414,6 +425,17 @@
 \newcommand{\mtt}{\ensuremath{m_{\Pqt\Paqt}}\xspace}
 \newcommand{\mzp}{\ensuremath{m_{\PZpr}}\xspace}
 
+\newcommand{\gmu}{\ensuremath{\gamma_\mu}}
+\newcommand{\gzero}{\ensuremath{\gamma_0}}
+\newcommand{\dmu}{\ensuremath{\partial_\mu}}
+
+\newcommand{\gmuc}{\ensuremath{\gamma^\mu}}
+\newcommand{\gzeroc}{\ensuremath{\gamma^0}}
+\newcommand{\gfivec}{\ensuremath{\gamma^5}}
+\newcommand{\dmuc}{\ensuremath{\partial^\mu}}
+
+\newcommand{\Psib}{\ensuremath{\bar{\Psi}}}
+
 % High energy physics
 \DeclareSIUnit\c{c}
 \DeclareSIUnit\micron{\micro\metre}
@@ -440,3 +462,40 @@
 \DeclareSIUnit\GeVcc{\GeV\per\square\c}
 \DeclareSIUnit\TeVc{\TeV\per\c}
 \DeclareSIUnit\TeVcc{\TeV\per\square\c}
+
+% Column matrix
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
+
+% Row matrix
+\def\and{&\xspace}
+\newcount\rowveccount
+\newcommand*\rowvec[1]{
+        \global\rowveccount#1
+        \begin{pmatrix}
+        \rowvecnext
+}
+\def\rowvecnext#1{
+        #1
+        \global\advance\rowveccount-1
+        \ifnum\rowveccount>0
+                \and
+                \expandafter\rowvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
