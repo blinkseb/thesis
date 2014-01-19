@@ -3,11 +3,91 @@
 
 \section{Les particules élémentaires}
 
+%Depuis l'antiquité, les constituants élémentaires de la matière ont été une grande source d'interrogation. Aujourd'hui, 
+
+La Nature semble avoir décidée de construire la matière à l'aide d'un petit nombre de briques élémentaires, les particules élémentaires. Le Modèle Standard est notre tentative de décrire les interactions entre ces particules élémentaires. En développement depuis le début du XXe siècle, ce modèle permet maintenant de reproduire avec une précision remarquable les observations théoriques.
+
+La Nature est ainsi constituée de trois classes de particules élémentaires : les quarks, les leptons et les bosons. Ces particules étant de très petite taille et très peu massives, elles se déplacent à des vitesses proche de la vitesse de la lumière. Le formalisme mathématique utilisé pour décrire ces particules est la théorie quantique des champs, qui incorpore la mécanique quantique et la relativité restreinte.
+
+Les quarks et les leptons sont des particules de spin 1/2 et sont les constituants élémentaires de la matière : ce sont les fermions. Les bosons sont eux de spin entier, et sont les médiateurs des différentes interactions entre les fermions. La figure \ref{fig:sm} liste les particules élémentaires, dans la limite actuelle de nos connaissances.
+
 \begin{figure} \centering
   \includegraphics[height=0.33\textwidth]{Standard_Model_of_Elementary_Particles.pdf}
-  \label{fig:sm}
   \caption{Les particules élémentaires du Modèle Standard.}
+    \label{fig:sm}
 \end{figure}
+
+\subsection{Les fermions}
+
+Les fermions sont des particules élémentaires de spin 1/2, c'est-à-dire qu'elles respectent la statistique de Fermi-Dirac, et sont ainsi soumises au principe d'exclusion de Pauli. Cela signifie qu'au niveau quantique, deux fermions ne peuvent pas occuper le même état quantique. C'est ce principe qui est responsable de l'existence des couches d'électrons dans les atomes, les électrons étant des fermions. 
+
+On dénombre dans le Modèle Standard 12 fermions : 6 quarks et 6 leptons. On groupe les leptons et les quarks 2 par 2 dans des générations :
+
+\begin{description}
+  \item[Les fermions] \begin{align*}
+    \colvec{2}{e^-}{\nu_e} \colvec{2}{\mu^-}{\nu_\mu} \colvec{2}{\tau^-}{\nu_\tau}
+  \end{align*}
+  \item[Les quarks] \begin{align*}
+    \colvec{2}{u}{d} \colvec{2}{c}{s} \colvec{2}{t}{b}
+  \end{align*} 
+\end{description}
+
+Parmi les leptons, on trouve les électrons, muons et taus, de charge électrique négative. On associe à chaque lepton un partenaire non massif, et électriquement neutre, les neutrinos. Les leptons sont sensibles à l'interaction faible, et les leptons chargés à l'interaction électromagnétique. Les quarks sont des particules massives de charge électrique fractionnaire, et en plus porteur d'une charge de couleur. Ils sont donc sensible, en plus de l'interaction électromagnétique et l'interaction faible, à l'interaction forte.
+
+A chacune des 12 particules élémentaires est associé une anti-particule, c'est-à-dire une particule de même masse, mais avec des nombres quantiques opposés : on compte donc 24 constituants élémentaires de la matière.
+
+\subsection{Les interactions fondamentales}
+
+On dénombre trois interactions fondamentales théorisées par le Modèle Standard :
+
+\begin{description}
+  \item[L'interaction électromagnétique] Cette interaction couple les particules chargés, et a pour médiateur le photon, un boson non massif. C'est l'interaction qui permet la cohésion des atomes.
+  \item[L'interaction forte] Cette interaction couple les particules colorées, c'est-à-dire les quarks. Ses médiateurs sont les 8 gluons, bosons non massif. C'est l'interaction qui permet la cohésion du noyau atomique.
+  \item[L'interaction faible] Cette interaction couple tous les fermions. Elle a pour médiateurs deux bosons massifs chargés $W^{+/-}$ et un boson neutre massif $Z^0$. Cette interaction est responsable de la désintégration nucléaire $\beta^{+/-}$, qui transforme un proton en neutron ou inversement. C'est la seule interaction à laquelle le neutrino soit sensible.
+\end{description}
+
+Une quatrième interaction existe, l'interaction gravitationnelle. Cette interaction n'est pas décrite par le Modèle Standard, et est négligeable au niveau fondamentale vu la faible masse des particules élémentaires.
+
+\begin{table} \centering
+  \begin{tabular}{@{}ccccc@{}} \toprule
+    Interaction & boson(s) & masse (\SI{}{\GeV}) & intensité relative & portée (m) \\ \bottomrule
+    \multirow{2}{*}{faible} & $W^{+/-}$ & \SI{80.385 \pm 0.015} & \multirow{2}{*}{1} & \multirow{2}{*}{\tilde $10^{-18}$} \\
+     & $Z^0$ & \SI{91.1876 \pm 0.0021} & & \\
+    forte & $g$ & 0 & 25 & \tilde $10^{-15}$ \\
+    électromagnétique & $\gamma$ & 0 & 0.8 & $\infty$ \\
+    gravitationnelle & graviton ? & ? & $10^{-41}$ & $\infty$ \\ \bottomrule    
+  \end{tabular}
+  \caption{Les interactions fondamentales et leurs bosons médiateurs.}
+  \label{tab:interactions}
+\end{table}
+
+\bigskip
+
+Le détails des interaction et des bosons médiateurs des interactions fondamentales est présenté table \ref{tab:interactions}.
+
+\subsection{Le boson de Higgs}
+
+Le mécanisme de Higgs permet d'expliquer comment les fermions et les bosons massifs acquièrent leur masse. Théorisé en 1964 par R. Brout, F. Englert et P. Higgs, ce mécanisme prévoit l'existence d'une nouvelle particule de spin 0 (un boson) et massive : le boson de Higgs.
+
+Le 4 juillet 2012, le CERN a annoncé la découverte d'une nouvelle particule compatible avec le boson de Higgs du Modèle Standard, ayant une masse de \SI{125.9 \pm 0.4}{\GeV}. Cette découverte conforte encore une fois la validité du Modèle Standard.
+
+\begin{table} \centering
+  \begin{tabular}{@{}cccccccc@{}} \toprule
+    \multicolumn{3}{c}{Génération} & \multicolumn{5}{c}{Nombres quantiques} \\
+    I & II & III & $SU(3)_c$ & $SU(2)_L$ & Y & $T^3$ & Q \\ \midrule
+    \multirow{2}{*}{$\colvec{2}{\nu_e}{e^-}_L$} & \multirow{2}{*}{$\colvec{2}{\nu_\mu}{\mu^-}_L$} & \multirow{2}{*}{$\colvec{2}{\nu_\tau}{\tau^-}_L$} & \multirow{2}{*}{1} & \multirow{2}{*}{2} & \multirow{2}{*}{-1} & 1/2 & 0 \\
+    & & & & & & -1/2 & -1\\
+    $e_R^-$ & $\mu_R^-$ & $\tau_R^-$ & 1 & 1 & -2 & 0 & -1 \\ \midrule
+    \multirow{2}{*}{$\colvec{2}{u}{d}_L$} & \multirow{2}{*}{$\colvec{2}{c}{s}_L$} & \multirow{2}{*}{$\colvec{2}{t}{b}_L$} & \multirow{2}{*}{3} & \multirow{2}{*}{2} & \multirow{2}{*}{$\sfrac{1}{3}$} & 1/2 & $\sfrac{+2}{3}$ \\
+    & & & & & & -1/2 & $\sfrac{-1}{3}$\\
+    $u_R$ & $c_R$ & $t_R$ & 3 & 1 & $\sfrac{4}{3}$ & 0 & $\sfrac{+2}{3}$ \\
+    $d_R$ & $s_R$ & $d_R$ & 3 & 1 & $\sfrac{-2}{3}$ & 0 & $\sfrac{-1}{3}$ \\ \midrule
+    \multirow{2}{*}{$\colvec{2}{\phi^+}{\phi^0}$} & & & \multirow{2}{*}{1} & \multirow{2}{*}{2} & \multirow{2}{*}{1} & 1/2 & 1 \\
+    & & & & & & -1/2 & 0 \\ \bottomrule
+  \end{tabular}
+  \caption{Les nombres quantiques des particules élémentaires. Le doublet de Higgs a été ajouté sur la dernière ligne afin d'avoir une aperçu de ses nombres quantiques.}
+  \label{tab:nbr_quantiques}
+\end{table}
 
 \section{Paramétrisation théorique}
 
@@ -25,7 +105,7 @@ où $q_i$ sont les coordonnées généralisées des particules, $t$ la variable 
   L &= T - V
 \end{align*}
 
-Dans le cas de particules fondamentales, les coordonnées des particules ne sont plus discrète ($q_i(t)$), mais continue ($\phi(x, t)$). Le Lagrangien devient donc
+Dans le cas de particules fondamentales, les coordonnées des particules ne sont plus discrète ($q_i(t)$), mais continue. On décrit en effet ces particules à l'aide d'un champ $\phi(x, t)$ (ou $\phi(x)$, et $x$ le quadri-vecteur position). Le Lagrangien devient donc
 \begin{align*}
   L(q_i, \dot{q_i}, t) \rightarrow \mathcal{L}\left(\phi, \frac{\partial \phi}{\partial x_\mu}, t\right)
 \end{align*}
@@ -35,12 +115,16 @@ et les équations de Lagrange deviennent
   \frac{\partial}{\partial x_\mu}\left( \frac{\partial \mathcal{L}}{\partial \dot{\phi}} \right) - \frac{\partial \mathcal{L}}{\partial \phi} &= 0
 \end{align}
 
-C'est à l'aide de se formalisme que nous allons construire le modèle standard. En effet, une fois le Lagrangien établie, il est possible d'en dériver tout un jeu de règles, que l'on nomme règle de Feynmann, et qui permettent de quantifier l'interaction entre les particules élémentaire (vertex d'interaction) et leur propagation (propagateur). Plus de détails seront donnés par la suite, mais il est néanmoins déjà important de noter que, dans le Lagrangien :
+C'est à l'aide de se formalisme que nous allons construire le modèle standard. En effet, une fois le Lagrangien établie, il est possible d'en dériver tout un jeu de règles, que l'on nomme règle de Feynman, et qui permettent de quantifier l'interaction entre les particules élémentaire (vertex d'interaction) et leur propagation (propagateur). Plus de détails seront donnés par la suite, mais il est néanmoins déjà important de noter que, dans le Lagrangien :
 
 \begin{enumerate}
   \item Les propagateurs sont associés aux termes quadratiques du Lagrangien
-  \item Les autres termes correspondent aux vertex d'interactions. Les règles de Feynmann associées aux vertex sont simplement les termes dans $i\mathcal{L}$ qui contiennent les champs interagissant.
+  \item Les autres termes correspondent aux vertex d'interactions. Les règles de Feynman associées aux vertex sont simplement les termes dans $i\mathcal{L}$ qui contiennent les champs interagissant.
 \end{enumerate}
+
+Afin d'extraire des informations sur les observables physiques, tel que les sections efficaces par exemple, on utilise un développement perturbatif. En effet, la probabilité de transition d'un état initial $\ket{i}$ à un état final $\ket{f}$ est donnée par la matrice de transition, que l'on obtient en appliquant la règle d'or de Fermi. Cette règle est obtenue grâce à la théorie des perturbation, en considérant que le temps nécessaire à l'interaction est bien petit que le temps nécessaire à l'observation.
+
+La précision du résultat dépends de l'ordre du calcul. Le premier ordre, celui le plus simple à calculer, correspond à un nombre de vertex de 2, et est appelé calcul à l'arbre (\emph{LO}, pour \emph{Leading Order}). Richard Feynman proposa en 1949 un ensemble de règles facilitant le calcul des observables à partir de diagrammes. Cependant, les digrammes d'ordre supérieurs font apparaître des boucles, qui provoquent des divergences lors des calculs. On verra par la suite que ces divergences peuvent être contournées par une redéfinition des couplages de la théorie : c'est la renormalisation.
 
 \subsection{L'interaction électromagnétique (QED)} \label{sec:qed}
 
@@ -70,41 +154,41 @@ Cette invariance a une conséquence très importante. En effet, d'après le thé
 \end{align}
 Le courant électronique $j^\mu$ est donc conservé, et on en déduit que la charge, défini par $Q = \int j^0 d^3x$ est aussi conservée.
 
-Cette symétrie globale de jauge n'est pas la plus générale. Il serait en effet plus satisfaisant si la phase pouvait varier localement ($\theta \rightarrow \theta(x)$). Malheureusement, le Lagrangien \eqref{eq:lagrangien_qed_simple} n'est pas invariant lorsque l'on effectue la transformation
+Cette symétrie globale de jauge n'est pas la plus générale. Il serait en effet plus satisfaisant si la phase pouvait varier localement ($\theta \rightarrow \theta(x)$). Malheureusement, le Lagrangien \eqref{eq:lagrangien_qed_simple} n'est pas invariant lorsque l'on effectue la transformation\footnote{On a introduit l'opérateur de charge $Q$, dont les valeurs propres sont $\pm 1$ pour les leptons, et $\pm\frac{1}{2}$ et $\pm\frac{2}{3}$ pour les quarks.}
 \begin{align*}
-  \Psi \rightarrow e^{i\theta(x)}\Psi
+  \Psi \rightarrow e^{i\theta(x)Q}\Psi
 \end{align*}
 En effet, la dérivée de $\Psi$ se transforme maintenant comme
 \begin{align} \label{eq:brisure_jauge_local}
-  \dmu \Psi \rightarrow e^{i\theta(x)}\dmu\Psi + ie^{i\theta(x)}\Psi\dmu\theta(x)
+  \dmu \Psi \rightarrow e^{i\theta(x)}\dmu\Psi + iQe^{i\theta(x)}\Psi\dmu\theta(x)
 \end{align}
 Le terme $\dmu\theta(x)$ brise l'invariance de jauge. Il est cependant intéressant de voir ce qu'il se passe si on impose l'invariance du Lagrangien.
 
 Pour se faire, il suffit de remplacer dérivée $\dmu$ dans la définition du Lagrangien par une autre dérivée $D_\mu$, appelée dérivée covariante. Cette nouvelle dérivée se transforme comme
 \begin{align*}
-  D_\mu\Psi &\rightarrow e^{i\theta(x)}D_\mu\Psi
+  D_\mu\Psi &\rightarrow e^{i\theta(x)Q}D_\mu\Psi
 \end{align*}
-Afin de pouvoir écrire une telle dérivée, il est nécessaire d'introduire un nouveau champs vectoriel, $A_\mu$, qui se transforme de telle sorte d'annuler le terme en $\dmu \theta(x)$ dans \eqref{eq:brisure_jauge_local}. On défini la dérivée covariante par\footnote{le terme $e$ (charge électrique) est purement conventionnel}
+Afin de pouvoir écrire une telle dérivée, il est nécessaire d'introduire un nouveau champ vectoriel, $A_\mu$, qui se transforme de telle sorte d'annuler le terme en $\dmu \theta(x)$ dans \eqref{eq:brisure_jauge_local}. On défini la dérivée covariante par\footnote{le terme $e$ (charge électrique) est purement conventionnel}
 \begin{align*}
-  D_\mu &= \dmu - ieA_\mu
+  D_\mu &= \dmu + ieQA_\mu
 \end{align*}
 où $A_\mu$ se transforme comme
 \begin{align} \label{eq:photon_jauge_transformation}
-  A_\mu &\rightarrow A_\mu + \frac{1}{e}\dmu\theta(x)
+  A_\mu &\rightarrow A_\mu - \frac{1}{e}\dmu\theta(x)
 \end{align}
 En remplaçant $\dmu$ par $D_\mu$, on obtient le Lagrangien invariant de jauge local
 \begin{align*}
-  L &= \Psib\left(i\gmuc\dmu - m\right)\Psi + e\Psib \gmuc \Psi A_\mu
+  L &= \Psib\left(i\gmuc\dmu - m\right)\Psi - e\Psib \gmuc Q A_\mu \Psi
 \end{align*}
 
-En forçant le Lagrangien à être invariant de jauge local, nous sommes obligé d'introduire un nouveau champs vectoriel (champs de jauge): c'est le photon. Afin de vraiment interpréter ce nouveau champs comme le photon, il est nécessaire d'ajouter dans le Lagrangien un terme correspondant à l'énergie cinétique du photon. Le seul candidat invariant lors de la transformation \eqref{eq:photon_jauge_transformation} doit être construit à partir du tenseur
+En forçant le Lagrangien à être invariant de jauge local, nous sommes obligé d'introduire un nouveau champ vectoriel (champ de jauge): c'est le photon. Afin de vraiment interpréter ce nouveau champ comme le photon, il est nécessaire d'ajouter dans le Lagrangien un terme correspondant à l'énergie cinétique du photon. Le seul candidat invariant lors de la transformation \eqref{eq:photon_jauge_transformation} doit être construit à partir du tenseur
 \begin{align*}
   F_{\mu\nu} &= \dmu A_\nu - \partial_\nu A_\mu
 \end{align*}
 
 On obtient donc finalement le Lagrangien décrivant l'interaction électromagnétique
 \begin{align} \label{eq:l_qed}
-  L_{\text{QED}} &= \Psib\left(i\gmuc\dmu - m\right)\Psi + e\Psib \gmuc \Psi A_\mu - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
+  L_{\text{QED}} &= \Psib\left(i\gmuc\dmu - m\right)\Psi - e\Psib \gmuc Q A_\mu \Psi - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
 \end{align}
 Un dernier point reste à remarquer. Il n'est pas possible d'ajouter un terme $\frac{1}{2}m^2A_\mu A^\mu$ sans violer l'invariance locale de jauge. Le photon doit donc être sans masse.
 
@@ -142,7 +226,7 @@ L'invariance de jauge est donc ici aussi violée par le terme en $\dmu\theta_a$.
 \begin{align*}
   D_\mu &= \dmu + igT_aG_\mu^a
 \end{align*}
-Cette fois, nous sommes obligés d'introduire non pas un champs vectoriel, mais huit. Ces nouveaux champs se transforment de la façon suivante :
+Cette fois, nous sommes obligés d'introduire non pas un champ vectoriel, mais huit. Ces nouveaux champs se transforment de la façon suivante :
 \begin{align*}
   G_\mu^a \rightarrow G_\mu^a - \frac{1}{g} \dmu \theta_a - f_{abc}\theta_bG_\mu^c
 \end{align*}
@@ -156,13 +240,13 @@ Le tenseur $G_{\mu\nu}$ est défini de façon analogue à $F_{\mu\nu}$, mais, é
   G_{\mu\nu}^a &= \dmu G_\nu^a - \partial_\nu G_\mu^a - g f_{abc} G_\mu^b G_\nu^c
 \end{align*}
 
-On peut finalement interpréter les huit nouveaux champs vectoriels comme les huit gluons du Modèle Standard. Comme pour le photon, il n'est pas possible d'introduire un terme de masse dans \eqref{eq:l_qcd} sans briser l'invariance locale de jauge. Les gluons doivent donc être sans masse.
+On peut finalement interpréter les huit nouveaux champs vectoriels comme les huit gluons du Modèle Standard. Le Lagrangien \eqref{eq:l_qcd} représente donc l'interaction entre des quarks colorés et des bosons vecteur $G_\mu$, les gluons, avec une constante de couplage $g$. Comme pour le photon, il n'est pas possible d'introduire un terme de masse sans briser l'invariance locale de jauge. Les gluons doivent donc être sans masse.
 
 Une des propriétés remarquables du tenseur $G_{\mu\nu}^a$ est que, contrairement à $F_{\mu\nu}$, il contient des termes d'auto-interaction ($\propto G_\mu^b G_\nu^c$). En effet, les gluons étant médiateur de l'interaction force et portant eux même une charge de couleur, ils peuvent interagir entre eux, comme on peut le voir figure \ref{fig:gluon_self_interaction}.
 
 \begin{figure} \centering
   \subcaptionbox{\label{fig:3_gluons_vertex}}[.4\linewidth]{
-  \begin{fmfgraph*}(200,100)
+  \begin{fmfgraph*}(180,100)
     \fmfpen{0.5}
     \fmfleft{i1}
     \fmfright{o1,o2}
@@ -171,7 +255,7 @@ Une des propriétés remarquables du tenseur $G_{\mu\nu}^a$ est que, contraireme
     \fmfdot{v1}
   \end{fmfgraph*}}\qquad%
   \subcaptionbox{\label{fig:4_gluons_vertex}}[.4\linewidth]{
-  \begin{fmfgraph*}(200,100)
+  \begin{fmfgraph*}(180,100)
     \fmfpen{0.5}
     \fmfleft{i1,i2}
     \fmfright{o1,o2}
@@ -187,9 +271,9 @@ Une des propriétés remarquables du tenseur $G_{\mu\nu}^a$ est que, contraireme
 
 On a pu voir précédemment que les médiateurs de l'interaction faible sont les bosons chargés $W^{+/-}$, ainsi que le boson neutre $Z^0$. On peut voir figure \ref{fig:w_decay} la désintégration d'un boson $W$ en $e\nu$.
 
-\begin{figure}[b] \centering
+\begin{figure} \centering
   \subcaptionbox{$W^- \rightarrow e^- \bar{\nu}_e$}[.4\linewidth]{
-  \begin{fmfgraph*}(200,100)
+  \begin{fmfgraph*}(180,100)
     \fmfpen{0.5}
     \fmfleft{i1}
     \fmfright{o1,o2}
@@ -200,7 +284,7 @@ On a pu voir précédemment que les médiateurs de l'interaction faible sont les
     \fmflabel{$\bar{\nu}_e$}{o1}
   \end{fmfgraph*}}\qquad%
   \subcaptionbox{$W^+ \rightarrow e^+ \nu_e$}[.4\linewidth]{
-  \begin{fmfgraph*}(200,100)
+  \begin{fmfgraph*}(180,100)
     \fmfpen{0.5}
     \fmfleft{i1}
     \fmfright{o1,o2}
@@ -220,7 +304,7 @@ De façon analogique au courant électromagnétique \eqref{eq:e_current}, on int
   j^\mu_{\text{w}} &= G \bar{u}_\nu \gmuc u_e
 \end{align*}
 
-Ce courant est invariant lors des transformations de parité. Malheureusement, bien que permettant d'expliquer la plupart des observations sur la désintégration $\beta$, cette formulation du courant échoue sur d'autre point. En effet, en étudiant la désintégration $\beta$ de nombreux atomes (tel que le cobalt), il s'est avéré que l'interaction faible ne fait apparaître que des neutrino d'hélicité gauche ($\nu_L$) ou des anti-neutrino d'hélicité droite ($\bar{\nu}_R$) : ceci est une violation directe de l'invariance de la parité, et il est nécessaire que le courant faible reflète ceci.
+Ce courant est invariant lors des transformations de parité. Malheureusement, bien que permettant d'expliquer la plupart des observations sur la désintégration $\beta$, cette formulation du courant échoue sur d'autres points. En effet, en étudiant la désintégration $\beta$ de nombreux atomes (tel que le cobalt), il s'est avéré que l'interaction faible ne fait apparaître que des neutrino d'hélicité gauche ($\nu_L$) ou des anti-neutrino d'hélicité droite ($\bar{\nu}_R$) : ceci est une violation directe de l'invariance de la parité, et il est nécessaire que le courant faible reflète ceci.
 
 Parmi les invariants de Lorentz qui ne sont pas invariants par parité, on trouve les structures $\frac{1}{2}\gmuc(1 - \gfivec)$ et $\frac{1}{2}\gmuc(1 + \gfivec)$. Ces deux structures sont respectivement les projecteurs de chiralité gauche et droite. Lorsque la masse devient négligeable devant l'énergie, la chiralité se confond avec l'hélicité. Le neutrino n'ayant pas de masse, le projecteur de chiralité projette aussi l'hélicité. L'expérience nous oblige donc à choisir la structure $\frac{1}{2}\gmuc(1 - \gfivec)$ (structure $V - A$, pour Vecteur - Axial), puisque l'interaction faible ne couple uniquement que les neutrino d'hélicité gauche. Le courant faible chargé devient alors
 
@@ -274,15 +358,18 @@ On défini l'équivalent de la charge par $T^i = \int J_0^I d^3x$. Ces charges f
 
 On peut être tenter d'interpréter $J_\mu^3$ comme le courant faible neutre associé au $Z^0$. Malheureusement, ceci est incorrect, puisque le courant que l'on vient d'écrire ne couple que des particules d'hélicité gauche, contrairement au $Z^0$, qui couple indifféremment les hélicités gauche et droite. Cependant, le courant électromagnétique est aussi un courant neutre, qui couple les deux hélicités. On rappelle que $ej^{EM}_\mu = e\Psib \gmu Q \Psi$, où $Q$ est l'opérateur de charge.
 
-Afin de sauver la symétrie $SU(2)_L$, nous sommes contraint de faire intervenir l'interaction électromagnétique afin d'avoir un courant neutre faible convenable. Pour ce faire, nous étendons la symétrie en formant deux combinaisons orthogonales qui ont des transformations défini sous $SU(2)_L$ : la première combinaison, $J_\mu^3$ permet de former le triplet d'isopin. La seconde combinaison $j_\mu^Y$ doit rester invariant sous $SU(2)_L$ : c'est courant neutre d'hypercharge (on généralise ici la charge électrique), donné par
+Afin de sauver la symétrie $SU(2)_L$, nous sommes contraint de faire intervenir l'interaction électromagnétique afin d'avoir un courant neutre faible convenable. Pour ce faire, nous étendons la symétrie en formant deux combinaisons orthogonales qui ont des transformations défini sous $SU(2)_L$ : la première combinaison, $J_\mu^3$ permet de former le triplet d'isopin. La seconde combinaison $j_\mu^Y$ doit rester invariant sous $SU(2)_L$ : c'est le courant neutre d'hypercharge (on généralise ici la charge électrique), donné par
 \begin{align*}
   j_\mu^Y &= \Psib \gmu Y \Psi
 \end{align*}
 et on défini l'hypercharge $Y$ par une relation reliant la charge électrique $Q$ et la "charge" neutre faible $T^3$ :
-\begin{align*}
+\begin{align} \label{eq:q_t_y}
   Q &= T^3 + \frac{Y}{2}
-\end{align*}
-$Y$ est ainsi un générateur du groupe $U(1)_Y$. On étend ainsi le groupe $SU(2)_L$ au groupe de symétrie $SU(2)_L \times U(1)_Y$. On a alors les doublets d'isopin $\chi_L$, composés des fermions de même famille d'hélicité gauche et qui se transforment sous $SU(2)_L$ et $U(1)_Y$. Enfin, on classifie les fermions d'hélicité droit dans des singlets d'isospin, invariant sous $SU(2)_L$ et qui se transforment sous $U(1)_Y$.
+\end{align}
+
+$Y$ est ainsi un générateur du groupe $U(1)_Y$, et $\vec{T}$ les générateurs du groupe $SU(2)_L$. On étend ainsi le groupe $SU(2)_L$ au groupe de symétrie $SU(2)_L \times U(1)_Y$ en unifiant les interactions faible et électromagnétique \citep{PhysRevD.2.1285,PhysRevLett.19.1264}.
+
+On a alors les doublets d'isopin $\chi_L$, composés des fermions de même famille d'hélicité gauche et qui se transforment sous $SU(2)_L$ et $U(1)_Y$. Enfin, on classifie les fermions d'hélicité droit dans des singlets d'isospin, invariant sous $SU(2)_L$ et qui se transforment sous $U(1)_Y$.
 \begin{align*}
   \chi_L &= \colvec{2}{\nu}{e}_L, \colvec{2}{u}{d}_L & & \text{doublet d'isospin} \\
   \Psi_R &= e_R, u_R \text{ ou } d_R & & \text{singlet d'isospin}
@@ -302,7 +389,7 @@ $\chi_L$ et $\Psi_R$ se transforment respectivement sous $SU(2)_L \times U(1)_Y$
 
 On impose maintenant l'invariance locale de jauge au Lagrangien. Pour ce faire, la première étape est de remplacer la dérivée par deux dérivées covariantes $D_\mu^i$, définies par
 \begin{align*}
-  D_\mu^1 &= \dmu + ig_1\frac{1}{2}\vec{\tau} \cdot \vec{W}_\mu + ig_2 \frac{Y}{2} B_\mu\\
+  D_\mu^1 &= \dmu + ig_1\frac{1}{2}\vec{\tau} \cdot \vec{W}_\mu + ig_2 \frac{Y}{2} B_\mu\text{, avec }\frac{1}{2} \vec{\tau} = \vec{T}\\
   D_\mu^2 &= \dmu + ig_2 \frac{Y}{2} B_\mu
 \end{align*}
 
@@ -318,10 +405,12 @@ Afin de compléter le Lagrangien, il nous reste à ajouter les termes cinétique
 \end{align*}
 
 En ajoutant tous les termes ensemble, on obtient le Lagrangien de l'interaction électrofaible :
-\begin{align*}
- L_{\text{EWK}} = &\bar{\chi}_L \gmuc \left( i\dmu - g_1 \frac{1}{2} \vec{\tau} \cdot \vec{W}_\mu - g_2 \frac{Y}{2} B_\mu \right) \chi_L + \Psib_R \gmuc \left( i\dmu - g_2 \frac{Y}{2} B_\mu \right) \Psi_R \\
+\begin{align} \label{eq:l_ewk}
+ \begin{aligned}
+   L_{\text{EWK}} =\ &\bar{\chi}_L \gmuc \left( i\dmu - g_1 \frac{1}{2} \vec{\tau} \cdot \vec{W}_\mu - g_2 \frac{Y}{2} B_\mu \right) \chi_L + \Psib_R \gmuc \left( i\dmu - g_2 \frac{Y}{2} B_\mu \right) \Psi_R \\
  &- \frac{1}{4}B_{\mu\nu}B^{\mu\nu} - \frac{1}{4}\vec{W}_{\mu\nu} \cdot \vec{W}^{\mu\nu}
-\end{align*}
+ \end{aligned}
+\end{align}
 
 Les termes en $m\bar{\chi}_L\chi_L$ et $m\Psib\Psi$ ont disparu du Lagrangien final. En effet, ces termes ne sont pas invariant sous transformation locale de jauge : les fermions perdent donc leur masse lors de l'unification électrofaible. De même, comme pour le photon ou les gluons, il n'est pas possible d'ajouter des termes de masse pour les nouveaux bosons introduit : ils doivent donc être sans masse.
 
@@ -346,13 +435,356 @@ Comme formulée actuellement, la théorie électrofaible a deux problèmes
   \end{align*}
   où $\theta_c$ est l'angle de Cabibbo, et représente le mélange entre les différentes saveur de quarks. En réalité, le passage de l'espace vectoriel formé par les états propres de l'interaction faible à l'espace vectoriel formé par les états propres de masse s'effectue par une rotation d'angle $\theta_c$. La valeur de $\theta_c$ est déterminée de façon très précise par l'expérience à \SI{13.015}{\degree}.
   
-  Cette matrice a ensuite été étendue aux trois générations de quarks du Modèle Standard par Kobayashi et Maskawa pour devenir une matrice $3 \times 3$ : la matrice CKM.
+  Le mécanisme a été ensuite généralisé par Kobayashi et Maskawa aux trois générations de quarks \citep{CKM}. La matrice de rotation de Cabibbo devient une matrice $3 \times 3$ : la matrice CKM.
   \begin{align*}
     \colvec{3}{d^\prime}{s^\prime}{b^\prime} &= \begin{pmatrix} V_{ud} & V_{us} & V_{ub} \\ V_{cd} & V_{cs} & V_{cb} \\ V_{td} & V_{ts} & V_{tb} \end{pmatrix} \colvec{3}{d}{s}{b}
   \end{align*}
+  Expérimentalement \citep{pdg}, ses valeurs sont :
+  \begin{align*}
+    V_{\text{CKM}} &= \begin{pmatrix}
+      0.97427 \pm 0.00015 & 0.22534 \pm 0.00065 & 0.00351^{+0.00015}_{-0.00014} \\
+      0.22520 \pm 0.00065 & 0.97344 \pm 0.00016 & 0.0412^{+0.0011}_{-0.0005} \\
+      0.00867^{+0.00029}_{-0.00031} & 0.0404^{+0.0011}_{-0.0005} & 0.999146^{+0.000021}_{-0.000046}      
+    \end{pmatrix}
+  \end{align*}
+
+  \item On a vu qu'imposer l'invariance locale de jauge fait apparaître quatre nouveaux champs, forcément sans masse. Néanmoins, les bosons $W$ et $Z$ sont massifs. Afin de pouvoir continuer à interpréter ces nouveaux champs comme les médiateurs de l'interaction faible, il est nécessaire d'introduire un mécanisme qui permet de donner une masse à ces médiateurs : c'est le mécanisme de Higgs, qui, au travers de l'introduction d'un nouveau champ scalaire et d'une brisure de la symétrie électrofaible, permet de d'ajouter un terme de masse au Lagrangien sans briser l'invariance locale de jauge.
   
-  
-  \item Higgs
 \end{enumerate}
+
+\subsection{Brisure spontanée de symétrie}
+
+Intéressons nous au Lagrangien d'un champ scalaire complexe $\phi = \frac{1}{\sqrt{2}} (\phi_1 + i \phi_2)$ :
+\begin{align*}
+  L &= (\dmu \phi )^\star ( \dmuc \phi ) - V(\phi) = \frac{1}{2} \left( \dmu \phi_1 \right)^2 + \frac{1}{2} \left( \dmu \phi_2 \right)^2 \\
+  V(\phi) &= \mu^2 \phi^\star \phi + \lambda \left( \phi^\star \phi \right)^2 = \frac{1}{2} \mu^2 \left( \phi_1^2 + \phi_2^2 \right) + \frac{1}{4} \lambda \left( \phi_1^2 + \phi_2^2 \right)^2,\ \lambda > 0
+\end{align*}
+% $\mu^2 > 0$, ce Lagrangien décrit deux champ scalaires de masse $\mu$.
+
+\begin{figure} \centering
+  \includegraphics[width=0.6\linewidth]{Higgs_potential.png}
+  \caption{Le potentiel de Higgs tracé avec les valeurs de $\mu^2$ et $\lambda$ calculées pour $m_{h} = \SI{125.3}{\GeVc}$}
+\end{figure}
+
+Le minimum du potentiel est
+\begin{align*}
+  \frac{\partial V}{\partial \phi } &= 0 &\rightarrow&& \left( \phi_1^2 + \phi_2^2 \right) = \nu^2 = - \frac{\mu^2}{\lambda}
+\end{align*}
+Si on considère $\mu^2 < 0$, c'est l'équation d'un cercle de rayon $\nu$. Le potentiel admet ainsi une infinité de minimum, différents de $\phi = 0$ : la symétrie du Lagrangien est brisée. Cependant, les calculs perturbatifs, qui sont au coeur de la théorie qui permet de construire le Modèle Standard, doivent être réalisés autour du minimum du potentiel. On ré exprime donc le champ scalaire par une expansion autour de son minimum. Pour se faire, on choisi $\phi_2 = 0$ et donc $\phi_1 = \phi = \nu$ au minimum. On a alors
+\begin{align*}
+  \phi(x) = \frac{1}{\sqrt{2}} \left[ \nu + \eta(x) + i\xi(x) \right]
+\end{align*}
+On réinjecte la nouvelle paramétrisation dans le Lagrangien. On trouve
+\begin{align*}
+  L &= \frac{1}{2}\left( \dmu \xi \right)^2 + \frac{1}{2}\left( \dmu \eta \right)^2 + \mu^2\eta^2 + \dots
+\end{align*}
+$\mu^2$ étant négatif, on peut interpréter le troisième terme comme le terme de masse du champ $\eta$, avec $m_\eta = \sqrt{-2\mu^2}$. Cependant, aucun terme de masse n'apparaît pour le champ $\xi$ : la brisure de symétrie permet donc d'introduire un champ vectoriel massif, mais accompagné d'un second champ vectoriel, sans masse, que l'on nomme boson de Goldstone.
+
+Il existe cependant un moyen de faire disparaître ce champ non massif. En remplaçant le champ complexe par un doublet de $SU(2)_L$, et en imposant le Lagrangien a être invariant locale de jauge, les bosons de Goldstone vont se mélanger pour donner naissance à un champ scalaire massif : c'est le mécanisme de Higgs, introduit historiquement par \citet{PhysRevLett.13.321,PhysRevLett.13.508,PhysRevLett.13.585}.
+
+\subsection{Le mécanisme de Higgs}
+
+Nous sommes intéressé par un mécanisme qui nous permet d'introduire une masse pour les médiateurs de l'interaction faible. Pour se faire, on brise la symétrie $SU(2)_L \times U(1)_Y$ en introduisant un champ scalaire interagissant avec les quatre champ vectoriels $\vec{W}_\mu$ et $B_\mu$. On ajoute ainsi un terme $L_2$ au Lagrangien $L_\text{EWK}$ \eqref{eq:l_ewk}
+\begin{align} \label{eq:l_higgs_ewk}
+  L_2 &= \left( \dmu \phi \right)^\star \left( \dmu \phi \right) - V(\phi)
+\end{align}
+
+On impose l'invariance locale de jauge sous une transformation de $SU(2)_L \times U(1)_Y$
+\begin{align*}
+  \phi \rightarrow e^{i\vec{\theta}(x) \cdot \vec{T}\,+\,i\iota(x) Y} \phi
+\end{align*}
+Cette invariance introduit les quatre champs vectoriels de l'interaction électrofaible. En procédant de la même façon, on obtient
+\begin{align*}
+  L_2 &= \left| \left( i \dmu - g_1 \frac{1}{2} \vec{\tau} \cdot \vec{W}_\mu - g_2 \frac{Y}{2} B_\mu \right) \phi \right|^2 - V(\phi)
+\end{align*}
+
+On choisit comme champ scalaire un doublet d'isospin d'hypercharge $Y = 1$
+\begin{align*}
+ \phi &= \colvec{2}{\phi^+}{\phi^0} \quad \text{avec} \quad \begin{aligned}
+    \phi^+ &= \frac{1}{\sqrt{2}} ( \phi_1 + i \phi_2 ) \\
+    \phi^0 &= \frac{1}{\sqrt{2}} ( \phi_3 + i \phi_4 )
+  \end{aligned}
+\end{align*}
+$V(\phi)$ est le potentiel de Higgs, qui admet comme minimum
+\begin{align*}
+  \frac{1}{2} ( \phi_1^2 + \phi_2^2 + \phi_3^2 + \phi_4^2 ) = - \frac{\mu^2}{2\lambda}
+\end{align*}
+On choisi un minimum spécifique défini par
+\begin{align*}
+  \phi_1 = \phi_2 = \phi_4 = 0, \quad \phi_3^2 = \nu^2 = - \frac{\mu^2}{2\lambda}
+\end{align*}
+
+On ré exprime le champ scalaire par son expansion autour du minimum
+\begin{align*}
+  \phi(x) = \frac{1}{\sqrt{2}} \colvec{2}{0}{\nu + \eta(x) + i \vec{\tau} \cdot \vec{\xi}(x) } \simeq \frac{1}{\sqrt{2}} e^{i\frac{\vec{\tau} \cdot \vec{\xi}(x)}{\nu}} \colvec{2}{0}{\nu + \eta(x)} 
+\end{align*}
+
+Cette réécriture nous permet de voir que les trois champs $\vec{\xi}$ (non massif) sont en réalité nos paramètres de jauge. On cherche donc à ce que notre Lagrangien soit invariant locale de jauge, mais sous une jauge différente :
+\begin{align*}
+  \phi(x) \rightarrow \frac{1}{\sqrt{2}} e^{i\vec{\theta}(x) \cdot \vec{T}\,+\,i\iota(x) Y} \colvec{2}{0}{\nu + h(x)}
+\end{align*}
+où on a substitué $\vec{\xi}$ par $\vec{\theta}$ et $\eta$ par $h$. Après invariance locale de jauge, les trois champs non massifs se mélangent et disparaissent. Seul reste $h(x)$ : c'est le champ de Higgs.
+
+\bigskip
+
+Afin d'obtenir les termes de masse associés aux champs $\vec{W}_\mu$, on remplace dans le Lagrangien \ref{eq:l_higgs_ewk} $\phi$ par sa valeur au minimum 
+\begin{align*}
+  \phi(x) = \frac{1}{\sqrt{2}} \colvec{2}{0}{\nu}
+\end{align*}
+
+On obtient alors
+\begin{align*}
+&\left| \left( - g_1 \frac{1}{2} \vec{\tau} \cdot \vec{W}_\mu - g_2 \frac{1}{2} B_\mu \right) \phi \right|^2 \\
+& \quad = \frac{1}{8} \left| \begin{pmatrix}
+  - g_1 W^3_\mu - g_2 B_\mu & -g_1 \left( W^1_\mu -i W^2_\mu \right) \\
+  -g_1 \left( W^1_\mu + i W^2_\mu \right) &  g_1 W^3_\mu - g_2 B_\mu 
+\end{pmatrix} \colvec{2}{0}{\nu} \right|^2 \\
+& \quad = \left( \frac{1}{2} \nu g_1 \right)^2 W^+_\mu W^{- \mu} + \frac{1}{8} \nu^2 \rowvec{2}{W^3_\mu}{B_\mu} \begin{pmatrix}
+   g_1^2 & - g_1 g_2 \\
+   - g_1 g_2 & g_2^2
+ \end{pmatrix} \colvec{2}{W^3_\mu}{B_\mu} 
+\end{align*}
+Le premier terme est le terme de masse des bosons chargés, $W^{+/-}$. On a
+\begin{align*}
+  M_{W^{+/-}} &= \frac{1}{2} \nu g_1
+\end{align*}
+
+Le dernier terme contient les champs $W^3_\mu$ et $B_\mu$. On a vu précédemment que ces champs ne peuvent pas être interprétés comme les bosons $Z^0$ et $\gamma$, puisque $W^3$ ne couple que des particules d'hélicité gauche. Cependant, on constate que ce terme comporte des éléments non diagonaux : le mécanisme de Higgs fait apparaître naturellement un mélange entre les champs $W^3\mu$ et $B_\mu$ pour donner naissance aux champs $Z_\mu$ et $A_\mu$.
+\begin{align*}
+  \frac{1}{8} \nu^2 \rowvec{2}{W^3_\mu}{B_\mu} \begin{pmatrix}
+   g_1^2 & - g_1 g_2 \\
+   - g_1 g_2 & g_2^2
+ \end{pmatrix} \colvec{2}{W^3_\mu}{B_\mu} &= \frac{1}{8} \nu^2 \left( g_1W^3_\mu - g_2 B_\mu \right)^2 + 0 \left( g_2 W^3_\mu + g_1B_\mu \right) \\
+ &= \frac{1}{8} \nu^2 \left(g_1^2 + g_2^2\right) Z\mu^2 + 0 A_\mu^2
+\end{align*}
+avec
+\begin{align*}
+  Z_\mu &= \frac{g_1W^3_\mu - g_2 B_\mu}{\sqrt{g_1^2 + g_2^2}} & & & A_\mu &= \frac{g_2W^3_\mu + g_1 B_\mu}{\sqrt{g_1^2 + g_2^2}} \\  
+\end{align*}
+Le terme de masse d'un boson vecteur neutre étant de la forme $\frac{1}{2} M_V^2 V_\mu^2$, on identifie
+\begin{align*}
+  M_Z &= \frac{1}{2} \nu \sqrt{g_1^2 + g_2^2} & & & M_A &= 0
+\end{align*}
+
+L'introduction d'un nouveau champ scalaire se couplant  à $\vec{W_\mu}$ et à $B_\mu$ permet, grâce au mécanisme de Higgs, de générer une masse pour les médiateurs de l'interaction faible, tout en gardant le photon non massif. On peut réexprimer le mélange entre $W^3\mu$ et $B_\mu$ en introduisant l'angle de mélange $\theta_W$ (angle de Weinberg), et en posant
+\begin{align*}
+  \frac{g_2}{g_1} &= \tan \theta_W
+\end{align*}
+
+On obtient alors
+\begin{align} \label{eq:ewk_mixing}
+  \colvec{2}{A_\mu}{Z_\mu} &= \begin{pmatrix}
+    \cos \theta_W & \sin \theta_W \\
+    - \sin \theta_W & \cos \theta_W
+  \end{pmatrix} \colvec{2}{B_\mu}{W^3_\mu}
+\end{align}
+et
+\begin{align*}
+  \frac{M_W}{M_Z} &= \cos \theta_W
+\end{align*}
+
+Connaissant maintenant l'existence d'un mélange entre les bosons $W^3_\mu$ et $B_\mu$, on peut injecter \eqref{eq:ewk_mixing} dans \eqref{eq:l_ewk}. En ne gardant que la partie neutre du Lagrangien, on obtient
+\begin{align*}
+  L_{\text{neutre}} &= \bar{\chi}_L \gmuc \left( -g_1 T^3 W^3_\mu -g_2 \frac{Y}{2} B_\mu \right) \chi_L \\
+  &\begin{aligned} =\ &\bar{\chi}_L \gmuc \left( \left\{ -g_1 T^3 \sin\theta_W -g_2 \frac{Y}{2} \cos\theta_W \right\} A_\mu \right. \\
+                     +&\hphantom{\bar{\chi}_L \gmuc \left(\vphantom{\frac{Y}{2}}\right.} \left. \left\{ -g_1 T^3 \cos\theta_W + g_2 \frac{Y}{2} \sin\theta_W \right\} Z_\mu \right) \chi_L \end{aligned}
+\end{align*}
+
+On sait que le couplage au photon, obtenu grâce au Lagrangien QED \eqref{eq:l_qed}, est de la forme $e Q A_\mu$. En utilisant la relation \eqref{eq:q_t_y}, on trouve que les couplages $g_1$ et $g_2$ doivent satisfaire la relation suivante
+\begin{align*}
+  g_1 \sin\theta_W = g_2 \cos\theta_W = e
+\end{align*}
+Les couplages de l'interaction électrofaible ne sont pas indépendant, et sont reliées à la charge électrique.
+
+\subsection{Champ de Higgs et masses des fermions}
+
+On a vu précédemment que le champ scalaire introduit présentait un minimum de potentiel obtenu pour une valeur $\phi \neq 0$. On réexprime donc $\phi$ par une expansion autour de son minimum $\nu$
+\begin{align*}
+  \phi(x) = \frac{1}{\sqrt{2}} \colvec{2}{0}{\nu + h(x)}
+\end{align*}
+
+En injectant $\phi$ dans le potentiel $V(\phi)$, on obtient
+\begin{align*}
+  V(\phi) &= \frac{1}{4} \nu^2\mu^2 - \mu^2h^2 - \frac{\mu^2}{\nu} h^3 + \frac{1}{4} \lambda h^4
+\end{align*}
+Le champ de Higgs est donc massif, et on a $m_h = \sqrt{-\mu^2} = \sqrt{2\nu^2 \lambda}$. Les deux derniers termes représentent l'interaction du champ de Higgs avec lui même (à trois et quatre vertex). On dit qu'il est auto-couplant.
+
+\bigskip
+
+Dans la Lagrangien électrofaible \eqref{eq:l_ewk}, le terme de masse des fermions n'a pas pu être inclus puisqu'il brisait l'invariance locale de jauge. Il s'avère que le même doublet de Higgs peut aussi générer la masse des fermions du Modèle Standard. On procède de façon analogue à la section précédent, et on introduit dans le Lagrangien un terme invariant sous $SU(2)_L \times U(1)_Y$ :
+\begin{align*}
+  L_3 &= -G_f \left[ \rowvec{2}{\bar{\nu}}{\bar{f}}_L \phi f_R + \bar{f}_R \phi^\dagger \colvec{2}{\nu}{f}_L \right] \qquad f = e, \mu, \tau
+\end{align*}
+On substitue $\phi$ par son expansion autour du minimum, et on obtient
+\begin{align*}
+  L_3 &= -\frac{G_f}{\sqrt{2}} \nu (\bar{f}_L f_R + \bar{f}_R f_L) -\frac{G_f}{\sqrt{2}} \nu (\bar{f}_L f_R + \bar{f}_R f_L)h
+\end{align*}
+Les leptons acquièrent donc une masse $m_f = \frac{G_f \nu}{\sqrt{2}}$. Le dernier terme représente quant à lui l'interaction des leptons avec le champ de Higgs. On introduit donc trois nouveaux paramètres libres dans la théorie, un pour chaque fermion.
+
+Intéressons nous maintenant aux quarks. Leur masse est générée de façon identique, à une différence près : il faut un moyen de générer une masse pour les quarks de type \emph{up} qui, contrairement aux neutrinos, ont une masse. On introduit un nouveau doublet de Higgs $\phi_C$, qui se transforme de façon identique à $\phi$, et qui se couple aux quarks de type \emph{up}
+\begin{align*}
+  \phi_C &= -i \tau_2 \phi^\star = \colvec{2}{- \bar{\phi}^0}{\phi^-} \xrightarrow[\text{brisure de symétrie}]{} \frac{1}{\sqrt{2}} \colvec{2}{\nu + h}{0}
+\end{align*}
+Le nouveau terme à insérer dans le Lagrangien est
+\begin{align*}
+  L_4 &= -G_d^{ij} \rowvec{2}{\bar{u}_i}{\bar{d}_i^\prime} \colvec{2}{\phi^+}{\phi^0} d_{jR} - G_u^{ij} \rowvec{2}{\bar{u}_i}{\bar{d}_i^\prime} \colvec{2}{- \bar{\phi}^0}{\phi^-} u_{jR} + \text{conjugué hermitien}
+\end{align*}
+On substitue $\phi$ par son expansion autour du minimum, et on obtient
+\begin{align*}
+  L_4 &= - m_d^i \bar{d}_i d_i \left( 1 + \frac{h}{\nu} \right) - m_u^i \bar{u}_i u_i \left( 1 + \frac{h}{\nu} \right)
+\end{align*}
+Comme pour le cas des fermions, on introduit six nouveaux paramètres libres dans la théorie, un pour chaque quark.
+
+\bigskip
+
+Au travers de la brisure de symétrie et du mécanisme de Higgs, on a pu voir comment les bosons de jauges $W$ et $Z$, les leptons et les quarks acquièrent une masse.
+\begin{itemize}
+  \item Les masses des bosons de jauge faible s'exprime à l'aide de $\mu^2$ et $\lambda$, les paramètres du potentiel de Higgs.
+  \item Les masses des fermions deviennent des paramètres libres de la théorie.
+\end{itemize}
+
+Le mécanisme de Higgs prévoit donc l'existence d'un nouveau champ scalaire, le champ de Higgs. Le boson associé à une masse $m_h = \sqrt{2\nu^2\lambda}$. Le 4 juillet 2012, le CERN a officiellement annoncée la découverte d'une nouvelle particule compatible avec le boson de Higgs. Selon les derniers résultats, ce boson a une masse de $m_h = \SI{125.9 \pm 0.4}{\GeV}$. C'est donc la confirmation expérimentale que le mécanisme de Higgs existe bel et bien, et qu'il est à l'origine de la masse des particules fondamentales.
+
+% \subsection{Le Lagrangien du Modèle Standard}
+% Afin d'obtenir le Lagrangien du Modèle Standard, il suffit de combiner le Lagrangien de la QCD avec celui de l'interaction électrofaible, et de rajouter les termes liés au mécanisme de Higgs. Le groupe de symétrie associé est ainsi $SU(3) \times SU(2)_L \times U(1)_Y$.
+
+\subsection{Renormalisation} \label{sec:renormalisation}
+
+Lorsque l'on ajoute des boucles aux diagrammes d'un processus à l'arbre, le calcul de l'élément de matrice de transition diverge. Par exemple, le passage du diagramme \ref{fig:ee_annihilation} au diagramme \ref{fig:ee_annihilation_high_order} entraîne l'apparition de terme de la forme $\int k dk$, avec $k \rightarrow \infty$.
+
+\begin{figure} \centering
+  \subcaptionbox{\label{fig:ee_annihilation}}[.4\linewidth]{
+  \begin{fmfgraph*}(180,100)
+    \fmfpen{0.5}
+    \fmfleft{i1,i2}
+    \fmfright{o1,o2}
+    \fmf{fermion}{i1,v1,i2}
+    \fmf{fermion}{o1,v2,o2}
+    \fmfdot{v1} \fmfdot{v2}
+    \fmf{photon,label=$\gamma$}{v1,v2}
+    \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
+    \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
+  \end{fmfgraph*}}\qquad%
+%   \subcaptionbox{\label{fig:ee_annihilation_high_order}}[.4\linewidth]{
+%   \begin{fmfgraph*}(180,100)
+%     \fmfpen{0.5}
+%     \fmfleft{i1,i2}
+%     \fmfright{o1,o2}
+%     \fmf{fermion}{i1,g1,v1,g2,i2}
+%     \fmf{fermion,tension=0.5}{o1,v2,o2}
+%     \fmfdot{v1} \fmfdot{v2}
+%     \fmf{photon,label=$\gamma$}{v1,v2}
+%     \fmf{photon,label=$\gamma$,tension=0,left=0.7}{g1,g2}
+%     \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
+%     \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
+%   \end{fmfgraph*}}
+  \subcaptionbox{\label{fig:ee_annihilation_high_order}}[.4\linewidth]{
+  \begin{fmfgraph*}(180,100)
+    \fmfpen{0.5}
+    \fmfleft{i1,i2}
+    \fmfright{o1,o2}
+    \fmf{fermion}{i1,v1,i2}
+    \fmf{fermion}{o1,v2,o2}
+    \fmfdot{v1} \fmfdot{v2}
+    \fmf{photon,label=$\gamma$,tension=2}{v1,g1}
+    \fmf{photon,label=$\gamma$,tension=2}{g2,v2}
+    \fmf{fermion,left=1,label=$e^-$}{g1,g2}
+    \fmf{fermion,left=1,label=$e^+$}{g2,g1}
+    \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
+    \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
+  \end{fmfgraph*}}
+  \caption{Diagrammes de Feynman $e^+e^- \rightarrow e^+e^-$ d'ordre 1 (\protect\subref{fig:ee_annihilation}) et d'ordre 2 (\protect\subref{fig:ee_annihilation_high_order}).}
+  \label{fig:ee_annihilation_total}
+\end{figure}
+
+Néanmoins, il est possible de supprimer ces divergences en introduisant un \emph{cut-off} dans la théorie, c'est-à-dire une énergie arbitraire jusqu'où le modèle est valide. Ce nouveau paramètre est ensuite absorbé dans une redéfinition de la constante de couplage du processus, qui par conséquence n'est plus constante mais dépend de l'énergie du processus : c'est la renormalisation.
+
+\bigskip
+
+Pour l'interaction électromagnétique, la constante de couplage $\alpha_0$ devient, après renormalisation
+\begin{align*}
+  \alpha\left(Q^2\right) &= \frac{\alpha(\mu^2)}{1 - \frac{\alpha(\mu^2)}{2\pi} \log\left( \frac{Q^2}{\mu^2} \right) }
+\end{align*}
+où $Q^2$ est l'énergie à laquelle évaluer la constante de couplage, et $\mu^2$ la valeur de l'échelle de renormalisation.
+
+Dans le cas de l'interaction force, la constante de couplage $\alpha_s$ devient
+\begin{align*}
+  \alpha_s\left(Q²\right) &= \frac{\alpha_s(\mu^2)}{1 + \frac{\alpha_s(\mu^2)}{12\pi} \left(33 - 2n_f\right) \log\left( \frac{Q^2}{\mu^2} \right) }
+\end{align*}
+où $n_f$ est le nombre de saveurs (6 quarks). Une chose importante à noter est que la constante de couplage de l'interaction forte \emph{diminue} avec l'énergie, and devient faible pour des faibles distances d'interaction : c'est la liberté asymptotique. A l'inverse, plus la distance d'interaction augmente, plus l'interaction est importe : à partir d'une certaine distance, l'énergie disponible est suffisante pour créer une paire $q\bar{q}$. Il n'est ainsi pas possible d'observer un quark seul, c'est le confinement.
+
+On définit une nouvelle échelle, $\Lambda^2$, définit comme la valeur à laquelle la constante de couplage devient trop importante pour que le calcul perturbatif puisse être utilisé. On a
+\begin{align*}
+  \Lambda^2 &= \mu^2 \exp\left( \frac{-12\pi}{(33 - n_f) \alpha_s\left(\mu^2\right)} \right) \\
+  \alpha_s\left(Q^2\right) &= \frac{12 \pi}{\left(33 - n_f\right) \log\left( \frac{Q^2}{\Lambda^2} \right)}
+\end{align*}
+
+On peut voir $\Lambda$ comme la frontière entre le monde des quarks libres, décrit correctement par des calculs perturbatifs, et le monde des quarks liés. Afin de décrire ces états, les calculs perturbatifs ne sont pas correct, la constante de couplage étant grand devant l'unité. On peut utiliser des techniques de simulation telle que la QCD sur réseau \citep{PhysRevD.10.2445}.
+
+\section{Faiblesses du Modèle Standard}
+
+Depuis son développement dans les années 1960, le Modèle Standard est un succès expérimental. Il a en effet prédit l'existence des bosons $W^{+/-}$, $Z$, des quarks $b$ et $t$ avant leur découverte. Si l'on exclue la récente découverte d'une particule compatible avec le boson de Higgs en 2012, la dernière découverte est celle du quark $t$ en 1995 au Tevatron, l'accélérateur de particule du FNAL, aux États-Unis. On présente figure \ref{fig:ewk_fit} les derniers résultats de l'ajustement des paramètres de la théorie électrofaible. Les différences entre les valeurs expérimentales et les valeurs ajustées sont toutes inférieures à 3 $\sigma$, démonstration du succès du Modèle Standard.
+
+Malgré ce succès qui dure depuis plus de 50 ans, un certain nombre d'interrogations et de problèmes demeurent. En effet, un certain nombre d'éléments laissent à penser que le Modèle Standard n'est qu'un modèle effectif à baisse énergie d'une théorie plus fondamentale.
+
+\begin{figure} \centering
+  \includegraphics[height=0.9\textheight]{PullPlotTwoBarsCol_logo.eps}
+  \caption{Comparaison entre les valeurs expérimentales et les valeurs ajustées des principales observables de la théorie électrofaible du Modèle Standard, pour deux cas de figures : en couleurs, l'ajustement inclue la découverte du probable boson de Higgs ; en gris, ce résultat n'est pas utilisé. Les valeurs à droite correspondent au "pull", c'est-à-dire à la différence entre la valeur expérimentale et la valeur ajustée, exprimée en sigma. Les faibles écarts observés ($<$ à 3 $\sigma$) sont une démonstration du succès du Modèle Standard. Résultats issus de \citep{ewk_fit}}
+  \label{fig:ewk_fit}
+\end{figure}
+
+\begin{description}
+  \item[Nombre de paramètres libres] Tel que construit, le Modèle Standard comporte 19 paramètres libres : les 6 masses des quarks, les 3 masses des leptons, l'angle de mélange électrofaible, les 4 paramètres de la matrice CKM, les 3 constantes de couplage, et les deux paramètres du potentiel de Higgs. L'un des objectifs majeur de la Physique étant de décrire de façon la plus simple possible les phénomènes, tout laisse à penser qu'une théorie comportant moins de paramètres libres engloberait le Modèle Standard.
+  \item[Nombre de générations] Les contraintes sur le nombre de générations de leptons proviennent des mesure de la largeur du $Z$, et conduisent à une prédiction de 3 générations. Néanmoins, une quatrième génération plus massive que la masse du $Z$ ou non couplée à l'interaction faible n'est pas exclue ; le Modèle Standard ne prédit pas le nombre de générations de fermions.
+  \item[L'ajustement fin ou problème de hiérarchie] Les diagrammes de Feynman qui contribuent au calcul de la masse du boson de Higgs incluent des boucles, qui conduisent à des divergences. Le Modèle Standard étant une théorie renormalisable (voir \ref{sec:renormalisation}), ces divergences peuvent être absorbées dans la masse du boson, conduisant à une masse effective ($m_h$) différente de la masse nue ($m_{h, 0}$) \citep{higgs_mass} :
+  \begin{align*}
+    m_h^2 &= m_{h, 0}^2 - \frac{3 \Lambda^2}{8 \pi^2 \nu^2} \left(m_h² + 2m_W^2 + m_Z^2 - 4m_t\right)
+  \end{align*}
+  où $\Lambda$ est le "cut-off" (la limite haute de l'intégrale). Si on considère le Modèle Standard valide jusqu'à l'échelle de la grande unification ($\Lambda = \SI{\tilde e16}{\GeV}$), et un boson de Higgs avec $m_h = \SI{125}{\GeV}$, il est nécessaire de procéder à un ajustement jusqu'à la vingtième décimale entre la masse nue du boson et les corrections radiatives. Cet ajustement fin suggère l'existence d'autres processus qui viendraient naturellement annuler ces corrections radiatives.
+  
+  \item[Quantification de la charge électrique] On sait par l'expérience que la charge électrique est quantifiée, et doit être un multiple de $e = \SI{1.602176565(35)}{\coulomb}$ ($1$ pour les leptons, $\sfrac{1}{3}$ pour les quarks). L'opérateur de charge $Q$ est introduit afin de reproduire cette quantification, mais aucune justification théorique n'est donnée dans le cadre du le Modèle Standard.
+  \item[Grande unification] On peut voir figure \ref{fig:unification} l'évolution des constantes de couplage en fonction de l'énergie. Ces constantes semblent tendre à s'unifier à une certain énergie, ce qui pourrait indiquer une possible unification entre les trois interactions. De nombreux modèles au-delà du Modèle Standard modifient les couplages de façon à ce que les trois interactions se croisent en un unique point.
+  \item[Neutrinos] Le Modèle Standard que l'on vient de bâtir prévoit des neutrinos sans masse. La découverte de l'oscillation des neutrinos (\tilde 1970) impose néanmoins aux neutrinos d'être massif. C'est donc un des premiers échecs du Modèle Standard.
+  
+  Il est néanmoins possible d'étendre le Modèle Standard afin d'inclure la masse des neutrinos. Cela a deux conséquences :
+  \begin{enumerate}
+    \item Les neutrinos étant massif, il existe forcément des neutrinos d'hélicité droite. L'interaction électrofaible doit donc être modifiée afin d'inclure un nouveau singlet de lepton, $\nu_R$.
+    \item De manière analogue à la matrice CKM, on introduit une nouvelle matrice de mélange entre les neutrinos états propres de masse et les neutrinos états propre de l'interaction faible : la matrice PMNS \citep{neutrino_mixing_1,neutrino_mixing_2}. Cette matrice est paramétrisée par trois angles de mélange et une phase. Les dernières valeurs expérimentales \citep{pdg} sont
+    \begin{align*}
+      \theta_{12} \simeq  \SI{34}{\degree}, \theta_{23} \simeq \SI{45}{\degree}, \theta_{13} \simeq \SI{9.1}{\degree} 
+    \end{align*}
+    la phase $\delta CP$ n'ayant pas encore été mesurée.
+  \end{enumerate}
+  
+  Il reste cependant à expliquer pourquoi la masse des neutrinos est si faible comparée à celle des autres leptons. En effet, les limites expérimentales pose une limite supérieure sur la masse des neutrinos \citep{pdg} de $\SI{2}{\eV}$ pour $\nu_e$, $\SI{0.19}{\MeV}$ pour $\nu_\mu$ et $\SI{18.2}{\MeV}$ pour $\nu_\tau$.
+  
+  \item[Gravitation] Le Modèle Standard unit sous un même formalisme mathématique les interactions électromagnétiques, faible et forte. La gravitation est elle décrite par la relativité générale. A l'échelle de grande unification, l'interaction gravitionnelle devient du même ordre de grandeur que les autres interactions et ne peut plus être négligée : une nouvelle théorie est alors nécessaire tenant compte de la gravité.
+\end{description}
+
+% \begin{figure} \centering
+%   \includegraphics[width=0.55\linewidth]{W_vs_top_logo.eps}
+%   \caption{Contour du fit des paramètres électrofaible du Modèle Standard en fonction de $m_t$ et $m_W$. Les valeurs expérimentales de $m_t$ et $m_W$ sont en jaune. Le contour gris n'inclue pas la valeur de $m_h = \SI{125.7}{\GeV}$ dans le fit, à la différence du contour bleue. Les prédictions théoriques sont en accord avec l'expérience.}
+%   \label{fig:ewk_w_vs_top}
+% \end{figure}
+
+% \begin{figure} \centering
+%   \includegraphics[width=0.55\linewidth]{ckm_triangle.eps}
+%   \caption{Triangle d'unitarité de la matrice CKM. REFERENCE}
+%   \label{fig:ckm_triangle}
+% \end{figure}
+
+\begin{figure} \centering
+  \includegraphics[width=0.5\linewidth]{running_coupling.jpg}
+  \caption{L'évolution des constantes de couplages du Modèle Standard en fonction de l'énergie. On remarque qu'à une certaine énergie, les constantes de couplages semblent être identique : un signe d'une possible unification des interactions ?}
+  \label{fig:unification}
+\end{figure}
+
+\section{Conclusion}
+
+On a vu au cours de ce chapitre comment a été construit le Modèle Standard. Fort de nombreuses prédictions et de la récente découverte d'un boson compatible avec le boson de Higgs par le CERN, le Modèle Standard est plus que jamais un succès théorique. Néanmoins, de nombreux arguments laissent penser que le Modèle Standard n'est qu'une théorie effective d'une théorie plus simple et plus globale.
+
+\bigskip
+
+Il existe de nombreuses théories au-delà du Modèle Standard permettant de résoudre les faiblesses du modèle. Ces théories prédisent de nouvelles particules, de nouveaux bosons voire de nouvelles dimensions. Il est donc important de disposer d'une expérience permettant de vérifier les prédictions de ces nombreuses théories. C'est le cas du LHC, dont la description détaillée est l'objet du prochain chapitre.
 
 \end{fmffile}
