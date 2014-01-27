@@ -35,7 +35,6 @@
 *.tdo
 *.brf
 *.fls
-*.pdf
 *.ptc
 output/**
 templates/**
