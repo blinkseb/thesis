@@ -49,7 +49,7 @@ Une quatrième interaction existe, l'interaction gravitationnelle. Cette interac
 \begin{table} \centering
   \begin{tabular}{@{}ccccc@{}} \toprule
     Interaction & boson(s) & masse (\SI{}{\GeV}) & intensité relative & portée (m) \\ \bottomrule
-    \multirow{2}{*}{faible} & $W^{+/-}$ & \SI{80.385 \pm 0.015} & \multirow{2}{*}{1} & \multirow{2}{*}{\tilde $10^{-18}$} \\
+    \multirow{2}{*}{faible} & $W^{\pm}$ & \SI{80.385 \pm 0.015} & \multirow{2}{*}{1} & \multirow{2}{*}{\tilde $10^{-18}$} \\
      & $Z^0$ & \SI{91.1876 \pm 0.0021} & & \\
     forte & $g$ & 0 & 25 & \tilde $10^{-15}$ \\
     électromagnétique & $\gamma$ & 0 & 0.8 & $\infty$ \\
@@ -63,11 +63,12 @@ Une quatrième interaction existe, l'interaction gravitationnelle. Cette interac
 
 Le détails et les bosons médiateurs des interactions fondamentales sont présentés table \ref{tab:interactions}.
 
-\subsection{Le boson de Higgs}
+\subsubsection{Le boson de Higgs}
 
 Le mécanisme de Higgs permet d'expliquer comment les fermions et les bosons massifs acquièrent leur masse. Théorisé en 1964 par R. Brout, F. Englert et P. Higgs, ce mécanisme prévoit l'existence d'une nouvelle particule de spin 0 (un boson) et massive : le boson de Higgs.
 
-Le 4 juillet 2012, le CERN a annoncé la découverte d'une nouvelle particule compatible avec le boson de Higgs du Modèle Standard, ayant une masse de \SI{125.9 \pm 0.4}{\GeV}. Cette découverte conforte encore une fois la validité du Modèle Standard.
+% 
+% Le 4 juillet 2012, le CERN a annoncé la découverte d'une nouvelle particule compatible avec le boson de Higgs du Modèle Standard, ayant une masse de \SI{125.9 \pm 0.4}{\GeV}. Cette découverte conforte encore une fois la validité du Modèle Standard.
 
 \begin{table} \centering
   \begin{tabular}{@{}cccccccc@{}} \toprule
@@ -665,16 +666,21 @@ Comme pour le cas des fermions, on introduit six nouveaux paramètres libres dan
 
 \bigskip
 
+\begin{figure}
+  \subcaptionbox{\label{fig:higgs_mgg}}[.45\linewidth]{\includegraphics[width=0.45\textwidth]{higgs_mgg.pdf}}\hfill
+  \subcaptionbox{\label{fig:higgs_pvalue}}[.45\linewidth]{\includegraphics[width=0.45\textwidth]{higgs_pvalue.pdf}}
+  \caption{A gauche, spectre de masse invariante $H \rightarrow m_{\gamma\gamma}$. A droite, la \emph{p-value} associée à cette mesure, qui correspondant à la probabilité que la mesure soit compatible avec une absence de signal. On voit clairement la présence d'une nouvelle particule aux alentour de \SI{125}{\GeV}.}
+\end{figure}
+
 Au travers de la brisure de symétrie et du mécanisme de Higgs, on a pu voir comment les bosons de jauges $W$ et $Z$, les leptons et les quarks acquièrent une masse.
 \begin{itemize}
   \item Les masses des bosons de jauge faible s'exprime à l'aide de $\mu^2$ et $\lambda$, les paramètres du potentiel de Higgs.
   \item Les masses des fermions deviennent des paramètres libres de la théorie.
 \end{itemize}
 
-Le mécanisme de Higgs prévoit donc l'existence d'un nouveau champ scalaire, le champ de Higgs. Le boson associé à une masse $m_h = \sqrt{2v^2\lambda}$. Le 4 juillet 2012, le CERN a officiellement annoncée la découverte d'une nouvelle particule compatible avec le boson de Higgs \citep{higgs_cms,higgs_atlas}. Selon les derniers résultats, ce boson a une masse de $m_h = \SI{125.9 \pm 0.4}{\GeV}$ \citep{pdg}. C'est donc la confirmation expérimentale que le mécanisme de Higgs existe bel et bien, et qu'il est à l'origine de la masse des particules fondamentales.
+Le mécanisme de Higgs prévoit donc l'existence d'un nouveau champ scalaire, le champ de Higgs. Le boson associé a une masse $m_h = \sqrt{2v^2\lambda}$. Plus de 30 ans après sa prédiction, le CERN a officiellement annoncée le 4 juillet 2012 la découverte d'une nouvelle particule compatible avec le boson de Higgs \citep{higgs_cms,higgs_atlas}. Cette particule a été observée dans plusieurs canaux de désintégration, dont $H \rightarrow \gamma\gamma$ et $H \rightarrow ZZ$. On peut voir figure \ref{fig:higgs_mgg} le spectre de masse invariante $m_{\gamma\gamma}$, où on voit clairement une déviation par rapport à la prédiction théorique, et figure \ref{fig:higgs_pvalue} la \emph{p-value} associée à la découverte. La \emph{p-value} représente la probabilité que la mesure soit compatible avec une absence de signal. On remarque la très nette déviation autour de \SI{125}{\GeV}.
 
-% \subsection{Le Lagrangien du Modèle Standard}
-% Afin d'obtenir le Lagrangien du Modèle Standard, il suffit de combiner le Lagrangien de la QCD avec celui de l'interaction électrofaible, et de rajouter les termes liés au mécanisme de Higgs. Le groupe de symétrie associé est ainsi $SU(3) \times SU(2)_L \times U(1)_Y$.
+ Des signes sont aussi présent dans la désintégration $\tau\tau$, ce qui serait la preuve qu'il est en effet correct d'étendre le mécanisme de Higgs pour générer la masse des fermions. Selon les derniers résultats, ce boson a une masse de $m_h = \SI{125.9 \pm 0.4}{\GeV}$ \citep{pdg}. De nombreuses recherches sont encore en cours afin de déterminer si ce boson est bien celui prédit par le Modèle Standard, mais les premiers résultats laissent à penser que c'est le cas.
 
 \subsection{Renormalisation} \label{sec:renormalisation}
 
@@ -761,11 +767,6 @@ Malgré ce succès qui dure depuis plus de 50 ans, un certain nombre d'interroga
   \label{fig:ewk_fit}
 \end{figure}
 
-\begin{figure} \centering
-  \includegraphics[width=0.5\linewidth]{running_coupling.jpg}
-  \caption{L'évolution des constantes de couplages du Modèle Standard en fonction de l'énergie. On remarque qu'à une certaine énergie, les constantes de couplages semblent être identique : un signe d'une possible unification des interactions ?}
-  \label{fig:unification}
-\end{figure}
 \begin{description}
   \item[Nombre de paramètres libres] Tel que construit, le Modèle Standard comporte 19 paramètres libres : les 6 masses des quarks, les 3 masses des leptons, l'angle de mélange électrofaible, les 4 paramètres de la matrice CKM, les 3 constantes de couplage, et les deux paramètres du potentiel de Higgs. L'un des objectifs majeur de la Physique étant de décrire de façon la plus simple possible les phénomènes, tout laisse à penser qu'une théorie comportant moins de paramètres libres engloberait le Modèle Standard.
   \item[Nombre de générations] Les contraintes sur le nombre de générations de leptons proviennent des mesure de la largeur du $Z$, et conduisent à une prédiction de 3 générations. Néanmoins, une quatrième génération plus massive que la masse du $Z$ ou non couplée à l'interaction faible n'est pas exclue ; le Modèle Standard ne prédit pas le nombre de générations de fermions.
@@ -774,8 +775,12 @@ Malgré ce succès qui dure depuis plus de 50 ans, un certain nombre d'interroga
     m_h^2 &= m_{h, 0}^2 - \frac{3 \Lambda^2}{8 \pi^2 v^2} \left(m_h² + 2m_W^2 + m_Z^2 - 4m_t\right)
   \end{align*}
   où $\Lambda$ est le \emph{cut-off} (la limite haute de l'intégrale). Si on considère le Modèle Standard valide jusqu'à l'échelle de la grande unification ($\Lambda = \SI{\tilde e16}{\GeV}$), et un boson de Higgs avec $m_h = \SI{125}{\GeV}$, il est nécessaire de procéder à un ajustement jusqu'à la vingtième décimale entre la masse nue du boson et les corrections radiatives. Cet ajustement fin suggère l'existence d'autres processus qui viendraient naturellement annuler ces corrections radiatives.
-  
   \item[Quantification de la charge électrique] On sait par l'expérience que la charge électrique est quantifiée, et doit être un multiple de $e = \SI{1.602176565(35)}{\coulomb}$ ($1$ pour les leptons, $\sfrac{1}{3}$ pour les quarks). L'opérateur de charge $Q$ est introduit afin de reproduire cette quantification, mais aucune justification théorique n'est donnée dans le cadre du le Modèle Standard.
+\begin{figure} \centering
+  \includegraphics[width=0.5\linewidth]{running_coupling.jpg}
+  \caption{L'évolution des constantes de couplages du Modèle Standard en fonction de l'énergie. On remarque qu'à une certaine énergie, les constantes de couplages semblent être identique : un signe d'une possible unification des interactions ?}
+  \label{fig:unification}
+\end{figure}
   \item[Grande unification] On peut voir figure \ref{fig:unification} l'évolution des constantes de couplage en fonction de l'énergie. Ces constantes semblent tendre à s'unifier à une certain énergie, ce qui pourrait indiquer une possible unification entre les trois interactions. De nombreux modèles au-delà du Modèle Standard modifient les couplages de façon à ce que les trois interactions se croisent en un unique point.
   \item[Neutrinos] Le Modèle Standard que l'on vient de bâtir prévoit des neutrinos sans masse. La découverte de l'oscillation des neutrinos (\tilde 1970 avec la découverte de l'oscillation des neutrinos solaires) impose néanmoins aux neutrinos d'être massif. De façon analogue aux quarks, il est possible d'inclure dans le Modèle Standard un terme supplémentaire afin de permettre aux neutrinos d'acquérir une masse grâce au mécanisme de Higgs. Néanmoins, cette solution n'est pas privilégiée par les théoriciens, puisqu'il faudrait expliquer pourquoi il existe une telle différence de masse entre les leptons et les neutrinos (\SI{511}{\keV} contre \SI{\tilde 1}{\eV}). Une solution plus satisfaisante est de considérer l'existence d'un neutrino de chiralité droite, insensible aux trois interactions fondamentales. Si ce neutrino est une particule de Majorama\footnote{Une particule de Majorama est une particule étant sa propre anti-particule.}, il est possible d'inclure dans le Lagrangien un terme de masse invariant sous $SU(2)_L \times U(1)_Y$. A l'aide d'un mécanisme de \emph{see-saw}, on peut montrer que les neutrinos gauches acquièrent une masse très faible si les neutrinos droits sont extrêmement massifs.
   
