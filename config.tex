@@ -517,3 +517,9 @@
 
 % Tilde
 \renewcommand{\tilde}{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
+
+
+\ifthenelse{\boolean{@drafting}}{% 
+\PassOptionsToPackage{status=draft}{fixme}
+ }{\relax}
+\RequirePackage[layout=inline]{fixme}
