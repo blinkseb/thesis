@@ -58,6 +58,7 @@
     BoldFont=*-Bold,
     ItalicFont=*-Italic,
     BoldItalicFont=*-BoldItalic,
+    Numbers={Uppercase}
 ]{Iwona}
 
 \usepackage[protrusion=true]{microtype} % character protruding and other micro-typography stuff
@@ -76,8 +77,9 @@
 
 \setmonofont[
     Ligatures={Common}, Mapping=tex-text,
-    BoldFont=fonts/SourceCodePro-Bold.otf
-]{fonts/SourceCodePro-Regular.otf}
+    BoldFont=SourceCodePro-Bold.otf,
+    Path=fonts/
+]{SourceCodePro-Regular.otf}
 
 \linespread{1.05}
 
@@ -122,7 +124,7 @@
 
 
 \usepackage{graphicx}
-\graphicspath{{figs/}{logos/}{chapitre1/figs/}}
+\graphicspath{{figs/}{logos/}{chapitre1/figs/}{chapitre2/figs/}}
 
 % Disable single lines at the start of a paragraph (Schusterjungen)
 \clubpenalty = 10000
@@ -155,6 +157,7 @@
 %\DeclareRobustCommand{\spacedallcaps}[1]{\MakeTextUppercase{#1}}%
 \DeclareRobustCommand{\spacedallcaps}[1]{\sffamily\xetextls{10}{\MakeTextUppercase{#1}}}%
 \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\sffamily\xetextls{10}{\scshape\MakeTextLowercase{#1}}}%
+\DeclareRobustCommand{\lessspacedlowsmallcaps}[1]{\sffamily\xetextls{5}{\scshape\MakeTextLowercase{#1}}}%
 
 % ********************************************************************                
 % headlines
@@ -241,7 +244,7 @@
 \titleformat{\subsubsection}{\normalfont\sffamily\itshape}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\normalsize\itshape}
 
     % descriptionlabels
-    \renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\bfseries\spacedlowsmallcaps{#1}}
+    \renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\bfseries\lessspacedlowsmallcaps{#1}}
     
 \titlespacing*{\chapter}{0pt}{1\baselineskip}{2\baselineskip}
 \titlespacing*{\section}{0pt}{2\baselineskip}{.8\baselineskip}[\marginparsep]

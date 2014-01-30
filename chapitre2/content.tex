@@ -1,0 +1,126 @@
+\chapter{Le LHC et CMS}
+
+\section{Les accélérateurs de particules}
+
+La particule élémentaire la plus massive connue à ce jour est le quark top, avec une masse d'environ \SI{173}{\GeV}. Afin de pouvoir être produit en laboratoire, il est donc nécessaire de fournir une énergie au moins égale à cette masse. On utilise pour cela des accélérateurs de particules, qui permet de faire collisionner deux particules accélérées à une certaine énergie. On distingue deux grands types d'accélérateurs : les accélérateurs linéaires et les accélérateurs circulaires.
+\begin{itemize}
+  \item Les accélérateurs linéaires sont les moins puissants. En effet, les particules sont accélérées à l'aide d'un champ électrique le long d'une ligne droite. L'énergie est donc directement proportionnel à la longueur.
+  \item Les accélérateurs circulaires peuvent atteindre des énergies très importantes. Les particules sont accélérées dans des cavités circulaires, ce qui permet d'augmenter l'énergie à chaque tour. 
+\end{itemize}
+
+\fxerror{Compléter cette partie}
+
+\section{Le LHC}
+
+Le grand collisionneur de hadrons est à ce jour le plus grand et le plus puissant accélérateur de particules au monde. Il est installé en lieu et place du LEP (\emph{Large Electron Positron collider}), dans un tunnel de \SI{27}{\km} de circonférence, enfoui à plus de \SI{100}{\m} au dessous de la surface. Géographiquement, le LHC est situé à la frontière Franco-Suisse, sur le site du CERN (Organisation Européenne pour la Recherche).
+
+Composé de deux anneaux, le LHC permet d'accélérer des protons a des énergies de \SI{7}{\TeV}, grâce à environ 9500 aimants. Une fois refroidit à une température de \SI{1.8}{\K} grâce à de l'hélium super fluide, ces aimants deviennent supraconducteur et délivre un champ magnétique nominal de \SI{8.33}{\tesla}, champ qui permet de courber les protons afin de leur garantir une trajectoire circulaire.
+
+Le premier faisceau a circulé au LHC le 10 septembre 2008. Malheureusement, le 19 septembre 2008, un incident de cryogénie entraînât une interruption de plus d'un an, et ce n'est que le 20 novembre 2009 que les anneaux du LHC accueillir de nouveau des protons. A partir du 23 novembre, les premières collisions $pp$ destinées à la physique ont commencés à être enregistrer par les détecteurs. S'en suivirent 3 années de montée en puissant progressive, passant d'une énergie de \SI{7}{\TeV} dans le centre de masse en 2010-2011 à \SI{8}{\TeV} en 2012. Au moment de la rédaction de ce manuscrit, le LHC est arrêté pour environ 2 ans. Cet arrêt planifié est mis à profit principalement afin de mettre à jours les détecteurs. Les collisions $pp$ pour la physique devrait reprendre en septembre 2015.
+
+\subsection{L'accélération des protons}
+Avant d'atteindre leur énergie nominale dans l'anneau du LHC, les protons sont accélérés graduellement le long de différents accélérateurs :
+
+\begin{figure} \centering
+  \includegraphics[width=0.7\textwidth]{Cern-accelerator-complex.pdf}
+  \caption{Le complexe d'accélérateurs du CERN}
+  \label{fig:lhc_complex}
+\end{figure}
+
+\begin{description}
+  \item[Le LINAC 2 (1978)] Tout commence par une simple bouteille d'hydrogène. Un champ électrique ionise le gaz afin d'arracher les électrons du noyau. Les protons restant sont accélérés jusqu'à une énergie de \SI{50}{\MeV}.
+  \item[Le \emph{Proton Synchroton Booster} (PSB -- 1972)] Le faisceau est ensuite injecté dans le PSB, un accélérateur circulaire, où les protons atteignent une énergie de \SI{1.4}{\GeV}.
+  \item[Le \emph{Proton Synchroton} (PS -- 1959)] Dans cet accélérateur, les protons atteignent une énergie de \SI{25}{GeV}.
+  \item[Le \emph{Super Proton Synchroton} (SPS -- 1976)] Le faisceau subit sa dernière étape d'accélération dans le SPS, atteignant cette fois ci une énergie de \SI{450}{\GeV}, avant d'être injecté dans le LHC et accéléré pour atteindre l'énergie nominale de \SI{7}{\TeV} par faisceau.
+  %\item[Le LHC] L'énergie du faisceau est suffisante pour atteindre l'anneau du LHC. Il est cette fois accéléré jusqu'à l'énergie nominale.
+\end{description}
+
+Un schéma descriptif de la chaîne d'accélération du CERN est présenté figure \ref{fig:lhc_complex}
+
+\subsection{La luminosité}
+
+La luminosité instantanée est une variable clé d'un accélérateur de particule. Exprimée en \si{\per\square\cm\per\second}, elle caractérise le nombre de collision par seconde et par centimètre carré. On l'exprime au LHC en fonction de diverses variaibles caractéristique de la forme des paquets de protons,
+de l'énergie, de la séparation des paquets, \ldots~On a
+\begin{align*}
+  \mathcal{L}_{\text{inst}} &= \frac{\gamma\,f\,n_p\,N_p^2}{4\pi\,\epsilon_n\,\beta_*} = \frac{f\,n_p\,N_p^2}{4\pi\,\sigma_x\,\sigma_y}
+\end{align*}
+où $\gamma$ est le boost de Lorentz, $f$ la fréquence de révolution des paquets, $n_p$ le nombre de paquets de protons, $N_p$ le nombre de protons par paquets, $\epsilon_n$ l'émittance transverse\footnote{L'émittance est une mesure de la parallélité du faisceau}, $\beta^*$ la fonction d'amplitude\footnote{$\beta^*$ est la distance entre le point d'interaction et l'endroit où le faisceau double de largeur} et $\sigma_x,y$ les tailles transverses du faisceau au point d'interaction. La valeur des différents paramètres du faisceau est donné table \ref{tab:lhc_beam} pour les trois années de fonctionnement.
+
+\begin{table} \centering
+  \begin{tabular}{@{}ccccc@{}} \toprule
+  
+  \multirow{2}{*}{Caractéristiques} & \multicolumn{4}{c}{Conditions} \\ \cmidrule{2-5}
+  & nominales & 2010 & 2011 & 2012 \\ \midrule
+  Énergie par faisceau (\si{\TeV}) & 7 & \num{3.5} & \num{3.5} & \num{4} \\
+  $\mathcal{L}_\text{inst}$ (\si{\per\square\cm\per\s}) & \num{e34} & \num{2.1e32} & \num{3.7e33} & \num{7.7e33}\\
+  $\mathcal{L}$ (\si{\invfb}) & 100 & \num{36e-3} & \num{4.98} & \num{19.7} \\ \midrule
+  Temps entre paquet (\si{\ns}) & 25 & > 150 & 75 / 50 & 50 \\
+  Nombre de paquets & 2808 & 368 & 1092 & 1380\\
+  Nombre de protons par paquets (\num{e11}) & \num{1.15} & \num{1.2} & \num{1.45} & \num{1.7}\\
+  $\beta^*$ (\si{\m}) & \num{0.55} & \num{2.0} - \num{3.5} & \num{1.0} - \num{1.5} & \num{0.6} \\ \bottomrule
+  \end{tabular}
+  \caption{Les différents paramètres du faisceau $pp$ du LHC pour les trois premières années de fonctionnement}
+  \label{tab:lhc_beam}
+\end{table}
+
+\medskip
+
+On obtient la luminosité totale en intégrant $\mathcal{L}_{\text{inst}}$ sur la durée de prise de donnée, $\mathcal{L} = \int \mathcal{L}_\text{inst} dt$. C'est grâce à cette luminosité que l'on quantifie la quantité de données disponible (statistique) pour les expériences. En effet, le nombre d'événements produit par les collisions pour un processus donné est
+\begin{align*}
+  N &= \mathcal{L} \sigma
+\end{align*}
+où $\sigma$ est la section efficace du processus. On voit donc que pour une section efficace donnée, le nombre d'événements produit est directement proportionnel à la luminosité. Il est donc primordiale d'avoir une luminosité instantanée la plus grande possible et une durée de prise de données la plus longue possible afin d'être en mesure d'observer des processus rare.
+
+\bigskip
+
+Bien qu'opérant actuellement à des énergies presque deux fois plus faible que celles prévues par les conditions nominales, le LHC est déjà capable de fournir une luminosité instantanée pic équivalente à celle sensée être obtenue à \SI{14}{\TeV}. Cela laisse présager d'excellentes performances lors de la reprise en 2015.
+
+\subsection{Les expériences}
+
+Le LHC étant un collisionneur circulaire, il est possible de faire se croiser les faisceaux de protons à plusieurs endroits. On peut donc installer plusieurs dispositifs expérimentaux, un à chaque point de croisement. Le LHC compte 4 points de croisements, et donc 4 expériences majeures : ALICE \citep{alice}, ATLAS \citep{atlas}, CMS \citep{cms} et LHCb \citep{lhcb}.
+
+\begin{description}
+  \item[A Large Ion Collider Experiment (ALICE)] Cette expérience est principalement dédiée à l'étude du déconfinement de la matière nucléaire, le plasma de quark et gluon. Les données qu'elle utilise sont celles issues des collisions d'ions lourds ($pB-pB$), mais les collisions $pp$ sont aussi utilisées afin de calibrer le détecteur.
+  \item[A Toroidal LHC ApparatuS (ATLAS) / Compact Muon Solenoid (CMS)] Ce sont les deux expériences généralistes du LHC. En effet, le programme de physique de ATLAS et CMS est très vaste, et couvre la recherche du boson de Higgs et de nouvelles physiques, les mesures de précisions du Modèle Standard, ainsi que la recherche de candidate matière noire. Souvent mises en concurrence, ces expériences sont pourtant complémentaires. Ainsi, on a pu voir le 4 juillet 2012 ces deux expériences annoncer conjointement la découverte d'une particule compatible avec le boson de Higgs \citep{higgs_atlas,higgs_cms}, chacune confirmant ainsi les résultats de l'autre.
+  \item[Large Hadron Collider beauty (LHCb)] C'est la dernière expérience majeure du LHC, et est principalement dédiée à la mesure de précision du Modèle Standard ainsi qu'a l'étude de la violation de la symétrie CP, grâce à l'étude poussée du quark $b$. La collaboration LHCb a d'ailleurs annoncé récemment avoir observé pour la première fois la violation de symétrie CP dans le système $B_s$ \citep{lhcb_bs}, tel que prévu par le Modèle Standard. Cette récente découverte permet de contraindre encore plus fortement certains modèle de nouvelles physiques.
+\end{description}
+
+En plus de ces 4 expériences majeures, on trouve 3 autres expériences au LHC, installées à proximité des points de croisement des faisceaux : LHCf \citep{lhcf}, MoEDAL \citep{moedal} et TOTEM \citep{totem}.
+
+\begin{description}
+  \item[Large Hadron Collider forward] Située a environ \SI{140}{\m} de part et d'autre de ATLAS, ce détecteur étudie les particules créées à très petits angles, principalement afin de simuler la production de rayon cosmiques de très haute intensité en laboratoire.
+  \item[Monopole and Exotics Detector at the LHC (MoEDAL)] Située juste en aval de LHCb, MOeDAL traque les monopôles magnétiques, grâce a un détecteur spécialement conçu pour ce rôle.
+  \item[TOTal Elastic and diffractive cross section Measurement (TOTEM)] Destinée à la mesure précise de la luminosité du LHC, cette expérience étudie les particules créées à très petits angles. Elle peut ainsi mesurer la section efficace élastique des collisions $pp$.
+\end{description}
+
+% \bigskip
+% 
+% Les travaux effectués dans cette thèse ont tous été réalisés à l'aide des données prise par le détecteur CMS. Voyons
+
+\section{Compact Muon Solenoid -- CMS}
+
+% \begin{figure} \centering
+%   \includegraphics[width=0.7\textwidth]{cms.jpg}
+% \end{figure}
+
+Les travaux effectués dans cette thèse ayant tous été réalisés à l'aide des données prises par le détecteur CMS, il est intéressant d'étudier plus en détails sa composition.
+
+\bigskip
+
+CMS est situé au point 5 du LHC. C'est un détecteur relativement compact, mesurant seulement \SI{28.7}{\m} de long avec un rayon de \SI{7.5}{\m}, pour un poids de \SI{14000}{\tonne}. Afin de pouvoir définir correctement certaines variables, il est nécessaire de définir un repère. L'origine de ce repère ce situe au point d'interaction, et donc au centre du détecteur. L'axe $x$ pointe vers le centre de l'anneau du LHC, et l'axe $z$ est tangent à la direction du faisceau. L'axe $y$, perpendiculaire aux deux autres axes, pointe vers le haut.
+
+L'angle azimutal $\phi \in \left[-\pi, \pi\right]$ est mesuré dans le plan $yx$, à partir de l'axe $x$. L'angle $\theta$, lui, est défini à partir de l'axe $z$ dans le plan transverse $yz$. On préfère cependant utilisé la pseudo-rapidité $\eta$ plutôt que $\theta$, puisque la production de particules est constante suivant $\eta$, mais pas suivant $\theta$. On défini la pseudo-rapidité par
+\begin{align*}
+  \eta &= -\ln\left[\tan\left(\frac{\theta}{2}\right)\right] = \frac{1}{2} \ln\left(\frac{\abs{\vec{p}} + p_L}{\abs{\vec{p}} - p_L}\right)
+\end{align*}
+
+Le LHC étant un collisionneur hadronique, il n'est pas possible de connaître à l'avance l'énergie exacte de la collision. Cependant, le faisceau se déplaçant uniquement le long de l'axe $z$, on sait que le bilan d'énergie dans le plan transverse $xy$ doit être nul. Il est alors commode de définir différente variable \emph{transverse}, tel que l'impulsion transverse ou l'énergie transverse, définis comme la projection vectorielle dans le plan $xy$. On a donc
+\begin{align*}
+  \pt &= \sqrt{p_x^2 + p_y^2} = \frac{\abs{\vec{p}}}{\cosh\eta} \\
+  \et &= E \sin\theta = \frac{E}{\cosh\eta}
+\end{align*}
+
+%Pour un détecteur parfait ayant une couverture angulaire totale, on doit avoir $\et = 0$.
+
+L'un des objectifs principaux de CMS, qui figure d'ailleurs dans son nom, est de pouvoir mesurer avec une grande précision l'impulsion des particules, même celles les plus boostées, et particulièrement l'impulsion des muons. On utilise pour cela un puissant champ magnétique de \SI{3.8}{\tesla}, produit grâce à un solénoïde géant, afin de courber la trajectoire des particules. CMS est aussi constitué de couches de de sous-détecteurs, apportant chacun des informations particulières sur la collision, telle que l'énergie des particules, ainsi que leurs trajectoires. Chaque sous-détecteur est décrit en détail dans les sections suivantes.
+
