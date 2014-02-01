@@ -110,17 +110,17 @@
 
 \definecolor{chapter_in_toc}{HTML}{8B1B26}
 
-\makeatletter
-\let\latex@include\include
-\def\include#1{\include@aux#1\@nil}
-\def\include@aux#1/#2\@nil{\@mkdir{#1}\latex@include{#1/#2}}
-%\def\include@aux#1/#2\@nil{\latex@include{#1/#2}}
-\ifnum\shellescape=\@ne
-  \def\@mkdir#1{\immediate\write18{mkdir -p output/#1}}
-\else
-  \def\@mkdir{\typeout{Expect errors}}
-\fi
-\makeatother
+% \makeatletter
+% \let\latex@include\include
+% \def\include#1{\include@aux#1\@nil}
+% \def\include@aux#1/#2\@nil{\@mkdir{#1}\latex@include{#1/#2}}
+% %\def\include@aux#1/#2\@nil{\latex@include{#1/#2}}
+% \ifnum\shellescape=\@ne
+%   \def\@mkdir#1{\immediate\write18{mkdir -p output/#1}}
+% \else
+%   \def\@mkdir{\typeout{Expect errors}}
+% \fi
+% \makeatother
 
 
 \usepackage{graphicx}
