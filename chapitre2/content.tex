@@ -56,7 +56,7 @@ où $\gamma$ est le boost de Lorentz, $f$ la fréquence de révolution des paque
   $\mathcal{L}$ (\si{\invfb}) & 100 & \num{36e-3} & \num{4.98} & \num{19.7} \\ \midrule
   Temps entre paquet (\si{\ns}) & 25 & > 150 & 75 / 50 & 50 \\
   Nombre de paquets & 2808 & 368 & 1092 & 1380\\
-  Nombre de protons par paquets (\num{e11}) & \num{1.15} & \num{1.2} & \num{1.45} & \num{1.7}\\
+  Protons par paquets (\num{e11}) & \num{1.15} & \num{1.2} & \num{1.45} & \num{1.7}\\
   $\beta^*$ (\si{\m}) & \num{0.55} & \num{2.0} - \num{3.5} & \num{1.0} - \num{1.5} & \num{0.6} \\ \bottomrule
   \end{tabular}
   \caption{Les différents paramètres du faisceau $pp$ du LHC pour les trois premières années de fonctionnement}
@@ -124,3 +124,47 @@ Le LHC étant un collisionneur hadronique, il n'est pas possible de connaître �
 
 L'un des objectifs principaux de CMS, qui figure d'ailleurs dans son nom, est de pouvoir mesurer avec une grande précision l'impulsion des particules, même celles les plus boostées, et particulièrement l'impulsion des muons. On utilise pour cela un puissant champ magnétique de \SI{3.8}{\tesla}, produit grâce à un solénoïde géant, afin de courber la trajectoire des particules. CMS est aussi constitué de couches de de sous-détecteurs, apportant chacun des informations particulières sur la collision, telle que l'énergie des particules, ainsi que leurs trajectoires. Chaque sous-détecteur est décrit en détail dans les sections suivantes.
 
+\begin{figure}[t] \centering
+  \includegraphics[width=0.7\textwidth]{chapitre2/figs/tracker.pdf}
+  \caption{Représentation simplifiée du trajectographe de l'expérience CMS.}
+  \label{fig:tracker}
+\end{figure}
+
+\subsection{Le trajectographe}
+
+Le trajectographe est l'un des composants les plus important de CMS. Il est en effet chargé de reconstruire la trajectoire courbée des particules chargées, et ainsi d'en déduire leur impulsion. Cylindre d'une longueur de \SI{5.5}{\m} et de \SI{1.1}{\m} de rayon, le trajectographe est composée de deux parties, conçues pour couvrir une région angulaire entre $0 < \eta < \num{2.5}$.
+
+\smallskip
+
+La première partie est le détecteur à pixels. Il est composé de trois couches de détections situées au plus proche du détecteur (à $r = \SI{4}{\cm}$, $r = \SI{7}{\cm}$ et $r = \SI{11}{cm}$), et de quatre disques (bouchons) disposés 2 à 2 à chaque extrémité ($z = \pm \SI{34.5}{\cm}$ et $z = \pm \SI{46.5}{\cm}$). Ce détecteur en silicium comporte environ 65 millions de pixels, mesurant chacun \SI{100}{\um} par \SI{150}{\um}, pour une superficie totale de détection d'environ \SI{1}{\square\m}. Sa résolution est inférieure à $\SI{10}{\um}$ dans le plan $r\phi$ (voir figure \ref{fig:pixel_resolution}) et $\SI{20}{\um}$ en $Z$.
+
+La deuxième partie est le détecteur à micropistes. Englobant le détecteur à pixels, ce détecteur est composé de plus de 10 couches de micropistes en silicone, pour un total d'environ 10 millions de micropistes. On dénombre 4 sous-ensemble :
+
+\begin{description}
+  \item[Le TIB] (\emph{Tracker Inner Barrel}) C'est la partie interne du tonneau du trajectographe, composée de 4 couches de micropistes.
+  \item[Le TID] (\emph{Tracker Inner enDcaps}) Cette partie complète le TIB et compte trois couches de détection.
+  \item[Le TOB] (\emph{Tracker Outer Barrel}) Entourant le TIB, cette partie est constituée de six couches de micropistes.
+  \item[Le TEC] (\emph{Tracker EndCaps}) Composée de neuf couches, cette partie complète le TOB.
+\end{description}
+
+L'agencement du trajectographe, avec les détecteurs à pixels et à micropistes, est présenté en détails figure \ref{fig:tracker}.
+
+\begin{figure} \centering
+  \subcaptionbox{Evolution de la résolution dans le plan $r\phi$ du détecteur à pixel du trajectographe en fonction de la luminosité totale collectée, déterminée à l'aide des données collectées en 2012.\label{fig:pixel_resolution}}[.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre2/figs/pixel_detector_resolution_over_time.png}}\hfill
+  \subcaptionbox{Efficacité de reconstruction des traces du détecteur à pixel du trajectographe en fonction de la luminosité totale collectée, déterminée à l'aide des données collectées en 2012.\label{fig:pixel_efficiency}}[.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre2/figs/pixel_detector_efficiency_over_time.png}}
+  \caption{Résolution (\subref{fig:pixel_resolution}) et efficacité de reconstruction (\subref{fig:pixel_efficiency}) du détecteur à pixels du trajectographe.}
+\end{figure}
+
+\subsection{Le calorimètre électromagnétique}
+
+Situé juste après le trajectographe, le calorimètre électromagnétique (ECAL) sert à mesurer de façon précise l'énergie des électrons et des photons. Sachant qu'un des canaux majeurs d'étude du boson de Higgs est sa désintégration en deux photons, un soin tout particulier a été apportée lors de la conception de ce calorimètre.
+
+Une des contraintes majeures qui a dictée sa conception est l'espace disponible entre le trajectographe et le solénoïde, assez réduit. Ce manque de place a éliminée la technologie la plus avancée à l'époque de la conception, le calorimètre à argon liquide\footnote{C'est la technologie qu'a choisi ATLAS pour son calorimètre électromagnétique.}. Il a au final été choisi d'utiliser un détecteur à scintillation, formé d'un ensemble de cristaux de tungstate de plomb ($PbWO_4$). Le calorimètre couvre une région angulaire entre $0 < \abs{\eta} < 3$, et est séparée en deux parties : le tonneau (EB, pour \emph{ECAL Barrel}, $0 < \abs{\eta} < \num{1.479})$ et le bouchon (EE, pour \emph{ECAL Endcap}, $\num{1.479} < \abs{\eta} < 3$).
+
+\subsubsection{Les cristaux}
+
+Le ECAL est constitué de 76200 cristaux de tungstate de plomb : 61200 dans le tonneau, et 15000 dans les bouchons. Le choix du tungstate de plomb a été dicté par plusieurs contraintes : la résistance aux radiations, le coût, mais principalement un encombrement réduit. En effet, ses cristaux ont été spécialement conçu pour avoir une faible longueur de radiation\footnote{Longueur pour qu'un électron perde $\sfrac{2}{3}$ de son énergie.} ($X_0 = \SI{0.89}{\cm}$), ce qui permet d'utiliser des cristaux ayant une épaisseur modeste ($\num{25.8}X_0$ dans le tonneau, et $\num{24.7}X_0$ dans les bouchons) tout en stoppant les particules même les plus énergétiques. Un autre aspect très intéressant du $PbWO_4$ est son faible rayon de molière (\SI{2.19}{\cm}) \footnote{90\% de l'énergie de la gerbe électromagnétique est contenue dans cylindre rayon le rayon de molière.}. Il est ainsi possible d'utiliser des cristaux ayant des dimensions très réduites (\SI{21.8}{\cm} $\times$ \SI{21.8}{\cm} dans le tonneau, et \SI{24.7}{\cm} $\times$ \SI{24.7}{\cm} dans les bouchons), ce qui permet d'obtenir une très grande granularité en $\eta$ et $\phi$.
+En contrepartie de ces excellentes caractéristiques, les cristaux de tungstate de plomb ont un inconvénient majeur : leur réponse est très sensible à la température (\tilde $\SI[per-mode = symbol]{2}{\percent\per\degreeCelsius}$). Il est donc nécessaire de maintenir une température très sable dans ECAL : le système de refroidissement permet en effet de maintenir la température à $\pm \SI{0.05}{\degreeCelsius}$.
+
+
+\subsection{Le calorimètre hadronique}
