@@ -36,8 +36,10 @@
 *.brf
 *.fls
 *.ptc
-output/**
+[o|O]utput/**
 templates/**
+main.pdf
+*.synctex*
 
 # Vim
 *.swp
