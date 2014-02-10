@@ -37,12 +37,18 @@ Un schéma descriptif de la chaîne d'accélération du CERN est présenté figu
 
 \subsection{La luminosité}
 
-La luminosité instantanée est une variable clé d'un accélérateur de particule. Exprimée en \si{\per\square\cm\per\second}, elle caractérise le nombre de collision par seconde et par centimètre carré. On l'exprime au LHC en fonction de diverses variaibles caractéristique de la forme des paquets de protons,
+La luminosité instantanée est une variable clé d'un accélérateur de particule. Exprimée en \si{\per\square\cm\per\second}, elle caractérise le nombre de collision par seconde et par centimètre carré. On l'exprime au LHC en fonction de diverses variables caractéristique de la forme des paquets de protons,
 de l'énergie, de la séparation des paquets, \ldots~On a
 \begin{align*}
   \mathcal{L}_{\text{inst}} &= \frac{\gamma\,f\,n_p\,N_p^2}{4\pi\,\epsilon_n\,\beta_*} = \frac{f\,n_p\,N_p^2}{4\pi\,\sigma_x\,\sigma_y}
 \end{align*}
 où $\gamma$ est le boost de Lorentz, $f$ la fréquence de révolution des paquets, $n_p$ le nombre de paquets de protons, $N_p$ le nombre de protons par paquets, $\epsilon_n$ l'émittance transverse\footnote{L'émittance est une mesure de la parallélité du faisceau}, $\beta^*$ la fonction d'amplitude\footnote{$\beta^*$ est la distance entre le point d'interaction et l'endroit où le faisceau double de largeur} et $\sigma_x,y$ les tailles transverses du faisceau au point d'interaction. La valeur des différents paramètres du faisceau est donné table \ref{tab:lhc_beam} pour les trois années de fonctionnement.
+
+\begin{figure} \centering
+  \includegraphics[width=0.7\textwidth]{chapitre2/figs/CMS_lumi.pdf}
+  \caption{Luminosité intégrée collectée par l'expérience CMS au cours des années 2010 (vert), 2011 (rouge) et 2012 (bleu). La distribution de la luminosité collectée a été zoomé 100x pour pouvoir la distingué sur le graphique.}
+  \label{fig:lumi}
+\end{figure}
 
 \begin{table} \centering
   \begin{tabular}{@{}ccccc@{}} \toprule
@@ -67,7 +73,7 @@ On obtient la luminosité totale en intégrant $\mathcal{L}_{\text{inst}}$ sur l
 \begin{align*}
   N &= \mathcal{L} \sigma
 \end{align*}
-où $\sigma$ est la section efficace du processus. On voit donc que pour une section efficace donnée, le nombre d'événements produit est directement proportionnel à la luminosité. Il est donc primordiale d'avoir une luminosité instantanée la plus grande possible et une durée de prise de données la plus longue possible afin d'être en mesure d'observer des processus rare.
+où $\sigma$ est la section efficace du processus. On voit donc que pour une section efficace donnée, le nombre d'événements produit est directement proportionnel à la luminosité. Il est donc primordiale d'avoir une luminosité instantanée la plus grande possible et une durée de prise de données la plus longue possible afin d'être en mesure d'observer des processus rare. On peut voir figure \ref{fig:lumi} la distribution de la luminosité collectée par l'expérience CMS (section \ref{sec:cms}) au cours de 3 années de prise de données.
 
 \bigskip
 
@@ -95,7 +101,7 @@ En plus de ces 4 expériences majeures, on trouve 3 autres expériences au LHC, 
 % 
 % Les travaux effectués dans cette thèse ont tous été réalisés à l'aide des données prise par le détecteur CMS. Voyons
 
-\section{L'expérience Compact Muon Solenoid (CMS)}
+\section{L'expérience Compact Muon Solenoid (CMS)} \label{sec:cms}
 
 \begin{figure} \centering
   \includegraphics[width=0.7\textwidth]{chapitre2/figs/CMS_2.pdf}
@@ -206,7 +212,7 @@ ce qui équivaut, pour un électron de $E = \SI{120}{\GeV}$, à $\sigma = \SI{1.
   \label{fig:ecal_resolution}
 \end{figure}
 
-\subsection{Le calorimètre hadronique}
+\subsection{Le calorimètre hadronique} \label{sec:hcal}
 
 Le rôle du calorimètre hadronique (HCAL, pour \emph{Hadronic CALorimeter}) est de mesurer l'énergie des hadrons neutres et chargés, grâce à l'utilisation d'un détecteur à échantillonnages. Une succession de couches d'absorbant et de scintillateurs permettent de déterminer la trajectoire et l'énergie d'une particule incidente. De façon analogue au calorimètre électromagnétique, il est constitué de deux parties : une partie tonneau et deux bouchons.
 
@@ -270,15 +276,15 @@ On trouve trois différentes technologies au sein du détecteur à muons : les t
 
 Aux conditions nominales, le temps entre chaque collision est de \SI{25}{\ns}, soit une fréquence de \SI{40}{\mega\hertz}. En estimant la taille d'un événement à environ \SI{1}{\mega\octet}, on obtient alors un débit de données de \SI{40}{\tera\octet\per\second}, débit qu'aucun système de stockage n'arrive à atteindre. Il est donc nécessaire de réduire ce débit en jetant des événements. Tout l'enjeu est de réussir à jeter des événements dont on sait à l'avance qui ne seront pas intéressant (pas de collision de grande intensité, bruit trop important, \ldots). On utilise pour cela un système de déclenchement (\emph{trigger}), composé dans CMS de deux niveaux : le niveau 1 (L1, figure \ref{fig:l1}) et le HLT (\emph{High Level Trigger}, pour déclencheur de haut niveau, figure \ref{fig:daq}). Ces systèmes doivent être capable de décider de garder ou non un événement en temps réel.
 
-\begin{figure}[b] \centering
-  \includegraphics[width=0.7\textwidth]{chapitre2/figs/DAQ.pdf}
-  \caption{Schéma de la chaîne d'acquisition de données de CMS}
-  \label{fig:daq}
-\end{figure}
-
 \begin{description}
   \item[Le L1] Ce premier niveau de déclenchement réduit le taux d’événements à \SI{100}{\kHz}, à l'aide d'un système électronique ultra-rapide. En utilisant directement les informations provenant du détecteur à muons et des calorimètres, la décision de garder ou non l'événement est prise en moins de \SI{3.2}{\us}. Cette électronique est hautement configurable, et peut être reconfigurée à tout moment. Ainsi, 128 algorithmes de déclenchement tournent en parallèle, ce qui permet de fournir un lot de données adaptées aux besoins des analyses de physique.
   \item[Le HLT] Le taux d'événements en sortie du L1 est encore trop important, et doit être réduit à environ \SI{100}{\Hz} afin d'être stockable en temps réel. Le HLT est chargée d'effectuée cette sélection. Pour cela, une ferme d'ordinateurs est installée à proximité du détecteur et sélectionne les événements digne d’intérêt. Il dispose des données de tous les sous-détecteurs et effectue une reconstruction rapide afin d'obtenir une description de l'événement en terme d'objets physiques plutôt qu'en terme de signaux électriques. Le temps moyen alloué au HLT pour prendre une décision est d'environ \SI{50}{\ms}.
 \end{description}
+
+\begin{figure} \centering
+  \includegraphics[width=0.7\textwidth]{chapitre2/figs/DAQ.pdf}
+  \caption{Schéma de la chaîne d'acquisition de données de CMS}
+  \label{fig:daq}
+\end{figure}
 
 Une fois accepté, l'événement est stocké de façon définitive dans un centre de stockage à haute redondance, le \emph{Tier-0}.
