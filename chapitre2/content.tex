@@ -78,6 +78,14 @@ où $\sigma$ est la section efficace du processus. On voit donc que pour une sec
 
 Bien qu'opérant actuellement à des énergies presque deux fois plus faible que celles prévues par les conditions nominales, le LHC est déjà capable de fournir une luminosité instantanée pic équivalente à celle sensée être obtenue à \SI{14}{\TeV}. Cela laisse présager d'excellentes performances lors de la reprise en 2015.
 
+\subsection{L'empilement}
+
+Lors d'un croisement de paquets de protons, plusieurs interactions $pp$ peuvent avoir lieu : la collision principale forme l'événement dur, et c'est celle ci qu'on souhaite étudier. Les autres collisions (élastiques ou inélastiques) viennent parasiter la collision principale, et se superposent à l'événement dur. Cet effet est communément appelé empilement (pileup (PU) en anglais). Le nombre d'événement de PU par collision dépend de la configuration du LHC. En 2012, on l'estime à environ 15, et il prévu qu'il passe a environ 25 lors de la reprise en 2015.
+
+\medskip
+
+On distingue deux types d'empilement différent : celui produit en même temps que l'événement dur est le plus handicapant, puisqu'il va entraîner de l'activité non désirés au sein du détecteur, et ainsi perturber la reconstruction des particules produites lors de la collision principale. C'est le PU "in-time". On distingue aussi le PU "out-of-time", causé par des particules produites lors des croisements de paquets antérieurs ou postérieurs. Ces particules peuvent mettre du temps à se désintégrer ou à être détecté, et elles viennent donc interférer avec la mesure de la collision principale.
+
 \subsection{Les expériences}
 
 Le LHC étant un collisionneur circulaire, il est possible de faire se croiser les faisceaux de protons à plusieurs endroits. On peut donc installer plusieurs dispositifs expérimentaux, un à chaque point de croisement. Le LHC compte 4 points de croisements, et donc 4 expériences majeures : ALICE \citep{alice}, ATLAS \citep{atlas}, CMS \citep{cms} et LHCb \citep{lhcb}.
@@ -241,19 +249,20 @@ avec $r$ le rayon de courbure de la trajectoire, $p$ l'impulsion, $q$ la charge 
 
 \subsection{Le détecteur à muons}
 
-\begin{figure} \centering
-  \includegraphics[width=0.8\textwidth]{chapitre2/figs/CMS_transverse_view.pdf}
-  \caption{Agencement des tubes à dérives dans le tonneau de CMS (vue transverse). Chaque rectangle bleue correspond à un tube à dérive.}
-  \label{fig:cms_dt}
-\end{figure}
-
-\begin{figure} \centering
+\begin{figure}[tb] \centering
   \includegraphics[width=0.8\textwidth]{chapitre2/figs/CSC.pdf}
   \caption{Vue un-quart du détecteur CMS. Les chambres à pistes cathodiques des bouchons sont illustrées en rouge.}
   \label{fig:cms_csc}
 \end{figure}
 
+
 Le détecteur à muons joue un rôle central dans CMS, puisqu'il couvre trois fonctions principales : identifier les muons, mesurer leur impulsion, et assurer une partie du déclenchement. C'est la partie la plus externe de CMS, que seul les muons peuvent atteindre. Il est ainsi beaucoup plus facile de mesurer l'impulsion de ces particules, grâce à l'éloignement entre le trajectographe et ce détecteur.
+
+\begin{figure}[p] \centering
+  \includegraphics[width=0.95\textwidth]{chapitre2/figs/CMS_transverse_view.pdf}
+  \caption{Agencement des tubes à dérives dans le tonneau de CMS (vue transverse). Chaque rectangle bleue correspond à un tube à dérive.}
+  \label{fig:cms_dt}
+\end{figure}
 
 On trouve trois différentes technologies au sein du détecteur à muons : les tubes à dérive (DT, pour \emph{Drift Tube}) et les chambres à pistes cathodique (CSC, pour \emph{Cathod Strip Chamber}), utilisé pour les mesures liées aux muons, et les détecteurs à plaques résistives (RPC, pour \emph{Resistive Plate Chamber}) utilisés par le système de déclenchement.
 
