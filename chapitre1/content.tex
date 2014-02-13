@@ -6,7 +6,7 @@
 
 La Nature semble avoir décidé de construire la matière à l'aide d'un petit nombre de briques fondamentales, les particules élémentaires. Le Modèle Standard est notre tentative de décrire les interactions entre ces particules. En développement depuis le début du XXe siècle, ce modèle permet maintenant de reproduire avec une précision remarquable les observations expérimentales.
 
-La Nature est ainsi constituée de trois classes de particules élémentaires : les quarks, les leptons et les bosons. Ces particules étant de très petite taille et très peu massive, elles se déplacent à des vitesses proche de la vitesse de la lumière. Le formalisme mathématique utilisé pour décrire ces particules est la théorie quantique des champs, qui incorpore la mécanique quantique et la relativité restreinte.
+La Nature est ainsi constituée de trois classes de particules élémentaires : les quarks, les leptons et les bosons. Ces particules se déplacent à des vitesses proche de la vitesse de la lumière. Le formalisme mathématique utilisé pour décrire ces particules est la théorie quantique des champs, qui incorpore la mécanique quantique et la relativité restreinte.
 
 Les quarks et les leptons sont des particules élémentaires de spin 1/2 et sont les constituants élémentaires de la matière : ce sont les fermions. Les bosons sont eux de spin entier, et sont les médiateurs des différentes interactions entre les fermions. La figure \ref{fig:sm} liste les particules élémentaires, dans l'état actuel de nos connaissances.
 
@@ -18,7 +18,7 @@ Les quarks et les leptons sont des particules élémentaires de spin 1/2 et sont
 
 \subsection{Les fermions}
 
-Les fermions sont des particules élémentaires de spin 1/2, c'est-à-dire qu'elles obéissent la statistique de Fermi-Dirac, et sont ainsi soumises au principe d'exclusion de Pauli. Cela signifie qu'au niveau quantique, deux fermions ne peuvent pas occuper le même état quantique. C'est ce principe qui est responsable de l'existence des couches d'électrons dans les atomes, les électrons étant des fermions. 
+Les fermions sont des particules élémentaires de spin 1/2, c'est-à-dire qu'elles obéissent la statistique de Fermi-Dirac, et sont ainsi soumises au principe d'exclusion de Pauli. Cela signifie qu'au niveau quantique, deux fermions ne peuvent pas occuper le même état quantique. C'est ce principe qui est responsable de l'existence des couches d'électrons dans les atomes, les électrons étant des fermions.
 
 On dénombre dans le Modèle Standard 12 fermions : 6 quarks et 6 leptons. On groupe les leptons et les quarks 2 par 2 dans des générations :
 
@@ -28,16 +28,16 @@ On dénombre dans le Modèle Standard 12 fermions : 6 quarks et 6 leptons. On gr
   \end{align*}
   \item[Les quarks] \begin{align*}
     \colvec{2}{u}{d} \colvec{2}{c}{s} \colvec{2}{t}{b}
-  \end{align*} 
+  \end{align*}
 \end{description}
 
-Parmi les leptons, on trouve les électrons, muons et taus, de charge électrique négative. On associe à chaque lepton un partenaire non massif\footnote{On sait maintenant que les neutrinos sont massifs, comme on pourra le voir par la suite}, et électriquement neutre, les neutrinos. Les leptons sont sensibles à l'interaction faible, et les leptons chargés à l'interaction électromagnétique. Les quarks sont des particules massives de charge électrique fractionnaire, et en plus porteur d'une charge de couleur. Ils sont donc sensible, en plus de l'interaction électromagnétique et l'interaction faible, à l'interaction forte.
+Parmi les leptons, on trouve les électrons, muons et taus, de charge électrique négative. On associe à chaque lepton un partenaire non massif\footnote{On sait maintenant que les neutrinos sont massifs, comme on pourra le voir par la suite}, et électriquement neutre, les neutrinos. Les leptons sont sensibles à l'interaction faible, et les leptons chargés à l'interaction électromagnétique. Les quarks sont des particules massives de charge électrique fractionnaire, et en plus porteur d'une charge de couleur. Ils sont donc sensibles, en plus de l'interaction électromagnétique et l'interaction faible, à l'interaction forte.
 
 A chacune des 12 particules élémentaires est associée une anti-particule, c'est-à-dire une particule de même masse, mais avec des nombres quantiques et une charge opposés : on compte donc 24 constituants élémentaires de la matière.
 
 \subsection{Les interactions fondamentales}
 
-On dénombre trois interactions fondamentales théorisées par le Modèle Standard :
+On dénombre trois interactions fondamentales, théorisées et unifiées sous un même formalisme par le Modèle Standard :
 
 \begin{description}
   \item[L'interaction électromagnétique] Cette interaction couple les particules chargés, et a pour médiateur le photon, un boson non massif. C'est l'interaction qui permet la cohésion des atomes.
@@ -54,7 +54,7 @@ Une quatrième interaction existe, l'interaction gravitationnelle. Cette interac
      & $Z^0$ & \SI{91.1876 \pm 0.0021} & & \\
     forte & $g$ & 0 & 25 & \tilde $10^{-15}$ \\
     électromagnétique & $\gamma$ & 0 & 0.8 & $\infty$ \\
-    gravitationnelle & graviton ? & ? & $10^{-41}$ & $\infty$ \\ \bottomrule    
+    gravitationnelle & graviton ? & ? & $10^{-41}$ & $\infty$ \\ \bottomrule
   \end{tabular}
   \caption{Les interactions fondamentales et leurs bosons médiateurs.}
   \label{tab:interactions}
@@ -87,7 +87,7 @@ où $q_i$ sont les coordonnées généralisées des particules, $t$ la variable 
   L &= T - V
 \end{align*}
 
-Dans le cas de particules fondamentales, les coordonnées des particules ne sont plus discrète ($q_i(t)$), mais continue. On décrit en effet ces particules à l'aide d'un champ $\phi(x, t)$ (ou $\phi(x)$, et $x$ le quadri-vecteur position). Le Lagrangien devient donc
+On peut étendre ce formalisme dans le cas au coordonnées continue. Dans ce cas, on transforme les coordonnées discrètes en champ $\phi(x, t)$ (ou $\phi(x)$, et $x$ le quadri-vecteur position). Le Lagrangien devient donc
 \begin{align*}
   L(q_i, \dot{q_i}, t) \rightarrow \mathcal{L}\left(\phi, \frac{\partial \phi}{\partial x_\mu}, t\right)
 \end{align*}
@@ -109,18 +109,17 @@ C'est à l'aide de se formalisme que nous allons construire le modèle standard.
   \item Les autres termes correspondent aux vertex d'interactions. Les règles de Feynman associées aux vertex sont simplement les termes dans $i\mathcal{L}$ qui contiennent les champs interagissant.
 \end{enumerate}
 
-Afin d'extraire des informations sur les observables physiques, tel que les sections efficaces par exemple, on utilise un développement perturbatif. En effet, la probabilité de transition d'un état initial $\ket{i}$ à un état final $\ket{f}$ est calculée en utilisant la règle d'or de Fermi. Cette règle est obtenue grâce à la théorie des perturbations, en considérant que le temps nécessaire à l'interaction est bien plus petit que le temps nécessaire à l'observation.
+% Afin d'extraire des informations sur les observables physiques, tel que les sections efficaces par exemple, on utilise un développement perturbatif. En effet, la probabilité de transition d'un état initial $\ket{i}$ à un état final $\ket{f}$ est calculée en utilisant la règle d'or de Fermi. Cette règle est obtenue grâce à la théorie des perturbations, en considérant que le temps nécessaire à l'interaction est bien plus petit que le temps nécessaire à l'observation.
 
-La précision du résultat dépend de l'ordre du calcul. Le premier ordre, celui le plus simple à calculer, correspond à un nombre de vertex de 2, et est appelé calcul à l'arbre (ou \emph{LO}, pour \emph{Leading Order}). Richard Feynman proposa en 1949 un ensemble de règles facilitant le calcul des observables à partir de diagrammes. Lorsque l'on considère des diagrammes d'ordre supérieurs, des boucles font leur apparition, provoquant des divergences lors des calculs. On verra par la suite que ces divergences peuvent être contournées par une redéfinition des couplages de la théorie : c'est la renormalisation.
+% La précision du résultat dépend de l'ordre du calcul. Le premier ordre, celui le plus simple à calculer, correspond à un nombre de vertex de 2, et est appelé calcul à l'arbre (ou \emph{LO}, pour \emph{Leading Order}). Richard Feynman proposa en 1949 un ensemble de règles facilitant le calcul des observables à partir de diagrammes. Lorsque l'on considère des diagrammes d'ordre supérieurs, des boucles font leur apparition, provoquant des divergences lors des calculs. On verra par la suite que ces divergences peuvent être contournées par une redéfinition des couplages de la théorie : c'est la renormalisation.
 
 \subsection{L'interaction électromagnétique (QED)} \label{sec:qed}
 
-On considère le cas d'une particule de masse $m$ à laquelle on associe une fonction d'onde $\Psi(x)$. On définit le Lagrangien $\mathcal{L}$ par
+On considère le cas d'une particule de masse $m$ à laquelle on associe une fonction d'onde $\Psi(x)$, représenté par un spineur de dimension 4. On définit le Lagrangien $\mathcal{L}$ par
 \begin{align} \label{eq:lagrangien_qed_simple}
   \mathcal{L} &= i \bar{\Psi} \gmu \dmuc \Psi -m \bar{\Psi}\Psi
 \end{align}
-
-Ce choix, complètement arbitraire, permet de retrouver l'équation de Dirac\footnote{$\left(i \gmuc \dmu - m\right) \Psi = 0$} lorsque l'on applique \eqref{eq:lagrange}. Intéressons nous maintenant plus particulièrement aux symétries de ce Lagrangien. On s'aperçoit rapidement qu'il est invariant par changement de phase (aussi appelé jauge). En effet, en effectuant la transformation
+où $\gmu$ sont des matrices $4 \times 4$, appelées matrices de Dirac. Ce choix, complètement arbitraire, permet de retrouver l'équation de Dirac\footnote{$\left(i \gmuc \dmu - m\right) \Psi = 0$} lorsque l'on applique \eqref{eq:lagrange}. Intéressons nous maintenant plus particulièrement aux symétries de ce Lagrangien. On s'aperçoit rapidement qu'il est invariant par changement de phase (aussi appelé jauge). En effet, en effectuant la transformation
 \begin{align*}
   \Psi &\rightarrow \Psi^\prime = e^{i\theta}\Psi
 \end{align*}
@@ -490,7 +489,7 @@ Le minimum du potentiel est
   \frac{\partial V}{\partial \phi } &= 0 &\rightarrow&& \left( \phi_1^2 + \phi_2^2 \right) = v^2 = - \frac{\mu^2}{\lambda}
 \end{align*}
 
-Si on considère $\mu^2 < 0$, c'est l'équation d'un cercle de rayon $v$. Le potentiel admet ainsi une infinité de minimum, différents de $\phi = 0$ : la symétrie du Lagrangien est brisée. Cependant, les calculs perturbatifs, qui sont au c{\oe}ur de la théorie qui permet de construire le Modèle Standard, doivent être réalisés autour du minimum du potentiel. On réexprime donc le champ scalaire par une expansion autour de son minimum. Par convention, on choisi $\phi_2 = 0$ et donc $\phi_1 = \phi = v$ au minimum. On a alors
+Si on considère $\mu^2 < 0$, c'est l'équation d'un cercle de rayon $v$. Le potentiel admet ainsi une infinité de minimum, différents de $\phi = 0$ : la symétrie du Lagrangien est brisée\footnote{$V(\phi)$ est le potentiel le plus simple qui permet d'exhiber la brisure de la symétrie}. Cependant, les calculs perturbatifs, qui sont au c{\oe}ur de la théorie qui permet de construire le Modèle Standard, doivent être réalisés autour du minimum du potentiel. On réexprime donc le champ scalaire par une expansion autour de son minimum. Par convention, on choisi $\phi_2 = 0$ et donc $\phi_1 = \phi = v$ au minimum. On a alors
 \begin{align*}
   \phi(x) = \frac{1}{\sqrt{2}} \left[ v + \eta(x) + i\xi(x) \right]
 \end{align*}
@@ -706,86 +705,87 @@ Au travers de la brisure de symétrie et du mécanisme de Higgs, on a pu voir co
   \item Les masses des fermions deviennent des paramètres libres de la théorie.
 \end{itemize}
 
-Le mécanisme de Higgs prévoit donc l'existence d'un nouveau champ scalaire, le champ de Higgs. Le boson associé a une masse $m_h = \sqrt{2v^2\lambda}$. Plus de 30 ans après sa prédiction, le CERN a officiellement annoncée le 4 juillet 2012 la découverte d'une nouvelle particule compatible avec le boson de Higgs \citep{higgs_cms,higgs_atlas}. Cette particule a été observée dans plusieurs canaux de désintégrations, dont $H \rightarrow \gamma\gamma$ et $H \rightarrow ZZ$. On peut voir figure \ref{fig:higgs_mgg} le spectre de masse invariante $m_{\gamma\gamma}$, où on voit clairement une déviation par rapport à la prédiction théorique, et figure \ref{fig:higgs_pvalue} la \emph{p-value} associée à la découverte. La \emph{p-value} représente la probabilité que la mesure soit compatible avec une absence de signal. On remarque la très nette déviation autour de \SI{125}{\GeV}.
+Le mécanisme de Higgs prévoit donc l'existence d'un nouveau champ scalaire, le champ de Higgs. Le boson associé a une masse $m_h = \sqrt{2v^2\lambda}$. Plus de 30 ans après sa prédiction, le CERN a officiellement annoncée le 4 juillet 2012 la découverte d'une nouvelle particule compatible avec le boson de Higgs \citep{higgs_cms,higgs_atlas}. Cette particule a été observée dans plusieurs canaux de désintégrations, dont $H \rightarrow \gamma\gamma$ et $H \rightarrow ZZ$. On peut voir figure \ref{fig:higgs_mgg} le spectre de masse invariante $m_{\gamma\gamma}$ pour l'expérience CMS, où on voit clairement une déviation par rapport à la prédiction théorique, et figure \ref{fig:higgs_pvalue} la \emph{p-value} associée à la découverte. La \emph{p-value} représente la probabilité que la mesure soit compatible avec une absence de signal. On remarque la très nette déviation autour de \SI{125}{\GeV}.
 
- Des signes sont aussi présent dans la désintégration $\tau\tau$, ce qui serait la preuve qu'il est en effet correct d'étendre le mécanisme de Higgs pour générer la masse des fermions. Selon les derniers résultats, ce boson a une masse de $m_h = \SI{125.9 \pm 0.4}{\GeV}$ \citep{pdg}. De nombreuses recherches sont encore en cours afin de déterminer si ce boson est bien celui prédit par le Modèle Standard, mais les premiers résultats laissent à penser que c'est le cas.
+% Des signes sont aussi présent dans la désintégration $\tau\tau$, ce qui serait la preuve qu'il est en effet correct d'étendre le mécanisme de Higgs pour générer la masse des fermions.
+Selon les derniers résultats, ce boson a une masse de $m_h = \SI{125.9 \pm 0.4}{\GeV}$ \citep{pdg}. De nombreuses recherches sont encore en cours afin de déterminer si ce boson est bien celui prédit par le Modèle Standard, mais les premiers résultats laissent à penser que c'est le cas.
 
-\subsection{Renormalisation} \label{sec:renormalisation}
+% \subsection{Renormalisation} \label{sec:renormalisation}
 
-Lorsque l'on ajoute des boucles aux diagrammes d'un processus à l'arbre, le calcul de l'élément de matrice de transition diverge. Par exemple, lors du passage du diagramme \ref{fig:ee_annihilation} au diagramme \ref{fig:ee_annihilation_high_order}, il est nécessaire d'intégrer sur toutes les impulsions possibles, puisque la particule qui forme la boucle est virtuelle. Ceci entraîne l'apparition de terme de la forme $\int k dk$, avec $k \rightarrow \infty$. termes qui divergent.
+% Lorsque l'on ajoute des boucles aux diagrammes d'un processus à l'arbre, le calcul de l'élément de matrice de transition diverge. Par exemple, lors du passage du diagramme \ref{fig:ee_annihilation} au diagramme \ref{fig:ee_annihilation_high_order}, il est nécessaire d'intégrer sur toutes les impulsions possibles, puisque la particule qui forme la boucle est virtuelle. Ceci entraîne l'apparition de terme de la forme $\int k dk$, avec $k \rightarrow \infty$. termes qui divergent.
 
-\begin{figure}[t] \centering
-  \subcaptionbox{\label{fig:ee_annihilation}}[.4\linewidth]{
-  \begin{fmfgraph*}(180,100)
-    \fmfpen{0.5}
-    \fmfleft{i1,i2}
-    \fmfright{o1,o2}
-    \fmf{fermion}{i1,v1,i2}
-    \fmf{fermion}{o1,v2,o2}
-    \fmfdot{v1} \fmfdot{v2}
-    \fmf{photon,label=$\gamma$}{v1,v2}
-    \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
-    \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
-  \end{fmfgraph*}}\qquad%
+% \begin{figure}[t] \centering
+%   \subcaptionbox{\label{fig:ee_annihilation}}[.4\linewidth]{
+%   \begin{fmfgraph*}(180,100)
+%     \fmfpen{0.5}
+%     \fmfleft{i1,i2}
+%     \fmfright{o1,o2}
+%     \fmf{fermion}{i1,v1,i2}
+%     \fmf{fermion}{o1,v2,o2}
+%     \fmfdot{v1} \fmfdot{v2}
+%     \fmf{photon,label=$\gamma$}{v1,v2}
+%     \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
+%     \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
+%   \end{fmfgraph*}}\qquad%
+% %   \subcaptionbox{\label{fig:ee_annihilation_high_order}}[.4\linewidth]{
+% %   \begin{fmfgraph*}(180,100)
+% %     \fmfpen{0.5}
+% %     \fmfleft{i1,i2}
+% %     \fmfright{o1,o2}
+% %     \fmf{fermion}{i1,g1,v1,g2,i2}
+% %     \fmf{fermion,tension=0.5}{o1,v2,o2}
+% %     \fmfdot{v1} \fmfdot{v2}
+% %     \fmf{photon,label=$\gamma$}{v1,v2}
+% %     \fmf{photon,label=$\gamma$,tension=0,left=0.7}{g1,g2}
+% %     \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
+% %     \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
+% %   \end{fmfgraph*}}
 %   \subcaptionbox{\label{fig:ee_annihilation_high_order}}[.4\linewidth]{
 %   \begin{fmfgraph*}(180,100)
 %     \fmfpen{0.5}
 %     \fmfleft{i1,i2}
 %     \fmfright{o1,o2}
-%     \fmf{fermion}{i1,g1,v1,g2,i2}
-%     \fmf{fermion,tension=0.5}{o1,v2,o2}
+%     \fmf{fermion}{i1,v1,i2}
+%     \fmf{fermion}{o1,v2,o2}
 %     \fmfdot{v1} \fmfdot{v2}
-%     \fmf{photon,label=$\gamma$}{v1,v2}
-%     \fmf{photon,label=$\gamma$,tension=0,left=0.7}{g1,g2}
+%     \fmf{photon,label=$\gamma$,tension=2}{v1,g1}
+%     \fmf{photon,label=$\gamma$,tension=2}{g2,v2}
+%     \fmf{fermion,left=1,label=$e^-$}{g1,g2}
+%     \fmf{fermion,left=1,label=$e^+$}{g2,g1}
 %     \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
 %     \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
 %   \end{fmfgraph*}}
-  \subcaptionbox{\label{fig:ee_annihilation_high_order}}[.4\linewidth]{
-  \begin{fmfgraph*}(180,100)
-    \fmfpen{0.5}
-    \fmfleft{i1,i2}
-    \fmfright{o1,o2}
-    \fmf{fermion}{i1,v1,i2}
-    \fmf{fermion}{o1,v2,o2}
-    \fmfdot{v1} \fmfdot{v2}
-    \fmf{photon,label=$\gamma$,tension=2}{v1,g1}
-    \fmf{photon,label=$\gamma$,tension=2}{g2,v2}
-    \fmf{fermion,left=1,label=$e^-$}{g1,g2}
-    \fmf{fermion,left=1,label=$e^+$}{g2,g1}
-    \fmflabel{$e^-$}{i1} \fmflabel{$e^+$}{i2} 
-    \fmflabel{$e^+$}{o1} \fmflabel{$e^-$}{o2} 
-  \end{fmfgraph*}}
-  \caption{Diagrammes de Feynman $e^+e^- \rightarrow e^+e^-$ d'ordre 1 (\protect\subref{fig:ee_annihilation}) et d'ordre 2 (\protect\subref{fig:ee_annihilation_high_order}).}
-  \label{fig:ee_annihilation_total}
-\end{figure}
+%   \caption{Diagrammes de Feynman $e^+e^- \rightarrow e^+e^-$ d'ordre 1 (\protect\subref{fig:ee_annihilation}) et d'ordre 2 (\protect\subref{fig:ee_annihilation_high_order}).}
+%   \label{fig:ee_annihilation_total}
+% \end{figure}
 
-Néanmoins, il est possible de supprimer ces divergences en introduisant un \emph{cut-off} dans la théorie, c'est-à-dire une énergie arbitraire jusqu'où le modèle est valide. Ce nouveau paramètre est ensuite absorbé dans une redéfinition de la constante de couplage du processus, qui par conséquence n'est plus constante mais dépend de l'énergie du processus : c'est la renormalisation.
+% Néanmoins, il est possible de supprimer ces divergences en introduisant un \emph{cut-off} dans la théorie, c'est-à-dire une énergie arbitraire jusqu'où le modèle est valide. Ce nouveau paramètre est ensuite absorbé dans une redéfinition de la constante de couplage du processus, qui par conséquence n'est plus constante mais dépend de l'énergie du processus : c'est la renormalisation.
 
-\bigskip
+% \bigskip
 
-Pour l'interaction électromagnétique, la constante de couplage $\alpha_0$ devient, après renormalisation
-\begin{align*}
-  \alpha\left(Q^2\right) &= \frac{\alpha(\mu^2)}{1 - \frac{\alpha(\mu^2)}{2\pi} \ln\left( \frac{Q^2}{\mu^2} \right) }
-\end{align*}
-où $Q^2$ est l'énergie à laquelle évaluer la constante de couplage, et $\mu^2$ la valeur de l'échelle de renormalisation.
+% Pour l'interaction électromagnétique, la constante de couplage $\alpha_0$ devient, après renormalisation
+% \begin{align*}
+%   \alpha\left(Q^2\right) &= \frac{\alpha(\mu^2)}{1 - \frac{\alpha(\mu^2)}{2\pi} \ln\left( \frac{Q^2}{\mu^2} \right) }
+% \end{align*}
+% où $Q^2$ est l'énergie à laquelle évaluer la constante de couplage, et $\mu^2$ la valeur de l'échelle de renormalisation.
 
-Dans le cas de l'interaction forte, la constante de couplage $\alpha_s$ devient
-\begin{align*}
-  \alpha_s\left(Q²\right) &= \frac{\alpha_s(\mu^2)}{1 + \frac{\alpha_s(\mu^2)}{12\pi} \left(33 - 2n_f\right) \ln\left( \frac{Q^2}{\mu^2} \right) }
-\end{align*}
-où $n_f$ est le nombre de saveurs (6 quarks). Une chose importante à noter est que la constante de couplage de l'interaction forte \emph{diminue} avec l'énergie, and devient faible pour des faibles distances d'interaction : c'est la liberté asymptotique. A l'inverse, plus la distance d'interaction augmente, plus l'interaction est importe : à partir d'une certaine distance, l'énergie disponible est suffisante pour créer une paire $q\bar{q}$. Il n'est ainsi pas possible d'observer un quark seul, c'est le confinement.
+% Dans le cas de l'interaction forte, la constante de couplage $\alpha_s$ devient
+% \begin{align*}
+%   \alpha_s\left(Q²\right) &= \frac{\alpha_s(\mu^2)}{1 + \frac{\alpha_s(\mu^2)}{12\pi} \left(33 - 2n_f\right) \ln\left( \frac{Q^2}{\mu^2} \right) }
+% \end{align*}
+% où $n_f$ est le nombre de saveurs (6 quarks). Une chose importante à noter est que la constante de couplage de l'interaction forte \emph{diminue} avec l'énergie, and devient faible pour des faibles distances d'interaction : c'est la liberté asymptotique. A l'inverse, plus la distance d'interaction augmente, plus l'interaction est importe : à partir d'une certaine distance, l'énergie disponible est suffisante pour créer une paire $q\bar{q}$. Il n'est ainsi pas possible d'observer un quark seul, c'est le confinement.
 
-On définit une nouvelle échelle, $\Lambda^2$, définit comme la valeur à laquelle la constante de couplage devient trop importante pour que le calcul perturbatif puisse être utilisé. On a
-\begin{align*}
-  \Lambda^2 &= \mu^2 \exp\left( \frac{-12\pi}{(33 - 2n_f) \alpha_s\left(\mu^2\right)} \right) \\
-  \alpha_s\left(Q^2\right) &= \frac{12 \pi}{\left(33 - 2n_f\right) \ln\left( \frac{Q^2}{\Lambda^2} \right)}
-\end{align*}
+% On définit une nouvelle échelle, $\Lambda^2$, définit comme la valeur à laquelle la constante de couplage devient trop importante pour que le calcul perturbatif puisse être utilisé. On a
+% \begin{align*}
+%   \Lambda^2 &= \mu^2 \exp\left( \frac{-12\pi}{(33 - 2n_f) \alpha_s\left(\mu^2\right)} \right) \\
+%   \alpha_s\left(Q^2\right) &= \frac{12 \pi}{\left(33 - 2n_f\right) \ln\left( \frac{Q^2}{\Lambda^2} \right)}
+% \end{align*}
 
-On peut voir $\Lambda$ comme la frontière entre le monde des quarks libres, décrit correctement par des calculs perturbatifs, et le monde des quarks liés. Afin de décrire ces états, les calculs perturbatifs ne sont pas correct, la constante de couplage étant grande devant l'unité. On peut utiliser des techniques de simulation telle que la QCD sur réseau \citep{PhysRevD.10.2445}.
+% On peut voir $\Lambda$ comme la frontière entre le monde des quarks libres, décrit correctement par des calculs perturbatifs, et le monde des quarks liés. Afin de décrire ces états, les calculs perturbatifs ne sont pas correct, la constante de couplage étant grande devant l'unité. On peut utiliser des techniques de simulation telle que la QCD sur réseau \citep{PhysRevD.10.2445}.
 
 \section{Faiblesses du Modèle Standard}
 
-Depuis son développement dans les années 1960, le Modèle Standard est un succès expérimental. Il a en effet prédit l'existence des bosons $W^{\pm}$, $Z$, des quarks $b$ et $t$ avant leur découverte. Si l'on exclu la récente découverte d'une particule compatible avec le boson de Higgs en 2012, la dernière découverte est celle du quark $t$ en 1995 au Tevatron, l'accélérateur de particule du FNAL, aux États-Unis. On présente figure \ref{fig:ewk_fit} les derniers résultats de l'ajustement des paramètres de la théorie électrofaible. Les différences entre les valeurs expérimentales et les valeurs ajustées sont toutes inférieures à 3 $\sigma$, démonstration du succès du Modèle Standard.
+Depuis son développement dans les années 1960, le Modèle Standard est un succès expérimental. Il a en effet prédit l'existence des bosons $W^{\pm}$, $Z$, des quarks $b$ et $t$ avant leur découverte. Si l'on exclu la récente découverte d'une particule compatible avec le boson de Higgs en 2012, la dernière découverte est celle du quark $t$ en 1995 au Tevatron, l'accélérateur de particule du FNAL, aux États-Unis. On présente figure \ref{fig:ewk_fit} les derniers résultats de l'ajustement des paramètres de la théorie électrofaible. En effet, le Modèle Standard permet de relier quasiment tous les paramètres par des relations. L'ajustement permet donc de comparer directement les prédictions du Modèle Standard avec les mesures expérimentales. Les différences entre les valeurs expérimentales et les valeurs ajustées sont toutes inférieures à 3 $\sigma$, démonstration du succès du Modèle Standard.
 
 Malgré ce succès qui dure depuis plus de 50 ans, un certain nombre d'interrogations et de problèmes demeurent. En effet, un certain nombre d'éléments laissent à penser que le Modèle Standard n'est qu'un modèle effectif à baisse énergie d'une théorie plus fondamentale.
 
@@ -798,7 +798,7 @@ Malgré ce succès qui dure depuis plus de 50 ans, un certain nombre d'interroga
 \begin{description}
   \item[Nombre de paramètres libres] Tel que construit, le Modèle Standard comporte 19 paramètres libres : les 6 masses des quarks, les 3 masses des leptons, l'angle de mélange électrofaible, les 4 paramètres de la matrice CKM, les 3 constantes de couplage, et les deux paramètres du potentiel de Higgs. L'un des objectifs majeur de la Physique étant de décrire de façon la plus simple possible les phénomènes, tout laisse à penser qu'une théorie comportant moins de paramètres libres engloberait le Modèle Standard.
   \item[Nombre de générations] Les contraintes sur le nombre de générations de leptons proviennent des mesure de la largeur du $Z$, et conduisent à une prédiction de 3 générations. Néanmoins, une quatrième génération plus massive que la masse du $Z$ ou non couplée à l'interaction faible n'est pas exclue ; le Modèle Standard ne prédit pas le nombre de générations de fermions.
-  \item[L'ajustement fin ou problème de hiérarchie] Les diagrammes de Feynman qui contribuent au calcul de la masse du boson de Higgs incluent des boucles, qui conduisent à des divergences. Le Modèle Standard étant une théorie renormalisable (voir \ref{sec:renormalisation}), ces divergences peuvent être absorbées dans la masse du boson, conduisant à une masse effective ($m_h$) différente de la masse nue ($m_{h, 0}$) \citep{higgs_mass} :
+  \item[L'ajustement fin ou problème de hiérarchie] Les diagrammes de Feynman qui contribuent au calcul de la masse du boson de Higgs incluent des boucles, qui conduisent à des divergences. Le Modèle Standard étant une théorie renormalisable, ces divergences peuvent être absorbées dans la masse du boson, conduisant à une masse effective ($m_h$) différente de la masse nue ($m_{h, 0}$) \citep{higgs_mass} :
   \begin{align*}
     m_h^2 &= m_{h, 0}^2 - \frac{3 \Lambda^2}{8 \pi^2 v^2} \left(m_h² + 2m_W^2 + m_Z^2 - 4m_t\right)
   \end{align*}
