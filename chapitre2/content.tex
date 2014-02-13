@@ -52,7 +52,6 @@ où $\gamma$ est le boost de Lorentz, $f$ la fréquence de révolution des paque
 
 \begin{table} \centering
   \begin{tabular}{@{}ccccc@{}} \toprule
-  
   \multirow{2}{*}{Caractéristiques} & \multicolumn{4}{c}{Conditions} \\ \cmidrule{2-5}
   & nominales & 2010 & 2011 & 2012 \\ \midrule
   Énergie par faisceau (\si{\TeV}) & 7 & \num{3.5} & \num{3.5} & \num{4} \\
@@ -281,10 +280,14 @@ Aux conditions nominales, le temps entre chaque collision est de \SI{25}{\ns}, s
   \item[Le HLT] Le taux d'événements en sortie du L1 est encore trop important, et doit être réduit à environ \SI{100}{\Hz} afin d'être stockable en temps réel. Le HLT est chargée d'effectuée cette sélection. Pour cela, une ferme d'ordinateurs est installée à proximité du détecteur et sélectionne les événements digne d’intérêt. Il dispose des données de tous les sous-détecteurs et effectue une reconstruction rapide afin d'obtenir une description de l'événement en terme d'objets physiques plutôt qu'en terme de signaux électriques. Le temps moyen alloué au HLT pour prendre une décision est d'environ \SI{50}{\ms}.
 \end{description}
 
-\begin{figure} \centering
+\begin{figure}[tb] \centering
   \includegraphics[width=0.7\textwidth]{chapitre2/figs/DAQ.pdf}
   \caption{Schéma de la chaîne d'acquisition de données de CMS}
   \label{fig:daq}
 \end{figure}
 
 Une fois accepté, l'événement est stocké de façon définitive dans un centre de stockage à haute redondance, le \emph{Tier-0}.
+
+\section{Conclusion}
+
+Tout au long de ce chapitre, on a vu comment le LHC, et le détecteur CMS, ont été pensé afin d'enrichir nos connaissances sur la physique du Modèle Standard. De nouvelles perspectives s'ouvrent dans le recherche de nouvelles physique au delà du Modèle Standard. Mais pour que les analyses de physique puisse travailler, il faut dans un premier temps reconstruire les collisions, c'est-à-dire convertir les signaux électriques issus des sous-détecteurs en objet physique (électrons, muons, \dots). Les méthodes employées par CMS sont décrites en détails dans le chapitre suivant.
