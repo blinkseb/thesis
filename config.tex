@@ -531,9 +531,20 @@
 \renewcommand{\tilde}{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
 
 
-\ifthenelse{\boolean{@drafting}}{% 
+\ifthenelse{\boolean{@drafting}}{%
 \PassOptionsToPackage{status=draft}{fixme}
  }{\relax}
 \RequirePackage[layout=inline]{fixme}
 
 \usepackage{cleveref}
+
+\usepackage{tikz}
+
+\usepackage{multicol}
+
+\usepackage{longtable}
+
+\usepackage{fmtcount}
+
+\newcommand{\ptg}{\ensuremath{p_T^{\Pphoton}\xspace}}
+\newcommand{\ptfjet}{\ensuremath{p_T^{\text{\ordinalnum{1} jet}}\xspace}}
