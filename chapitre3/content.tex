@@ -10,16 +10,16 @@ Afin d'être en mesure de confronter les prédictions théoriques aux données e
 
 \subsection{L'événement dur}
 
-Lors d'une collision entre deux protons, seul les constituants (les partons: quarks et gluons) vont interagir, chacun emportant une certaine fraction $x$ de l'impulsion totale du proton incident. Afin d'extraire des informations sur les observables physiques, telles que les sections efficaces par exemple, on utilise un développement perturbatif à plusieurs ordres. En effet, la probabilité de transition d'un état initial $\ket{i}$ à un état final $\ket{f}$ est calculée en utilisant la règle d'or de Fermi. Cette règle est obtenue grâce à la théorie des perturbations, en considérant que le temps nécessaire à l'interaction est bien plus petit que le temps nécessaire à l'observation.
+Lors d'une collision entre deux protons, seul les constituants (les partons: quarks et gluons) vont interagir, chacun emportant une certaine fraction $x$ de l'impulsion totale du proton incident. Afin d'extraire des informations sur les observables physiques, telles que les sections efficaces par exemple, on utilise un développement perturbatif à plusieurs ordres.
 
 L'événement dur est décrit de façon analytique en utilisant ce développement perturbatif. Le générateur détermine grâce à un ensemble de règles, appelées règles de Feynman, la matrice de transition entre l'état initial et l'état final. Le calcul au premier ordre (LO, \emph{Leading Order}) est disponible pour tous les processus du Modèle Standard, via l'outil \texttt{MADGRAPH} \citep{madgraph} par exemple. Les simulations aux ordres supérieurs deviennent extrêmement complexes, et sont disponibles seulement pour un petit nombre de processus et nécessitent des outils particuliers (\texttt{POWHEG} \citep{Alioli:2010xd}, \texttt{MC@NLO} \citep{1126-6708-2002-06-029}).
 
-En collisionneur hadronique, seul deux partons interagissent dans l'événement dur. On simule donc un processus $ij \rightarrow X$, où $X$ est une ou plusieurs particules. La section efficace d'un tel processus est donnée par
+En collisionneur hadronique, seuls deux partons interagissent dans l'événement dur. On simule donc un processus $ij \rightarrow X$, où $X$ est une ou plusieurs particules. La section efficace d'un tel processus est donnée par
 \begin{align}
   \sigma_{X} &= \sum_{ij} \int \displaylimits_0^1 \int \displaylimits_0^1 f_i\left( x_i, \mu^2 \right) f_j\left(x_j, \mu^2\right) \sigma_{ij \rightarrow X}\, \mathrm{d}x_i \mathrm{d}x_j \\
-  \sigma_{ij \rightarrow X} &\propto \int \prod \displaylimits_{k = 1}^{N} \frac{\mathrm{d}^3p_k}{\left( 2 \pi \right)^2 2 E_k} \delta^4\left( p_i + p_j - \sum_{k = 1}^{N} p_k \right) \left| \mathcal{M}^{fi} \right|^2
+  \sigma_{ij \rightarrow X} &\propto \int \prod \displaylimits_{k = 1}^{N} \frac{\mathrm{d}^3p_k}{\left( 2 \pi \right)^2 2 E_k} \delta^4\left( p_i + p_j - \sum_{k = 1}^{N} p_k \right) \left| \mathcal{M}_{fi} \right|^2
 \end{align}
-où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus loin \fxnote{renvoi}), $x_i$ la fraction d'impulsion emportée par le parton $i$, $\mu^2$ l'échelle d'énergie du processus et $\mathcal{M}^{fi}$ l'élément de matrice de transition entre l'état initial $i$ et l'état final $f$. L'élément de matrice est calculé jusqu'à un ordre donné, limité par le générateur employé, et l'intégration est effectuée numériquement selon une méthode d'intégration de Monte-Carlo (MC).
+où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus loin \fxnote{renvoi}), $x_i$ la fraction d'impulsion emportée par le parton $i$, $\mu^2$ l'échelle d'énergie du processus et $\mathcal{M}_{fi}$ l'élément de matrice de transition entre l'état initial $i$ et l'état final $f$. L'élément de matrice est calculé jusqu'à un ordre donné, limité par le générateur employé, et l'intégration est effectuée numériquement selon une méthode d'intégration de Monte-Carlo (MC).
 
 \begin{figure}[htbp]
     \centering
@@ -40,6 +40,7 @@ Une fois l'hadronisation terminée, on dispose d'une liste de particules stables
     \item Les courbures des trajectoires des particules chargées par le champ magnétique
     \item Les gerbes électromagnétiques et hadroniques
     \item Les interactions particules - matières
+    \item La réponse électrique des détecteurs
 \end{itemize}
 
 Ces deux méthodes sont décrites rapidement ci-dessous.
@@ -58,20 +59,20 @@ La reconstruction d'un événement est effectuée de façon identique, que ça s
 
 \subsection{L'algorithme \emph{Particle-Flow} (PF)}
 
-CMS utilise un algorithme spécialisé pour reconstruire les objets physiques : l'algorithme du \emph{particle-flow} \citep{pf,cms_pf_2,cms_pf_jets,cms_pf_leptons}. En utilisant l'information de tous les sous-détecteurs pour reconstruire l'événement, cet algorithme permet d'améliorer significativement la résolution des particules reconstruites, et s'avère être un moyen efficace de contrebalancer la résolution moyenne de HCAL : on peut en effet utiliser l'excellente performance du trajectographe pour aider à la reconstruction des hadrons chargés.
+CMS utilise un algorithme spécialisé pour reconstruire les objets physiques : l'algorithme du \emph{particle-flow} \citep{pf,cms_pf_2,cms_pf_jets,cms_pf_leptons}. En utilisant l'information de tous les sous-détecteurs pour reconstruire l'événement, cet algorithme permet d'améliorer significativement la résolution des particules reconstruites, et s'avère être un moyen efficace de contrebalancer les faiblesses de HCAL : on peut en effet utiliser l'excellente performance du trajectographe pour aider à la reconstruction des hadrons chargés.
 
 
-Le \emph{particle-flow} permet de reconstruire les 5 types de particules stables détectées par CMS : les électrons, les muons, les photons, et les hadrons neutres et chargés. Toutes les autres particules ont en effet des temps de vie trop court, et se désintègrent en un ensemble de particules détectables avant d'atteindre les sous-détecteurs. Ces particules sont ensuite utilisées comme des briques élémentaires pour reconstruire des objets plus complexe, comme les jets. Ces briques étant ensuite utilisées par les analyses de physique, il est primordiale que le \emph{particle-flow} possède une efficacité de reconstruction la plus haute possible, tout en ayant un taux de fausse identification le plus faible possible. Ces contraintes ont conduit a l'élaboration d'algorithmes dédiés de trajectographie et de calorimétrie, détaillés ci-dessous.
+Le \emph{particle-flow} permet de reconstruire les 5 types de particules stables détectées par CMS : les électrons, les muons, les photons, et certains hadrons neutres et chargés. Ces particules sont ensuite utilisées comme des briques élémentaires pour reconstruire des objets plus complexe, comme les jets. Ces briques étant ensuite utilisées par les analyses de physique, il est primordial que le \emph{particle-flow} possède une efficacité de reconstruction la plus haute possible, tout en ayant un taux de fausse identification le plus faible possible. Ces contraintes ont conduit a l'élaboration d'algorithmes dédiés de trajectographie et de calorimétrie, détaillés ci-dessous.
 
 \subsubsection{Trajectographie itérative} \label{sec:tracks_reconstruction}
 
 L'impulsion des hadrons chargés est mesurée avec une résolution bien meilleure par le trajectographe que par les calorimètres. Comme près de \sfrac{2}{3} de l'énergie d'un jet est dû à la présence de hadrons chargés, le trajectographe joue un rôle majeur dans la performance du \emph{particle-flow}.
 
-Afin de reconstruire les trajectoires des particules avec une grande efficacité, tout en conservant un taux de faux minimale, une procédure itérative \citep{cms_tracks}, basée sur un filtre de Kalman (KF), est employée. La reconstruction commence en utilisant seulement les \emph{hits} des deux première couches du détecteur à pixels, ainsi que la position du point d'interaction. C'est ce qu'on appelle la graine de l'algorithme. On cherche ensuite à compléter la trajectoire en utilisant les \emph{hits} des autres couches du trajectographe. Les contraintes lors de cette première étape sont vraiment fortes, ce qui conduit à une efficacité de reconstruction moyenne, mais à un très faible taux de faux.
+Afin de reconstruire les trajectoires des particules avec une grande efficacité, tout en conservant un taux de faux minimal, une procédure itérative \citep{cms_tracks}, basée sur un filtre de Kalman (KF), est employée. La reconstruction commence en utilisant seulement les \emph{hits} des deux premières couches du détecteur à pixels, ainsi que la position du vertex primaire. C'est ce qu'on appelle la graine de l'algorithme. On cherche ensuite à compléter la trajectoire en utilisant les \emph{hits} des autres couches du trajectographe. Les contraintes lors de cette première étape sont vraiment fortes, ce qui conduit à une efficacité de reconstruction moyenne, mais à un très faible taux de faux.
 
-Avant l'étape suivante, les \emph{hits} associés de façon certaine à une trajectoire sont enlevés de la liste des \emph{hits} disponibles, et on réitère ensuite la même procédure en relâchant un peu les contraintes, ce qui permet d'améliorer l'efficacité de reconstruction, tout en gardant un taux de faux très faible grâce à la réduction de la combinatoire. Après la troisième itération, on obtient une efficacité de reconstruction de \SI{99.5}{\%} pour les muons isolés et de plus de \SI{90}{\%} pour les hadrons chargés. Pour les quatrième et cinquième itérations la contrainte sur le point d'interaction est relâchée, ce qui permet de reconstruire les trajectoires des hadrons chargés secondaires produits après le point d'interaction.
+Avant l'étape suivante, les \emph{hits} associés de façon certaine à une trajectoire sont enlevés de la liste des \emph{hits} disponibles, et on réitère ensuite la même procédure en relâchant un peu les contraintes, ce qui permet d'améliorer l'efficacité de reconstruction, tout en gardant un taux de faux très faible grâce à la réduction du nombre de combinaison. Après la troisième itération, on obtient une efficacité de reconstruction de \SI{99.5}{\%} pour les muons isolés et de plus de \SI{90}{\%} pour les hadrons chargés. Pour les quatrième et cinquième itérations la contrainte sur le point d'interaction est relâchée, ce qui permet de reconstruire les trajectoires des hadrons chargés secondaires ayant un vertex d'interaction déplacé.
 
-Grâce à cet algorithme de trajectographie itératif, la trajectoire d'une particule chargée ne laissant que 3 \emph{hits}, avec un $p_T$ de seulement \SI{150}{\MeV} et un vertex de production éloigné de plus de \SI{50}{\cm} de l'axe du faisceau est reconstruite avec un taux de faux de l'ordre du pour-cent. On peut voir figure \ref{fig:iterative_tracking_eff} l'efficacité de reconstruction des trajectoires grâce à l'utilisation de l'algorithme de trajectographie itératif.
+Grâce à cet algorithme de trajectographie itérative, la trajectoire d'une particule chargée ne laissant que 3 \emph{hits}, avec un $p_T$ de seulement \SI{150}{\MeV} et un vertex de production éloigné de plus de \SI{50}{\cm} de l'axe du faisceau est reconstruite avec un taux de faux de l'ordre du pour-cent. On peut voir figure \ref{fig:iterative_tracking_eff} l'efficacité de reconstruction des trajectoires grâce à l'utilisation de l'algorithme de trajectographie itératif.
 
 \begin{figure} \centering
   \subcaptionbox{\label{fig:tracking_eff_mu}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/iterative_tracking_mu.pdf}}\hfill
@@ -97,10 +98,10 @@ L'algorithme spécifique développé pour le \emph{particle-flow} permet d'attei
 \begin{figure}
   \subcaptionbox{\label{fig:calo_topo}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/calo_topoclus_seeds.pdf}}\hfill
   \subcaptionbox{\label{fig:calo_depth}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/calo_depthcor.pdf}}
-  \caption{Agglomérat topologique contenant deux graines (\subref{fig:calo_topo}) et détermination de la profondeur du dépôt d'énergie (\subref{fig:calo_depth}).}
+  \caption{Agglomérat topologique contenant deux graines (\subref{fig:calo_topo}) et détermination de la profondeur du dépôt d'énergie (\subref{fig:calo_depth}). En rouge, la position déterminée sans tenir compte de la profondeur biaise \aeta. En vert, la profondeur est correctement estimée.}
 \end{figure}
 
-Premièrement, on identifie les graines de l'algorithme comme les cellules calorimétrique où l'énergie dépasse un certain seuil, fixé arbitrairement mais supérieur au niveau de bruit du détecteur. Les cellules en contact avec une graine (4 ou 8 suivant la configuration) ne peuvent pas devenir des graines à leur tour. On construit ensuite des "agglomérats topologiques", en partant des graines et en agrégeant les cellules avec au moins un côté en commun avec la graine et avec une énergie au dessus d'un seuil, fixé comme deux fois la déviation standard du bruit électronique dans le ECAL (\SI{80}{\MeV} dans le tonneau, \tilde \SI{300}{\MeV} dans les bouchons) et à \SI{800}{\MeV} dans le HCAL. Il peut y avoir plusieurs graines dans un même agglomérat topologique. Dans ce cas, le partage de l'énergie entre chaque graine est effectuée selon la distance entre la cellule et la graine, en considérant que les gerbes électromagnétiques déposent leur énergie selon un profil gaussien, dont la largeur ne dépend pas de l'énergie.
+Premièrement, on identifie les graines de l'algorithme comme les cellules calorimétrique où l'énergie dépasse un certain seuil, fixé à une valeur supérieure au niveau de bruit du détecteur. Les cellules en contact avec une graine (4 ou 8 suivant la configuration) ne peuvent pas devenir des graines à leur tour. On construit ensuite des "agglomérats topologiques", en partant des graines et en agrégeant les cellules avec au moins un côté en commun avec la graine et avec une énergie au dessus d'un seuil, fixé comme deux fois la déviation standard du bruit électronique dans le ECAL (\SI{80}{\MeV} dans le tonneau, \tilde \SI{300}{\MeV} dans les bouchons) et à \SI{800}{\MeV} dans le HCAL. Il peut y avoir plusieurs graines dans un même agglomérat topologique. Dans ce cas, le partage de l'énergie entre chaque graine est effectuée selon la distance entre la cellule et la graine, en considérant que les gerbes électromagnétiques déposent leur énergie selon un profil gaussien, dont la largeur ne dépend pas de l'énergie.
 
 \medskip
 
@@ -112,7 +113,7 @@ avec $X = x, y$ ou $z$, $X_i$ la position de la cellule $i$, $E_i$ l'énergie de
 \begin{align*}
   p &= a\left( b + \ln{E} \right)
 \end{align*}
-où $a$ et $b$ sont des constantes qui dépendent de $\eta$, et $E$ l'énergie totale de l'agrégat. On peut voir figure \ref{fig:calo_depth} l'effet de cette procédure sur la détermination de la position angulaire de l'agrégat.
+où $p$ est la profondeur, $a$ et $b$ sont des constantes qui dépendent de $\eta$, et $E$ l'énergie totale de l'agrégat. On peut voir figure \ref{fig:calo_depth} l'effet de cette procédure sur la détermination de la position angulaire de l'agrégat.
 
 \subsubsection{L'algorithme de liaison} \label{sec:pf_links}
 
@@ -126,7 +127,7 @@ Les traces reconstruites dans le trajectographe sont extrapolées :
   \item Dans le calorimètre hadronique, jusqu'à une profondeur d'une interaction nucléaire ($\lambda_0$, voir \cref{sec:hcal}), longueur caractéristique d'une gerbe hadronique.
 \end{itemize}
 
-On relie la trace à un agrégat si la position extrapolée de la trace passe dans la zone délimitée par l'agrégat. Cette zone peut être augmentée d'une unité (un cristal pour le ECAL, ou une tour pour le HCAL) dans chaque direction, afin de tenir compte de possibles trous entre les modules calorimétriques, de l'incertitude sur la profondeur du maximum de la gerbe, et enfin des multiples diffusions des particules de très bas \pt. On peut voir figure \ref{fig:pf_links} la connexion entre deux traces et des agrégats calorimétriques pour un événement enregistré en décembre 2009 par CMS. On défini la distance du lien par la distance $\Delta R = \sqrt{\eta^2 + \phi^2}$ dans le plan ($\eta$, $\phi$).
+On relie la trace à un agrégat si la position extrapolée de la trace passe dans la zone délimitée par l'agrégat. Cette zone peut être augmentée d'une unité (un cristal pour le ECAL, ou une tour pour le HCAL) dans chaque direction, afin de tenir compte de possibles trous entre les modules calorimétriques, de l'incertitude sur la profondeur du maximum de la gerbe, et enfin des multiples diffusions des particules de très bas \pt. On peut voir figure \ref{fig:pf_links} la connexion entre deux traces et des agrégats calorimétriques pour un événement enregistré en décembre 2009 par CMS. On définit la distance du lien par la distance $\Delta R = \sqrt{\eta^2 + \phi^2}$ dans le plan ($\eta$, $\phi$).
 
 \begin{figure}
   \subcaptionbox{ECAL\label{fig:pf_links_ecal}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/pf_links_ecal.png}}\hfill
@@ -181,11 +182,11 @@ Pour chaque muon reconstruit, on enlève les blocs \emph{particle-flow} correspo
 
 \subsubsection{Reconstruction des électrons}
 
-L'algorithme de reconstruction des traces de CMS (voir \cref{sec:tracks_reconstruction}) est optimisé pour reconstruire les traces des muons. Les électrons étant beaucoup plus léger que les muons, la radiation Bremsstrahlung est amplifiée par un facteur $\left( \sfrac{m_\mu}{m_e} \right)^4 \simeq \num{1.83e9}$, ce qui met en défaut l'algorithme de reconstruction des traces. En effet, la trajectoire des électrons peut changer brusquement lors de l'émission d'un photon Bremsstrahlung, et l'algorithme de reconstruction n'arrive plus à suivre la trajectoire abrupt de l'électron. En cas d'émission d'un photon de basse énergie, l'algorithme peut arriver à reconstruire quand même la trajectoire de l'électron, mais au prix d'une grande incertitude et d'un $\chi^2$ grand.
+L'algorithme de reconstruction des traces de CMS (voir \cref{sec:tracks_reconstruction}) est optimisé pour reconstruire les traces des muons. Les électrons étant beaucoup plus léger que les muons, la radiation Bremsstrahlung est amplifiée par un facteur $\left( \sfrac{m_\mu}{m_e} \right)^4 \simeq \num{1.83e9}$, ce qui met en défaut l'algorithme de reconstruction des traces. En effet, la trajectoire des électrons peut changer brusquement lors de l'émission d'un photon Bremsstrahlung, et l'algorithme de reconstruction n'arrive plus à suivre la trajectoire abrupte de l'électron. En cas d'émission d'un photon de basse énergie, l'algorithme peut arriver à reconstruire quand même la trajectoire de l'électron, mais au prix d'une grande incertitude et d'un $\chi^2$ grand.
 
 Un algorithme dédié a été développé par CMS pour contrer ces problèmes \citep{pf,cms_pf_leptons,cms_pf_electrons}. La trajectoire de l'électron est redéfinie, en modélisant le rayonnement Bremsstrahlung par une somme de gaussienne (algorithme GSF, pour \emph{Gaussian Sum Filter}. Le nombre de paramètres libres étant important (plus d'une dizaine), l'algorithme est capable de suivre les brusques changements de trajectoires, et procure ainsi une bien meilleure estimation de l'impulsion des électrons. En contre-partie, cet algorithme est très gourmand en ressource (environ \SI{200}{\ms} par trace), et ne peut donc être utilisé que sur un nombre réduit de traces. Il est alors nécessaire d'effectuer une pré-sélection dans les traces existantes afin d'extraire celles qui ont le plus de chance d'être produites par un électron.
 
-La pré-sélection des électrons exploite les caractéristiques des traces. Lorsque la radiation Bremsstrahlung est négligeable, l'algorithme classique reconstruit une trace et on trouve un bloc \emph{particle-flow} associé. Si le rapport $E/p$ est proche de l'unité, la trace est sélectionnée. Quand le rayonnement Bremsstrahlung n'est pas négligeable, deux cas sont possibles :
+La pré-sélection des électrons exploite les caractéristiques des traces. Lorsque la radiation Bremsstrahlung est négligeable, l'algorithme classique reconstruit une trace et on trouve un bloc \emph{particle-flow} associé. Si le rapport $E/p$ est proche de l'unité, la trace est sélectionnée. Lorsque le rayonnement Bremsstrahlung n'est pas négligeable, deux effets sont possibles :
 \begin{itemize}
     \item L'algorithme de reconnaissance de traces échoue lors d'un changement abrupt de trajectoire. La trace résultante contient alors un petit nombre de \emph{hits}.
     \item L'algorithme de reconnaissance de traces reconstruit une trace, mais le $\chi^2$ associé est grand.
@@ -245,7 +246,7 @@ Pour les hadrons chargés, l'énergie calorimétrique associée au bloc \emph{pa
 \begin{align*}
   E_\text{calib} &= a + b\left(E, \eta\right) E_\text{ECAL} + c\left(E, \eta\right)E_\text{HCAL}
 \end{align*}
-où $a$, $b$, $c$ sont des constantes de calibration à déterminer, $E$ l'énergie totale non calibrée du hadron chargé, et $\eta$ la pseudo-rapidité de la cellule du HCAL. Ces constantes ont été déterminées sur les premières données en 2010. On peut voir \cref{fig:hadron_calib} l'effet de la calibration sur la détermination de l'énergie des hadrons chargés. Cette calibration impact directement la mesure de l'énergie des photons et des hadrons neutres. Elle est donc primordiale.
+où $a$, $b$, $c$ sont des constantes de calibration à déterminer, $E$ l'énergie totale non calibrée du hadron chargé, et $\eta$ la pseudo-rapidité de la cellule du HCAL. Ces constantes ont été déterminées sur les premières données en 2010. On peut voir \cref{fig:hadron_calib} l'effet de la calibration sur la détermination de l'énergie des hadrons chargés. Cette calibration impacte directement la mesure de l'énergie des photons et des hadrons neutres. Elle est donc primordiale.
 
 \subsection{Reconstruction des jets}
 
@@ -272,16 +273,16 @@ Avant même l'utilisation de ces algorithmes, on commence par enlever les lepton
     \label{fig:akt_ca}
 \end{figure}
 
-Ces deux algorithmes itèrent sur la collection de particules, et tentent de construire un jet en associant les particules deux à deux. Pour ce faire, ils utilisent les quantités suivantes :
+Les deux algorithmes précédemment mentionné itèrent sur la collection de particules, et tentent de construire un jet en associant les particules deux à deux. Pour ce faire, ils utilisent les quantités suivantes :
 \begin{align*}
   d{ij} &= \text{min}\left( k_{T, i}^n, k_{T, j}^n \right) \frac{\Delta R^2_{ij}}{R^2} \\
   d_{iB} &= k^n_{T, i}
 \end{align*}
-où $k_{T, i}$ est l'impulsion transverse de la particule $i$ par rapport à l'axe du faisceau, $\Delta R_{ij}$ la distance entre $i$ et $j$ dans le plan ($\eta$, $\phi$), et $R$ une distance, choisie par l'utilisateur, symbolisant la largeur du jet. Pour l'algorithme \emph{anti-$k_T$}, on a $n = -2$, tandis que pour C-A, on a $n = 1$. $d_{iB}$ est la distance entre la particule $i$ et le faisceau.
+où $k_{T, i}$ est l'impulsion transverse de la particule $i$ par rapport à l'axe du faisceau, $\Delta R_{ij}$ la distance entre $i$ et $j$ dans le plan ($\eta$, $\phi$), et $R$ une distance, choisie par l'utilisateur, symbolisant la largeur du jet. Pour l'algorithme \emph{anti-$k_T$}, on a $n = -2$, tandis que pour C-A, on a $n = 1$. $d_{iB}$ est un estimateur de la distance entre la particule $i$ et le faisceau.
 
 L'algorithme cherche la valeur minimum $d_{min}$ entre tous les $d_{ij}$ et $d_{iB}$. Si le minimum est obtenu pour une valeur de $d_{ij}$, les particules $i$ et $j$ sont fusionnées (leurs quadrivecteurs sont sommés), et l'algorithme recommence. Au contraire, si le minimum est obtenu pour $d_iB$, la particule $i$ (souvent résultant de la fusion de plusieurs autres particules lors des itérations précédentes de l'algorithme) est considérée comme un jet et enlevée de la liste des particules. L'algorithme stoppe quand aucune particule ne reste.
 
-La seule différence entre ces deux algorithmes vient de la façon dont le choix des particules à grouper est fait. Pour l'algorithme \emph{anti-$k_T$}, le poids de chaque paire est proportionnel à $\text{min}\left( 1 / k^2_{T,i}, 1 / k^2_{T,j} \right)$, ce qui revient à fusionner les proches particules de grande impulsions en premier. Dans le cas de l'algorithme C-A, le poids est uniquement proportionnel à la distance entre les paires : les particules les plus proches sont fusionnées en premier. On peut voir \cref{fig:akt_ca} un exemple de reconstruction des jets sur un même événement par les deux algorithmes.
+La seule différence entre ces deux algorithmes vient de la façon dont le choix des particules à grouper est fait. Pour l'algorithme \emph{anti-$k_T$}, le poids de chaque paire est proportionnel à $\text{min}\left( 1 / k^2_{T,i}, 1 / k^2_{T,j} \right)$, ce qui revient à fusionner les particules de grande impulsions les plus proches en premier. Dans le cas de l'algorithme C-A, le poids est uniquement proportionnel à la distance entre les paires : les particules les plus proches sont fusionnées en premier. On peut voir \cref{fig:akt_ca} un exemple de reconstruction des jets sur un même événement par les deux algorithmes.
 
 \bigskip
 
@@ -297,7 +298,9 @@ Une alternative à la reconstruction des jets \emph{particle-flow} existe, utili
 
 \subsubsection{Correction de l'énergie des jets}
 
-L'algorithme de reconstruction des jets est complexe. Il arrive que des particules créées lors de l'hadronisation ne soient pas correctement agglomérées dans le jet, souvent parce que la trajectoire de ces particules dévie trop de la trajectoire initiale du quark. Afin de correctement estimer l'énergie d'un jet, il est nécessaire d'effectuer toute un série de corrections, permettant, entre autre, de corriger des problèmes de calibration des calorimètres. Les différentes corrections sont détaillées dans le \cref{chap:jetmet}.
+L'algorithme de reconstruction des jets est complexe. Il arrive que des particules créées lors de l'hadronisation ne soient pas correctement agglomérées dans le jet, souvent parce que la trajectoire de ces particules dévie trop de la trajectoire initiale du quark. Des problèmes de calibrations des sous-détecteurs viennent aussi dégrader la mesure de l'énergie des jets.
+
+Afin de corriger ces problèmes, il est nécessaire d'effectuer toute une série de corrections, présentées en détails dans le \cref{chap:jetmet}.
 
 \subsubsection{L'algorithme d'identification des jets de $b$}
 
@@ -310,7 +313,7 @@ L'algorithme de reconstruction des jets est complexe. Il arrive que des particul
 \end{figure}
 
 
-Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les jets qu'ils forment. Ces propriétés inclues, entre autre, leur grande masse et leur grand temps de vie. Plusieurs algorithmes sont disponibles dans CMS permettant d'identifier les jets formés par un quark $b$ (\emph{b-tagging}, pour étiquetage des $b$), chacun exploitant une spécificité des hadrons $B$. L'algorithme actuellement recommandé par la collaboration CMS est l'algorithme \emph{combined secondary vertex} (CSV, vertex secondaire combiné). C'est un algorithme avancé qui exploite toutes les variables connues pour discriminer les jets de $b$, telles que des informations sur des vertex déplacés, la cinématique du jet, etc. Une analyse multivariée (MVA) permet ensuite de fournir un discriminant, et trois points de fonctionnements sont définis, chacun augmentant l'efficacité de correctement étiqueter un jet de $b$, mais au détriment d'un taux de faux plus important (voir \cref{fig:btag_perf}).
+Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les jets qu'ils forment. Ces propriétés incluent, entre autre, leur grande masse et leur grand temps de vie. Plusieurs algorithmes sont disponibles dans CMS permettant d'identifier les jets formés par un quark $b$ (\emph{b-tagging}, pour étiquetage des $b$), chacun exploitant une spécificité des hadrons $B$. L'algorithme actuellement recommandé par la collaboration CMS est l'algorithme \emph{combined secondary vertex} (CSV, vertex secondaire combiné). C'est un algorithme avancé qui exploite toutes les variables connues pour discriminer les jets de $b$, telles que des informations sur des vertex déplacés, la cinématique du jet, etc. Une analyse multivariée (MVA) permet ensuite de fournir un discriminant, et trois points de fonctionnements sont définis, chacun augmentant l'efficacité de correctement étiqueter un jet de $b$, mais au détriment d'un taux de faux plus important (voir \cref{fig:btag_perf}). Pour le point de fonctionnement moyen, l'efficacité de correctement étiqueter un jet de $b$ est \tilde\SI{70}{\%}, tandis que la probabilité d'étiqueter comme $b$ un jet d'une autre saveur est \tilde{1}{\%}.
 
 \subsection{L'énergie transverse manquante}
 
@@ -321,6 +324,14 @@ Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les je
     \label{fig:met_resolution}
 \end{figure}
 
-Par définition, les collisions au sein de CMS se déroule le long de l'axe $z$. L'énergie dans le plan ($x$, $y$) est donc nulle. Par conservation de l'énergie, ce bilan doit rester nul après reconstruction de l'événement : un bilan non nul signifie que des particules n'ont pas été correctement reconstruites. C'est par exemple le cas des neutrinos, qui n'interagissent que très peu avec la matière, et ne sont par conséquent jamais détectés.
+Par définition, les collisions au sein de CMS se déroulent le long de l'axe $z$. L'énergie dans le plan ($x$, $y$) est donc nulle. Par conservation de l'énergie, ce bilan doit rester nul après reconstruction de l'événement : un bilan non nul signifie que des particules n'ont pas été correctement reconstruites. C'est par exemple le cas des neutrinos, qui n'interagissent que très peu avec la matière, et ne sont par conséquent jamais détectés.
 
 Afin de quantifier cette perte d'énergie, on introduit le vecteur énergie transverse manquante. La norme de ce vecteur est communément appelée énergie transverse manquante (MET), symbolisée par \met. A l'aide de l'algorithme de \emph{particle-flow}, on définit le vecteur énergie transverse manquante comme l'opposé de la somme des impulsions transverses de toutes les particules de l'événement. La résolution sur la mesure de \met est très importante, puisque de nombreux modèles de nouvelle physique prédisent des particules qui interagissent peu voire pas avec la matière : l'énergie manquante est alors le seul moyen de pouvoir les mettre en évidence. On présente \cref{fig:met_resolution} la résolution de \met reconstruite grâce au \emph{particle-flow}. A titre de comparaison, la résolution de \met reconstruite seulement à l'aide des dépôts calorimétriques (calomet) est aussi présentée dans la même figure.
+
+\section{Conclusion}
+
+CMS dispose de puissant outils de reconstruction. À l'aide de l'algorithme du \pf, tous les sous-détecteurs sont utilisés pour la reconstruction des objets physique, ce qui permet d'améliorer sensiblement la résolution des objets reconstruits. On dispose également d'algorithmes performants pour la reconstruction des jets, primordial dans un environnement hadronique où un grand nombre de jets sont produits.
+
+\medskip
+
+Le prochain chapitre est dédié aux corrections en énergie appliquées aux jets, en insistant particulièrement sur le dernier niveau de correction, qui fût l'un des travaux que j'ai effectué durant ma thèse.
