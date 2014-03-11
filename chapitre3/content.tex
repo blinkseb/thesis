@@ -23,8 +23,8 @@ où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.99\textwidth]{chapitre3/figs/parton_shower.pdf}
-    \caption{Représentation graphique d'une collision simulée à l'aide d'un générateur. L'événement dur (au centre, en rouge) est produit par l'interaction de deux partons provenant des protons incidents (ovales vert foncé), suivi par la désintégration des trois particules produites (rond rouge plein). L'hadronisation commence au niveau des ovales vert clair. Des hadrons instables sont produit (rond vert plein), qui vont se désintégrer en hadrons détectables. Des radiations de photons (jaune) ont été rajoutées à chaque étape.}
+    \includegraphics[width=0.99\textwidth]{chapitre3/figs/parton_shower_legend.pdf}
+    \caption{Représentation graphique d'une collision de deux protons simulée à l'aide d'un générateur. L'événement dur (au centre, en rouge) est produit par l'interaction de deux partons. Les trois particules produites (rond rouge plein) se désintègrent. C'est à ce niveau qu'intervient l'hadronisation.Des radiations de photons (jaune) ont été rajoutées à chaque étape.}
     \label{fig:parton_shower}
 \end{figure}
 
@@ -186,14 +186,6 @@ L'algorithme de reconstruction des traces de CMS (voir \cref{sec:tracks_reconstr
 
 Un algorithme dédié a été développé par CMS pour contrer ces problèmes \citep{pf,cms_pf_leptons,cms_pf_electrons}. La trajectoire de l'électron est redéfinie, en modélisant le rayonnement Bremsstrahlung par une somme de gaussienne (algorithme GSF, pour \emph{Gaussian Sum Filter}. Le nombre de paramètres libres étant important (plus d'une dizaine), l'algorithme est capable de suivre les brusques changements de trajectoires, et procure ainsi une bien meilleure estimation de l'impulsion des électrons. En contre-partie, cet algorithme est très gourmand en ressource (environ \SI{200}{\ms} par trace), et ne peut donc être utilisé que sur un nombre réduit de traces. Il est alors nécessaire d'effectuer une pré-sélection dans les traces existantes afin d'extraire celles qui ont le plus de chance d'être produites par un électron.
 
-La pré-sélection des électrons exploite les caractéristiques des traces. Lorsque la radiation Bremsstrahlung est négligeable, l'algorithme classique reconstruit une trace et on trouve un bloc \emph{particle-flow} associé. Si le rapport $E/p$ est proche de l'unité, la trace est sélectionnée. Lorsque le rayonnement Bremsstrahlung n'est pas négligeable, deux effets sont possibles :
-\begin{itemize}
-    \item L'algorithme de reconnaissance de traces échoue lors d'un changement abrupt de trajectoire. La trace résultante contient alors un petit nombre de \emph{hits}.
-    \item L'algorithme de reconnaissance de traces reconstruit une trace, mais le $\chi^2$ associé est grand.
-\end{itemize}
-
-Une sélection est appliquée en utilisant le nombre de \emph{hits} et le $\chi^2$, puis une interpolation GSF (avec seulement 5 paramètres libres, donc moins contraignante) est effectuée si la trace passe la sélection. Le $\chi^2$ de cette interpolation ($\chi^2_{GSF}$), le rapport $\chi^2_{KF} / \chi^2_{GSF}$, le nombre de \emph{hits} ainsi que le facteur de qualité du lien ECAL -- trace sont utilisés en entrée d'un algorithme d'arbres de décision boosté. La sortie de cet algorithme est présentée \cref{fig:bdt_electron}. On peut voir l'excellente discrimination entre les électrons isolés et les pions, et la bonne séparation entre les électrons non isolés et les pions. On considère le candidat comme un électron si la sortie de l'algorithme est supérieure à \num{-0.1} \citep{cms_pf_electrons}. Dans ce cas, les blocs \emph{particle-flow} sont retirés de la liste des blocs disponibles.
-
 \begin{figure}[tbp]
     \centering
     \subcaptionbox{\label{fig:bdt_electron}}[0.5\textwidth]{\includegraphics[width=0.5\textwidth]{chapitre3/figs/bdt_electron.pdf}} \hfill
@@ -201,6 +193,14 @@ Une sélection est appliquée en utilisant le nombre de \emph{hits} et le $\chi^
     \caption{(\subref{fig:bdt_electron}) Sortie de l'algorithme de pré-sélection des électrons, pour des électrons isolés (bleu), des électrons dans des jets de $b$ (noir) et pour des pions dans des jets de $b$ \citep{pf}. (\subref{fig:jspi_ee}) Masse invariante di-électrons sur les données 2012 pour des événements $\PJpsi \rightarrow \Pelectron \Ppositron$ \citep{cms_electron_perf}.}
     \label{fig:electron_perf}
 \end{figure}
+
+La pré-sélection des électrons exploite les caractéristiques des traces. Lorsque la radiation Bremsstrahlung est négligeable, l'algorithme classique reconstruit une trace et on trouve un bloc \emph{particle-flow} associé. Si le rapport $E/p$ est proche de l'unité, la trace est sélectionnée. Lorsque le rayonnement Bremsstrahlung n'est pas négligeable, deux effets sont possibles :
+\begin{itemize}
+    \item L'algorithme de reconnaissance de traces échoue lors d'un changement abrupt de trajectoire. La trace résultante contient alors un petit nombre de \emph{hits}.
+    \item L'algorithme de reconnaissance de traces reconstruit une trace, mais le $\chi^2$ associé est grand.
+\end{itemize}
+
+Une sélection est appliquée en utilisant le nombre de \emph{hits} et le $\chi^2$, puis une interpolation GSF (avec seulement 5 paramètres libres, donc moins contraignante) est effectuée si la trace passe la sélection. Le $\chi^2$ de cette interpolation ($\chi^2_{GSF}$), le rapport $\chi^2_{KF} / \chi^2_{GSF}$, le nombre de \emph{hits} ainsi que le facteur de qualité du lien ECAL -- trace sont utilisés en entrée d'un algorithme d'arbres de décision boosté. La sortie de cet algorithme est présentée \cref{fig:bdt_electron}. On peut voir l'excellente discrimination entre les électrons isolés et les pions, et la bonne séparation entre les électrons non isolés et les pions. On considère le candidat comme un électron si la sortie de l'algorithme est supérieure à \num{-0.1} \citep{cms_pf_electrons}. Dans ce cas, les blocs \emph{particle-flow} sont retirés de la liste des blocs disponibles.
 
 \subsubsection{Reconstruction des hadrons et des photons}
 
