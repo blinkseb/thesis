@@ -1,25 +1,25 @@
 \chapter{Génération, simulation et reconstruction des événements} \label{chap:reco}
 
+Afin d'être en mesure de confronter les prédictions théoriques aux données expérimentales, il faut être capable de simuler la réponse du détecteur pour un processus donné. Pour cela, il faut tout d'abord simuler une collision entre deux protons comme si elle avait vraiment eut lieu au LHC. On utilise pour cela des outils développés spécifiquement pour cet usage, appelés générateurs d'événements Monte Carlo (MC), qui permettent de simuler l'interaction entre deux partons et de générer toutes les particules créées lors de la collision. Il est ensuite nécessaire de simuler l'interaction de ces particules avec le détecteur, afin d'extraire les réponses des différents sous-détecteurs. Ces différentes étapes sont traitées dans ce chapitre., en commençant par une description succincte des processus de génération et de simulation. La majeure partie de ce chapitre sera consacrée à la description des algorithmes de reconstruction des particules, cruciaux pour les analyses de physique.
+
 \section{Génération des événements}
 
 %Afin d'extraire des informations sur les observables physiques, telles que les sections efficaces par exemple, on utilise un développement perturbatif. En effet, la probabilité de transition d'un état initial $\ket{i}$ à un état final $\ket{f}$ est calculée en utilisant la règle d'or de Fermi. Cette règle est obtenue grâce à la théorie des perturbations, en considérant que le temps nécessaire à l'interaction est bien plus petit que le temps nécessaire à l'observation.
 
 %La précision du résultat dépend de l'ordre du calcul. Le premier ordre, celui le plus simple à calculer, correspond à un nombre de vertex de 2, et est appelé calcul à l'arbre (ou \emph{LO}, pour \emph{Leading Order}).
 
-Afin d'être en mesure de confronter les prédictions théoriques aux données expérimentales, il faut être capable de simuler la réponse du détecteur pour un processus donné. Pour cela, il faut tout d'abord simuler une collision entre deux protons comme si elle avait vraiment lieu au LHC. On utilise pour cela des outils développés spécifiquement pour cet usage, appelés générateurs, qui permettent de simuler l'interaction entre deux partons et de générer toutes les particules créées lors de la collision. La simulation d'une collision se déroule en plusieurs étapes, décrites par la suite.
-
 \subsection{L'événement dur}
 
 Lors d'une collision entre deux protons, seul les constituants (les partons: quarks et gluons) vont interagir, chacun emportant une certaine fraction $x$ de l'impulsion totale du proton incident. Afin d'extraire des informations sur les observables physiques, telles que les sections efficaces par exemple, on utilise un développement perturbatif à plusieurs ordres.
 
-L'événement dur est décrit de façon analytique en utilisant ce développement perturbatif. Le générateur détermine grâce à un ensemble de règles, appelées règles de Feynman, la matrice de transition entre l'état initial et l'état final. Le calcul au premier ordre (LO, \emph{Leading Order}) est disponible pour tous les processus du Modèle Standard, via l'outil \texttt{MADGRAPH} \citep{madgraph} par exemple. Les simulations aux ordres supérieurs deviennent extrêmement complexes, et sont disponibles seulement pour un petit nombre de processus et nécessitent des outils particuliers (\texttt{POWHEG} \citep{Alioli:2010xd}, \texttt{MC@NLO} \citep{1126-6708-2002-06-029}).
+L'événement dur est décrit de façon analytique en utilisant ce développement perturbatif. Le générateur détermine grâce à un ensemble de règles, appelées règles de Feynman, la matrice de transition entre l'état initial et l'état final. Le calcul au premier ordre (LO, \emph{Leading Order}) est disponible pour les processus les plus importants du Modèle Standard, implémenté dans des programmes tel que \texttt{MADGRAPH} \citep{madgraph} par exemple. Les simulations aux ordres supérieurs deviennent extrêmement complexes, et sont disponibles seulement pour un petit nombre de processus et ont été implémenté dans des programmes particuliers comme \texttt{POWHEG} \citep{Alioli:2010xd}, \texttt{MC@NLO} \citep{1126-6708-2002-06-029}, etc.
 
-En collisionneur hadronique, seuls deux partons interagissent dans l'événement dur. On simule donc un processus $ij \rightarrow X$, où $X$ est une ou plusieurs particules. La section efficace d'un tel processus est donnée par
+La section efficace partonique $\sigma_{ij} \rightarrow X$, avec $i, j = \Pgluon, \Pquark$ et $X$ un état final choisit, peut s'exprimer de la façon suivante :
 \begin{align}
   \sigma_{X} &= \sum_{ij} \int \displaylimits_0^1 \int \displaylimits_0^1 f_i\left( x_i, \mu^2 \right) f_j\left(x_j, \mu^2\right) \sigma_{ij \rightarrow X}\, \mathrm{d}x_i \mathrm{d}x_j \\
   \sigma_{ij \rightarrow X} &\propto \int \prod \displaylimits_{k = 1}^{N} \frac{\mathrm{d}^3p_k}{\left( 2 \pi \right)^2 2 E_k} \delta^4\left( p_i + p_j - \sum_{k = 1}^{N} p_k \right) \left| \mathcal{M}_{fi} \right|^2
 \end{align}
-où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus loin \fxnote{renvoi}), $x_i$ la fraction d'impulsion emportée par le parton $i$, $\mu^2$ l'échelle d'énergie du processus et $\mathcal{M}_{fi}$ l'élément de matrice de transition entre l'état initial $i$ et l'état final $f$. L'élément de matrice est calculé jusqu'à un ordre donné, limité par le générateur employé, et l'intégration est effectuée numériquement selon une méthode d'intégration de Monte-Carlo (MC).
+où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus loin \fxnote{renvoi}), $x_i$ la fraction d'impulsion emportée par le parton $i$, $\mu^2$ l'échelle d'énergie du processus et $\mathcal{M}_{fi}$ l'élément de matrice de transition entre l'état initial $i$ et l'état final $f$. L'élément de matrice est calculé jusqu'à un ordre donné, limité par l'ordre auquel les calculs théoriques ont pu être mené, et l'intégration est effectuée numériquement selon une méthode d'intégration Monte Carlo.
 
 \begin{figure}[htbp]
     \centering
@@ -28,9 +28,13 @@ où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus 
     \label{fig:parton_shower}
 \end{figure}
 
+On obtient en sortie du générateur le quadrivecteur impulsion de chaque particule produite lors de l'événement dur.
+
 \subsection{L'hadronisation des partons : la gerbe partonique}
 
-Les générateurs à éléments de matrices permettent de générer de façon analytique l'événement dur. Les partons produits lors de cet événement dur ne sont pas stables. Ils vont se désintégrer ou d'hadroniser. On rentre ici dans les domaines de la QCD non perturbative, et il n'est donc plus possible d'utiliser un développement limité pour effectuer les calculs. Des outils dédiés existent néanmoins afin de simuler toute la chaîne d'hadronisation des particules, chacun utilisant des algorithmes spécialisés afin de simuler au mieux l'hadronisation des partons produits lors de l'événement dur. Parmi les générateurs de gerbes partoniques utilisés, on peut citer \texttt{PYTHIA} \citep{pythia} et \texttt{HERWIG} \citep{Corcella:2000bw}.
+La majeure partie des particules produites lors de l'événement dur ne sont pas stables, et vont se désintégrer avant d'être détectée. Le cas des partons est encore plus complexe. Dans un premier temps, ils vont radier des gluons \emph{via} interaction forte, créant ainsi une gerbe partonique. Ensuite, étant des particules colorées, ils doivent obligatoirement se lier à d'autres partons afin de former des états non colorés (hadrons), c'est-à-dire neutre du point de vue de l'interaction forte. Ce processus est appelé hadronisation, et a lieu environ \SI{5e-24}{\s} après la production de la particule. Les hadrons ainsi formés peuvent ou non être stable. Lors de leur désintégration, les nouvelles particules produites vont à leur tour s'hadroniser. On obtient ainsi une cascade de désintégrations et d'hadronisations.
+
+Ces effets sont très complexe à simuler, puisque à l'échelle d'énergie où ils se produisent, la QCD devient non-perturbative. Des programmes dédiés permettent néanmoins de simuler toute la chaîne d'hadronisation des particules, chacun utilisant des algorithmes spécialisés afin de simuler au mieux le développement de la gerbe partonique et de la chaine d'hadronisation. Parmi ces programmes, on peut citer \texttt{PYTHIA} \citep{pythia} et \texttt{HERWIG} \citep{Corcella:2000bw}.
 
 \section{Simulation des événements}
 

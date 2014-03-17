@@ -8,7 +8,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="parton_shower.svg.2014_03_11_13_47_42.0.svg"
+   sodipodi:docname="parton_shower_legend.svg"
    inkscape:version="0.48.4 r9939"
    id="svg2"
    version="1.1"
@@ -44,9 +44,9 @@
      fit-margin-left="20"
      fit-margin-right="20"
      fit-margin-bottom="20"
-     inkscape:zoom="0.18122728"
-     inkscape:cx="2383.4038"
-     inkscape:cy="1415.9433"
+     inkscape:zoom="0.25629408"
+     inkscape:cx="2271.4521"
+     inkscape:cy="1532.7372"
      inkscape:window-x="1600"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -81282,7 +81282,7 @@
          id="tspan20949-1"
          x="2596.2991"
          y="3818.3613"
-         style="font-size:57.59999847px">Pile-up</tspan></text>
+         style="font-size:57.59999847px">Événement sous-jacent</tspan></text>
     <path
        style="opacity:0.53046594000000002;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1687.5,3.0625 c -923.41306,0 -1671.96875,661.23746 -1671.96875,1476.9063 0,158.6072 12.722376,256.7351 45.602839,399.9377 l 732.928661,-85.8389 c -35.91724,-114.3174 -31.719,-109.2348 -31.719,-247.7864 0,-515.265 427.32055,-932.9687 954.43745,-932.9687 527.1171,0 954.4376,417.7037 954.4376,932.9687 0,138.5516 0.2964,0.8089 -0.5049,146.3404 l 608.0673,241.9096 C 3331.1725,1791.3286 3359.5,1638.576 3359.5,1479.9688 3359.5,664.29996 2610.9131,3.0625 1687.5,3.0625 z"
