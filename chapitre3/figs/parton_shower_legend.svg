@@ -9,7 +9,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="parton_shower_legend.svg"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.4 r"
    id="svg2"
    version="1.1"
    viewBox="0 0 2787.9539 2543.3476"
@@ -36,19 +36,19 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1680"
-     inkscape:window-height="1011"
+     inkscape:window-width="1858"
+     inkscape:window-height="1058"
      id="namedview32570"
      showgrid="false"
      fit-margin-top="20"
      fit-margin-left="20"
      fit-margin-right="20"
      fit-margin-bottom="20"
-     inkscape:zoom="0.25629408"
-     inkscape:cx="2271.4521"
-     inkscape:cy="1532.7372"
-     inkscape:window-x="1600"
-     inkscape:window-y="0"
+     inkscape:zoom="0.18122728"
+     inkscape:cx="853.28739"
+     inkscape:cy="2103.9085"
+     inkscape:window-x="54"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="surface1" />
   <defs
@@ -81218,7 +81218,7 @@
          id="tspan20949"
          x="1214.3259"
          y="3220.7551"
-         style="font-size:57.59999847px">Proton</tspan></text>
+         style="font-size:57.59999847000000300px;-inkscape-font-specification:TeXGyrePagella;font-family:TeXGyrePagella;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Proton</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:115.19999695px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Pagella;-inkscape-font-specification:TeX Gyre Pagella"
@@ -81230,7 +81230,7 @@
          id="tspan20949-0"
          x="2820.248"
          y="3165.6453"
-         style="font-size:57.59999847px">Proton</tspan></text>
+         style="font-size:57.59999847000000300px;-inkscape-font-specification:TeXGyrePagella;font-family:TeXGyrePagella;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Proton</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.92935896px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow1Lend)"
        d="m 1301.9193,3178.2214 c 17.7258,-76.9609 54.4024,-154.9963 109.9004,-186.3751"
@@ -81254,7 +81254,7 @@
          id="tspan20949-0-9"
          x="2379.9961"
          y="2705.946"
-         style="font-size:44.7999999px">Évémement dur</tspan></text>
+         style="font-size:44.79999990000000300px;-inkscape-font-specification:TeXGyrePagella;font-family:TeXGyrePagella;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Évémement dur</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.22815692000000021;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend-7)"
        d="m 2380.1156,2686.5679 c 0,0 -143.2068,-58.1617 -221.6409,-21.3093"
@@ -81282,9 +81282,9 @@
          id="tspan20949-1"
          x="2596.2991"
          y="3818.3613"
-         style="font-size:57.59999847px">Événement sous-jacent</tspan></text>
+         style="font-size:57.59999847000000300px;-inkscape-font-specification:TeXGyrePagella;font-family:TeXGyrePagella;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Événement sous-jacent</tspan></text>
     <path
-       style="opacity:0.53046594000000002;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1687.5,3.0625 c -923.41306,0 -1671.96875,661.23746 -1671.96875,1476.9063 0,158.6072 12.722376,256.7351 45.602839,399.9377 l 732.928661,-85.8389 c -35.91724,-114.3174 -31.719,-109.2348 -31.719,-247.7864 0,-515.265 427.32055,-932.9687 954.43745,-932.9687 527.1171,0 954.4376,417.7037 954.4376,932.9687 0,138.5516 0.2964,0.8089 -0.5049,146.3404 l 608.0673,241.9096 C 3331.1725,1791.3286 3359.5,1638.576 3359.5,1479.9688 3359.5,664.29996 2610.9131,3.0625 1687.5,3.0625 z"
        transform="matrix(0.8,0,0,0.8,740,1377.0547)"
        id="path20966"
@@ -81301,6 +81301,24 @@
          id="tspan20949-1-7"
          x="2964.5757"
          y="1635.8574"
-         style="font-size:57.59999847px">Hadronisation</tspan></text>
+         style="font-size:57.59999847000000300px;-inkscape-font-specification:TeXGyrePagella;font-family:TeXGyrePagella;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Hadronisation</tspan></text>
+    <path
+       sodipodi:nodetypes="ssccsssccss"
+       inkscape:connector-curvature="0"
+       id="path39810"
+       d="m -129.98224,1751.9381 c -402.762,0 -729.2573,303.8061 -729.2573,678.5661 0,72.8722 5.549,117.9572 19.8904,183.752 l 319.6792,-39.439 c -15.6659,-52.5232 -14.4949,-56.4784 -16.9562,-120.0884 -3.1214,-80.6685 201.9901,-238.2474 431.9011,-238.2474 229.9109,0 394.4441,141.9718 400.6869,238.2474 4.1191,63.5242 3.2507,6.6144 2.9011,73.479 l 265.2189,111.1456 c 22.8513,-65.7946 35.2068,-135.977 35.2068,-208.8492 0,-374.76 -326.5087,-678.5661 -729.2709,-678.5661 z"
+       style="fill:#000000;fill-opacity:0;stroke:#007a25;stroke-width:1.60000002;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text39812"
+       y="2350.9814"
+       x="2053.6204"
+       style="font-size:115.19999695px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:TeXGyrePagella;-inkscape-font-specification:TeXGyrePagella"
+       xml:space="preserve"><tspan
+         style="font-size:57.59999847px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeXGyrePagella;-inkscape-font-specification:TeXGyrePagella"
+         y="2350.9814"
+         x="2053.6204"
+         id="tspan39814"
+         sodipodi:role="line">Gerbe partonique</tspan></text>
   </g>
 </svg>

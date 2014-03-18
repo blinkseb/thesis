@@ -38,7 +38,7 @@ Ces effets sont très complexe à simuler, puisque à l'échelle d'énergie où 
 
 \section{Simulation des événements}
 
-Une fois l'hadronisation terminée, on dispose d'une liste de particules stables, créées lors de la collision. Avant de pouvoir comparer les prédictions théoriques aux données collectées, il reste encore à simuler la réponse du détecteur. Deux approches sont possibles : une très précise, basée sur \texttt{GEANT 4} \citep{Agostinelli2003250}, mais très coûteuse en temps de calcul, et une légèrement moins précise, mais extrêmement plus rapide. Chaque méthode permet, grâce à des algorithmes différents, de simuler :
+Une fois l'hadronisation terminée, on dispose d'une liste de particules créées lors de la collision. Avant de pouvoir comparer les prédictions théoriques aux données collectées, il reste encore à simuler la réponse du détecteur. Deux approches sont possibles : une simulation détaillée, basée sur \texttt{GEANT 4} \citep{Agostinelli2003250}, mais très coûteuse en temps de calcul, et une moins détaillée, mais extrêmement plus rapide. Chaque méthode permet, grâce à des algorithmes différents, de simuler :
 \begin{itemize}
     \item Le passage des particules dans le détecteur
     \item Les courbures des trajectoires des particules chargées par le champ magnétique
@@ -47,15 +47,19 @@ Une fois l'hadronisation terminée, on dispose d'une liste de particules stables
     \item La réponse électrique des détecteurs
 \end{itemize}
 
-Ces deux méthodes sont décrites rapidement ci-dessous.
+En plus de la liste ci-dessus, la simulation est aussi responsable de la désintégration des particules instables produites lors de la génération. En effet, la notion de stabilité dépend de l'échelle de temps considérée : une particule ne se désintégrant pas avant un temps $\tau$ est considérée comme stable. Ainsi, une particule peut être vue stable par le générateur Monte Carlo, mais instable par la simulation. Cette particule se désintègre donc à l'intérieur du détecteur, et cet effet doit être pris en compte pour une simulation complète.
+
+\medskip
+
+On décrit rapidement les deux méthodes de simulation ci-dessous.
 
 \subsection{La simulation complète du détecteur}
 
-Cette simulation repose sur une description extrêmement précise du détecteur. Ainsi, une réplique détaillée du détecteur est créée en 3-dimensions, comprenant même le câblage électrique des divers sous-détecteurs. Ce modèle est ensuite utilisé par le logiciel \texttt{GEANT 4}, qui va simuler la propagation, l'interaction et la réponse des détecteurs pour chacune des particules stable créées lors de la collision. C'est une simulation très précise, mais très longue : la simulation d'un événement peut atteindre jusqu'à 2 minutes selon la complexité de l'état final.
+Cette simulation repose sur une description extrêmement précise du détecteur. Ainsi, une réplique détaillée du détecteur est créée en 3-dimensions, comprenant même le câblage électrique des divers sous-détecteurs. Ce modèle est ensuite utilisé par le logiciel \texttt{GEANT 4}, qui va simuler la propagation, l'interaction, les diffusions multiples et la réponse des détecteurs pour chacune des particules créées lors de la collision. C'est une simulation très coûteuse en temps de calcul : la simulation d'un événement peut atteindre jusqu'à 2 minutes selon la complexité de l'état final.
 
 \subsection{La simulation rapide du détecteur}
 
-Une solution de simulation plus rapide existe au sein de la collaboration. Développée spécialement pour CMS \citep{1742-6596-219-3-032053}, cette simulation utilise une géométrie simplifiée du détecteur. La simulation des interactions au sein des divers sous-détecteurs est approximée en se basant sur les simulations complètes du détecteur. Tout en étant beaucoup rapide (environ \SI{200}{\ms} par événement), cette simulation permet de reproduire la plupart des observations avec une erreur de l'ordre du pour-cent.  Elle est beaucoup utilisée pour les études de mise-à-jour des détecteurs, où il est nécessaire de pouvoir simuler très rapidement l'effet d'une modification du détecteur sur les observables physiques.
+Une solution de simulation plus rapide existe au sein de la collaboration. Développée spécialement pour CMS \citep{1742-6596-219-3-032053}, cette simulation utilise une géométrie simplifiée du détecteur, et considère que les matériaux des sous-détecteurs ont une densité constante. La simulation des interactions au sein des divers sous-détecteurs est approximée en se basant sur les simulations complètes du détecteur. Tout en étant beaucoup rapide (environ \SI{200}{\ms} par événement), cette simulation permet de reproduire la plupart des observations avec une erreur de l'ordre du pourcent.  Elle est beaucoup utilisée pour les études de mise-à-jour des détecteurs, où il est nécessaire de pouvoir simuler très rapidement l'effet d'une modification du détecteur sur les observables physiques.
 
 \section{Reconstruction des événements}
 
@@ -65,12 +69,11 @@ La reconstruction d'un événement est effectuée de façon identique, que ça s
 
 CMS utilise un algorithme spécialisé pour reconstruire les objets physiques : l'algorithme du \emph{particle-flow} \citep{pf,cms_pf_2,cms_pf_jets,cms_pf_leptons}. En utilisant l'information de tous les sous-détecteurs pour reconstruire l'événement, cet algorithme permet d'améliorer significativement la résolution des particules reconstruites, et s'avère être un moyen efficace de contrebalancer les faiblesses de HCAL : on peut en effet utiliser l'excellente performance du trajectographe pour aider à la reconstruction des hadrons chargés.
 
-
 Le \emph{particle-flow} permet de reconstruire les 5 types de particules stables détectées par CMS : les électrons, les muons, les photons, et certains hadrons neutres et chargés. Ces particules sont ensuite utilisées comme des briques élémentaires pour reconstruire des objets plus complexe, comme les jets. Ces briques étant ensuite utilisées par les analyses de physique, il est primordial que le \emph{particle-flow} possède une efficacité de reconstruction la plus haute possible, tout en ayant un taux de fausse identification le plus faible possible. Ces contraintes ont conduit a l'élaboration d'algorithmes dédiés de trajectographie et de calorimétrie, détaillés ci-dessous.
 
 \subsubsection{Trajectographie itérative} \label{sec:tracks_reconstruction}
 
-L'impulsion des hadrons chargés est mesurée avec une résolution bien meilleure par le trajectographe que par les calorimètres. Comme près de \sfrac{2}{3} de l'énergie d'un jet est dû à la présence de hadrons chargés, le trajectographe joue un rôle majeur dans la performance du \emph{particle-flow}.
+L'impulsion des hadrons est mesurée avec une résolution bien meilleure par le trajectographe que par les calorimètres. Comme près de \sfrac{2}{3} de l'énergie d'un jet est dû à la présence de hadrons chargés, le trajectographe joue un rôle majeur dans la performance du \emph{particle-flow}.
 
 Afin de reconstruire les trajectoires des particules avec une grande efficacité, tout en conservant un taux de faux minimal, une procédure itérative \citep{cms_tracks}, basée sur un filtre de Kalman (KF), est employée. La reconstruction commence en utilisant seulement les \emph{hits} des deux premières couches du détecteur à pixels, ainsi que la position du vertex primaire. C'est ce qu'on appelle la graine de l'algorithme. On cherche ensuite à compléter la trajectoire en utilisant les \emph{hits} des autres couches du trajectographe. Les contraintes lors de cette première étape sont vraiment fortes, ce qui conduit à une efficacité de reconstruction moyenne, mais à un très faible taux de faux.
 
@@ -152,7 +155,7 @@ Le spectromètre à muons reconstruit aussi des traces. Un lien est fait (qu'on 
 
 \subsection{L'identification des particules}
 
-Après application de l'algorithme de liaison (voir \cref{sec:pf_links}), on dispose d'une liste de blocs, composés chacun d'environ 2-3 éléments (traces ou agrégats calorimétriques). Il reste maintenant à identifier chaque bloc en tant que particule. Cette identification conduira à la création d'une liste de particule, donnant une description globale de l'événement.
+Après application de l'algorithme de liaison (voir \cref{sec:pf_links}), on dispose d'une liste de blocs, composés chacun d'environ 2-3 éléments (traces ou agrégats calorimétriques). Il reste maintenant à identifier chaque bloc en tant que particule. Cette identification conduira à la création d'une liste de particules, donnant une description globale de l'événement.
 
 \subsubsection{Reconstruction des muons}
 
@@ -168,21 +171,21 @@ La majorité des muons sont reconstruits comme muons globaux ou \emph{tracker} m
 
 \medskip
 
+\begin{figure}[tbp]
+    \centering
+    \subcaptionbox{\label{fig:dimu_jpsi}}[0.49\textwidth]{\includegraphics[width=0.49\textwidth]{chapitre3/figs/JPsi40pb-1.pdf}} \hfill
+    \subcaptionbox{\label{fig:dimu_mass}}[0.49\textwidth]{\includegraphics[width=0.49\textwidth]{chapitre3/figs/mass_dimu.pdf}}
+    \caption{(\subref{fig:dimu_jpsi}) Comparaison entre la simulation et les données pour des événements $\PJpsi \rightarrow \Pmuon \APmuon$, reconstruit à l'aide des données 2010. La résolution sur la reconstruction du pic de masse du \PJpsi est de $\SI{45}{\MeV}$. (\subref{fig:dimu_mass}) Spectre de masse invariante di-muons reconstruit à l'aide des données 2011. L'excellente résolution permet même de reconstruire les résonances $\omega$ et $\phi$.}
+    \label{fig:dimu_mass_spectrum}
+\end{figure}
+
 On regroupe ensuite les trois catégories de muons dans une liste de candidats muons. Les candidats muons globaux et \emph{tracker} muons qui partagent la même trace du trajectographe sont fusionnés en un seul candidat.
 
 Afin d'identifier les muons \emph{particle-flow}, une sélection est effectuée sur les candidats muons reconstruits avec l'algorithme standard. On dénombre trois sélections différentes : "isolé", "\emph{pf-tight}" et "\emph{pf-loose}". Les muons sont considérés isolés si, dans un cône de taille $R = \num{0.3}$ centré sur le muon, la somme du \pt des traces et des agrégats calorimétriques est inférieure à \SI{10}{\%} de l'impulsion du muon. Dans ce cas, l'effet du \emph{particle-flow} est limité puisque l'environnement immédiat autour du muon est propre. Par conséquent, une grande efficacité est obtenue en appliquant une sélection peu contraignante : les muons doivent seulement être des muons globaux.
 
 Une fois les muons isolés traités, les sélections \emph{pf-loose} et \emph{pf-tight} sont appliquées aux muons restants. Ces deux sélections sont optimisées pour identifier les muons au sein des jets. La sélection \emph{pf-tight} demande un certain nombre de \emph{hits} dans les traces du spectromètre à muons. Il faut de plus que les dépôts d'énergies dans les calorimètres soient compatibles avec ceux obtenus par des simulations. La sélection \emph{pf-loose} relâche la contrainte sur le nombre de \emph{hits}, et supprime la contrainte sur les dépôts d'énergies.
 
-\begin{figure}[tbp]
-    \centering
-    \subcaptionbox{\label{fig:dimu_jpsi}}[0.38\textwidth]{\includegraphics[width=0.38\textwidth]{chapitre3/figs/muons_jspi_mass.pdf}} \hfill
-    \subcaptionbox{\label{fig:dimu_mass}}[0.60\textwidth]{\includegraphics[width=0.60\textwidth]{chapitre3/figs/mass_dimu.pdf}}
-    \caption{(\subref{fig:dimu_jpsi}) Spectre de masse invariante di-muons reconstruit à l'aide des données 2010, à l'aide de la reconstruction standard des muons (rouge) et à l'aide de la reconstruction \emph{particle-flow} (bleu). (\subref{fig:dimu_mass}) Spectre de masse invariante di-muons reconstruit à l'aide des données 2011. L'excellente résolution permet même de reconstruire les résonances $\omega$ et $\phi$.}
-    \label{fig:dimu_mass_spectrum}
-\end{figure}
-
-Pour chaque muon reconstruit, on enlève les blocs \emph{particle-flow} correspondants de la liste des blocs disponibles, et on procède ensuite à la reconstruction des électrons.
+Pour chaque muon reconstruit, on enlève les blocs \emph{particle-flow} correspondants de la liste des blocs disponibles, et on procède ensuite à la reconstruction des électrons. On présente \cref{fig:dimu_mass_spectrum} les performances de reconstruction des muons à l'aide du \pu. La résolution obtenue sur des événements $\PJpsi \rightarrow \Pmuon \APmuon$ est mesurée à $\sigma = \SI{45}{\MeV}$ (\cref{fig:dimu_jpsi}). On peut aussi voir \cref{fig:dimu_mass} le spectre de masse invariante di-muons reconstruit à l'aide des données 2011. L'excellente performance de la reconstruction permet de reconstruire les résonances di-muons de 1 à \SI{100}{\GeV}.
 
 \subsubsection{Reconstruction des électrons}
 
@@ -204,7 +207,9 @@ La pré-sélection des électrons exploite les caractéristiques des traces. Lor
     \item L'algorithme de reconnaissance de traces reconstruit une trace, mais le $\chi^2$ associé est grand.
 \end{itemize}
 
-Une sélection est appliquée en utilisant le nombre de \emph{hits} et le $\chi^2$, puis une interpolation GSF (avec seulement 5 paramètres libres, donc moins contraignante) est effectuée si la trace passe la sélection. Le $\chi^2$ de cette interpolation ($\chi^2_{GSF}$), le rapport $\chi^2_{KF} / \chi^2_{GSF}$, le nombre de \emph{hits} ainsi que le facteur de qualité du lien ECAL -- trace sont utilisés en entrée d'un algorithme d'arbres de décision boosté. La sortie de cet algorithme est présentée \cref{fig:bdt_electron}. On peut voir l'excellente discrimination entre les électrons isolés et les pions, et la bonne séparation entre les électrons non isolés et les pions. On considère le candidat comme un électron si la sortie de l'algorithme est supérieure à \num{-0.1} \citep{cms_pf_electrons}. Dans ce cas, les blocs \emph{particle-flow} sont retirés de la liste des blocs disponibles.
+Une sélection est appliquée en utilisant le nombre de \emph{hits} et le $\chi^2$, puis une interpolation GSF (avec seulement 5 paramètres libres, donc moins contraignante) est effectuée si la trace passe la sélection. Le $\chi^2$ de cette interpolation ($\chi^2_{GSF}$), le rapport $\chi^2_{KF} / \chi^2_{GSF}$, le nombre de \emph{hits} ainsi que le facteur de qualité du lien ECAL -- trace sont utilisés en entrée d'un algorithme d'arbres de décision boosté. La sortie de cet algorithme est présentée \cref{fig:bdt_electron}. On peut voir l'excellente discrimination entre les électrons isolés et les pions, et la bonne séparation entre les électrons non isolés et les pions. Les performances de reconstruction des électrons sont évaluées sur des événements \PJpsi $\rightarrow \Pelectron \APelectron$ (\cref{fig:jspi_ee}). On obtient une résolution de reconstruction $\sigma = \SI{93}{\MeV}$.
+
+On considère le candidat comme un électron si la sortie de l'algorithme est supérieure à \num{-0.1} \citep{cms_pf_electrons}. Dans ce cas, les blocs \emph{particle-flow} sont retirés de la liste des blocs disponibles.
 
 \subsubsection{Reconstruction des hadrons et des photons}
 
@@ -214,7 +219,7 @@ Dans de très rares cas, l'énergie des agrégats calorimétriques liés à une 
 
 Chaque trace restante donne lieu à la création de hadrons chargés \emph{particle-flow}, dont l'impulsion et l'énergie est mesurée directement depuis la trace, selon l'hypothèse d'un pion chargé. Deux cas sont possibles :
 \begin{itemize}
-    \item L'énergie des agrégats calorimétriques liés à cette trace est compatible avec l'impulsion mesurée par la trace (dans les incertitudes). L'impulsion du hadron chargé est alors améliorée en combinant les informations de la trace et des agrégats calorimétriques.
+    \item L'énergie des agrégats calorimétriques liés à cette trace est compatible avec l'impulsion mesurée par la trace (dans les incertitudes). L'impulsion du hadron chargé est alors améliorée en combinant les informations de la trace et des agrégats calorimétriques, grâce à une moyenne pondérée. Cette combinaison est surtout intéressante à très haute énergie / très haut \aeta, où les paramètres des traces sont mesurés avec une grande incertitude.
     \item L'énergie des agrégats calorimétriques est plus grande que l'impulsion de la trace liée. C'est le cas si des photons ou des hadrons neutres, ne laissant pas de traces dans le trajectographe, ont déposés leur énergie au même endroit. Il faut donc réussir à correctement associer l'énergie avec les bonnes particules.
 
     \smallskip
@@ -231,6 +236,8 @@ Enfin, les blocs \emph{particle-flow} restant n'ont aucune trace liée. On recon
     \caption{(\subref{fig:mgg}) Distribution de la masse invariante $\gamma\gamma$ dans le tonneau obtenu à l'aide des données 2010, à l'aide d'une sélection optimisée pour les $\pi^0$. Le désaccord avec la mesure de la masse du $\pi^0 = \SI{135}{\MeV}$ est inférieur à \SI{1}{\%}. \citep{cms_pf_jets}. (\subref{fig:gamma_eff}) Efficacité d'identification des photons pour les trois points de fonctionnement recommandés par CMS \citep{cms_photon_perf}.}
     \label{fig:pf_photons}
 \end{figure}
+
+On présente \cref{fig:mgg} la résolution expérimentale obtenue lors de la reconstruction d'événement $\Ppizero \rightarrow \Pgamma \Pgamma$. On trouve une résolution $\sigma = \SI{13}{\MeV}$. L'efficacité d'identification pour les trois points de fonctionnement définis par la collaboration CMS est présentée \cref{fig:gamma_eff}. Dans tous les cas, cette efficacité est supérieure à \SI{65}{\%}.
 
 \subsection{Calibration des calorimètres}
 
@@ -261,11 +268,11 @@ où $a$, $b$, $c$ sont des constantes de calibration à déterminer, $E$ l'éner
 %     \label{fig:jet}
 % \end{figure}
 
-A cause du confinement lié à l'interaction forte, les quarks et gluons produits lors des collisions ne peuvent pas être observés directement. En effet, lors de leurs propagations, certains vont se désintégrer, et d'autres vont se combiner avec d'autre quarks pour former des hadrons. Cette hadronisation à lieu dans tout le détecteur, et on détecte donc une gerbe de particule en lieu et place d'un quark. Cette gerbe de particules, formées principalement de hadrons, mais aussi de leptons, est appelée \emph{jet}. %On peut voir \cref{fig:jet} la reconstruction d'un jet dans CMS. On voit bien une grande quantité de traces, associées à l'hadronisation d'un quark ou d'un gluon.
+A cause du confinement lié à l'interaction forte, les quarks et gluons produits lors des collisions ne peuvent pas être observés directement. En effet, lors de leurs propagations, ils vont se combiner avec d'autre quarks pour former des hadrons. On obtient alors une cascade d'hadronisation, et on détecte ainsi une gerbe de particules en lieu et place d'un quark. Cette gerbe de particules, formées principalement de hadrons, mais aussi de leptons, est appelée \emph{jet}. %On peut voir \cref{fig:jet} la reconstruction d'un jet dans CMS. On voit bien une grande quantité de traces, associées à l'hadronisation d'un quark ou d'un gluon.
 
-Grâce à l'algorithme de \emph{particle-flow}, on dispose d'une description globale de l'événement, sous forme d'une liste de particules. On utilise des algorithmes spécialisés qui vont parcourir la liste des particules, et former des agrégats suivant certains critères, différents selon les algorithmes. CMS utilise majoritairement deux types d'algorithmes : l'algorithme \emph{anti-$k_T$} \citep{antikt} et l'algorithme \emph{Cambridge-Aachen} (C-A) \citep{ca_jets}. Ce dernier est principalement utilisé lorsque l'on cherche une possible sous-structure au sein d'un jet. Par exemple, dans le cas de la désintégration d'un boson $W$ de très grande impulsion, les deux quarks peuvent être produits de façon très colinéaire, entraînant la reconstruction d'un seul gros jet, au lieu de deux.
+Grâce à l'algorithme de \emph{particle-flow}, on dispose d'une description globale de l'événement, sous forme d'une liste de particules. On utilise des algorithmes spécialisés qui vont parcourir la liste des particules, et former des agrégats suivant certains critères de distance entre les particules, différents selon les algorithmes. CMS utilise majoritairement deux types d'algorithmes : l'algorithme \emph{anti-$k_T$} \citep{antikt} et l'algorithme \emph{Cambridge-Aachen} (C-A) \citep{ca_jets}. Ce dernier est principalement utilisé lorsque l'on cherche une possible sous-structure au sein d'un jet. Par exemple, dans le cas de la désintégration d'un boson $W$ de très grande impulsion, les deux quarks peuvent être produits de façon très colinéaire, entraînant la reconstruction d'un seul gros jet, au lieu de deux.
 
-Avant même l'utilisation de ces algorithmes, on commence par enlever les leptons isolés de la liste des particules, ceci pour éviter un double comptage de l'énergie. On défini l'isolation d'un lepton comme le rapport entre l'énergie des particules contenues dans un cône de rayon $\Delta R$, centré sur le lepton, sur l'énergie de ce lepton. En dessous d'un certain seuil (typiquement, \num{10} ou \SI{12}{\%}), on considère le lepton isolé.
+Dans le but d'éviter d’agréger au sein d'un jet des leptons isolés, on commence par les supprimer de la liste des particules. On évite ainsi des double comptage de l'énergie, où un lepton pourrait se trouver dans une collection leptons mais aussi dans un jet. On définit l'isolation d'un lepton comme le rapport entre l'énergie des particules contenues dans un cône de rayon $\Delta R$, centré sur le lepton, sur l'énergie de ce lepton. En dessous d'un certain seuil (typiquement, \num{10} ou \SI{12}{\%}), on considère le lepton isolé.
 
 \medskip
 
@@ -290,7 +297,7 @@ La seule différence entre ces deux algorithmes vient de la façon dont le choix
 
 \bigskip
 
-Une alternative à la reconstruction des jets \emph{particle-flow} existe, utilisant les amas calorimétriques en entrée des algorithmes de reconstructions des jets. C'est la méthode historique de CMS, mais elle est maintenant supplantée par la reconstruction \emph{particle-flow}, bien plus performante. On présente \cref{fig:pf_vs_calo_jets_reso} la résolution des jets pour l'algorithme \emph{particle-flow} (pf-jets) et la reconstruction calorimétrique (calo-jets). On voit très nettement l'amélioration apportée par la reconstruction \emph{particle-flow}.
+Une alternative à la reconstruction des jets \emph{particle-flow} existe, utilisant les amas calorimétriques en entrée des algorithmes de reconstructions des jets. Cette méthode était utilisée par CMS avant la mise en place du \pf, bien plus performant. On présente \cref{fig:pf_vs_calo_jets_reso} la résolution des jets pour l'algorithme \emph{particle-flow} (pf-jets) et la reconstruction calorimétrique (calo-jets). On voit très nettement l'amélioration apportée par la reconstruction \emph{particle-flow}. On présente également \cref{fig:pf_jets_composition} la composition des jets \pf reconstruit sur les données. Les jets sont constitués majoritairement de hadrons chargés et de photons.
 
 \begin{figure}[tbp]
     \centering
@@ -302,9 +309,9 @@ Une alternative à la reconstruction des jets \emph{particle-flow} existe, utili
 
 \subsubsection{Correction de l'énergie des jets}
 
-L'algorithme de reconstruction des jets est complexe. Il arrive que des particules créées lors de l'hadronisation ne soient pas correctement agglomérées dans le jet, souvent parce que la trajectoire de ces particules dévie trop de la trajectoire initiale du quark. Des problèmes de calibrations des sous-détecteurs viennent aussi dégrader la mesure de l'énergie des jets.
+L'énergie des jets reconstruits nécessite d'être calibrée pour plusieurs raisons. Premièrement, il arrive que des particules créées lors de l'hadronisation ne soient pas correctement agglomérées dans le jet, souvent parce que la trajectoire de ces particules dévie trop de la trajectoire initiale du quark. Enfin, des problèmes de calibrations des sous-détecteurs viennent aussi dégrader la mesure de l'énergie des jets.
 
-Afin de corriger ces problèmes, il est nécessaire d'effectuer toute une série de corrections, présentées en détails dans le \cref{chap:jetmet}.
+La calibration des jets est effectuée en différentes étapes, présentées en détails dans le \cref{chap:jetmet}.
 
 \subsubsection{L'algorithme d'identification des jets de $b$}
 
@@ -317,24 +324,26 @@ Afin de corriger ces problèmes, il est nécessaire d'effectuer toute une série
 \end{figure}
 
 
-Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les jets qu'ils forment. Ces propriétés incluent, entre autre, leur grande masse et leur grand temps de vie. Plusieurs algorithmes sont disponibles dans CMS permettant d'identifier les jets formés par un quark $b$ (\emph{b-tagging}, pour étiquetage des $b$), chacun exploitant une spécificité des hadrons $B$. L'algorithme actuellement recommandé par la collaboration CMS est l'algorithme \emph{combined secondary vertex} (CSV, vertex secondaire combiné). C'est un algorithme avancé qui exploite toutes les variables connues pour discriminer les jets de $b$, telles que des informations sur des vertex déplacés, la cinématique du jet, etc. Une analyse multivariée (MVA) permet ensuite de fournir un discriminant, et trois points de fonctionnements sont définis, chacun augmentant l'efficacité de correctement étiqueter un jet de $b$, mais au détriment d'un taux de faux plus important (voir \cref{fig:btag_perf}). Pour le point de fonctionnement moyen, l'efficacité de correctement étiqueter un jet de $b$ est \tilde\SI{70}{\%}, tandis que la probabilité d'étiqueter comme $b$ un jet d'une autre saveur est \tilde{1}{\%}.
+Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les jets qu'ils forment. Ces propriétés incluent, entre autre, leur grande masse et leur grand temps de vie. Plusieurs algorithmes sont disponibles dans CMS permettant d'identifier les jets formés par un quark $b$ (\emph{b-tagging}, pour étiquetage des $b$), chacun exploitant une spécificité des hadrons $B$. L'algorithme actuellement utilisé par la collaboration CMS est l'algorithme \emph{Combined Secondary Vertex} (CSV, vertex secondaire combiné), qui est une combinaison de plusieurs algorithmes.
+
+Cette algorithme exploite toutes les variables connues pour discriminer les jets de $b$, telles que des informations sur des vertex déplacés, la cinématique du jet, etc. Une analyse multivariée (MVA) permet ensuite de fournir un discriminant, et trois points de fonctionnements sont définis, chacun augmentant l'efficacité de correctement étiqueter un jet de $b$, mais au détriment d'un taux de faux plus important (voir \cref{fig:btag_perf}). Pour le point de fonctionnement moyen, l'efficacité de correctement étiqueter un jet de $b$ est \tilde\SI{70}{\%}, tandis que la probabilité d'étiqueter comme $b$ un jet d'une autre saveur est \tilde{1}{\%}.
 
 \subsection{L'énergie transverse manquante}
 
 \begin{figure}[tbp]
     \centering
     \includegraphics[width=0.7\textwidth]{chapitre3/figs/pf_met_resolution.png}
-    \caption{Résolution de l'énergie transverse manquante \emph{particle-flow} et calorimétrique en fonction de la somme scalaire de l'énergie transverse de toutes les particules dans l'événement ($\sum E_T$) \citep{cms_pf_jets}.}
+    \caption{Résolution de l'énergie transverse manquante \emph{particle-flow} et calorimétrique en fonction de la somme scalaire de l'énergie transverse de toutes les particules dans l'événement ($\sum E_T$), obtenue sur les données 2010. \citep{cms_pf_jets}.}
     \label{fig:met_resolution}
 \end{figure}
 
-Par définition, les collisions au sein de CMS se déroulent le long de l'axe $z$. L'énergie dans le plan ($x$, $y$) est donc nulle. Par conservation de l'énergie, ce bilan doit rester nul après reconstruction de l'événement : un bilan non nul signifie que des particules n'ont pas été correctement reconstruites. C'est par exemple le cas des neutrinos, qui n'interagissent que très peu avec la matière, et ne sont par conséquent jamais détectés.
+Par définition, les collisions au sein de CMS se déroulent le long de l'axe $z$. L'impulsion dans le plan ($x$, $y$) est donc nulle. Par conservation de l'impulsion, ce bilan doit rester nul après reconstruction de l'événement : un bilan non nul signifie que des particules n'ont pas été correctement reconstruites. C'est par exemple le cas des neutrinos, qui n'interagissent que très peu avec la matière, et ne sont par conséquent jamais détectés.
 
-Afin de quantifier cette perte d'énergie, on introduit le vecteur énergie transverse manquante. La norme de ce vecteur est communément appelée énergie transverse manquante (MET), symbolisée par \met. A l'aide de l'algorithme de \emph{particle-flow}, on définit le vecteur énergie transverse manquante comme l'opposé de la somme des impulsions transverses de toutes les particules de l'événement. La résolution sur la mesure de \met est très importante, puisque de nombreux modèles de nouvelle physique prédisent des particules qui interagissent peu voire pas avec la matière : l'énergie manquante est alors le seul moyen de pouvoir les mettre en évidence. On présente \cref{fig:met_resolution} la résolution de \met reconstruite grâce au \emph{particle-flow}. A titre de comparaison, la résolution de \met reconstruite seulement à l'aide des dépôts calorimétriques (calomet) est aussi présentée dans la même figure.
+Afin de quantifier cette perte d'énergie, on introduit le vecteur énergie transverse manquante. La norme de ce vecteur est communément appelée énergie transverse manquante (MET), symbolisée par \met. A l'aide de l'algorithme de \emph{particle-flow}, on définit le vecteur énergie transverse manquante comme l'opposé de la somme vectorielle des impulsions transverses de toutes les particules de l'événement. La résolution sur la mesure de \met est très importante, puisque de nombreux modèles de nouvelle physique prédisent des particules qui interagissent peu voire pas avec la matière : l'énergie manquante est alors le seul moyen de pouvoir les mettre en évidence. On présente \cref{fig:met_resolution} la résolution de \met reconstruite grâce au \emph{particle-flow}, obtenue sur les données 2010. À titre de comparaison, la résolution de \met reconstruite seulement à l'aide des dépôts calorimétriques (calomet) est aussi présentée dans la même figure.
 
 \section{Conclusion}
 
-CMS dispose de puissant outils de reconstruction. À l'aide de l'algorithme du \pf, tous les sous-détecteurs sont utilisés pour la reconstruction des objets physique, ce qui permet d'améliorer sensiblement la résolution des objets reconstruits. On dispose également d'algorithmes performants pour la reconstruction des jets, primordial dans un environnement hadronique où un grand nombre de jets sont produits.
+On a pu voir au cours de ce chapitre combien il est important de posséder une chaine de simulation complète et performante. Dans un premier temps, il faut être capable de générer correctement un processus physique. Cette étape est réalisée par les générateurs d'événements à éléments de matrice, ainsi que par les générateur à gerbe partonique. Il est ensuite nécessaire de simuler de façon précise la réponse du détecteur. Cette étape est cruciale, et impose une excellente connaissance du détecteur : des progrès sont continuellement réalisés afin d'améliorer la simulation. Enfin, le processus de reconstruction des objets physiques, commun à la simulation et aux données collectées, est capital pour les analyses de physique. CMS dispose de puissants outils de reconstruction. À l'aide de l'algorithme du \pf, tous les sous-détecteurs sont utilisés pour la reconstruction des objets physique, ce qui permet d'améliorer sensiblement la résolution des objets reconstruits. On dispose également d'algorithmes performants pour la reconstruction des jets, primordial dans un environnement hadronique où un grand nombre de jets sont produits.
 
 \medskip
 
