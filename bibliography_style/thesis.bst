@@ -471,16 +471,23 @@ FUNCTION {format.key}
 }
 
 FUNCTION {format.authors}
-{ author "author" format.names
-    duplicate$ empty$ 'skip$
+{ author empty$
     { collaboration "collaboration" bibinfo.check
-      duplicate$ empty$ 'skip$
-        { " (" swap$ * ")" * }
-      if$
       *
+    }
+    { author "author" format.names
+      duplicate$ empty$ 'skip$
+      { collaboration "collaboration" bibinfo.check
+        duplicate$ empty$ 'skip$
+          { " (" swap$ * ")" * }
+        if$
+        *
+      }
+    if$
     }
   if$
 }
+
 FUNCTION {get.bbl.editor}
 { editor num.names$ #1 > 'bbl.editors 'bbl.editor if$ }
 
