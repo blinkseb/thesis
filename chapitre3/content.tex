@@ -16,8 +16,8 @@ L'événement dur est décrit de façon analytique en utilisant ce développemen
 
 La section efficace partonique $\sigma_{ij} \rightarrow X$, avec $i, j = \Pgluon, \Pquark$ et $X$ un état final choisit, peut s'exprimer de la façon suivante :
 \begin{align}
-  \sigma_{X} &= \sum_{ij} \int \displaylimits_0^1 \int \displaylimits_0^1 f_i\left( x_i, \mu^2 \right) f_j\left(x_j, \mu^2\right) \sigma_{ij \rightarrow X}\, \mathrm{d}x_i \mathrm{d}x_j \\
-  \sigma_{ij \rightarrow X} &\propto \int \prod \displaylimits_{k = 1}^{N} \frac{\mathrm{d}^3p_k}{\left( 2 \pi \right)^2 2 E_k} \delta^4\left( p_i + p_j - \sum_{k = 1}^{N} p_k \right) \left| \mathcal{M}_{fi} \right|^2
+  \sigma_{X} &= \sum_{ij} \int \displaylimits_0^1 \int \displaylimits_0^1 f_i\left( x_i, \mu^2 \right) f_j\left(x_j, \mu^2\right) \sigma_{ij \rightarrow X}\, \mathrm{d}x_i \mathrm{d}x_j \notag \\
+  \sigma_{ij \rightarrow X} &\propto \int \prod \displaylimits_{k = 1}^{N} \frac{\mathrm{d}^3p_k}{\left( 2 \pi \right)^2 2 E_k} \delta^4\left( p_i + p_j - \sum_{k = 1}^{N} p_k \right) \left| \mathcal{M}_{fi} \right|^2 \label{eq:section_efficace}
 \end{align}
 où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus loin \fxnote{renvoi}), $x_i$ la fraction d'impulsion emportée par le parton $i$, $\mu^2$ l'échelle d'énergie du processus et $\mathcal{M}_{fi}$ l'élément de matrice de transition entre l'état initial $i$ et l'état final $f$. L'élément de matrice est calculé jusqu'à un ordre donné, limité par l'ordre auquel les calculs théoriques ont pu être mené, et l'intégration est effectuée numériquement selon une méthode d'intégration Monte Carlo.
 

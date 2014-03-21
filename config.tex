@@ -352,8 +352,8 @@
 % Back references
 
 \newcommand{\backrefnotcitedstring}{\relax}%(Not cited.)
-\newcommand{\backrefcitedsinglestring}[1]{(Cité en page~#1.)}
-\newcommand{\backrefcitedmultistring}[1]{(Cité en pages~#1.)}
+\newcommand{\backrefcitedsinglestring}[1]{(Cité en page~#1)}
+\newcommand{\backrefcitedmultistring}[1]{(Cité en pages~#1)}
 \ifthenelse{\boolean{enable-backrefs}}%
 {%
 		\PassOptionsToPackage{hyperpageref}{backref}
@@ -441,12 +441,15 @@
 \newcommand{\abs}[1]{\ensuremath{\lvert #1 \rvert}}
 \newcommand{\norm}[1]{\ensuremath{\lVert \, #1 \, \rVert}}
 
-\newcommand{\ttbar}{\ensuremath{\Pqt\Paqt}\xspace}
+\newcommand{\ttbar}{\ensuremath{\Ptop\APtop}\xspace}
+\newcommand{\bbbar}{\ensuremath{\Pbottom\APbottom}\xspace}
 \newcommand{\mtt}{\ensuremath{m_{\Pqt\Paqt}}\xspace}
 \newcommand{\mzp}{\ensuremath{m_{\PZpr}}\xspace}
+\newcommand{\zprime}{\ensuremath{\PZ^{\prime}}\xspace}
 
 \newcommand{\gmu}{\ensuremath{\gamma_\mu}}
 \newcommand{\gzero}{\ensuremath{\gamma_0}}
+\newcommand{\gfive}{\ensuremath{\gamma_5}}
 \newcommand{\dmu}{\ensuremath{\partial_\mu}}
 
 \newcommand{\gmuc}{\ensuremath{\gamma^\mu}}
