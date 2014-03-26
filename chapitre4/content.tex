@@ -2,16 +2,21 @@
 
 \begin{fmffile}{chapitre4}
 
+Comme on a pu le voir au chapitre précédent, les algorithmes de reconstruction des jets sont complexes : ils opèrent sur une liste d'objets et les agglomèrent s'ils respectent certaines conditions (voir \cref{sec:jet_reco}). Les propriétés du jet (énergie, impulsion, charge, etc.) sont ainsi déterminées grâce à ces constituants. Ainsi, s'il en manque certains, ou si leurs énergies sont mal déterminée, les propriétés du jet seront impactées.
+
+\smallskip
+
+C'est pourquoi on applique aux jets toute une série de correction, destinées à corriger ces effets. Les différentes étapes de correction sont détaillées dans ce chapitre.
+
 \section{Les différents niveaux de corrections}
 
-Plusieurs effets sont à prendre en compte lorsque l'on veut corriger l'énergie des jets. En effet, la réponse des deux calorimètres peut varier selon plusieurs facteurs, tels que la présence de \pu, la position angulaire des cellules calorimétriques, l'impulsion transverse des particules, \ldots.
+Plusieurs effets sont à prendre en compte lorsque l'on veut corriger l'énergie des jets. En effet, la réponse des sous-détecteurs peut varier selon plusieurs facteurs, tels que la présence de \pu, la position angulaire et l'impulsion transverse des particules, le type de particule, ...
 
 CMS a adopté une approche factorisée afin de corriger convenablement ces effets. Plusieurs niveaux de corrections sont ainsi définis, chacun corrigeant un effet particulier. Chaque niveau dépend des corrections appliquées au niveau précédent, et l'ordre dans lequel sont appliqués ces corrections est donc important. On compte trois niveaux de corrections différents :
 
 \begin{description}
-    \item[Niveau 1] Permet de corriger des effets du \pu et du bruit des détecteurs.
-    \item[Niveau 2] Permet de corriger la dépendance angulaire.
-    \item[Niveau 3] Permet de corriger la dépendance en fonction de l'impulsion transverse.
+    \item[Niveau 1] Ce niveau de correction corrige les effets du \pu et du bruit des détecteurs.
+    \item[Niveau 2 et 3] Ces niveaux permettent de corriger les variation d'efficacité de la reconstruction des jets, fonction de l'angle et l'impulsion transverse des jets.
 \end{description}
 
 Ces corrections sont appliquées à la fois aux données collectées et à la simulation. Néanmoins, il est apparu que la simulation ne reproduisait pas (encore) parfaitement la réalité. Il a donc été décidé d'ajouter un quatrième niveau de corrections, nommé corrections résiduelles, appliqué uniquement aux données, qui permet de corriger des dernières différences qui subsistent entre données et simulation.
@@ -26,26 +31,36 @@ On a déjà vu lors du \cref{chap:detecteur} que le \pu entraînait une activit�
 
 \medskip
 
-Grâce à l'algorithme du \pf, il est possible de réduire l'impact du \pu sur la reconstruction des jets en appliquant un filtre spécial chargé d'éliminer les hadrons chargés provenant des interactions secondaires, directement liés au \pu. Ce n'est cependant pas suffisant pour totalement supprimer la contribution du \pu, puisque environ \SI{40}{\%} de l'énergie d'un jet provient de hadrons neutres ou de photons (voir \cref{fig:pf_jets_composition}).
+Grâce à l'algorithme du \pf, il est possible de réduire l'impact du \pu sur la reconstruction des jets en appliquant un filtre spécial chargé d'éliminer les hadrons chargés provenant des interactions secondaires. On a en effet vu \cref{sec:pileup} que le \pu venait des collisions parasites d'autre protons. Pour les particules chargés, il est possible d'utiliser le trajectographe pour déterminer très précisément la position du vertex d'interaction. Seules les particules provenant du vertex primaires sont intéressantes. On élimine ainsi les hadrons chargés provenant des vertex secondaires, venant principalement du \pu.
+
+Ce n'est cependant pas suffisant pour totalement supprimer la contribution du \pu, puisque environ \SI{40}{\%} de l'énergie d'un jet provient de hadrons neutres ou de photons (voir \cref{fig:pf_jets_composition}).
 
 \bigskip
 
-Deux méthodes sont employées dans CMS afin de supprimer la contribution du \pu : la méthode \emph{offset} et la méthode \emph{fastjet} \citep{l1fastjet_1,l1fastjet_2}. La méthode \emph{fastjet} est maintenant standard dans CMS, et repose sur la méthode \emph{offset}.
+Tous les jets ne sont pas sensible de la même façon au \pu. On estime la quantité d'énergie due au \pu emportée par chaque jet en calculant la densité d'énergie $\rho$ par unité de surface, qui caractérise l'activité des jets du \pu. Pour ce faire, on utilise l'aire des jets ($A$), définie comme l'étalement du jet dans le plan $\eta - \phi$. La densité $\rho$ est alors définit comme la médiane de la distribution $p_T^j / A_j$, où $j$ est l'index d'un jet dans l'événement.
 
-\begin{figure}
-  \subcaptionbox{\label{fig:l1_offset}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/l1_offset.pdf}} \hfill
-  \subcaptionbox{\label{fig:l1_offset_vs_fastjet}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/l1_offset_vs_fastjet.pdf}} \hfill
-  \caption{(\subref{fig:l1_offset}) \emph{offset} en fonction du nombre de vertex primaire, pour $\num{2} < \aeta < \num{2.1}$. (\subref{fig:l1_offset_vs_fastjet}) comparaison entre les méthodes \emph{offset} et \emph{fastjet}.}
-  \label{fig:jec_l1}
-\end{figure}
+On corrige ainsi événement par événement et jet par jet la contribution du \pu en appliquant un facteur de correction $C$ donné par
+\begin{align*}
+  C &= 1 - \frac{(\rho - \rho_0) \, \beta(\eta) \, A_j}{p_T^{\text{non corrigé}}}
+\end{align*}
+où $\rho_0$ est la contribution à la densité d'énergie de l'événement sous-jacent et du bruit électronique, mesurée dans des événements avec une seule interaction (sans \pu), et $\beta$ un facteur de correction dépendant de $\eta$, qui permet de tenir compte de la non uniformité de la mesure de la densité d'énergie $\rho$ en $\eta$.
 
-\subsubsection{La méthode \emph{offset}}
+% Deux méthodes sont employées dans CMS afin de supprimer la contribution du \pu : la méthode \emph{offset} et la méthode \emph{fastjet} \citep{l1fastjet_1,l1fastjet_2}. La méthode \emph{fastjet} est maintenant standard dans CMS, et repose sur la méthode \emph{offset}.
 
-Des événements de biais minimum sont utilisés afin d'estimer l'énergie moyenne portée par un jet à cause du \pu. Cette énergie moyenne est déterminée en fonction du nombre de vertex primaire ($N_{PV}$), une variable directement corrélée au \pu, ainsi qu'en fonction de $\aeta$ (voir \cref{fig:l1_offset}). On obtient ainsi une correction dépendante du nombre de vertex primaires, ainsi que de \aeta. Cette correction est à soustraire de l'énergie du jet afin de supprimer la contribution du \pu.
+% \begin{figure}
+%   \subcaptionbox{\label{fig:l1_offset}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/l1_offset.pdf}} \hfill
+%   \subcaptionbox{\label{fig:l1_offset_vs_fastjet}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/l1_offset_vs_fastjet.pdf}} \hfill
+%   \caption{(\subref{fig:l1_offset}) \emph{offset} en fonction du nombre de vertex, pour $\num{2} < \aeta < \num{2.1}$, calculé sur des événements multi-jets simulés. (\subref{fig:l1_offset_vs_fastjet}) comparaison entre les méthodes \emph{offset} et \emph{fastjet}.}
+%   \label{fig:jec_l1}
+% \end{figure}
 
-\subsubsection{La méthode \emph{fastjet}}
+% \subsubsection{La méthode \emph{offset}}
 
-Il s'avère que tous les jets ne portent la même énergie due au \pu. La méthode \emph{fastjet} améliore ainsi la méthode \emph{offset} en ajoutant une dépendance des corrections en fonction de l'aire des jets ($A$) et en fonction de la densité d'énergie ($\rho$), définie comme la médiane de la distribution $p_T^j / A_j$, où $j$ est l'index d'un jet dans l'événement. La correction obtenue est donc dépendante de $\rho$, de $A$ et de \aeta. On présente \cref{fig:l1_offset_vs_fastjet} une comparaison entre ces deux méthodes.
+% Des événements de biais minimum\footnote{Un événement de biais minimum est un événement représentatif d'une collision \Pproton{}\Pproton} sont utilisés afin d'estimer l'énergie moyenne portée par un jet à cause du \pu. \fxnote{dire pourquoi du min  bias} Cette énergie moyenne est déterminée en fonction du nombre de vertex ($N_{PV}$), ainsi qu'en fonction de $\aeta$ (voir \cref{fig:l1_offset}). On obtient ainsi une correction dépendante du nombre de vertex, ainsi que de \aeta. Cette correction est à soustraire de l'énergie du jet afin de supprimer la contribution du \pu.
+
+% \subsubsection{La méthode \emph{fastjet}}
+
+% Il s'avère que tous les jets ne portent pas la même énergie due au \pu. La méthode \emph{fastjet} améliore ainsi la méthode \emph{offset} en ajoutant une dépendance des corrections en fonction de l'aire des jets ($A$) et en fonction de la densité d'énergie ($\rho$), définie comme la médiane de la distribution $p_T^j / A_j$, où $j$ est l'index d'un jet dans l'événement. La correction obtenue est donc dépendante de $\rho$, de $A$ et de \aeta. On présente \cref{fig:l1_offset_vs_fastjet} une comparaison entre ces deux méthodes.
 
 \begin{figure}
   \subcaptionbox{\label{fig:l1_no_corr}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/l1_effect_no_corr.pdf}} \hfill
@@ -56,11 +71,22 @@ Il s'avère que tous les jets ne portent la même énergie due au \pu. La métho
 
 \bigskip
 
-Après application des corrections de niveau 1, la réponse des jets, définie comme le rapport en l'impulsion transverse du jet sur l'impulsion transverse vraie, n'est plus dépendante du nombre de vertex primaires, comme on peux le voir \cref{fig:l1_with_corr}.
+Après application des corrections de niveau 1, la réponse des jets, définie comme le rapport en l'impulsion transverse du jet sur l'impulsion transverse vraie\footnote{L'impulsion transverse vraie d'un jet est la valeur de l'impulsion transverse dans le cas où le jet est parfaitement reconstruit. Cette valeur est déterminée en agglomérant les particules directement en sortie du générateur, plutôt que les particules après reconstruction.}, n'est plus dépendante du nombre de vertex primaires, comme on peux le voir \cref{fig:jec_l1_effect}.
 
 \subsection{Les corrections de niveau 2 et 3}
 
-Ces corrections sont appliquées après celles de niveau 1. La réponse n'est donc plus dépendante du \pu. Néanmoins, elle varie toujours en fonction de \aeta et du $p_T$. Afin de corriger ces effets, on utilise des événements di-jets. Par conservation de l'impulsion transverse, on a donc $p_T^\text{jet 1} = p_T^\text{jet 2}$. De plus, on considère que les jets dans la région centrale du détecteur ($\aeta < \num{1.3}$) sont correctement reconstruit. On sélectionne donc des événements avec au moins un jet dans la région centrale, et on calcule la réponse $R$, définie comme $p_T^\text{jet} / p_T^\text{central}$, en fonction de \aeta et $p_T$. Dans le cas d'une reconstruction parfaite, la réponse vaut 1. Dans le cas contraire, le facteur de correction à appliquer est $1 / R$.
+Ces corrections sont appliquées après celles de niveau 1. La réponse n'est donc plus dépendante du \pu. Néanmoins, elle varie toujours en fonction de \aeta et du $p_T$. On corrige cette dépendance grâce à la simulation.
+
+\smallskip
+
+On utilise des événements multi-jets pour déterminer les facteurs de corrections à appliquer. On réalise une grille 2D en $\eta$ et en $p_T$. Pour chaque classe, on détermine la réponse des jets définie comme
+\begin{align*}
+  R &= \dfrac{p_T}{p_T^\text{vrai}}
+\end{align*}
+où $p_T^\text{vrai}$ est l'impulsion transverse du jet généré à partir des particules MC (impulsion transverse vraie). Le facteur de correction est alors $1 / R$, et dépend à la fois de $\eta$ et de $p_T$.
+
+
+%Afin de corriger ces effets, on utilise des événements di-jets. Par conservation de l'impulsion transverse, on a donc $p_T^\text{jet 1} = p_T^\text{jet 2}$. De plus, on considère que les jets dans la région centrale du détecteur ($\aeta < \num{1.3}$) sont correctement reconstruit. On sélectionne donc des événements avec au moins un jet dans la région centrale, et on calcule la réponse $R$, définie comme $p_T^\text{jet} / p_T^\text{central}$, en fonction de \aeta et $p_T$. Dans le cas d'une reconstruction parfaite, la réponse vaut 1. Dans le cas contraire, le facteur de correction à appliquer est $1 / R$.
 
 %\begin{figure}
   %\subcaptionbox{\label{fig:l2l3_response}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/l2l3_response.pdf}} \hfill
@@ -71,20 +97,32 @@ Ces corrections sont appliquées après celles de niveau 1. La réponse n'est do
 
 \begin{figure}[tbp]
     \centering
-    \includegraphics[width=0.55\textwidth]{chapitre4/figs/response_after_l1l2l3.pdf}
-    \caption{Réponse des jets après application des corrections de niveau 1, 2 et 3, pour des événements QCD simulés}
-    \label{fig:resp_l1l2l3}
+    \subcaptionbox{\label{fig:resp_l1l2l3}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/response_after_l1l2l3.pdf}} \hfill
+    \subcaptionbox{\label{fig:jet_flavor_resp}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/jet_flavor_response.pdf}} \hfill
+    \caption{(\subref{fig:resp_l1l2l3}) Réponse des jets après application des corrections de niveau 1, 2 et 3, pour des événements multi-jets simulés. (\subref{fig:jet_flavor_resp}) DIfférence de réponse entre les jets légers (\Pup, \Pdown, \Pstrange), les jets de gluons, les jets de \Pcharm et les jets de \Pbottom.}
 \end{figure}
 
-On présente \cref{fig:resp_l1l2l3} la réponse des jets après application des corrections de niveau 1, 2 et 3, pour des événements QCD simulés. La réponse est maintenant linéaire.
+\bigskip
+
+On présente \cref{fig:resp_l1l2l3} la réponse des jets après application des corrections de niveau 1, 2 et 3, pour des événements multi-jets simulés. La réponse est linéaire, c'est-à-dire indépendante de $p_T$, et vaut maintenant 1. La dépendance en $\eta$ est aussi supprimée lors de l'application des corrections de niveau 2 et 3.
+
+\bigskip
+
+Ces facteurs de corrections ont été déterminés sur des événements multi-jets, très riches en jets de gluons. Cependant, on peut voir \cref{fig:jet_flavor_resp} que la réponse du jet dépend de sa saveur. Pour l'instant, cette différence de réponse est prise en compte aux travers des erreurs systématiques, et on verra plus loin dans ce chapitre que des études sont menées par CMS afin de déterminer des corrections aussi dépendantes de la saveur des jets.
 
 \subsection{Les corrections résiduelles}
 
 Les corrections précédentes sont toutes dérivées à l'aide de la simulation. Malheureusement, cette simulation n'est pas parfaite, et des différences existent entre la réponse des jets dans la simulation et dans les données collectées. On applique ainsi un autre niveau de corrections, uniquement sur les données, afin de corriger des dernières différences entre données et simulation. Ces corrections, dépendante de \aeta et du $p_T$ des jets, sont déterminées à l'aide d'événements $\PZ \rightarrow \left[ \Pmuon \APmuon \, | \, \Pelectron \APelectron \right] $ + jets ou $\Pphoton$ + jets, ainsi que des événements di-jets pour la dépendance en \aeta.
 
-Ayant fait l'objet de ma tâche de service au sein de CMS, la détermination des corrections résiduelles à l'aide d'événement $\Pphoton$ + jets est décrite en détails dans la \cref{sec:jetmet_gamma_jet}.
+La détermination des corrections résiduelles à l'aide d'événement $\Pphoton$ + jets est décrite en détails dans la \cref{sec:jetmet_gamma_jet}.
 
 \subsection{Erreurs systématiques}
+
+Face à la complexité de la détermination des corrections des jets, l'erreur systématique associée est souvent l'erreur dominante dans les analyses de physique, atteignant souvent des valeurs proches de \SI{10}{\%}. Beaucoup d'efforts sont fait pour améliorer notre compréhension des détecteurs et ainsi réduire ces erreurs systématiques.
+
+\medskip
+
+On trouve \cref{fig:jetmet_uncertainties} l'évolution des erreurs systématiques en fonction de \pt (\cref{fig:uncertainties_vs_pt}) et en fonction de \aeta (\cref{fig:uncertainties_vs_eta}). Cette erreur se décompose en 6 sources indépendantes :
 
 \begin{figure}[tbp]
     \centering
@@ -94,11 +132,15 @@ Ayant fait l'objet de ma tâche de service au sein de CMS, la détermination des
     \label{fig:jetmet_uncertainties}
 \end{figure}
 
-Face à la complexité de la détermination des corrections des jets, l'erreur systématique associée est souvent l'erreur dominante dans les analyses de physique, atteignant souvent des valeurs proches de \SI{10}{\%}. Beaucoup d'efforts sont fait pour améliorer notre compréhension des détecteurs et ainsi réduire ces erreurs systématiques.
+\begin{itemize}
+  \item Les erreurs systématiques liées à la détermination des corrections résiduelles (\emph{absolute scale} et \emph{relative scale}).
+  \item Les méthodes employées pour déterminer les corrections résiduelles ne permettent pas d'aller à très haut $p_T$. Une extrapolation est alors réalisée, en se basant sur les résultats obtenus à bas $p_T$. Une erreur systématique est associée à cette procédure (\emph{extrapolation}).
+  \item Une erreur systématique liée à la modélisation du \pu (\pu).
+  \item La différence de réponse liée à la saveur des jets est prise en compte à travers une erreur systématique dédié (\emph{jet flavor}).
+  \item Les conditions de reconstruction et de calibration du détecteur ont changées pendant la prise de données 2012. Ces différences n'ont pas été propagées à la simulation, et on voit apparaitre des différences de réponse en fonction de la date de la prise de données. Ces différences sont prises en compte \emph{via} une erreur systématique (\emph{time stability}).
+\end{itemize}
 
-\medskip
-
-On trouve \cref{fig:jetmet_uncertainties} l'évolution des erreurs systématiques en fonction de \pt (\cref{fig:uncertainties_vs_pt}) et en fonction de \aeta (\cref{fig:uncertainties_vs_eta}). Cette erreur se décompose en 6 sources indépendantes, et on constate que la présence de \pu (ligne bleue) contribue en majorité à l'incertitude totale. De nouvelles techniques de suppression du \pu au niveau 1 sont ainsi en cours de développement, afin de réduire cette erreur systématique. Néanmoins, pour des jets de \SI{100}{\GeV} dans le tonneau ($\aeta < \num{1.3}$), on arrive à garder l'erreur systématique totale sous la barre des \SI{2}{\%}.
+On constate que la présence de \pu (ligne bleue) contribue en majorité à l'incertitude totale. De nouvelles techniques de suppression du \pu au niveau 1 sont ainsi en cours de développement, afin de réduire cette erreur systématique. Néanmoins, pour des jets de \SI{100}{\GeV} dans le tonneau ($\aeta < \num{1.3}$), on arrive à garder l'erreur systématique totale sous la barre des \SI{2}{\%}.
 
 \section{Détermination des corrections résiduelles à l'aide d'événements \texorpdfstring{$\Pphoton$}{γ} + jets} \label{sec:jetmet_gamma_jet}
 
