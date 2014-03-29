@@ -168,19 +168,20 @@ Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse inv
 \begin{table}[h] \centering
     \begin{tabular}{@{}ccccc@{}} \toprule
         & sans $H_{T}^{\text{frac.}}$ ni $p_{T}^{\ttbar}$ & avec $p_{T}^{\ttbar}$ & avec $H_{T}^{\text{frac.}}$ & avec $H_{T}^{\text{frac.}}$ ni $p_{T}^{\ttbar}$ \\ \midrule
-        $\epsilon_\text{associé}$ & \SI{76.80 \pm 0.37}{\%} & \SI{76.01 \pm 0.38}{\%} & \SI{80.01 \pm 0.35}{\%} & \SI{77.35 \pm 0.37}{\%} \\
-        $\epsilon_\text{associé et bien placé}$ & \SI{23.44 \pm 0.37}{\%} & \SI{23.12 \pm 0.37}{\%} & \SI{24.47 \pm 0.38}{\%} & \SI{23.55 \pm 0.37}{\%} \\ \bottomrule
+        $\epsilon_\text{associé}$ & \SI{75.92 \pm 0.13}{\%} & \SI{76.30 \pm 0.12}{\%} & \SI{79.55 \pm 0.12}{\%} & \SI{78.99 \pm 0.12}{\%} \\
+        $\epsilon_\text{associé et bien placé}$ & \SI{41.63 \pm 0.15}{\%} & \SI{41.96 \pm 0.14}{\%} & \SI{44.04 \pm 0.14}{\%} & \SI{43.75 \pm 0.14}{\%} \\ \bottomrule
     \end{tabular}
     \caption{Efficacité d'obtenir un événement associé ($\epsilon_\text{associé}$) et un événement associé et bien placé ($\epsilon_\text{associé et bien placé}$) pour différentes configurations du $\chi^2$. La configuration optimale est celle utilisant uniquement le terme supplémentaire $H_{T}^{\text{frac.}}$.}
     \label{tab:chi2_study}
 \end{table}
 
-D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elle consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport à sélectionner les 4 jets de plus haute impulsion. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée.
+D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elle consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport à sélectionner les 4 jets de plus haute impulsion. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée. La performance de la reconstruction de la masse invariante est caractérisée par la résolution, définie comme la différence entre la masse invariante reconstruite et la masse invariante générée. Cette résolution est présentée \cref{fig:mtt_res_chi2}, avec une valeur d'environ \SI{55}{\GeV}.
 
 \begin{figure}[tbp] \centering
-    \includegraphics[width=0.50\textwidth]{chapitre6/figs/chi2/jet_selection_efficiency.pdf}
-    \caption{Évolution de l'efficacité d'obtenir un événement associé en fonction de la masse invariante \ttbar généré pour l'algorithme de tri par $\chi^2$ (\textcolor{rouge_grandmere}{rouge}) ou en sélectionnant simplement les 4 jets de plus haute impulsions (\textcolor{bleu_gris}{bleu}).}
-    \label{fig:chi2_vs_jets}
+    \subcaptionbox{\label{fig:chi2_vs_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/jet_selection_efficiency.pdf}}
+    \subcaptionbox{\label{fig:mtt_res_chi2}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_chi2.pdf}}
+    \caption{(\subref{fig:chi2_vs_jets}) Évolution de l'efficacité d'obtenir un événement associé en fonction de la masse invariante \ttbar généré pour l'algorithme de tri par $\chi^2$ (\textcolor{rouge_grandmere}{rouge}) ou en sélectionnant simplement les 4 jets de plus haute impulsions (\textcolor{bleu_gris}{bleu}). (\subref{fig:mtt_res_chi2}) Résolution sur la masse invariante \ttbar après utilisation de l'algortihme de tri par $\chi^2$.}
+    \label{fig:label}
 \end{figure}
 
 \subsection{Algorithme de tri par MVA}
@@ -205,22 +206,51 @@ Afin de construire un tel arbre, une phase d'entrainement est nécessaire. Cette
 
 Le problème est contourné en construisant une "forêt" d'arbres de décision. La classification d'un événement en "signal" ou "fond" est déterminée par le résultat majoritaire sur tous les arbres. L'entrainement de chaque arbre est réalisé sur le même échantillon. La seule différence vient de l'application d'un poids particulier à chaque événement : les événements mal classés durant l'entrainement de l'arbre de décision auront un poids plus grand lors de l'entrainement de l'arbre suivant. Cette technique est appelé \emph{boost} \citep{Freund1997119} et permet de stabiliser l'algorithme.
 
-%\subsubsection{Réseau de neurones}
-\fxnote{Réseau de neurones ?}
+\subsubsection{Réseau de neurones}
+
+Un réseau de neurones consiste en une collection interconnectée de neurones, où chaque neurone dispose d'une fonction de transfert transformant une valeur d'entrée en valeur de sortie. En utilisant plusieurs couches de neurones, il est possible de créer un réseau complexe qui permet de classer des événements. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
+
+\begin{figure}[tbp] \centering
+    \includegraphics[width=0.55\textwidth]{chapitre6/figs/Neural_network.pdf}
+    \caption{Vue schématique d'un réseau de neurones. En vert, deux neurones d'entrées sont connectés à des neurones "cachés" (bleu), eux même connectés à un neurone de sortie (jaune).}
+    \label{fig:nn}
+\end{figure}
 
 \subsubsection{Classification des événements \ttbar}
 
-L'utilisation d'un BDT permet de classer un événement en deux catégories : "signal" ou "fond". Pour notre cas particulier, la catégorie "signal" correspond au choix de la bonne combinaison de jets, et "fond" aux mauvaises combinaisons. 14 variables rentrent dans la composition de nos MVA :
+L'utilisation d'un MVA permet de classer un événement en deux catégories : "signal" ou "fond". Pour notre cas particulier, la catégorie "signal" correspond au choix de la bonne combinaison de jets, et "fond" aux mauvaises combinaisons. Les variables rentrant dans la composition du MVA sont exactement les mêmes que celles de l'algorithme de $\chi^2$. Utiliser des variables angulaires ou cinématiques est possible, mais rend l'algorithme MVA dépendant du mode de production des paires \ttbar. Hors, on souhaite pouvoir utiliser cet algorithme sur des processus de nouvelle physique : on doit donc garder l'algorithme le plus indépendant possible du mode de production.
 
-\begin{itemize}
-    \item Variables à décider
-\end{itemize}
+\bigskip
 
-\fxerror{Ajouter plots des variables et du BDT une fois finit d'entrainer}
+Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA. La \cref{fig:mtt_res_mva} présente les performances de reconstruction de ces deux algorithmes, à comparer avec la \cref{fig:mtt_res_mva}. Là encore, la résolution obtenue avec l'algorithme de tri par $\chi^2$ est meilleure.
 
-\fxerror{Relancer extractor sur TT avec nouveaux BDT et comparer efficacités de de matching avec $\chi^2$}
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:mva_bdt_discr}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mva/mva_BDT.pdf}}
+    \subcaptionbox{\label{fig:mva_nn_discr}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mva/mva_NN.pdf}}
+    \caption{Valeurs de sortie pour les bonnes (bleu) et mauvaises (rouge) combinaisons, pour l'algorithme BDT (\subref{fig:mva_bdt_discr}) et le réseau de neurones (\subref{fig:mva_nn_discr}).}
+\end{figure}
 
-% Une variable très discriminante, non incluse, est \mtt. Il n'est malheureusement pas possible d'utiliser cette variable, puisque l'on cherche à observer des déviations dans le spectre de masse invariante. Une telle déviation classerait notre événement dans la catégorie "fond".
+\begin{table}[tbp] \centering
+    \sisetup{separate-uncertainty = true}
+    \begin{tabular}{@{}cccc@{}} \toprule
+        & $\chi^2$ & BDT & NN \\ \midrule
+        $\epsilon_\text{associé}$ & \SI{80.23 \pm 1.08}{\%} & \SI{78.12 \pm 1.17}{\%} & \SI{74.33 \pm 1.18}{\%} \\
+        $\epsilon_\text{associé et bien placé}$ & \SI{44.27 \pm 1.34}{\%} & \SI{44.56 \pm 1.34}{\%} & \SI{38.51 \pm 1.31}{\%} \\ \bottomrule
+    \end{tabular}
+    \caption{Efficacité d'obtenir un événement associé ($\epsilon_\text{associé}$) et un événement associé et bien placé ($\epsilon_\text{associé et bien placé}$) pour différentes configurations du $\chi^2$. La configuration optimale est celle utilisant uniquement le terme supplémentaire $H_{T}^{\text{frac.}}$.}
+    \label{tab:chi2_vs_bdt_vs_nn}
+\end{table}
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{BDT}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_bdt.pdf}}
+    \subcaptionbox{NN}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_NN.pdf}}
+    \caption{Résolutions sur la masse invariante \ttbar après utilisation du MVA.}
+    \label{fig:mtt_res_mva}
+\end{figure}
+
+\bigskip
+
+L'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Avant que ces études ne soient menées, il a été décidé de ne pas utiliser de MVA à cause de moins bonnes performances face à l'algorithme de tri par $\chi^2$.
 
 \section{Ajustement cinématique}
 
@@ -269,6 +299,8 @@ On verra dans le \cref{chap:zprime} que ces bons résultats sur des événements
 
 \section{Conclusion}
 
-Comme on a pu le voir tout au long de ce chapitre, deux étapes sont nécessaires pour reconstruire la masse invariante \ttbar. Dans un premier temps, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. Pour cela, plusieurs algorithmes existent, dont deux ont été détaillés dans ce chapitre. Une fois les jets sélectionnés, il reste encore à reconstruire le composante longitudinale de l'impulsion du neutrino, ce qui permet d'évaluer correctement l'énergie de ce neutrino.
+Comme on a pu le voir tout au long de ce chapitre, deux étapes sont nécessaires pour reconstruire la masse invariante \ttbar. Dans un premier temps, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. On utilise pour cela un algorithme de tri par $\chi^2$, qui s'est prouvé plus performant que des algorithmes plus complexes comme les MVA. Une fois les jets sélectionnés, il reste à reconstruire le composante longitudinale de l'impulsion du neutrino, ce qui permet d'évaluer correctement l'énergie. Finalement, il est possible de reconstruire la masse invariante du système \ttbar. La résolution typique obtenue sur cette reconstruction est d'environ \SI{55}{\GeV}.
 
-Toutes ces techniques sont utilisées avec succès dans les analyses de recherche de nouvelles physiques, qui sont les sujets des \cref{chap:zprime,chap:higgs}.
+\bigskip
+
+Toutes ces techniques sont utilisées avec succès dans les analyses de recherche de nouvelles physiques, sujets des \cref{chap:zprime,chap:higgs}.
