@@ -1,0 +1,29 @@
+How-to plots
+
+Chi^2 plots:
+  - Go to /gridgroup/cms/brochet/HTT/CMSSW_analysis/SL6/MttTools/ChiSquareTools
+
+  To produce chi2_distribution.pdf:
+  root MTT_TT_powheg_semimu_oldchi2.root
+  .L plotChi2Value.cpp
+  plotChi2Value(_file0);
+
+  To produce chi2_discriminant plots:
+    - Run computeChiSquareRefValues on a .list file
+    - Use plotGoodWrongCombinaison.cpp on the output file
+
+  To produce jet_selection_efficiency:
+    - Run computeChiSquareEfficiency on a .list file
+    - Execute plotEfficiency.cpp on the output file
+
+KinFit plots:
+  - Go to /gridgroup/cms/brochet/MTT/CMSSW/CMSSW_5_3_4/src/Extractors/PatExtractor/test
+  - Execute parallel on files computeKinFitMttResolution_ZPrimeGoodSolutions.parallel and computeKinFitMttResolution_ZPrime.parallel
+  - Copy output files to 'plots'
+  - cd plots
+  - Execute scripts
+
+Resolution plots:
+  - Go to /gridgroup/cms/brochet/HTT/CMSSW_analysis/SL6/MttTools/ChiSquareTools
+  - Execute computeChiSquareEfficiency on .list file
+  - Run plotMttResolution.cpp on output file

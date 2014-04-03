@@ -1,6 +1,8 @@
 \chapter{Reconstruction expérimentale d'événements \ttbar}
 
-Les \cref{chap:zprime,chap:higgs} sont consacrés à la recherche de nouvelle physique dans le spectre de masse invariante de paire \ttbar. Avant de pouvoir chercher de quelconques déviation dans le spectre de masse, il faut être capable de reconstruire la masse invariante du système \ttbar. On présente dans ce chapitre les techniques de reconstruction de la masse invariante.
+\fxnote{Ajouter plot de masse du top reconstruite ?}
+
+Les \cref{chap:zprime,chap:higgs} sont consacrés à la recherche de nouvelle physique dans le spectre de masse invariante de paires \ttbar. Avant de pouvoir chercher de quelconques déviations dans le spectre de masse, il faut être capable de reconstruire la masse invariante du système \ttbar. Ce chapitre présente les techniques mises en œuvre pour la reconstruction de la masse invariante de paires \ttbar.
 
 \section{Masse invariante}
 
@@ -9,31 +11,31 @@ La masse invariante est un invariant relativiste définie par
   m^2 &= E^2 - \norm{\vec{p}}^2
 \end{align*}
 
-Lorsqu'une particule de masse $m$ se désintègre, $X \rightarrow A + B$ la masse invariante est conservée ($m_X = m_{A + B}$). La masse invariante du système A + B est définie par :
+Lorsqu'une particule $X$ de masse $m$ se désintègre en $A + B$ ,la masse invariante est conservée ($m_X = m_{A + B}$). La masse invariante du système A + B est alors définie par :
 \begin{align*}
   m_{A + B}^2 &= \left( E_A + E_B \right)^2 - \norm{ \vec{p}_A + \vec{p}_B }^2
 \end{align*}
 
-Cette relation est aisément extensible à un système de $N$ particules. Dans le cas de particule sans masse, ou hautement relativiste ($E \gg m$, toujours le cas au LHC), on peut exprimer la masse invariante en fonction des variables angulaires des particules :
+Cette relation est aisément extensible à un système de $N$ particules. Dans le cas de particules sans masse, ou hautements relativistes ($E \gg m$, toujours le cas au LHC), on peut exprimer la masse invariante en fonction des variables angulaires des particules (\fxnote{pas sûr que ça soit très utile ...}) :
 \begin{align*}
   m_{A + B}^2 &= 2 p_T^A p_T^B \left( \cosh{\left( \eta_A - \eta_B \right)} - \cos{\left( \phi_A - \phi_B \right)} \right)
 \end{align*}
 
 En utilisant le quadrivecteur énergie-impulsion ($p = \left(E,\,\vec{p}\right)$), la masse invariante est simplement définie comme la norme de $p$ :
 \begin{align*}
-  m &= \norm{p}
+  m^2 &= \norm{p}^2 = E^2 - \norm{\vec{p}}^2
 \end{align*}
 
 \subsection{Masse invariante du système \ttbar}
 
-Concentrons nous uniquement sur le canal semi-leptonique, c'est-à-dire un quark top qui se désintègrent en \Plepton{}\Pneutrino{}\Pbottom, et le deuxième en \Pbottom{}\Pquark{}\APquark (voir \cref{fig:top_pair_decay_semileptonic}). Toutes les particules peuvent être reconstruites, excepté le neutrino. En effet, n'interagissant que très faiblement avec la matière, les neutrinos traversent le détecteur sans laisser de dépôts dans les sous-détecteurs. Le seul moyen d'identifier les neutrinos est d'utiliser l'énergie transverse manquante. En faisant le bilan d'énergie de la collision dans le plan transverse, le neutrino apparait comme de l'énergie manquante. Dans le cas d'une désintégration \ttbar, on identifie donc l'énergie transverse manquante comme le neutrino.
+Concentrons nous uniquement sur la désintégration semi-leptonique de paires \ttbar, c'est-à-dire un quark top qui se désintègrent en \Plepton{}\Pneutrino{}\Pbottom, et le deuxième en \Pbottom{}\Pquark{}\APquark (voir \cref{fig:top_pair_decay_semileptonic}). Toutes les particules peuvent être reconstruites, excepté le neutrino. En effet, n'interagissant que très faiblement avec la matière, les neutrinos traversent le détecteur sans laisser de dépôts dans les sous-détecteurs. Le seul moyen d'identifier les neutrinos est d'utiliser l'énergie transverse manquante. En faisant le bilan d'énergie de la collision dans le plan transverse, le neutrino apparait comme de l'énergie manquante. Dans le cas d'une désintégration \ttbar, on identifie la totalité de l'énergie transverse manquante comme venant du neutrino.
 
 Afin de reconstruire la masse invariante du système \ttbar, il faut être capable de reconstruire la cinématique de chaque produit de la désintégration. On peut ensuite reconstruire la masse invariante \ttbar :
 \begin{align} \label{eq:invariant_mass_tt}
   m_{\ttbar} &= \norm{ p_{\Plepton} + p_{\Pneutrino} + p_{\Pquark} + p_{\APquark} + p_{\Pbottom}^{\text{hadronique}} + p_{\Pbottom}^\text{leptonique} }
 \end{align}
 
-Deux problèmes majeures se posent :
+Deux problèmes majeurs se posent :
 \begin{itemize}
     \item 4 jets composent l'état final d'une désintégration \ttbar. Il faut donc être capable de correctement identifier ces jets parmi les nombreux jets de \pu dans l'événement. Pour cela, diverses techniques peuvent être employées, décrites plus loin dans ce chapitre.
     \item L'énergie transverse manquante est utilisée pour reconstruire le neutrino. Comme le bilan d'énergie ne peut être effectué que dans le plan transverse, seul l'impulsion transverse du neutrino est définie, c'est-à-dire $p_x$ et $p_y$. Il faut donc trouver un moyen de reconstruire $p_z$ qui sera utilisé dans le calcul de la masse invariante \ttbar. C'est l'objet de la \cref{sec:neutrino}.
@@ -43,7 +45,7 @@ Une fois ces problèmes surmontés, il est possible de reconstruire la masse inv
 
 \section{Reconstruction du neutrino} \label{sec:neutrino}
 
-Comme on a vu précédemment, la présence d'un neutrino se caractérise par de l'énergie manquante. En considérant que la seule source d'énergie manquante dans l'événement, on a alors
+Comme on a vu précédemment, la présence d'un neutrino se caractérise par de l'énergie manquante. En considérant que la seule source d'énergie manquante dans l'événement provient du neutrino, on a alors
 \begin{align*}
   p_t^{\Pneutrino} &= \met
 \end{align*}
@@ -78,11 +80,11 @@ Lorsque l'on obtient deux solutions réelles, le choix est fait en utilisant la 
 
 \medskip
 
-On présente \cref{fig:neutrino_correction} l'effet de la reconstruction de la composante longitudinale sur la mesure de l'énergie du neutrino. Avant reconstruction, l'énergie du neutrino est clairement sous estimée. Une fois $p_z$ reconstruit, l'énergie du neutrino coïncide avec l'énergie du neutrino générée. On mesure ici toute l'importance de la reconstruction du neutrino sur la mesure de l'énergie, et donc sur la reconstruction de la masse invariante du système \ttbar.
+La \cref{fig:neutrino_correction} présente l'effet de la reconstruction de la composante longitudinale sur la mesure de l'énergie du neutrino. Avant reconstruction, l'énergie du neutrino est clairement sous estimée. Une fois $p_z$ reconstruit, l'énergie du neutrino coïncide avec l'énergie du neutrino générée. On mesure ici toute l'importance de la reconstruction du neutrino sur la mesure de l'énergie, et donc sur la reconstruction de la masse invariante du système \ttbar.
 
 \section{Méthodes d'appariement des jets}
 
-Lors d'une désintégration \ttbar dans le canal semi-leptonique, 4 jets composent l'état final : 2 jets de \Pbottom, provenant de la désintégrations des deux quarks top, et deux jets de quark légers, provenant de la désintégration d'un des bosons \PW.
+Lors d'une désintégration \ttbar dans le canal semi-leptonique, 4 jets composent l'état final : 2 jets de \Pbottom, provenant de la désintégrations des deux quarks top, et deux jets de quark légers, provenant de la désintégration hadronique d'un des bosons \PW.
 
 Le LHC est un collisionneur hadronique. De nombreux jets additionnels sont produits lors d'une collision, venant du \pu, de l'événement sous-jacent, de radiations de gluon, etc. Il faut donc un moyen d'identifier précisément les jets provenant de la désintégration \ttbar parmi tous les jets de l'événement. Deux méthodes sont étudiées dans cette section, la méthode de tri par $\chi^2$, et la méthode de tri par MVA (\emph{Multi-Variate Analysis}, analyse multi-variée).
 
@@ -103,29 +105,29 @@ Afin de choisir la bonne combinaison, on minimise une variable de $\chi^2$, cons
 où
 
 \begin{align*}
-  \chi^2_X &= \frac{\left( X_\text{mesuré} - X_\text{MC} \right)^2}{\sigma_\text{MC}^2}
+  \chi^2_X &= \frac{\left( X_\text{mesuré} - \left\langle X_\text{MC} \right\rangle \right)^2}{\sigma_\text{MC}^2}
 \end{align*}
-avec $X$ le discriminant considéré, $X_\text{mesuré}$ la valeur du discriminant mesurée, $X_\text{MC}$ la valeur la plus probable du discriminant déterminé sur la simulation et $\sigma_\text{MC}$ l'erreur sur la valeur la plus probable du discriminant.
+avec $X$ le discriminant considéré, $X_\text{mesuré}$ la valeur du discriminant mesurée, $\left\langle X_\text{MC} \right\rangle$ la valeur la plus probable du discriminant déterminée sur la simulation et $\sigma_\text{MC}$ l'erreur sur la valeur la plus probable du discriminant.
 
 Les discriminants formant le $\chi^2$ total sont :
 \begin{itemize}
-    \item $\chi^2_{m_{\Ptop}^{\text{lept.}}}$ : masse du quark top dans la branche leptonique. Des valeurs différentes sont utilisées pour les sélections avec un électron ou un muon.
+    \item $\chi^2_{m_{\Ptop}^{\text{lept.}}}$ : masse du quark top dans la branche leptonique. Deux valeurs sont utilisées, selon la saveur du lepton (électron ou muon).
     \item $\chi^2_{m_{\Ptop}^{\text{hadr.}}}$ : masse du quark top dans la branche hadronique.
     \item $\chi^2_{m_{\PW}^{\text{hadr.}}}$ : masse du boson \PW dans la branche hadronique.
     \item $\chi^2_{H_{T}^{\text{frac.}}}$ : $\sum\limits_i{p_T} / \sum\limits_j{p_T}$ où $i$ court sur les 4 jets considérés, et $j$ sur tous les jets sélectionnés.
 \end{itemize}
 
 \begin{figure}[p] \centering
-    \subcaptionbox{}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_leptonic_top_mass_mu.pdf}} \qquad
-    \subcaptionbox{}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_leptonic_top_mass_e.pdf}} \\
-    \subcaptionbox{}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_hadronic_top_mass.pdf}} \qquad
-    \subcaptionbox{}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_w_mass.pdf}} \\
-    \subcaptionbox{}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_ht_frac.pdf}}
-    \caption{Distributions pour chaque discriminant du $\chi^2$. Les points noires correspondant aux valeurs calculées en utilisant les bonne combinaisons de jets, à comparer avec les valeurs calculées en utilisant toutes les combinaisons de jets (histogramme jaune). Une interpolation gaussienne est superposée afin d'extraire les valeurs de références ainsi que leurs erreurs. (a) $m_{\Ptop}^{\text{lept.}}$ semi-$\mu$. (b) $m_{\Ptop}^{\text{lept.}}$ semi-e. (c) $m_{\Ptop}^{\text{hadr.}}$. (d) $m_{\PW}^{\text{hadr.}}$. (e) $H_{T}^{\text{frac.}}$.}
+    \subcaptionbox{$m_{\Ptop}^{\text{lept.}}$ semi-$\mu$}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_leptonic_top_mass_mu.pdf}} \qquad
+    \subcaptionbox{$m_{\Ptop}^{\text{lept.}}$ semi-e}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_leptonic_top_mass_e.pdf}} \\
+    \subcaptionbox{$m_{\Ptop}^{\text{hadr.}}$}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_hadronic_top_mass.pdf}} \qquad
+    \subcaptionbox{$m_{\PW}^{\text{hadr.}}$}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_w_mass.pdf}} \\
+    \subcaptionbox{$H_{T}^{\text{frac.}}$}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_ht_frac.pdf}}
+    \caption{Distributions pour chaque discriminant du $\chi^2$. Les points noirs correspondent aux valeurs calculées en utilisant les bonne combinaisons de jets, à comparer avec les valeurs calculées en utilisant toutes les combinaisons de jets (histogramme jaune). Une interpolation gaussienne est superposée afin d'extraire les valeurs de références ainsi que leurs erreurs.}
     \label{fig:chi2_distributions}
 \end{figure}
 
-Afin d'extraire les valeurs de références des discriminants, on reconstruit l'événement \ttbar en utilisant uniquement la bonne association de jet. Cette bonne association est déterminée en utilisant la vérifié Monte Carlo. À chaque jet reconstruit (jet reco), on tente d'assigner un parton provenant de la désintégration \ttbar. Cette procédure d'assignation est réalisée en demandant que la distance entre le jet reco et le parton dans le plan $(\eta, \phi)$ ($\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$) soit inférieure à $0.4$, et que la différence d'impulsion transverse ($\Delta p_T$) soit inférieure à \SI{300}{\%}. Dans le cas où aucune association ne peut être faite (\tilde \SI{60}{\%} des cas), l'événement n'est considéré ni pour les bonnes ni pour les mauvaises combinaisons.
+Afin d'extraire les valeurs de références des discriminants, on reconstruit l'événement \ttbar en utilisant uniquement la bonne association de jet. Cette bonne association est déterminée en utilisant la vérifié Monte Carlo. À chaque jet reconstruit, on tente d'assigner un parton provenant de la désintégration \ttbar. Cette procédure d'assignation est réalisée en demandant que la distance entre le jet reconstruit et le parton dans le plan $(\eta, \phi)$ ($\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$) soit inférieure à $0.4$, et que la différence d'impulsion transverse ($\Delta p_T$) soit inférieure à \SI{300}{\%}. Dans le cas où aucune association ne peut être faite (\tilde \SI{60}{\%} des cas), l'événement n'est considéré ni pour les bonnes ni pour les mauvaises combinaisons.
 
 \begin{table} \centering
     \begin{tabular}{@{}ccc@{}} \toprule
@@ -140,14 +142,13 @@ Afin d'extraire les valeurs de références des discriminants, on reconstruit l'
     \label{tab:chi2_ref_values}
 \end{table}
 
-On évalue la valeur de chaque discriminant pour chaque bonne combinaison. On présente \cref{fig:chi2_distributions} les distributions de chaque discriminant. Les valeurs de références et les erreurs associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur moyenne et la moyenne quadratique (RMS) de la distribution sont utilisées.
+On évalue la valeur de chaque discriminant pour chaque bonne combinaison. La \cref{fig:chi2_distributions} présente les distributions de chaque discriminant. Les valeurs de références et les erreurs associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur moyenne et la moyenne quadratique (RMS) de la distribution sont utilisées.
 
-
-On présente \cref{tab:chi2_ref_values} les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs erreurs associées. Ces valeurs ont été déterminées sur des événements \ttbar simulés.
+Le \cref{tab:chi2_ref_values} résume les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs erreurs associées. Ces valeurs ont été déterminées sur des événements \ttbar simulés.
 
 \bigskip
 
-L'algorithme fonctionne de la façon suivante : on itère sur toutes les sous-ensembles de 4 jets de l'événement. Pour chaque sous-ensemble, on calcule pour chaque combinaison de jets la valeur du $\chi^2$. On retient au final la combinaison qui minimise le $\chi^2$. On peut voir \cref{fig:chi2_distribution} la distribution du $\chi^2$ pour toutes les combinaisons (bleu) et pour la bonne combinaison (rouge). On voit que choisir la valeur du $\chi^2$ la plus petite permet de sélectionner la bonne combinaison.
+L'algorithme fonctionne de la façon suivante : on itère sur tous les sous-ensembles de 4 jets de l'événement. Pour chaque sous-ensemble, on calcule pour chaque combinaison de jets la valeur du $\chi^2$. On retient au final la combinaison qui minimise le $\chi^2$. On peut voir \cref{fig:chi2_distribution} la distribution du $\chi^2$ pour toutes les combinaisons (bleu) et pour la bonne combinaison (rouge). On voit que choisir la valeur du $\chi^2$ la plus petite permet de sélectionner majoritairement la bonne combinaison.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:chi2_distribution}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/chi2_distribution.pdf}} \hfill
@@ -155,15 +156,15 @@ L'algorithme fonctionne de la façon suivante : on itère sur toutes les sous-en
     \caption{(\subref{fig:chi2_distribution}) Comparaison entre les distributions de $\chi^2$ pour toutes les combinaisons de jets (\textcolor{bleu_gris}{bleu}) et pour la bonne combinaison de jets (\textcolor{rouge_grandmere}{rouge}), réalisée à partir d'événements \ttbar simulées. (\subref{fig:chi2_ptsyst}) $p_T$ du système \ttbar pour les bonnes combinaisons ainsi que toutes les combinaisons.}
 \end{figure}
 
-Avant de pouvoir continuer la discussion, il est nécessaire de donner quelques définitions :
+Avant de pouvoir continuer, il est nécessaire de donner quelques définitions :
 
 \begin{itemize}
     \item On parle d'\textbf{événement associable} s'il est possible d'associer à chaque parton de la désintégration \ttbar un jet reconstruit, selon la procédure détaillée ce-dessus.
-    \item On parle d'\textbf{événement associé} si un événement est associable, et si l'algorithme de tri par $\chi^2$ à permis de choisir correctement les 4 bon jets provenant de la désintégration \ttbar. Pour cette classe d'événement, la position des jets n'est pas importante.
+    \item On parle d'\textbf{événement associé} si un événement est associable, et si l'algorithme de tri par $\chi^2$ a permis de choisir correctement les 4 jets provenant de la désintégration \ttbar. Pour cette classe d'événement, la position des jets n'est pas importante.
     \item Enfin, on parle d'\textbf{événement associé et bien placé} si un événement est associé, et si les 4 jets sélectionnés sont aussi bien placé, c'est-à-dire si le jet choisi pour être le jet \Pbottom leptonique est correct, etc.
 \end{itemize}
 
-Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse invariante d'un système à 6 corps (voir \cref{eq:invariant_mass_tt}). La position des jets sélectionnés n'a au final aucune influence sur la valeur de la masse invariante. Seul importe le fait de choisir les 4 bons jets. On cherche donc à maximiser l'efficacité d'obtenir la bonne combinaison de jets. Pour cela, plusieurs études ont été faites afin de savoir si l'ajout d'un autre terme dans le $\chi^2$ permettrait d'améliorer cette efficacité. L'étude s'est concentré sur la possible d'ajouter le $p_T$ du système \ttbar comme variable discriminante. On peut voir \cref{fig:chi2_ptsyst} le pouvoir de discrimination d'une telle variable. Les résultats de cette étude sont présentés \cref{tab:chi2_study}, et on peut voir que le $\chi^2$ optimal est celui présenté \cref{eq:chi2}.
+Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse invariante d'un système à 6 corps (voir \cref{eq:invariant_mass_tt}). La position des jets sélectionnés n'a au final aucune influence sur la valeur de la masse invariante. Seul importe le fait de choisir les 4 bons jets. On cherche donc à maximiser l'efficacité d'obtenir la bonne combinaison de jets. Pour cela, on cherche à savoir si l'ajout d'un autre terme dans le $\chi^2$ permet d'améliorer cette efficacité. L'étude s'est concentré sur la possible d'ajouter le $p_T$ du système \ttbar comme variable discriminante. On peut voir \cref{fig:chi2_ptsyst} le pouvoir de discrimination d'une telle variable. Les résultats de cette étude sont présentés \cref{tab:chi2_study}. En ajoutant une variable supplémentaire, l'efficacité diminue de près d'\SI{1}{\%}. Le choix a donc été fait de garder le $\chi^2$ tel que présenté \cref{eq:chi2}.
 
 \begin{table}[h] \centering
     \begin{tabular}{@{}ccccc@{}} \toprule
@@ -175,7 +176,7 @@ Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse inv
     \label{tab:chi2_study}
 \end{table}
 
-D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elle consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport à sélectionner les 4 jets de plus haute impulsion. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée. La performance de la reconstruction de la masse invariante est caractérisée par la résolution, définie comme la différence entre la masse invariante reconstruite et la masse invariante générée. Cette résolution est présentée \cref{fig:mtt_res_chi2}, avec une valeur d'environ \SI{55}{\GeV}.
+D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elle consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport cette méthode. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée. La performance de la reconstruction de la masse invariante est caractérisée par la résolution, définie comme la différence entre la masse invariante reconstruite et la masse invariante générée. Cette résolution est présentée \cref{fig:mtt_res_chi2}, avec une valeur d'environ \SI{55}{\GeV}.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:chi2_vs_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/jet_selection_efficiency.pdf}}
@@ -188,7 +189,7 @@ D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La 
 
 Des nombreuses variables rentrent en jeu lors du calcul de la masse invariante \ttbar. Une méthode simple pour les exploiter serait d'étendre le $\chi^2$ (\cref{eq:chi2}) pour ajouter autant de termes que nécessaire. Cela suppose néanmoins que les variables que l'on utilise comme discriminant soient gaussiennes, ce qui est le cas pour des distributions de masses invariantes, mais pas pour d'autres variables, telles que $\Delta \phi$ entre deux objets, ou l'impulsion transverse d'un autre objet.
 
-Afin d'exploiter toutes les informations possibles pour discriminer entre bonnes et mauvaises combinaisons, une analyse multi-variée a été mise en place, utilisant comme algorithme les arbres de décisions boostés (BDT, \emph{Boosted Decision Tree}).
+Afin d'exploiter toutes les informations possibles pour discriminer entre bonnes et mauvaises combinaisons, une analyse multi-variée a été mise en place, utilisant comme algorithmes les arbres de décisions boostés (BDT, \emph{Boosted Decision Tree}) et un réseau de neurones (NN, \emph{Neural Network}).
 
 %Deux algorithmes différents sont comparées dans cette section : les arbres de décisions boostés (BDT, \emph{Boosted Decision Tree}) et les réseaux de neurones (NN, \emph{Neural Network}).
 
@@ -222,7 +223,7 @@ L'utilisation d'un MVA permet de classer un événement en deux catégories : "s
 
 \bigskip
 
-Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA. La \cref{fig:mtt_res_mva} présente les performances de reconstruction de ces deux algorithmes, à comparer avec la \cref{fig:mtt_res_mva}. Là encore, la résolution obtenue avec l'algorithme de tri par $\chi^2$ est meilleure.
+Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. À l'inverse de l'algorithme de tri par $\chi^2$, on identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA. Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA. La \cref{fig:mtt_res_mva} présente les performances de reconstruction de ces deux algorithmes, à comparer avec la \cref{fig:mtt_res_mva}. Là encore, la résolution obtenue avec l'algorithme de tri par $\chi^2$ est meilleure.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mva_bdt_discr}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mva/mva_BDT.pdf}}
@@ -250,11 +251,11 @@ Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties
 
 \bigskip
 
-L'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Avant que ces études ne soient menées, il a été décidé de ne pas utiliser de MVA à cause de moins bonnes performances face à l'algorithme de tri par $\chi^2$.
+L'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Avant que ces études ne soient menées, il a été décidé de ne pas utiliser de MVA en raison des moins bonnes performances face à l'algorithme de tri par $\chi^2$.
 
 \section{Ajustement cinématique}
 
-Pour un événement \ttbar, les objets reconstruits (leptons, jets, ...) doivent vérifier certaines contraintes cinématiques, telle que la conservation de l'énergie ou reproduire la bonne masse invariante des particules. Néanmoins, l'impulsion et l'énergie des particules utilisées pour reconstruire l'événement \ttbar ne sont connues qu'avec une certaines incertitudes, liés à la résolution expérimentale, aux techniques de reconstruction, etc. Ces incertitudes peuvent conduire à un non-respect des contraintes d'un événement \ttbar.
+Pour un événement \ttbar, les objets reconstruits (leptons, jets, ...) doivent vérifier certaines contraintes cinématiques, telles que la conservation de l'énergie ou reproduire les masses invariantes des particules. Néanmoins, l'impulsion et l'énergie des particules utilisées pour reconstruire l'événement \ttbar ne sont connues qu'avec une certaines incertitudes, liées à la résolution expérimentale, aux techniques de reconstruction, etc. Ces incertitudes peuvent conduire à un non-respect des contraintes d'un événement \ttbar.
 
 \medskip
 
@@ -299,7 +300,7 @@ On verra dans le \cref{chap:zprime} que ces bons résultats sur des événements
 
 \section{Conclusion}
 
-Comme on a pu le voir tout au long de ce chapitre, deux étapes sont nécessaires pour reconstruire la masse invariante \ttbar. Dans un premier temps, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. On utilise pour cela un algorithme de tri par $\chi^2$, qui s'est prouvé plus performant que des algorithmes plus complexes comme les MVA. Une fois les jets sélectionnés, il reste à reconstruire le composante longitudinale de l'impulsion du neutrino, ce qui permet d'évaluer correctement l'énergie. Finalement, il est possible de reconstruire la masse invariante du système \ttbar. La résolution typique obtenue sur cette reconstruction est d'environ \SI{55}{\GeV}.
+Comme on a pu le voir tout au long de ce chapitre, deux étapes sont nécessaires pour reconstruire la masse invariante \ttbar. Dans un premier temps, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. On utilise pour cela un algorithme de tri par $\chi^2$, qui s'est trouvé plus performant que des algorithmes plus complexes comme les MVA. Une fois les jets sélectionnés, il reste à reconstruire la composante longitudinale de l'impulsion du neutrino, ce qui permet d'évaluer correctement l'énergie. Finalement, il est possible de reconstruire la masse invariante du système \ttbar. La résolution typique obtenue sur cette reconstruction est d'environ \SI{55}{\GeV}.
 
 \bigskip
 
