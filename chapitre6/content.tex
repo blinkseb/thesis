@@ -157,10 +157,11 @@ Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse inv
 \begin{table}[h] \centering
     \begin{tabular}{@{}ccccc@{}} \toprule
         & sans $H_{T}^{\text{frac.}}$ ni $p_{T}^{\ttbar}$ & avec $p_{T}^{\ttbar}$ & avec $H_{T}^{\text{frac.}}$ & avec $H_{T}^{\text{frac.}}$ et $p_{T}^{\ttbar}$ \\ \midrule
+        $\epsilon_\text{associable}$ & \multicolumn{4}{c}{\SI{39.90 \pm 0.09}{\%}} \\
         $\epsilon_\text{associé}$ & \SI{75.92 \pm 0.13}{\%} & \SI{76.30 \pm 0.12}{\%} & \SI{79.55 \pm 0.12}{\%} & \SI{78.99 \pm 0.12}{\%} \\
         $\epsilon_\text{associé et bien placé}$ & \SI{41.63 \pm 0.15}{\%} & \SI{41.96 \pm 0.14}{\%} & \SI{44.04 \pm 0.14}{\%} & \SI{43.75 \pm 0.14}{\%} \\ \bottomrule
     \end{tabular}
-    \caption{Efficacité d'obtenir un événement associé ($\epsilon_\text{associé}$) et un événement associé et bien placé ($\epsilon_\text{associé et bien placé}$) pour différentes configurations du $\chi^2$. La configuration optimale est celle utilisant uniquement le terme supplémentaire $H_{T}^{\text{frac.}}$.}
+    \caption{Efficacité d'obtenir un événement associable ($\epsilon_\text{associable}$), un événement associé ($\epsilon_\text{associé}$) et un événement associé et bien placé ($\epsilon_\text{associé et bien placé}$) pour différentes configurations du $\chi^2$. La configuration optimale est celle utilisant uniquement le terme supplémentaire $H_{T}^{\text{frac.}}$.}
     \label{tab:chi2_study}
 \end{table}
 
@@ -182,33 +183,33 @@ Afin d'exploiter toutes les informations possibles pour discriminer entre bonnes
 
 \subsubsection{Arbres de décisions boostés}
 
-\begin{figure}[tbp] \centering
-    \includegraphics[width=0.55\textwidth]{chapitre6/figs/BDT.pdf}
-    \caption{Vue schématique d'un arbre de décision. En commençant au nœud racine, une suite de sélections binaires sont appliquées en utilisant le discriminant $x_i$, qui peut varier ou non à chaque nœud de la sélection. A la fin de chaque branche de sélection, l'événement est classé comme "signal" (S) ou comme "fond" (B).}
-    \label{fig:bdt}
-\end{figure}
-
 Un arbre de décision est un algorithme de classification des événements utilisant en entrée plusieurs variables, et qui permet en sortie de classer les événements en deux catégories distinct : "signal" ou "fond". L'algorithme commence au nœud racine, où une première coupure sur une variable $x_i$ est appliquée.Une deuxième coupure sur une variable $x_j$ est ensuite appliquée, qui dépend du résultat de la première coupure: on obtient ainsi 2 nouveaux noeuds. Cette procédure est répétée jusqu'à ce qu'une condition d'arrêt soit atteinte. L'événement est alors classé "signal" ou "fond". Un exemple d'arbre de décision est présenté \cref{fig:bdt}.
 
 Afin de construire un tel arbre, une phase d'entrainement est nécessaire. Cette entrainement est réalisé à la fois sur des événements classés comme "signal" et sur des événements classés comme "fond". Un des principaux problèmes de cet algorithme est son instabilité vis-à-vis des fluctuations statistiques dans l'échantillon utilisé pour l'entrainement. Par exemple, si deux variables font preuves d'un pouvoir de discrimination similaire, une fluctuation statistique pourrait décider l'algorithme à utiliser la première variable au lieu de la deuxième.
 
 Le problème est contourné en construisant une "forêt" d'arbres de décision. La classification d'un événement en "signal" ou "fond" est déterminée par le résultat majoritaire sur tous les arbres. L'entrainement de chaque arbre est réalisé sur le même échantillon. La seule différence vient de l'application d'un poids particulier à chaque événement : les événements mal classés durant l'entrainement de l'arbre de décision auront un poids plus grand lors de l'entrainement de l'arbre suivant. Cette technique est appelé \emph{boost} \citep{Freund1997119} et permet de stabiliser l'algorithme.
 
+\begin{figure}[t!] \centering
+    \subcaptionbox{Vue schématique d'un arbre de décision. En commençant au nœud racine, une suite de sélections binaires sont appliquées en utilisant le discriminant $x_i$, qui peut varier ou non à chaque nœud de la sélection. A la fin de chaque branche de sélection, l'événement est classé comme "signal" (S) ou comme "fond" (B). \label{fig:bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/BDT.pdf}} \hfill
+    \subcaptionbox{Vue schématique d'un réseau de neurones. En vert, deux neurones d'entrées sont connectés à des neurones "cachés" (bleu), eux même connectés à un neurone de sortie (jaune). \label{fig:nn}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/Neural_network.pdf}}
+    \caption{Vue schématique de deux algorithmes de MVA.}
+\end{figure}
+
 \subsubsection{Réseau de neurones}
 
 Un réseau de neurones consiste en une collection interconnectée de neurones, où chaque neurone dispose d'une fonction de transfert transformant une valeur d'entrée en valeur de sortie. En utilisant plusieurs couches de neurones, il est possible de créer un réseau complexe qui permet de classer des événements. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
-
-\begin{figure}[tbp] \centering
-    \includegraphics[width=0.55\textwidth]{chapitre6/figs/Neural_network.pdf}
-    \caption{Vue schématique d'un réseau de neurones. En vert, deux neurones d'entrées sont connectés à des neurones "cachés" (bleu), eux même connectés à un neurone de sortie (jaune).}
-    \label{fig:nn}
-\end{figure}
 
 \subsubsection{Classification des événements \ttbar}
 
 L'utilisation d'un MVA permet de classer un événement en deux catégories : "signal" ou "fond". Pour notre cas particulier, la catégorie "signal" correspond au choix de la bonne combinaison de jets, et "fond" aux mauvaises combinaisons. Les variables rentrant dans la composition du MVA sont exactement les mêmes que celles de l'algorithme de $\chi^2$. Utiliser des variables angulaires ou cinématiques est possible, mais rend l'algorithme MVA dépendant du mode de production des paires \ttbar. Or, on souhaite pouvoir utiliser cet algorithme sur des processus de nouvelle physique : on doit donc garder l'algorithme le plus indépendant possible du mode de production.
 
 \bigskip
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:mva_bdt_discr}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mva/mva_BDT.pdf}}
+    \subcaptionbox{\label{fig:mva_nn_discr}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mva/mva_NN.pdf}}
+    \caption{Valeurs de sortie pour les bonnes (bleu) et mauvaises (rouge) combinaisons, pour l'algorithme BDT (\subref{fig:mva_bdt_discr}) et le réseau de neurones (\subref{fig:mva_nn_discr}).}
+\end{figure}
 
 Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. On identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA. Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA.
 
@@ -223,11 +224,7 @@ Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties
     \label{tab:chi2_vs_bdt_vs_nn}
 \end{table}
 
-\begin{figure}[tbp] \centering
-    \subcaptionbox{\label{fig:mva_bdt_discr}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mva/mva_BDT.pdf}}
-    \subcaptionbox{\label{fig:mva_nn_discr}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mva/mva_NN.pdf}}
-    \caption{Valeurs de sortie pour les bonnes (bleu) et mauvaises (rouge) combinaisons, pour l'algorithme BDT (\subref{fig:mva_bdt_discr}) et le réseau de neurones (\subref{fig:mva_nn_discr}).}
-\end{figure}
+
 
 \bigskip
 
@@ -248,8 +245,8 @@ La \cref{fig:mtt_reso_chi2} présente la résolution obtenue avec l'utilisation 
 \end{figure}
 
 \begin{figure}[tbp] \centering
-    \subcaptionbox{\label{fig:mtt_response_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_comparison_chi2_four_jets.pdf}}\hfill
-    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_comparison_chi2_four_jets.pdf}}
+    \subcaptionbox{\label{fig:mtt_response_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_vs_gen_comparison_chi2_four_jets.pdf}}\hfill
+    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_vs_gen_comparison_chi2_four_jets.pdf}}
     \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_chi2_vs_four_jets}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets}) pour l'algorithme de tri par $\chi^2$ (\rouge) et en utilisant les quatre jets de plus haut \pt (\vertc).}
     \label{fig:mtt_reso_chi2_vs_four_jets}
 \end{figure}
@@ -267,8 +264,8 @@ On compare aussi les performances du BDT par rapport à l'algorithme de tri par 
 
 
 \begin{figure}[tbp] \centering
-    \subcaptionbox{\label{fig:mtt_response_chi2_vs_bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_comparison_chi2_bdt.pdf}}\hfill
-    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_chi2_vs_bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_comparison_chi2_bdt.pdf}}
+    \subcaptionbox{\label{fig:mtt_response_chi2_vs_bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_vs_gen_comparison_chi2_bdt.pdf}}\hfill
+    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_chi2_vs_bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_vs_gen_comparison_chi2_bdt.pdf}}
     \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_chi2_vs_bdt}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_chi2_vs_bdt}) pour l'algorithme de tri par $\chi^2$ (\rouge) et pour le BDT (\vertc).}
     \label{fig:mtt_reso_chi2_vs_bdt}
 \end{figure}
@@ -289,41 +286,44 @@ L'idée de l'ajustement cinématique est simple : on utilise la connaissance de 
 \bigskip
 
 \begin{figure}[p] \centering
-    \subcaptionbox{\label{fig:kinfit_matched_events}}[0.90\textwidth]{\includegraphics[width=0.90\textwidth]{chapitre6/figs/kinfit/mtt_resolution_with_kinfit_2011_resolutions_good_solutions_on_TTbar.pdf}} \\
-    \subcaptionbox{\label{fig:kinfit_all_events}}[0.90\textwidth]{\includegraphics[width=0.90\textwidth]{chapitre6/figs/kinfit/mtt_resolution_with_kinfit_2011_resolutions_on_TTbar.pdf}}
-    \caption{Résolution sur la masse invariante \mtt sans ajustement cinématique (\textcolor{violet}{violet}), après ajustement cinématique (\textcolor{vert}{vert}) et après ajustement cinématique et une coupure $p > 0.2$ (\textcolor{rouge_grandmere}{rouge}). Les distributions ont été obtenues avec des événements \ttbar simulés, en utilisant la bonne combinaison de jets (\subref{fig:kinfit_matched_events}) et avec tous les événements (\subref{fig:kinfit_all_events}).}
+    \subcaptionbox{\label{fig:kinfit_matched_events}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_comparison_kf_good_solutions.pdf}} \hfill
+    \subcaptionbox{\label{fig:kinfit_all_events}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_comparison_kf_all_events.pdf}}
+    \caption{Résolution sur la masse invariante \mtt sans ajustement cinématique (\rouge), après ajustement cinématique (\textcolor{vert}{vert}) et après ajustement cinématique et une coupure $p > \num{0.2}$ (\textcolor{violet}{violet}). Les distributions ont été obtenues avec des événements \ttbar simulés, en utilisant la bonne combinaison de jets (\subref{fig:kinfit_matched_events}) et avec tous les événements (\subref{fig:kinfit_all_events}). Un ajustement avec une Breit-Wigner est superposé afin de facile la comparaison entre les trois méthodes.}
     \label{fig:kinfit_ttbar}
 \end{figure}
 
-On utilise l'ajustement cinématique en sortie de l'algorithme de tri par $\chi^2$ : les particules provenant de la désintégration des paires \ttbar sont déjà sélectionnées. L'ajustement cinématique est donc utilisé uniquement pour ajuster au mieux les contraintes, et non pas pour le choix des bonnes combinaisons de jets. Les contraintes utilisées dans l'algorithme sont les suivantes :
+On utilise l'ajustement cinématique en sortie de l'algorithme de tri par $\chi^2$ : les particules provenant de la désintégration des paires \ttbar sont déjà sélectionnées. L'ajustement cinématique est utilisé pour ajuster au mieux les contraintes, et placer correctement les jets sélectionnés à la bonne position. Les contraintes utilisées dans l'algorithme sont les suivantes :
 \begin{itemize}
     \item La masse invariante des deux jets légers doit être égale à la masse du boson \PW.
     \item La masse invariante du neutrino, du lepton ainsi que du jet \Pbottom leptonique doit être égale à la masse du quark top.
     \item La masse invariante des deux jets légers ainsi que du jet \Pbottom hadronique doit être égale à la masse du quark top.
 \end{itemize}
 
-L'effet de l'ajustement cinématique sur la résolution de la masse invariante est présenté \cref{fig:kinfit_ttbar} pour des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définie la qualité de l'ajustement. On demande $p > 0.2$ (courbe \textcolor{rouge_grandmere}{rouge} sur les distributions des figures \ref{fig:kinfit_ttbar}).
+% L'effet de l'ajustement cinématique sur la résolution de la masse invariante est présenté \cref{fig:kinfit_ttbar} pour des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définie la qualité de l'ajustement. On demande $p > 0.2$ (courbe \textcolor{rouge_grandmere}{rouge} sur les distributions des figures \ref{fig:kinfit_ttbar}).
 
-% Pour chaque objet physique, on définit le lagrangien
-% \begin{align*}
-%   L(\vec{x}, \vec{\lambda}) &= \phi(\vec{x}) + \vec{\lambda} \cdot \left( \psi(\vec{x}) - c \right)
-% \end{align*}
-% où 
+Afin de quantifier les améliorations apportées par l'ajustement cinétique, on présente \cref{fig:kinfit_ttbar} la résolution sur la masse invariante mesurée sur des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définie la qualité de l'ajustement. On demande $p > \num{0.2}$. On évalue dans un premier temps les performances de l'ajustement sur des événements où la bonne combinaison de jets est sélectionnée par l'algorithme de tri par $\chi^2$. La \cref{fig:mtt_resp_reso_kf_good} présente la linéarité de la reconstruction et l'évolution de la résolution en fonction de la masse invariante \ttbar générée, avant et après utilisation de l'ajustement cinématique. Premièrement, la linéarité est rétablie après l'utilisation de l'ajustement cinématique. De plus, on constate une nette amélioration de la résolution, avec des gains allant de \tilde\SI{75}{\%} à bas \mtt à \tilde\SI{38}{\%} à haut \mtt. La coupure $p > \num{0.2}$ permet de gagner \tilde\SI{10}{\%} à haut \mtt, au détriment d'une diminution du nombre d'événements sélectionnés d'environ \SI{35}{\%}.
 
-% Résoudre
-% \begin{align*}
-%   \nabla_{\vec{x}, \vec{\lambda}} L(\vec{x}, \vec{\lambda}) &= 0
-% \end{align*}
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:mtt_response_kf_good}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_good_solutions.pdf}} \hfill
+    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_kf_good}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_vs_gen_comparison_kf_good_solutions.pdf}}
+    \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_kf_good}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_kf_good}) en utilisant la bonne combinaison de jets (\rouge), après utilisation de l'ajustement cinématique (\vertc) et après utilisation de l'ajustement cinématique et $p > \num{0.2}$ (\violet).}
+    \label{fig:mtt_resp_reso_kf_good}
+\end{figure}
+
+Lorsque l'on utilise l'ajustement cinématique sur tous les événements sélectionnés par l'algorithme de tri par $\chi^2$, les choses sont différentes. La \cref{fig:kinfit_all_events} présente la résolution sur la masse invariante, et la \cref{fig:mtt_resp_reso_kf_all_events} la linéarité de la reconstruction ainsi que l'évolution de la résolution en fonction de \mttgen. On note une nette dégradation de la résolution, allant de \tilde\SI{15}{\%} à bas \mtt à \tilde\SI{50}{\%} à haut \mtt. La linéarité de la reconstruction est aussi impactée. On a vu précédemment que l'efficacité d'avoir un événement associable est d'environ \SI{40}{\%} (voir \cref{tab:chi2_study}). Parmi ces événements, l'algorithme de tri par $\chi^2$ choisit environ \num{80} fois sur cent la bonne combinaison de jets : l'ajustement cinématique est donc en mesure de sélectionner la bonne combinaison de jets dans environ \SI{32}{\%} des cas. S'il est très efficace dès lors qu'il utilise la bonne combinaison de jets (voir paragraphe précédent), il dégrade fortement la résolution lorsqu'une mauvaise combinaison est utilisée. Étant donné que des mauvaises combinaisons sont majoritairement sélectionnées, l'utilisation de l'ajustement cinématique dégrade la résolution au lieu de l'améliorer. \fxnote{Reformuler}
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:mtt_response_kf_all}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_all_events.pdf}} \hfill
+    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_kf_all}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_vs_gen_comparison_kf_all_events.pdf}}
+    \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_kf_all}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_kf_all}) en utilisant les jets sélectionnés par l'algorithme de $\chi^2$ (\rouge), après utilisation de l'ajustement cinématique (\vertc) et après utilisation de l'ajustement cinématique et $p > \num{0.2}$ (\violet).}
+    \label{fig:mtt_resp_reso_kf_all_events}
+\end{figure}
 
 \bigskip
 
-L'utilisation de l'ajustement cinématique permet d'améliorer la résolution sur la masse invariante d'environ \SI{25}{\%} sur des événements associés et de près de \SI{40}{\%} en utilisant tous les événements. Cependant, ce gain en résolution est contrebalancé par une perte d'efficacité de sélection d'environ \SI{45}{\%} en utilisant uniquement des événements associés, et \tilde\SI{95}{\%} en utilisant tous les événements. Si l'on ne coupe pas sur $p$, l'efficacité reste constante, mais le gain en résolution n'est plus que de \tilde\SI{5}{\%}.
+On verra dans le \cref{chap:zprime} que ces résultats, obtenus sur des événements \ttbar du Modèle Standard, sont généralisables aux événements \ttbar produit par de la nouvelle physique. La résolution obtenue au final est fortement dégradée par l'utilisation de l'ajustement cinématique, ce qui nous a poussé à ne pas l'utiliser pour reconstruire la masse invariante \ttbar.
 
-\bigskip
-
-On verra dans le \cref{chap:zprime} que ces bons résultats sur des événements \ttbar du Modèle Standard n'impliquent pas forcément de bonnes performances pour des événements \ttbar produits par de la nouvelle physique. En effet, l'ajustement cinématique est optimiser pour la cinématique de la désintégration de paires \ttbar Modèle Standard, et on verra dans le prochain chapitre que cette cinématique peut être vraiment différente dans le cas de nouvelle physique. À cause de cette différence, on observe une dégradation de la résolution lors de l'utilisation de l'ajustement cinématique. Cette dégradation nous a poussé à ne pas utiliser l'ajustement cinématique pour reconstruire la masse invariante \ttbar.
-
-\fxnote{Ajouter linéarité et resolution vs mtt gen après KinFit}
+%On verra dans le \cref{chap:zprime} que ces bons résultats sur des événements \ttbar du Modèle Standard n'impliquent pas forcément de bonnes performances pour des événements \ttbar produits par de la nouvelle physique. En effet, l'ajustement cinématique est optimiser pour la cinématique de la désintégration de paires \ttbar Modèle Standard, et on verra dans le prochain chapitre que cette cinématique peut être vraiment différente dans le cas de nouvelle physique. À cause de cette différence, on observe une dégradation de la résolution lors de l'utilisation de l'ajustement cinématique. Cette dégradation nous a poussé à ne pas utiliser l'ajustement cinématique pour reconstruire la masse invariante \ttbar.
 
 \section{Conclusion}
 

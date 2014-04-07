@@ -17,10 +17,8 @@ Chi^2 plots:
     - Execute plotEfficiency.cpp on the output file
 
 KinFit plots:
-  - Go to /gridgroup/cms/brochet/MTT/CMSSW/CMSSW_5_3_4/src/Extractors/PatExtractor/test
-  - Execute parallel on files computeKinFitMttResolution_ZPrimeGoodSolutions.parallel and computeKinFitMttResolution_ZPrime.parallel
-  - Copy output files to 'plots'
-  - cd plots
+  - Go to /gridgroup/cms/brochet/HTT/CMSSW/CMSSW_5_3_9_patch3/src/Extractors/MttExtractorAnalysis/kinfit_tests
+  - Look at run.sh
   - Execute scripts
 
 Resolution plots:
