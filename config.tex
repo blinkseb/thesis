@@ -243,9 +243,11 @@
 % subsubsections
 \titleformat{\subsubsection}{\normalfont\sffamily\itshape}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\normalsize\itshape}
 
-    % descriptionlabels
-    \renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\bfseries\lessspacedlowsmallcaps{#1}}
-    
+\titleformat{\paragraph}[hang]{}{\theparagraph}{0pt}{\bfseries}
+
+% descriptionlabels
+\renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\bfseries\lessspacedlowsmallcaps{#1}}
+
 \titlespacing*{\chapter}{0pt}{1\baselineskip}{2\baselineskip}
 \titlespacing*{\section}{0pt}{2\baselineskip}{.8\baselineskip}[\marginparsep]
 \titlespacing*{\subsection}{0pt}{1.5\baselineskip}{.8\baselineskip}[\marginparsep]
@@ -446,8 +448,9 @@
 \newcommand{\ttbar}{\texorpdfstring{\ensuremath{\Ptop\APtop}\xspace}{top-antitop\xspace}}
 \newcommand{\bbbar}{\ensuremath{\Pbottom\APbottom}\xspace}
 \newcommand{\mtt}{\ensuremath{m_{\Pqt\Paqt}}\xspace}
-\newcommand{\mzp}{\ensuremath{m_{\PZpr}}\xspace}
 \newcommand{\zprime}{\ensuremath{\PZ^{\prime}}\xspace}
+\newcommand{\mzp}{\ensuremath{m_{\PZ^{\prime}}}\xspace}
+\newcommand{\kkglu}{K. K. gluon\xspace}
 
 \newcommand{\gmu}{\ensuremath{\gamma_\mu}}
 \newcommand{\gzero}{\ensuremath{\gamma_0}}
@@ -555,6 +558,7 @@
 \newcommand{\ptfjet}{\ensuremath{p_T^{\text{\ordinalnum{1} jet}}}\xspace}
 \newcommand{\ptjet}{\ensuremath{p_T^{\text{jet}}}\xspace}
 \newcommand{\chid}{\ensuremath{\chi^{2}}\xspace}
+\newcommand{\mttgen}{\ensuremath{\mtt^\text{gen}}}
 
 \usepackage{afterpage}
 
@@ -563,3 +567,8 @@
 \definecolor{orange}{HTML}{FA6900}
 \definecolor{violet}{HTML}{542437}
 \definecolor{vert}{HTML}{8A9B0F}
+
+\newcommand{\rouge}{\textcolor{rouge_grandmere}{rouge}}
+\newcommand{\vertc}{\textcolor{vert}{vert}}
+\newcommand{\gris}{\textcolor{bleu_gris}{gris}}
+\newcommand{\violet}{\textcolor{violet}{violet}}
