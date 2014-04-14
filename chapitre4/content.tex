@@ -25,7 +25,7 @@ Ces corrections sont appliquées à la fois aux données collectées et à la si
 
 Chaque niveau est décrit en détails ci-dessous.
 
-\subsection{Les corrections de niveau 1}{Les corrections de niveau 1 \citep{1748-0221-6-11-P11002}}
+\subsection{Les corrections de niveau 1}{Les corrections de niveau 1 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l1}
 
 On a déjà vu lors du \cref{chap:detecteur} que le \pu entraînait une activité supplémentaire dans le détecteur. Cela se traduit directement par une augmentation de l'énergie des jets reconstruits, puisque certaines particules agglomérées au sein d'un jet proviennent en réalité des interactions parasites plutôt que de l'événement dur.
 
@@ -293,7 +293,7 @@ Cette méthode est utilisée pour produire les corrections officielles. La méth
 
 \end{fmffile}
 
-\subsection{Sélection des événements}
+\subsection{Sélection des événements} \label{sec:jetmet_sel}
 
 Pour déterminer les corrections résiduelles, on sélectionne sur les données des événements contenant un unique photon, ainsi qu'un ou deux jets. Le principal bruit de fond est dû aux événements multi-jets (de type $\Pquark \APquark \rightarrow \Pquark \APquark$) où un jet est incorrectement identifié comme un photon. On étudie les performances de notre sélection sur des événement \Pphoton + jets simulés (signal), ainsi que sur des événements multi-jets (fond).
 
@@ -372,7 +372,7 @@ Afin de ne garder que les photons les mieux reconstruits, on sélectionne unique
 
 On demande au moins un jet dans l'événement, reconstruit grâce à l'algorithme anti-$k_T$, avec une largeur $R = \num{0.5}$ et avec au moins un constituant. Cette identification est très efficace ($> \SI{99}{\%}$) et permet d'éliminer les faux jets dû à des bruits dans les détecteurs. La séparation azimutale $\abs{\Delta \phi}$ dans le plan transverse entre le photon et le premier jet de l'événement doit être supérieure à \SI{2.8}{\radian}, afin de ne conserver que les événements où le photon et le jet sont dos-à-dos. Les \cref{fig:schema_gamma_jet,fig:schema_gamma_jets} représentent un événement $\Pphoton$ + jets avec 1 ou 2 jets. Dans le cas où un second jet est présent, on vérifie que son énergie est inférieure à \SI{20}{\%} de celle du photon ($\alpha < \num{0.20}$), afin d'éviter de conserver des événements trop déséquilibrés. Cette condition n'est appliquée que si $p_T^{\text{\ordinalnum{2} jet}} \geq \SI{10}{\GeV}$. Tous les jets sont corrigés avec les corrections de niveau 1, 2 et 3. Cependant, les corrections résiduelles ne sont pas appliquées sur les données puisque ce sont ces corrections que l'on souhaite déterminer au travers de cette analyse.
 
-Toutes les corrections effectuées sur les jets sont ensuite propagées à l'énergie transverse manquante. En effet, on rappelle que \met est définie comme l'opposé de la somme vectorielle des impulsions transverses de toutes les particules de l'événement. Si jamais l'impulsion d'une particule est modifiée après calcul de \met, il est nécessaire de propager ces modifications afin de garder une définition cohérente de l'énergie transverse manquante. Ainsi, si pour un jet, on procède à la correction suivante :
+\label{page:met_propagation} Toutes les corrections effectuées sur les jets sont ensuite propagées à l'énergie transverse manquante. En effet, on rappelle que \met est définie comme l'opposé de la somme vectorielle des impulsions transverses de toutes les particules de l'événement. Si jamais l'impulsion d'une particule est modifiée après calcul de \met, il est nécessaire de propager ces modifications afin de garder une définition cohérente de l'énergie transverse manquante. Ainsi, si pour un jet, on procède à la correction suivante :
 \begin{align*}
   p_x \rightarrow p_x + \Delta p_x \\
   p_y \rightarrow p_y + \Delta p_y
@@ -624,7 +624,7 @@ On présente \cref{fig:balancing_extrap_resp} les distributions des réponses mo
 
 On présente les distributions des réponses moyennes obtenues avec la méthode MPF \cref{fig:mpf_resp}, et les résolutions associées \cref{fig:mpf_reso}. Un récapitulatif des résultats peut être trouvé dans le \cref{tab:res_mpf}.
 
-\begin{table}[h!] \centering
+\begin{table}[htb] \centering
  \begin{tabular}{@{}ccc@{}} \toprule
  Classe en \aeta & ratio & $f$ \\ \midrule
  \num{0} - \num{0.8} & \num{0.9748 \pm 0.0009} & \num{1.0258 \pm 0.0010} \\
@@ -731,7 +731,6 @@ On dispose déjà d'un algorithme permettant d'identifier les jets provenant d'u
     \subcaptionbox{\label{fig:qgd}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/qgd.pdf}}
     \subcaptionbox{}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/qgd.pdf}}
     \caption{(\subref{fig:qgd}) Valeur du discriminant quarks / gluons pour des événements simulées (histogrammes) et pour les données 2012 (points noirs). Les jets de quarks ont majoritairement une valeur du discriminant proche de 1. \fxerror{Mettre quelque chose à droite}}
-    \label{fig:label}
 \end{figure}
 
 La \cref{fig:qgd} présente les performances de l'algorithme. Un grand pouvoir de séparation entre jets de quarks et jets de gluons est obtenu, les jets de quarks ayant majoritairement une valeur du discriminant proche de 1, alors que les jets de gluons sont plus proches de 0.
@@ -741,7 +740,7 @@ La \cref{fig:qgd} présente les performances de l'algorithme. Un grand pouvoir d
     \subcaptionbox{jets de \Pcharm}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/flavor/2DTaggingPlan_c_ptPhot_100_800_stageM2.pdf}} \\
     \subcaptionbox{jets de \Pbottom}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/flavor/2DTaggingPlan_b_ptPhot_100_800_stageM2.pdf}}
     \subcaptionbox{jets de gluons}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/flavor/2DTaggingPlan_g_ptPhot_100_800_stageM2.pdf}}
-    \caption{Distribution de la fraction des différentes saveurs de jets dans le plan 2D. Une couleur bleue signifie une zone pauvre en jets, et une couleur rouge riche en jets. Les cadres noires représentent les zones sélectionnées enrichies en saveur. \fxnote{ajouter les rectangles noires}}
+    \caption{Distribution de la fraction des différentes saveurs de jets dans le plan 2D. Une couleur bleue signifie une zone pauvre en jets, et une couleur rouge riche en jets. Les cadres noires représentent les zones sélectionnées enrichies en saveur.}
     \label{fig:2d_zones}
 \end{figure}
 

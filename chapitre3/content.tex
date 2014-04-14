@@ -159,7 +159,7 @@ Le spectromètre à muons reconstruit aussi des traces. Un lien est fait (qu'on 
 
 Après application de l'algorithme de liaison (voir \cref{sec:pf_links}), on dispose d'une liste de blocs, composés chacun d'environ 2-3 éléments (traces ou agrégats calorimétriques). Il reste maintenant à identifier chaque bloc en tant que particule. Cette identification conduira à la création d'une liste de particules, donnant une description globale de l'événement.
 
-\subsubsection{Reconstruction des muons}
+\subsubsection{Reconstruction des muons} \label{sec:muon_reco}
 
 Les premières particules à être reconstruites sont les muons \citep{cms_muons_reco}, avant même le début de la reconstruction de l'événement grâce au \emph{particle-flow}. Les muons laissant des traces à la fois dans le trajectographe et dans le spectromètre à muons, deux types de reconstructions sont utilisées :
 
@@ -330,7 +330,7 @@ Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les je
 
 Cette algorithme exploite toutes les variables connues pour discriminer les jets de $b$, telles que des informations sur des vertex déplacés, la cinématique du jet, etc. Une analyse multivariée (MVA) permet ensuite de fournir un discriminant, et trois points de fonctionnements sont définis, chacun augmentant l'efficacité de correctement étiqueter un jet de $b$, mais au détriment d'un taux de faux plus important (voir \cref{fig:btag_perf}). Pour le point de fonctionnement moyen, l'efficacité de correctement étiqueter un jet de $b$ est \tilde\SI{70}{\%}, tandis que la probabilité d'étiqueter comme $b$ un jet d'une autre saveur est \tilde{1}{\%}.
 
-\subsection{L'énergie transverse manquante}
+\subsection{L'énergie transverse manquante} \label{sec:met}
 
 \begin{figure}[tbp]
     \centering

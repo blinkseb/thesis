@@ -1,4 +1,4 @@
-\chapter{Reconstruction expérimentale d'événements \ttbar}
+\chapter{Reconstruction expérimentale d'événements \ttbar} \label{chap:mtt_reco}
 
 Les \cref{chap:zprime,chap:higgs} sont consacrés à la recherche de nouvelle physique dans le spectre de masse invariante de paires \ttbar. Avant de pouvoir chercher de quelconques déviations dans le spectre de masse, il faut être capable de reconstruire la masse invariante du système \ttbar. Ce chapitre présente les techniques mises en œuvre pour la reconstruction de la masse invariante de paires \ttbar.
 
@@ -139,7 +139,7 @@ Le choix de la bonne combinaison de jets est effectuée de la façon suivante : 
 
 Pour pouvoir évaluer les performances de l'algorithme de tri par $\chi^2$, il est utile de donner quelques définitions :
 
-\begin{itemize}
+\begin{itemize} \label{page:chi2_def}
     \item On parle d'\textbf{événement associable} s'il est possible d'associer à chaque parton de la désintégration \ttbar un jet reconstruit, selon la procédure détaillée ce-dessus.
     \item On parle d'\textbf{événement associé} si un événement est associable, et si l'algorithme de tri par $\chi^2$ a permis de choisir correctement les 4 jets provenant de la désintégration \ttbar. Pour cette classe d'événement, la position des jets n'est pas importante.
     \item Enfin, on parle d'\textbf{événement associé et bien placé} si un événement est associé, et si les 4 jets sélectionnés sont aussi bien placé, c'est-à-dire si le jet choisi pour être le jet \Pbottom leptonique est correct, etc.
@@ -230,7 +230,7 @@ Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties
 
 L'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Avant que ces études ne soient menées, il a été décidé de ne pas utiliser de MVA en raison des moins bonnes performances par rapport à l'algorithme de tri par $\chi^2$.
 
-\section{Performance de la reconstruction de la masse invariante}
+\section{Performances de la reconstruction de la masse invariante} \label{sec:perf_reco_tt}
 
 Deux critères sont utilisés afin de déterminer la qualité de la reconstruction de la masse invariante. Le plus important est la résolution, définie comme la différence entre la masse invariante reconstruite ($\mtt^\text{reco}$) et la masse invariante générée ($\mtt^\text{gen}$). Ainsi, plus la reconstruction est de qualité, plus la résolution est faible. On peut aussi observer la linéarité de la reconstruction, en traçant l'évolution de $\mtt^\text{reco}$ en fonction de $\mtt^{gen}$. Cette section est dédiée à la comparaison de ces deux critères pour l'algorithme de tri par $\chi^2$ ainsi que pour le BDT. À cause des faibles performances du réseau de neurones, cet algorithme n'est pas inclut dans cette étude.
 
@@ -310,7 +310,7 @@ Afin de quantifier les améliorations apportées par l'ajustement cinétique, on
     \label{fig:mtt_resp_reso_kf_good}
 \end{figure}
 
-Lorsque l'on utilise l'ajustement cinématique sur tous les événements sélectionnés par l'algorithme de tri par $\chi^2$, les choses sont différentes. La \cref{fig:kinfit_all_events} présente la résolution sur la masse invariante, et la \cref{fig:mtt_resp_reso_kf_all_events} la linéarité de la reconstruction ainsi que l'évolution de la résolution en fonction de \mttgen. On note une nette dégradation de la résolution, allant de \tilde\SI{15}{\%} à bas \mtt à \tilde\SI{50}{\%} à haut \mtt. La linéarité de la reconstruction est aussi impactée. On a vu précédemment que l'efficacité d'avoir un événement associable est d'environ \SI{40}{\%} (voir \cref{tab:chi2_study}). Parmi ces événements, l'algorithme de tri par $\chi^2$ choisit environ \num{80} fois sur cent la bonne combinaison de jets : l'ajustement cinématique est donc en mesure de sélectionner la bonne combinaison de jets dans environ \SI{32}{\%} des cas. S'il est très efficace dès lors qu'il utilise la bonne combinaison de jets (voir paragraphe précédent), il dégrade fortement la résolution lorsqu'une mauvaise combinaison est utilisée. Étant donné que des mauvaises combinaisons sont majoritairement sélectionnées, l'utilisation de l'ajustement cinématique dégrade la résolution au lieu de l'améliorer. \fxnote{Reformuler}
+Lorsque l'on utilise l'ajustement cinématique sur tous les événements sélectionnés par l'algorithme de tri par $\chi^2$, les choses sont différentes. La \cref{fig:kinfit_all_events} présente la résolution sur la masse invariante, et la \cref{fig:mtt_resp_reso_kf_all_events} la linéarité de la reconstruction ainsi que l'évolution de la résolution en fonction de \mttgen. On note une nette dégradation de la résolution, allant de \tilde\SI{15}{\%} à bas \mtt à \tilde\SI{50}{\%} à haut \mtt. La linéarité de la reconstruction est aussi impactée. On a vu précédemment que l'efficacité d'avoir un événement associable est d'environ \SI{40}{\%} (voir \cref{tab:chi2_study}). Parmi ces événements, l'algorithme de tri par $\chi^2$ choisit environ \num{80} fois sur cent la bonne combinaison de jets : l'ajustement cinématique est donc en mesure de sélectionner la bonne combinaison de jets dans environ \SI{32}{\%} des cas. S'il est très efficace dès lors qu'il utilise la bonne combinaison de jets (voir paragraphe précédent), il dégrade fortement la résolution lorsqu'une mauvaise combinaison est utilisée. Étant donné que des mauvaises combinaisons sont majoritairement sélectionnées, l'utilisation de l'ajustement cinématique dégrade la résolution au lieu de l'améliorer.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mtt_response_kf_all}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_all_events.pdf}} \hfill
