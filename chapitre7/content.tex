@@ -261,36 +261,6 @@ Les événements passant la sélection sont ensuite classés en 4 catégories, s
     \label{fig:trig_eff}
 \end{figure}
 
-Les chemins de déclenchements ne sont pas correctement simulé. En effet, les conditions de prises de données, et donc les différents seuils de chaque chemin, les facteurs de préscale, etc. ne sont pas connues au moment de la génération de la simulation.
-
-Afin d'estimer au mieux l'efficacité des chemins de déclenchements utilisés par l'analyse, chaque chemin a été re-simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
-
-Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont calculés centralement par la collaboration avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenus pour chaque chemin de déclenchement, et pour chacune des catégories de l'analyse. Pour la canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
-
-% \begin{figure}[tbp] \centering
-%     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_lepton_zoom.pdf}}
-%     \subcaptionbox{Canal semi-électronique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_lepton_zoom.pdf}}
-%     \caption{Efficacité des chemins de déclenchements en fonction de l'impulsion transverse du lepton.}
-%     \label{fig:trig_eff_leptons}
-% \end{figure}
-
-% \begin{figure}[tbp] \centering
-%     \subcaptionbox{\ordinalnum{1} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_firstJet_zoom.pdf}} \hfill
-%     \subcaptionbox{\ordinalnum{2} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_secondJet_zoom.pdf}} \\
-%     \subcaptionbox{\ordinalnum{3} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_thirdJet_zoom.pdf}} \hfill
-%     \subcaptionbox{\ordinalnum{4} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_fourthJet_zoom.pdf}}
-%     \caption{Efficacité des chemins de déclenchements en fonction de l'impulsion des quatre premiers jets de l'événement pour le canal semi-muonique.}
-%     \label{fig:trig_eff_mu_jets}
-% \end{figure}
-
-% \begin{figure}[tbp] \centering
-%     \subcaptionbox{\ordinalnum{1} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_firstJet_zoom.pdf}} \hfill
-%     \subcaptionbox{\ordinalnum{2} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_secondJet_zoom.pdf}} \\
-%     \subcaptionbox{\ordinalnum{3} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_thirdJet_zoom.pdf}} \hfill
-%     \subcaptionbox{\ordinalnum{4} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_fourthJet_zoom.pdf}}
-%     \caption{Efficacité des chemins de déclenchements en fonction de l'impulsion des quatre premiers jets de l'événement pour le canal semi-électronique.}
-%     \label{fig:trig_eff_e_jets}
-% \end{figure}
 
 \begin{table}[p!] \centering \footnotesize
 \begin{tabular}{@{}ccccc@{}} \toprule
@@ -344,18 +314,38 @@ $\epsilon$ (\ttbar)& \num{0.956\pm 0.005} & \num{0.954\pm 0.004} & \num{0.957\pm
 \label{tab:HLT_el_eff_1btag}
 \end{table}
 
+Les chemins de déclenchements ne sont pas correctement simulé. En effet, les conditions de prises de données, et donc les différents seuils de chaque chemin, les facteurs de préscale, etc. ne sont pas connues au moment de la génération de la simulation.
+
+Afin d'estimer au mieux l'efficacité des chemins de déclenchements utilisés par l'analyse, chaque chemin a été re-simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
+
+Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont calculés centralement par la collaboration avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenus pour chaque chemin de déclenchement, et pour chacune des catégories de l'analyse. Pour la canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
+
+% \begin{figure}[tbp] \centering
+%     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_lepton_zoom.pdf}}
+%     \subcaptionbox{Canal semi-électronique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_lepton_zoom.pdf}}
+%     \caption{Efficacité des chemins de déclenchements en fonction de l'impulsion transverse du lepton.}
+%     \label{fig:trig_eff_leptons}
+% \end{figure}
+
+% \begin{figure}[tbp] \centering
+%     \subcaptionbox{\ordinalnum{1} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_firstJet_zoom.pdf}} \hfill
+%     \subcaptionbox{\ordinalnum{2} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_secondJet_zoom.pdf}} \\
+%     \subcaptionbox{\ordinalnum{3} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_thirdJet_zoom.pdf}} \hfill
+%     \subcaptionbox{\ordinalnum{4} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_fourthJet_zoom.pdf}}
+%     \caption{Efficacité des chemins de déclenchements en fonction de l'impulsion des quatre premiers jets de l'événement pour le canal semi-muonique.}
+%     \label{fig:trig_eff_mu_jets}
+% \end{figure}
+
+% \begin{figure}[tbp] \centering
+%     \subcaptionbox{\ordinalnum{1} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_firstJet_zoom.pdf}} \hfill
+%     \subcaptionbox{\ordinalnum{2} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_secondJet_zoom.pdf}} \\
+%     \subcaptionbox{\ordinalnum{3} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_thirdJet_zoom.pdf}} \hfill
+%     \subcaptionbox{\ordinalnum{4} jet}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_fourthJet_zoom.pdf}}
+%     \caption{Efficacité des chemins de déclenchements en fonction de l'impulsion des quatre premiers jets de l'événement pour le canal semi-électronique.}
+%     \label{fig:trig_eff_e_jets}
+% \end{figure}
+
 \subsection{Efficacité de sélection}
-
-Les \cref{tab:eff_narrow_1b,tab:eff_narrow_2b} présentent les efficacités de sélection pour différentes masses de \zprime dans l'hypothèse de résonances étroites et pour les 4 catégories de l'analyse. Ces efficacités sont inclusives, c'est-à-dire calculées en considérant tous les canaux de désintégrations des paires \ttbar, et pas seulement le canal semi-leptonique. De façon équivalente, les efficacités obtenues dans le cas de \zprime larges sont résumées dans les \cref{tab:eff_large_1b,tab:eff_large_2b}. Toutes ces efficacités sont calculées après avoir appliqué une coupure supplémentaire $\mtt > \SI{550}{\GeV}$ (les raisons d'un tel choix sont décrites plus loin dans ce chapitre). Cette coupure explique pourquoi l'efficacité de sélection pour la résonance à \SI{500}{\GeV} est si faible comparé aux autres masses.
-
-\bigskip
-
-Afin d'obtenir l'efficacité d'un éventuel signal sur les données, des facteurs de corrections sont appliqués pour tenir compte des différences de performances de l'algorithme d'étiquetage des \Pbottom ainsi que l'efficacité d'identification et d'isolation des leptons entre la simulation et les données. Ces facteurs de corrections sont calculés centralement par la collaboration, et dépendent de l'impulsion transverse et de la pseudo-rapidité des objets physiques concernés. Pour obtenir un facteur de correction global à appliquer aux efficacités de sélection, les valeurs centrales sont combinées en tenant compte des spectres en \pt et \aeta des objets physique du signal. On obtient au final les facteurs de corrections suivants :
-\begin{itemize}
-  \item Identification et isolation des muons : \num{0.992 \pm 0.005}.
-  \item Identification et isolation des électrons : \num{0.982 \pm 0.003}.
-  \item Étiquetage des jets de \Pbottom : \num{1.043 \pm 0.022} pour exactement 1 jet étiqueté \Pbottom, et \num{0.927 \pm 0.038} pour au moins deux jets étiquetés \Pbottom.
-\end{itemize}
 
 \begin{table}[p!] \centering
   \begin{tabular}{ccccccc} \toprule
@@ -396,6 +386,17 @@ Afin d'obtenir l'efficacité d'un éventuel signal sur les données, des facteur
   \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances larges, en demandant au moins 2 jets étiquetés \Pbottom. Ces efficacités sont calculés par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
   \label{tab:eff_large_2b}
 \end{table}
+
+Les \cref{tab:eff_narrow_1b,tab:eff_narrow_2b} présentent les efficacités de sélection pour différentes masses de \zprime dans l'hypothèse de résonances étroites et pour les 4 catégories de l'analyse. Ces efficacités sont inclusives, c'est-à-dire calculées en considérant tous les canaux de désintégrations des paires \ttbar, et pas seulement le canal semi-leptonique. De façon équivalente, les efficacités obtenues dans le cas de \zprime larges sont résumées dans les \cref{tab:eff_large_1b,tab:eff_large_2b}. Toutes ces efficacités sont calculées après avoir appliqué une coupure supplémentaire $\mtt > \SI{550}{\GeV}$ (les raisons d'un tel choix sont décrites plus loin dans ce chapitre). Cette coupure explique pourquoi l'efficacité de sélection pour la résonance à \SI{500}{\GeV} est si faible comparé aux autres masses.
+
+\bigskip
+
+Afin d'obtenir l'efficacité d'un éventuel signal sur les données, des facteurs de corrections sont appliqués pour tenir compte des différences de performances de l'algorithme d'étiquetage des \Pbottom ainsi que l'efficacité d'identification et d'isolation des leptons entre la simulation et les données. Ces facteurs de corrections sont calculés centralement par la collaboration, et dépendent de l'impulsion transverse et de la pseudo-rapidité des objets physiques concernés. Pour obtenir un facteur de correction global à appliquer aux efficacités de sélection, les valeurs centrales sont combinées en tenant compte des spectres en \pt et \aeta des objets physique du signal. On obtient au final les facteurs de corrections suivants :
+\begin{itemize}
+  \item Identification et isolation des muons : \num{0.992 \pm 0.005}.
+  \item Identification et isolation des électrons : \num{0.982 \pm 0.003}.
+  \item Étiquetage des jets de \Pbottom : \num{1.043 \pm 0.022} pour exactement 1 jet étiqueté \Pbottom, et \num{0.927 \pm 0.038} pour au moins deux jets étiquetés \Pbottom.
+\end{itemize}
 
 \section{Stratégie de l'analyse}
 
@@ -438,8 +439,6 @@ Afin de contourner ce problème, une autre analyse a été mise en place, dédi�
     \label{fig:mtt_reso_zprime}
 \end{figure}
 
-Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ reste stable en fonction de la masse de la résonance, augmentant même légèrement à haute masse. La \cref{fig:mtt_reso_zprime} présente les résolutions obtenues sur la masse invariante pour deux masses de résonances, dans l'hypothèse de résonances étroites. On constate l'apparition d'une distorsion de la résolution à haute masse, causée intégralement par les événements non-associables ou non-associés. Pour ces événements, on tente de reconstruire la masse invariante du système \ttbar en utilisant des jets ne provenant probablement pas de la désintégration du système \ttbar. D'ailleurs, en regardant l'évolution de la moyenne quadratique (RMS) de la résolution en fonction de la masse des résonances (\cref{fig:rms_zprime}), on constate que tous les modèles considérés se comportent de la même façon lorsque la masse de résonance augmente : une distorsion de la résolution apparaît, de plus en plus marquée à mesure que la masse augmente. Notons que la RMS est utilisée plutôt que résolution extraite de l'interpolation gaussienne afin de quantifier la distorsion de la résolution à haute masse. En effet, plus la RMS est élevée, plus la distribution est large. La \cref{fig:reso_zprime} montre quant à elle l'évolution de la résolution, extraite à l'aide d'une interpolation gaussienne, en fonction de la masse de la résonance. On remarque ici que la résolution est quasiment identique pour chaque point de masse et pour chaque type de modèle. Face à cette mauvaise résolution à haute masse, on s'attend dores et déjà à de mauvaises performances de l'analyse dans ces régions de signal.
-
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:rms_zprime}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/signal_rms_vs_mtt.pdf}} \hfill
     \subcaptionbox{\label{fig:reso_zprime}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/signal_reso_vs_mtt.pdf}}
@@ -447,7 +446,7 @@ Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ re
     \label{fig:rms_reso_zprime}
 \end{figure}
 
-\subsubsection{L'ajustement cinématique}
+Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ reste stable en fonction de la masse de la résonance, augmentant même légèrement à haute masse. La \cref{fig:mtt_reso_zprime} présente les résolutions obtenues sur la masse invariante pour deux masses de résonances, dans l'hypothèse de résonances étroites. On constate l'apparition d'une distorsion de la résolution à haute masse, causée intégralement par les événements non-associables ou non-associés. Pour ces événements, on tente de reconstruire la masse invariante du système \ttbar en utilisant des jets ne provenant probablement pas de la désintégration du système \ttbar. D'ailleurs, en regardant l'évolution de la moyenne quadratique (RMS) de la résolution en fonction de la masse des résonances (\cref{fig:rms_zprime}), on constate que tous les modèles considérés se comportent de la même façon lorsque la masse de résonance augmente : une distorsion de la résolution apparaît, de plus en plus marquée à mesure que la masse augmente. Notons que la RMS est utilisée plutôt que résolution extraite de l'interpolation gaussienne afin de quantifier la distorsion de la résolution à haute masse. En effet, plus la RMS est élevée, plus la distribution est large. La \cref{fig:reso_zprime} montre quant à elle l'évolution de la résolution, extraite à l'aide d'une interpolation gaussienne, en fonction de la masse de la résonance. On remarque ici que la résolution est quasiment identique pour chaque point de masse et pour chaque type de modèle. Face à cette mauvaise résolution à haute masse, on s'attend dores et déjà à de mauvaises performances de l'analyse dans ces régions de signal.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:kf_zp_750}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,angle=-90,origin=c]{chapitre7/figs/kinfit/mtt_resolution_comparison_kf_zp750_all_events.pdf}} \hfill
@@ -455,6 +454,8 @@ Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ re
     \caption{Résolution sur \mtt avant (\rouge) et après (\vertc) utilisation de l'ajustement cinématique, pour un \zprime de masse $\mzp = \SI{750}{\GeV}$ (\subref{fig:kf_zp_750}) et $\mzp = \SI{2}{\TeV}$ (\subref{fig:kf_zp_2000}) en considérant tous les événements sélectionnés. Une coupure $p > \num{0.2}$ est appliquée pour obtenir la distribution \violette. Une interpolation par une Breit-Wigner est effectuée pour chaque distribution afin de faciliter la comparaison.}
     \label{fig:kf_zp}
 \end{figure}
+
+\subsubsection{L'ajustement cinématique}
 
 Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Cette section complète cette étude en incluant des événements \ttbar produit par des processus de nouvelle physique, plus particulièrement des \zprime.
 
@@ -468,15 +469,13 @@ Afin de valider notre sélection, il est utilise de procéder à quelques compar
 
 \medskip
 
-\begin{figure}[p] \centering
+\begin{figure}[p!] \centering
     \subcaptionbox{Canal semi-muonique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre7/figs/data_mc/2btag/semimu/hmttSelected_btag_sel.pdf}} \hfill
     \subcaptionbox{Canal semi-électronique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre7/figs/data_mc/2btag/semie/hmttSelected_btag_sel.pdf}}
     \caption{Comparaison entre les données et la simulation, en sélectionnant au moins 2 jets étiquetés \Pbottom{}. Un ratio est présenté en bas de la distribution. La simulation est normalisée au nombre d'événements dans les données, et la zone hachurée correspond aux incertitudes statistiques.}
     \label{fig:data_mc_2b}
 \end{figure}
-
-
-\begin{figure}[p] \centering
+ \begin{figure}[p!] \centering
     \subcaptionbox{Canal semi-muonique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre7/figs/data_mc/1btag/semimu/hmttSelected_btag_sel.pdf}} \hfill
     \subcaptionbox{Canal semi-électronique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre7/figs/data_mc/1btag/semie/hmttSelected_btag_sel.pdf}}
     \caption{Comparaison entre les données et la simulation, en sélectionnant exactement moins 1 jet étiqueté \Pbottom{}. Un ratio est présenté en bas de la distribution. La simulation est normalisée au nombre d'événements dans les données, et la zone hachurée correspond aux incertitudes statistiques.}
@@ -736,26 +735,26 @@ Toutes ces erreurs systématiques sont introduites dans le calcul du \emph{poste
 
 \section{Résultats}
 
-Afin de quantifier la sensibilité de notre analyse, on calcule la limite supérieure sur la section efficace pour un niveau de confiance de \SI{95}{\percent} pour chaque point de masse et chaque type de signal.
-On cherche à calculer deux types de quantités :
-\begin{itemize}
-  \item Les limites observées, extraites en utilisant les données. Pour chaque point de masse, on calcule la limite supérieure à \SI{95}{\percent} en utilisant la méthode décrite ci-dessus. Le \emph{posterior} obtenu pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites, est représenté sur la \cref{fig:posterior}. Cette distribution est intégrée afin d'extraire la limite supérieure.
-  \item Les limites attendues, extraites de façon similaire aux limites observées, mais en utilisant des pseudo-expériences générées à l'aide de la PDF de fond au lieu des données, c'est-à-dire sans aucun signal. On extrait la limite supérieure sur environ \num{500} pseudo-expériences, pour obtenir une distribution des limites supérieures. De cette distribution, on extrait la valeur nominal, définie par la médiane de la distribution, ainsi qu'un intervalle de confiance de \SI{68}{\percent} et \SI{95}{\%} en intégrant 68 ou \SI{95}{\percent} de la distribution autour de la médiane. Un exemple de distribution est visible sur la \cref{fig:posterior_mc} pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites.
-\end{itemize}
-
-\begin{figure}[tbp]
+\begin{figure}[p!]
   \centering
   \includegraphics[width=0.7\textwidth]{chapitre7/figs/posterior_plot_750.pdf}
   \caption{Distribution du \emph{posterior} $p(\sigma \mid \mtt)$ obtenue grâce à une intégration numérique par méthode MCMC sur les données, pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites. La zone en grise correspond au \SI{95}{\percent} de la distribution, utilisée pour extraire la limite supérieure sur la section efficace (ligne verticale).}
   \label{fig:posterior}
 \end{figure}
 
-\begin{figure}[tbp]
+\begin{figure}[p!]
   \centering
   \includegraphics[width=0.7\textwidth]{chapitre7/figs/posterior_plot_expected_750.pdf}
   \caption{Distribution des limites supérieures extraites obtenus sur environ 500 pseudo-expériences. La ligne rouge correspond à la limite attendue, médiane de la distribution. Les zones en gris foncé et gris clair correspondent respectivement aux intervalles de confiance à 68 et \SI{95}{\%} sur la limite attendue.}
   \label{fig:posterior_mc}
 \end{figure}
+
+Afin de quantifier la sensibilité de notre analyse, on calcule la limite supérieure sur la section efficace pour un niveau de confiance de \SI{95}{\percent} pour chaque point de masse et chaque type de signal.
+On cherche à calculer deux types de quantités :
+\begin{itemize}
+  \item Les limites observées, extraites en utilisant les données. Pour chaque point de masse, on calcule la limite supérieure à \SI{95}{\percent} en utilisant la méthode décrite ci-dessus. Le \emph{posterior} obtenu pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites, est représenté sur la \cref{fig:posterior}. Cette distribution est intégrée afin d'extraire la limite supérieure.
+  \item Les limites attendues, extraites de façon similaire aux limites observées, mais en utilisant des pseudo-expériences générées à l'aide de la PDF de fond au lieu des données, c'est-à-dire sans aucun signal. On extrait la limite supérieure sur environ \num{500} pseudo-expériences, pour obtenir une distribution des limites supérieures. De cette distribution, on extrait la valeur nominal, définie par la médiane de la distribution, ainsi qu'un intervalle de confiance de \SI{68}{\percent} et \SI{95}{\%} en intégrant 68 ou \SI{95}{\percent} de la distribution autour de la médiane. Un exemple de distribution est visible sur la \cref{fig:posterior_mc} pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites.
+\end{itemize}
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{Hypothèse de résonances étroites.}[0.8\textwidth]{\includegraphics[width=0.8\textwidth]{chapitre7/figs/limits_narrow.pdf}} \\ \vspace{5mm}
