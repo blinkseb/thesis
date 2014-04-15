@@ -1,0 +1,245 @@
+configuration:
+  width: 800
+  height: 800
+  title: 'CMS preliminary, L = %lumi% fb^{-1}, #sqrt{s} = 8 TeV'
+  root: 'input/2btag/'
+  luminosity: 19457.318
+  luminosity-error: 0.044
+  error-fill-style: 3154
+  error-fill-color: "#ee556270"
+  ratio-fit-error-fill-style: 1001
+  ratio-fit-error-fill-color: "#aa556270"
+  ratio-fit-line-color: "#0B486B"
+  scale: 0.888460279
+
+files:
+  'MTT_Histos_SingleMu.root':
+    type: data
+    legend: "Data"
+
+  'MTT_Histos_TTbar_powheg_semimu.root':
+    type: mc
+    cross-section: 245.8
+    generated-events: 21627704
+    generated-events-weighted: 20934846.90973
+    fill-color: "#D95B43"
+    legend: "t#bar{t}"
+    order: 3
+
+  'MTT_Histos_SingleTop_s-channel_semimu.root':
+    type: mc
+    cross-section: 3.79
+    generated-events: 259961
+    group: single-t
+    order: 2
+  'MTT_Histos_SingleTop_t-channel_semimu.root':
+    type: mc
+    cross-section: 56.4
+    generated-events: 3728227
+    group: single-t
+    order: 2
+  'MTT_Histos_SingleTop_tW-channel_semimu.root':
+    type: mc
+    cross-section: 11.1
+    generated-events: 497658
+    group: single-t
+    order: 2
+  'MTT_Histos_AntiSingleTop_s-channel_semimu.root':
+    type: mc
+    cross-section: 1.76
+    generated-events: 139974
+    group: single-t
+    order: 2
+  'MTT_Histos_AntiSingleTop_t-channel_semimu.root':
+    type: mc
+    cross-section: 30.7
+    generated-events: 1935072
+    group: single-t
+    order: 2
+  'MTT_Histos_AntiSingleTop_tW-channel_semimu.root':
+    type: mc
+    cross-section: 11.1
+    generated-events: 493460
+    group: "single-t"
+    order: 2
+
+  'MTT_Histos_ZjetsToLL_M-50_semimu.root':
+    type: mc
+    cross-section: 3504
+    generated-events: 30459503
+    group: DY
+    order: 0
+
+  'MTT_Histos_Wjets_semimu.root':
+    type: mc
+    cross-section: 37509
+    generated-events: 57709905
+    group: W
+    order: 1
+
+plots:
+  'hmttSelected_btag_sel':
+    rebin: 4
+    log-y: true 
+    show-ratio: true
+    fit-ratio: true
+    fit-function: "pol1"
+    y-axis: Events
+    show-errors: true
+    save-extensions: ["pdf"]
+
+  #'MET_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'*Jet*_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'leptonPt_reco_fullsel':
+    #rebin: 5
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'mtt_resolution':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'nBTaggedJets_reco_fullsel':
+    #rebin: 1
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'nGoodJets_reco_fullsel':
+    #rebin: 1
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'nVertex_reco_fullsel':
+    #rebin: 2
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #fit-label: '%1% + %2%*x'
+    #save-extensions: ["pdf"]
+
+  #'*TT_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'selected*_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'leptTop*_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'mtLep_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'hadrTop*_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'mtHad_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+  #'delta*Tops_reco_fullsel':
+    #rebin: 4
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+    
+  #'HTFrac':
+    #rebin: 2
+    #log-y: true 
+    #show-ratio: true
+    #fit-ratio: true
+    #fit-function: "pol1"
+    #show-errors: true
+    #save-extensions: ["pdf"]
+
+legend:
+  position: [0.7, 0.65, 0.9, 0.9]
+
+groups:
+  'single-t':
+    legend: 'Single top'
+    fill-color: '#542437'
+
+  W:
+    legend: 'W + jets'
+    fill-color: '#C02942'
+
+  DY:
+    legend: 'Z + jets'
+    fill-color: '#53777A'
+
+  diboson:
+    legend: 'Di-bosons'
+    fill-color: '#69D2E7'

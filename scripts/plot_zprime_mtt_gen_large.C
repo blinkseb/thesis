@@ -45,7 +45,7 @@
   h_a->SetNdivisions(505);
   h_a->SetXTitle("m_{t#bar{t}}");
 
-  TCanvas* c1 = new TCanvas("c", "c", 800, 600);
+  //TCanvas* c1 = new TCanvas("c", "c", 800, 600);
 
   h_a->Draw("c");
   h_b->Draw("c same");

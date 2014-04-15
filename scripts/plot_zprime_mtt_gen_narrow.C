@@ -45,7 +45,7 @@
   h_a->SetNdivisions(505);
   h_a->SetXTitle("m_{t#bar{t}}");
 
-  TCanvas* c1 = new TCanvas("c", "c", 800, 600);
+  //TCanvas* c1 = new TCanvas("c", "c", 800, 600);
 
   h_a->Draw("c");
   h_b->Draw("c same");
@@ -56,7 +56,7 @@
 
   TLatex l;
   l.SetTextFont(42);
-  l.SetTextSize(0.033);
+  l.SetTextSize(0.040);
   l.DrawLatexNDC(0.7, 0.85, "#Gamma / M_{Z'} = 1%");
 
   c1->SaveAs("mtt_zprime_narrow_gen.pdf");
