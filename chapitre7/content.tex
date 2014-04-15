@@ -14,11 +14,11 @@ Afin d'être en mesure de confronter aux mesures expérimentales le plus grand n
     \item Les résonances larges, avec une largeur $\Gamma = \num{0.10} \, \mzp$, équivalent à la résolution expérimentale sur la reconstruction de la masse invariante \ttbar.
 \end{itemize}
 
-Ces résonances sont générées à l'aide de \texttt{MadGraph 4}, en utilisant un modèle de \zprime générique. Dans ce modèle, le \zprime possède les même couplages fermioniques que le boson \PZ du Modèle Standard, et la rapport d'embranchement en \ttbar est fixé à \SI{100}{\%}. Plusieurs masses sont générées, allant de \SI{500}{\GeV} à \SI{2}{\TeV}, par pas de \SI{250}{\GeV} (excepté \SI{1750}{\GeV}).
+Ces résonances sont générées à l'aide de \texttt{MadGraph 4}, en utilisant un modèle de \zprime générique. Dans ce modèle, le \zprime possède les même couplages fermioniques que le boson \PZ du Modèle Standard, et le rapport d'embranchement en \ttbar est fixé à \SI{100}{\%}. Plusieurs masses sont générées, allant de \SI{500}{\GeV} à \SI{2}{\TeV}, par pas de \SI{250}{\GeV} (excepté \SI{1750}{\GeV}).
 
 \smallskip
 
-En plus de résonances \zprime génériques, on génère en plus des résonances selon un modèle théorique particulier d'excitations de Kaluza-Klein du gluon à l'aide de \texttt{Pythia 8}. Dans ce modèle, la largeur de la résonance ainsi que la section efficace sont fixées par la masse de la résonance.
+En plus de résonances \zprime génériques, on génère également des résonances selon un modèle théorique particulier d'excitations de Kaluza-Klein du gluon \citep{Agashe:2006hk,Randall:1999vf} à l'aide de \texttt{Pythia 8}. Dans ce modèle, la largeur de la résonance ainsi que la section efficace sont fixées par la masse de la résonance, et on génère des masses de \SI{700}{\GeV}, \SI{1}{\TeV}, \SI{1.2}{\GeV} et \SI{1.5}{\TeV}.
 
 \medskip
 
@@ -38,7 +38,7 @@ L'analyse se concentre exclusivement sur le canal de désintégration des paires
 \begin{itemize}
     \item Le rapport d'embranchement dans ce canal est \tilde\SI{44}{\%}, contre \SI{11}{\%} pour le canal di-leptonique, et \SI{45}{\%} pour le canal tout-hadronique.
     \item La présence d'un lepton constitue une signature expérimentale claire. L'avantage par rapport au canal di-leptonique, outre le rapport d'embranchement, vient de l'absence d'ambiguïté pour le choix du neutrino, améliorant la résolution de reconstruction.
-    \item L'absence de neutrino dans le canal tout-hadronique est compensé par la nécessitée de correctement sélectionner les 6 bons jets provenant de la désintégration \ttbar.
+    \item L'absence de neutrino dans le canal tout-hadronique est compensé par la nécessité de correctement sélectionner les 6 bons jets provenant de la désintégration \ttbar dans un environnement hadronique.
 \end{itemize}
 
 Expérimentalement, une telle désintégration se traduit par la présence d'un lepton isolé, de 4 jets, et de l'énergie transverse manquante (neutrino). Tous les processus physique du Modèle Standard produisant des états finaux similaires sont considérés comme des bruits de fond. Le fond le plus important est bien évidemment la production de paires \ttbar du Modèle Standard, bruit de fond irréductible. Les autres bruits de fond considérés sont :
@@ -62,19 +62,21 @@ Expérimentalement, une telle désintégration se traduit par la présence d'un 
   \label{tab:backgrounds}
 \end{table}
 
-D'autres processus entrent aussi dans la composition du bruit de fond, tels que les événements multi-jets ou di-bosons (\PW{}\PW, \PZ{}\PZ, \PW{}\PZ). Après notre sélection, le nombre d'événement provenant de ces fonds est très largement minoritaire face aux autres fonds. Ils ne sont donc pas inclus dans notre analyse. Le \cref{tab:backgrounds} liste les sections efficaces de chaque bruit de fond considéré, ainsi que la luminosité équivalente disponible pour l'analyse.
+D'autres processus entrent aussi dans la composition du bruit de fond, tels que les événements multi-jets ou di-bosons (\PW{}\PW, \PZ{}\PZ, \PW{}\PZ). Après notre sélection, le nombre d'événement provenant de ces fonds est très largement minoritaire face aux autres fonds. Ils ne sont donc pas inclus dans notre analyse. Le \cref{tab:backgrounds} liste les sections efficaces de chaque bruit de fond considéré, ainsi que la luminosité équivalente disponible pour l'analyse, définie par $\mathcal{L_\text{equiv}} = N_\text{généré} \, / \, \sigma$.
 
-Afin de reproduire correctement les conditions de \pu des données dans la simulation, les événements dans la simulation sont pondérées de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
+Afin de reproduire correctement les conditions de \pu des données dans la simulation, les événements dans la simulation sont pondérés de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
 
 \section{Sélection des événements}
 
-On souhaite sélectionner des événements compatible avec la désintégration semi-leptonique de paires \ttbar, c'est-à-dire comprenant un lepton isolé, au moins 4 jets et de l'énergie transverse manquante. On applique pour cela une série de coupures afin de réduire le plus possible le bruit de fond tout en gardant un maximum d'événements de signal.
+On souhaite sélectionner des événements compatibles avec la désintégration semi-leptonique de paires \ttbar, c'est-à-dire comprenant un lepton isolé, au moins 4 jets et de l'énergie transverse manquante. On applique pour cela une série de coupures afin de réduire le plus possible le bruit de fond tout en gardant un maximum d'événements de signal.
 
 \medskip
 
 Chaque événement est catégorisé selon la saveur du lepton. On définit ainsi le canal semi-muonique (semi-$\mu$), lorsque le lepton isolé est un muon, et le canal semi-électronique (semi-e) lorsque c'est un électron.
 
 \subsection{Identification des objets}
+
+\fxnote{Bouger la partie sur l'isolation dans le chapitre 3}
 
 L'événement est reconstruit à l'aide de l'algorithme du \pf, décrit en détail dans le \cref{chap:reco}. Plusieurs étapes supplémentaires sont ajoutées à la reconstruction permettant de limiter les effets du \pu sur la reconstruction des jets :
 \begin{itemize}
@@ -94,7 +96,7 @@ où les sommes portent sur les particules contenues dans un cône de rayon $\Del
   \Delta R &= \num{0.3} \quad\text{électrons}
 \end{align*}
 
-Dans le cas des muons, la définition de l'isolation $I$ est modifiée afin d'être plus robuste face au \pu. La soustraction des hadrons chargés provenant de vertex secondaires n'est en effet pas suffisante, puisque le \pu est aussi composé de hadrons neutres et de photons, et on estime qu'ils sont responsable d'environ la moitié de son énergie. Ainsi, on soustrait du calcul de l'isolation la moitié de l'énergie des hadrons identifiés comme provenant du \pu, en vérifiant bien que l'énergie provenant de la partie neutre ne soit jamais négative. On obtient alors
+Dans le cas des muons, la définition de l'isolation $I$ est modifiée afin d'être plus robuste face au \pu. La soustraction des hadrons chargés provenant de vertex secondaires n'est en effet pas suffisante, puisque le \pu est aussi composé de hadrons neutres et de photons, et on estime que ces hadrons sont responsables d'environ la moitié de l'énergie du \pu. Ainsi, on soustrait du calcul de l'isolation la moitié de l'énergie des hadrons identifiés comme provenant du \pu, en vérifiant bien que l'énergie provenant de la partie neutre ne soit jamais négative. On obtient alors
 \begin{align*}
   I_{\Pmu}^\text{corrigé} &= \frac{\sum{\pt^\text{hadrons chargés}} + \overbrace{\left(\sum{\pt^\text{hadrons neutres}} + \sum{\pt^\text{photons}} - \num{0.5} \sum{\pt^\text{hadrons chargés \pu}} \right)}^{= 0 \text{ si négatif}}}{\pt^{\Plepton}}
 \end{align*}
@@ -102,11 +104,11 @@ On considère un muon comme isolé si $I_{\Pmu}^\text{corrigé} < \SI{12}{\%}$.
 
 \smallskip
 
-Pour les électrons, on applique une procédure similaire. Néanmoins, au lieu de soustraire la moitié de l'énergie des hadrons chargés provenant du \pu, on estime l'énergie restant dû au \pu en utilisant la densité d'énergie dans l'événement par unité de surface ($\rho$, voir \cref{sec:jec_l1}). Au lieu d'utiliser la surface du cône d'isolation, parfois délicate à calculer géométriquement, pour estimer la quantité d'énergie du \pu, on évalue une surface effective ($EA$) sur des événements \PZ $\rightarrow$ \Pelectron{}\Ppositron. Cette surface est définie comme le rapport entre la pente de la droite $\rho = f(N_{\text{vertex}})$ et la pente de la droite $I = f(N_\text{vertex})$.
+Pour les électrons, on applique une procédure similaire. Néanmoins, au lieu de soustraire la moitié de l'énergie des hadrons chargés provenant du \pu, on estime l'énergie restant dû au \pu en utilisant la densité d'énergie dans l'événement par unité de surface ($\rho$, voir \cref{sec:jec_l1}). Au lieu d'utiliser la surface du cône d'isolation, parfois délicate à calculer géométriquement, pour estimer la quantité d'énergie du \pu, on évalue une surface effective ($EA$) sur des événements \PZ $\rightarrow$ \Pelectron{}\Ppositron. Cette surface est définie comme le rapport entre la pente de la droite $\rho = f(N_{\text{vertex}})$ et la pente de la droite $I = f(N_\text{vertex})$. \fxnote{Revoir la partie sur EA.}
 \begin{align*}
   I_{\Pe}^\text{corrigé} &= \frac{\sum{\pt^\text{hadrons chargés}} + \overbrace{\left(\sum{\pt^\text{hadrons neutres}} + \sum{\pt^\text{photons}} - \rho\,EA \right)}^{= 0 \text{ si négatif}}}{\pt^{\Plepton}}
 \end{align*}
-On considère un électron comme isolé si $I_{\Pe}^\text{corrigé} < \SI{10}{\%}$. Cette valeur est plus faible en raison de la taille du cône plus faible aussi.
+On considère un électron comme isolé si $I_{\Pe}^\text{corrigé} < \SI{10}{\%}$. Cette valeur est plus faible en raison de la taille du cône plus faible également.
 
 \bigskip
 
@@ -124,7 +126,7 @@ Afin d'être identifié comme \textbf{lâche}, un muon doit passer les coupures 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:muon_id_eff}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/muon_id_efficiency.png}} \hfill
     \subcaptionbox{\label{fig:muon_iso_eff}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/muon_iso_efficiency.png}}
-    \caption{Efficacité de la sélection appliquée aux muons (\subref{fig:muon_id_eff}) ainsi que l'isolation (\subref{fig:muon_iso_eff}) en fonction de \aeta, pour les donnée (noir) ainsi que la simulation (rouge).}
+    \caption{Efficacité de la sélection appliquée aux muons (hors isolation) (\subref{fig:muon_id_eff}) ainsi que l'isolation (\subref{fig:muon_iso_eff}) en fonction de \aeta, pour les données (noir) ainsi que la simulation (rouge).}
 \end{figure}
 
 En plus de ces coupures, on identifie un muon de qualité s'il vérifie les critères suivants :
@@ -150,22 +152,22 @@ De façon analogue aux muons, on définit également deux jeux de critères pour
 
   Variable & Électron \textbf{lâche} & Électron de qualité \\ \midrule
   & \multicolumn{2}{c}{électron \pf} \\
-  $\Delta \eta_{IN}$ & \num{0.007} & \num{0.004} \\
-  $\Delta \phi_{IN}$ & \num{0.8} & \num{0.03} \\
-  $\sigma_{i\eta i\eta}$ & \num{0.01} & \num{0.01} \\
-  $ H / E $ & \num{0.15} & \num{0.12} \\
-  $d_0$ & \num{0.04} & \num{0.02} \\
-  $d_Z$ & \num{0.2} & \num{0.1} \\
-  $1 / E - 1 / P$ & - & 0.05 \\
-  \pt & \SI{20}{\GeV} & \SI{30}{\GeV} \\
-  $\aeta$ & \num{2.5} & \num{2.5} \\
-  $I_{\Pe}^\text{corrigé}$ & \num{0.15} & \num{0.10} \\
+  $\Delta \eta_{IN}$ & \num{< 0.007} & \num{< 0.004} \\
+  $\Delta \phi_{IN}$ & \num{< 0.8} & \num{< 0.03} \\
+  $\sigma_{i\eta i\eta}$ & \num{< 0.01} & \num{< 0.01} \\
+  $ H / E $ & \num{< 0.15} & \num{< 0.12} \\
+  $d_0$ & \num{< 0.04} & \num{< 0.02} \\
+  $d_Z$ & \num{< 0.2} & \num{< 0.1} \\
+  $1 / E - 1 / P$ & - & < 0.05 \\
+  \pt & \SI{>= 20}{\GeV} & \SI{>= 30}{\GeV} \\
+  $\aeta$ & \num{< 2.5} & \num{< 2.5} \\
+  $I_{\Pe}^\text{corrigé}$ & \num{< 0.15} & \num{< 0.10} \\
   \bottomrule
 
   \end{tabular}
 \end{table}
 
-$\Delta \eta_{IN}$ est la différence entre $\eta$ de l'agrégat calorimétrique et $\eta$ de la trace de l'électron, $\Delta \phi_{IN}$ entre la différence entre $\phi$ de l'agrégat calorimétrique et $\phi$ de la trace de l'électron, et $\sigma_{i\eta i\eta}$ et $H / E$ sont définis dans la \cref{sec:jetmet_sel}. L'efficacité de la sélection d'un électron de qualité est présenté dans la \cref{fig:electron_id_eff}, et varie entre \num{75} et \SI{90}{\percent} pour les électrons considérés par l'analyse.
+$\Delta \eta_{IN}$ est la différence entre $\eta$ de l'agrégat calorimétrique et $\eta$ de la trace de l'électron, $\Delta \phi_{IN}$ entre la différence entre $\phi$ de l'agrégat calorimétrique et $\phi$ de la trace de l'électron, et $\sigma_{i\eta i\eta}$ et $H / E$ sont définis dans la \cref{sec:jetmet_sel}. L'efficacité de la sélection d'un électron de qualité est présentée dans la \cref{fig:electron_id_eff}, et varie entre \num{75} et \SI{90}{\percent} pour les électrons considérés par l'analyse.
 
 \begin{figure}[thbp]
   \centering
@@ -176,7 +178,7 @@ $\Delta \eta_{IN}$ est la différence entre $\eta$ de l'agrégat calorimétrique
 
 \subsubsection{Jets}
 
-Les jets sont reconstruits à l'aide de l'algorithme anti-$k_T$, avec une largeur de cône $R = \num{0.5}$ (voir \cref{sec:jet_reco}). Toutes les particules \pf n'étant ni des leptons isolés, ni du \pu sont utilisées dans l'agglomération des jets. Les corrections de niveaux 1, 2 et 3 sont appliquées, ainsi que les corrections résiduelles sur les données uniquement (plus de détails dans le \cref{chap:jetmet}).
+Les jets sont reconstruits à l'aide de l'algorithme anti-$k_T$, avec une largeur de cône $R = \num{0.5}$ (voir \cref{sec:jet_reco}). Toutes les particules \pf n'étant ni des leptons isolés, ni du \pu sont utilisées dans l'agglomération des jets. Les corrections de niveaux 1, 2 et 3 sont appliquées, ainsi que les corrections résiduelles sur les données uniquement (plus de détails dans les \cref{sec:jec_l1,sec:jec_l2l3,sec:jec_res}).
 
 On a évoqué rapidement dans le \cref{chap:jetmet} que la résolution des jets sur la simulation était meilleure que celle des jets reconstruits sur les données. On applique une série de corrections afin de dégrader la résolution des jets sur la simulation, afin de correspondre mieux à celle des données. L'impulsion transverse des jets est corrigé par un facteur $C$, définit par :
 \begin{align*}
@@ -212,7 +214,7 @@ Lors de l'analyse des données 2011, certains événements contenaient une quant
   \item Des collisions peuvent se produire entre les protons des faisceaux et le gaz résiduel dans les tubes transportant les protons. Dans de rare cas, ces particules peuvent traverser le détecteur, et ainsi apparaître comme de l'énergie transverse manquante.
   \item Du bruit anormal dans le HCAL, causé par des problèmes de lecture des photodiodes, peut provoquer de la fausse énergie manquante jusqu'à l'échelle du \si{\TeV}.
   \item Il arrive que le système de synchronisation temporelle du HCAL, utilisant un faisceau laser, se déclenche en même temps qu'une collision. Ce phénomène est extrêmement rare (en 2011, 216 événements ont été identifiés), mais peut causer de grandes valeurs d'énergie transverse manquante.
-  \item Certains cristaux du ECAL sont connus pour être très bruyant. Ils sont donc ignorés lors de la reconstruction. Beaucoup d'énergie peut ainsi être manqué lorsqu'une particule interagie avec ces cristaux, provoquant une source anormale d'énergie transverse manquante.
+  \item Certains cristaux du ECAL sont connus pour être très bruyant. Ils sont donc ignorés lors de la reconstruction. Beaucoup d'énergie peut ainsi être manqué lorsqu'une particule interagit avec ces cristaux, provoquant une source anormale d'énergie transverse manquante.
 \end{itemize}
 
 Des filtres ont ainsi été développés afin de supprimer les événements contenant de la fausse énergie transverse manquante. On peut voir sur la \cref{fig:met_cleaning} l'effet d'un tel nettoyage : avec l'utilisation des filtres, la queue de la distribution, causée par de la fausse \met, disparaît.

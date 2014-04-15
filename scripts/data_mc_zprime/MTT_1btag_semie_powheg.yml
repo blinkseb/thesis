@@ -90,7 +90,7 @@ plots:
 
   'hMET':
     rebin: 4
-    log-y: true 
+    log-y: false
     show-ratio: true
     fit-ratio: true
     y-axis: Events
