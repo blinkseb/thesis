@@ -16,7 +16,7 @@ CMS a adopté une approche factorisée afin de corriger convenablement ces effet
 
 \begin{description}
     \item[Niveau 1] Ce niveau de correction corrige les effets du \pu et du bruit des détecteurs.
-    \item[Niveau 2 et 3] Ces niveaux permettent de corriger les variation d'efficacité de la reconstruction des jets, fonction de l'angle et l'impulsion transverse des jets.
+    \item[Niveau 2 et 3] Ces niveaux permettent de corriger les variation d'efficacité de la reconstruction des jets, en fonction de l'angle et l'impulsion transverse des jets.
 \end{description}
 
 Ces corrections sont appliquées à la fois aux données collectées et à la simulation. Néanmoins, il est apparu que la simulation ne reproduisait pas (encore) parfaitement la réalité. Il a donc été décidé d'ajouter un quatrième niveau de corrections, nommé corrections résiduelles, appliqué uniquement aux données, qui permet de corriger des dernières différences qui subsistent entre données et simulation.
@@ -25,7 +25,7 @@ Ces corrections sont appliquées à la fois aux données collectées et à la si
 
 Chaque niveau est décrit en détails ci-dessous.
 
-\subsection{Les corrections de niveau 1}{Les corrections de niveau 1 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l1}
+\subsection[Les corrections de niveau 1]{Les corrections de niveau 1 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l1}
 
 On a déjà vu lors du \cref{chap:detecteur} que le \pu entraînait une activité supplémentaire dans le détecteur. Cela se traduit directement par une augmentation de l'énergie des jets reconstruits, puisque certaines particules agglomérées au sein d'un jet proviennent en réalité des interactions parasites plutôt que de l'événement dur.
 
@@ -37,7 +37,7 @@ Ce n'est cependant pas suffisant pour totalement supprimer la contribution du \p
 
 \bigskip
 
-Tous les jets ne sont pas sensible de la même façon au \pu. On estime la quantité d'énergie due au \pu emportée par chaque jet en calculant la densité d'énergie $\rho$ par unité de surface, qui caractérise l'activité des jets du \pu. Pour ce faire, on utilise l'aire des jets ($A$), définie comme l'étalement du jet dans le plan $\eta - \phi$. La densité $\rho$ est alors définit comme la médiane de la distribution $p_T^j / A_j$, où $j$ est l'index d'un jet dans l'événement.
+Tous les jets ne sont pas sensibles de la même façon au \pu. On estime la quantité d'énergie due au \pu emportée par chaque jet en calculant la densité d'énergie $\rho$ par unité de surface, qui caractérise l'activité des jets du \pu. Pour ce faire, on utilise l'aire des jets ($A$), définie comme l'étalement du jet dans le plan $\eta - \phi$. La densité $\rho$ est alors définie comme la médiane de la distribution $p_T^j / A_j$, où $j$ est l'index d'un jet dans l'événement.
 
 On corrige ainsi événement par événement et jet par jet la contribution du \pu en appliquant un facteur de correction $C$ donné par
 \begin{align*}
@@ -73,13 +73,15 @@ où $\rho_0$ est la contribution à la densité d'énergie de l'événement sous
 
 Après application des corrections de niveau 1, la réponse des jets, définie comme le rapport en l'impulsion transverse du jet sur l'impulsion transverse vraie\footnote{L'impulsion transverse vraie d'un jet est la valeur de l'impulsion transverse dans le cas où le jet est parfaitement reconstruit. Cette valeur est déterminée en agglomérant les particules directement en sortie du générateur, plutôt que les particules après reconstruction.}, n'est plus dépendante du nombre de vertex primaires, comme on peux le voir \cref{fig:jec_l1_effect}.
 
-\subsection{Les corrections de niveau 2 et 3}{Les corrections de niveau 2 et 3 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l2l3}
+\subsection[Les corrections de niveau 2 et 3]{Les corrections de niveau 2 et 3 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l2l3}
 
-Ces corrections sont appliquées après celles de niveau 1. La réponse n'est donc plus dépendante du \pu. Néanmoins, elle varie toujours en fonction de \aeta et du $p_T$. On corrige cette dépendance grâce à la simulation.
+Les corrections de niveau 2 (corrections en fonction de \aeta) et de niveaux 3 (corrections en fonction de \pt) sont appliquées après celles de niveau 1. Ces deux niveaux de corrections forment en réalité une correction unique, la séparation en deux niveaux distincts étant purement historique.
+
+Après les corrections de niveaux 1, la réponse n'est plus dépendante du \pu. Néanmoins, elle varie toujours en fonction de \aeta et du $p_T$. On corrige cette dépendance grâce à la simulation.
 
 \smallskip
 
-On utilise des événements multi-jets pour déterminer les facteurs de corrections à appliquer. On réalise une grille 2D en $\eta$ et en $p_T$. Pour chaque classe, on détermine la réponse des jets définie comme
+On utilise des événements multi-jets pour déterminer les facteurs de corrections à appliquer. On réalise une grille 2D en $\eta$ et en $p_T$, et, pour chaque classe, on détermine la réponse des jets définie comme
 \begin{align*}
   R &= \dfrac{p_T}{p_T^\text{vrai}}
 \end{align*}
@@ -110,7 +112,7 @@ On présente \cref{fig:resp_l1l2l3} la réponse des jets après application des 
 
 Ces facteurs de corrections ont été déterminés sur des événements multi-jets, très riches en jets de gluons. Cependant, on peut voir \cref{fig:jet_flavor_resp} que la réponse du jet dépend de sa saveur. Pour l'instant, cette différence de réponse est prise en compte aux travers des erreurs systématiques, et on verra plus loin dans ce chapitre que des études sont menées par CMS afin de déterminer des corrections aussi dépendantes de la saveur des jets.
 
-\subsection{Les corrections résiduelles}{Les corrections résiduelles \citep{1748-0221-6-11-P11002}} \label{sec:jec_res}
+\subsection[Les corrections résiduelles]{Les corrections résiduelles \citep{1748-0221-6-11-P11002}} \label{sec:jec_res}
 
 Les corrections précédentes sont toutes dérivées à l'aide de la simulation. Malheureusement, cette simulation n'est pas parfaite, et des différences existent entre la réponse des jets dans la simulation et dans les données collectées. On applique ainsi un autre niveau de corrections, uniquement sur les données, afin de corriger des dernières différences entre données et simulation. Ces corrections, dépendante de \aeta et du $p_T$ des jets, sont déterminées à l'aide d'événements $\PZ \rightarrow \left[ \Pmuon \APmuon \, | \, \Pelectron \APelectron \right] $ + jets ou $\Pphoton$ + jets, ainsi que des événements di-jets pour la dépendance en \aeta.
 
@@ -140,7 +142,7 @@ On trouve \cref{fig:jetmet_uncertainties} l'évolution des erreurs systématique
   \item Les conditions de reconstruction et de calibration du détecteur ont changées pendant la prise de données 2012. Ces différences n'ont pas été propagées à la simulation, et on voit apparaitre des différences de réponse en fonction de la date de la prise de données. Ces différences sont prises en compte \emph{via} une erreur systématique (\emph{time stability}).
 \end{itemize}
 
-On constate que la présence de \pu (ligne bleue) contribue en majorité à l'incertitude totale. De nouvelles techniques de suppression du \pu au niveau 1 sont ainsi en cours de développement, afin de réduire cette erreur systématique. Néanmoins, pour des jets de \SI{100}{\GeV} dans le tonneau ($\aeta < \num{1.3}$), on arrive à garder l'erreur systématique totale sous la barre des \SI{2}{\%}.
+On constate que la présence de \pu (ligne bleue) contribue en majorité à l'incertitude totale à bas \pt, alors que l'extrapolation devient dominante à haut \pt. De nouvelles techniques de suppression du \pu au niveau 1 sont ainsi en cours de développement, afin de réduire cette erreur systématique. Néanmoins, pour des jets de \SI{100}{\GeV} dans le tonneau ($\aeta < \num{1.3}$), on arrive à garder l'erreur systématique totale sous la barre des \SI{2}{\%}.
 
 \section{Détermination des corrections résiduelles à l'aide d'événements \texorpdfstring{$\Pphoton$}{γ} + jets} \label{sec:jetmet_gamma_jet}
 
@@ -234,8 +236,8 @@ On présente \cref{fig:gamma_jet_diagrams} deux diagrammes de Feynman représent
 Ainsi, il est suffisant de connaître l'impulsion transverse de la sonde pour déterminer l'impulsion transverse du jet. L'utilisation du photon comme sonde comporte certains avantages :
 \begin{itemize}
   \item Comme on a déjà pu le voir lors du \cref{chap:reco}, le calorimètre électromagnétique est bien plus performant que le calorimètre hadronique. La résolution sur la reconstruction des photons est \tilde\SI{2}{\%}, contre \tilde{10}{\%} pour les jets.
-  \item Comparé à d'autres processus comme \PZ + jets, la section efficace de production \Pphoton + jets au LHC à \SI{8}{\TeV} est bien plus importante : le nombre d'événements disponible est ainsi plus important.
-  \item La production d'événement \Pphoton + jets n'est pas résonante, à la différence des événements \PZ + jets. Il est ainsi possible d'explorer une gamme en impulsion transerve beaucoup plus importante.
+  \item Comparé à d'autres processus comme \PZ + jets, la section efficace de production \Pphoton + jets au LHC à \SI{8}{\TeV} est bien plus grande : le nombre d'événements disponible est ainsi plus important.
+  \item La production d'événement \Pphoton + jets n'est pas résonante, à la différence des événements \PZ + jets. Il est ainsi possible d'explorer une gamme en impulsion transverse beaucoup plus large.
 \end{itemize}
 
 \subsection{Détermination de la réponse des jets}
@@ -246,7 +248,7 @@ Deux méthodes différentes sont utilisées afin de déterminer la réponse $R$ 
 
 \subsubsection{La méthode de la balance}
 
-On utilise le principe de conservation de l'impulsion transverse. On a alors
+On utilise le principe de conservation de l'impulsion transverse. Pour un événement où le photon est parfaitement équilibré avec le jet dans le plan transverse, on a
 \begin{align*}
   \norm{\vec{p}_T^{\Pphoton}} &= \norm{\vec{p}_T^{jet}}
 \end{align*}
@@ -259,12 +261,12 @@ Cette méthode est très simple et performante. Néanmoins, elle est très sensi
 
 \paragraph{L'extrapolation}
 
-La balance entre le photon et le jet est perturbée par la présence de jets additionnels dans l'événement, provenant soit du \pu, soit de radiations dans l'état final. On définit $\alpha$ comme le rapport entre l'impulsion transverse du second jet de l'événement et l'impulsion transverse du photon,
+La balance entre le photon et le jet est perturbée par la présence de jets additionnels dans l'événement, provenant de radiations dans l'état final. On définit $\alpha$ comme le rapport entre l'impulsion transverse du second jet de l'événement et l'impulsion transverse du photon,
 \begin{align*}
     \alpha &= \frac{p_T^{\text{\ordinalnum{2} jet}}}{p_T^\gamma}
 \end{align*}
 
-Afin de réduire l'influence des jets additionnels sur la réponse, on effectue un découpage de la réponse en $\alpha$, et on extrapole le comportement de la réponse pour $\alpha \rightarrow 0$. Cette extrapolation est bénéfique principalement pour la méthode de la balance, et permet en plus de tester l'indépendance de la méthode MPF à la présence de jets additionnels dans l'événement.
+Afin de réduire l'influence des jets additionnels sur la réponse, on effectue un découpage de la réponse en $\alpha$, et on extrapole le comportement de la réponse pour $\alpha \rightarrow 0$.
 
 \subsubsection{La méthode MPF (\emph{Missing $E_T$ projection fraction})} \label{sec:mpf}
 
@@ -285,7 +287,7 @@ On considère que les photons sont reconstruits de façon parfaite, on pose donc
   R_{\text{recul}} &= 1 + \frac{\vec{\met} \cdot \vec{p}_T^{\Pphoton}}{\left( p_T^{\Pphoton} \right)^2} \equiv R_{\text{MPF}}
 \end{align*}
 
-Cette méthode n'est pas dépendante de la présence de jets additionnels dans l'événement, mais requiert par contre une excellente reconstruction de l'énergie transverse manquante. C'est le cas dans CMS grâce à l'utilisation de l'algorithme du \pf.
+À la différence de la méthode de la balance, cette méthode n'est pas dépendante de la présence de jets additionnels dans l'événement, mais requiert par contre une excellente reconstruction de l'énergie transverse manquante. C'est le cas dans CMS grâce à l'utilisation de l'algorithme du \pf.
 
 \medskip
 
@@ -295,11 +297,11 @@ Cette méthode est utilisée pour produire les corrections officielles. La méth
 
 \subsection{Sélection des événements} \label{sec:jetmet_sel}
 
-Pour déterminer les corrections résiduelles, on sélectionne sur les données des événements contenant un unique photon, ainsi qu'un ou deux jets. Le principal bruit de fond est dû aux événements multi-jets (de type $\Pquark \APquark \rightarrow \Pquark \APquark$) où un jet est incorrectement identifié comme un photon. On étudie les performances de notre sélection sur des événement \Pphoton + jets simulés (signal), ainsi que sur des événements multi-jets (fond).
+Pour déterminer les corrections résiduelles, on sélectionne sur les données des événements contenant un unique photon, ainsi qu'un ou deux jets. Le principal bruit de fond est dû aux événements multi-jets où un jet est incorrectement identifié comme un photon. On étudie les performances de notre sélection sur des événement \Pphoton + jets simulés, considérés comme notre signal, ainsi que sur des événements multi-jets, le bruit de fond.
 
-Afin d'éliminer une grande partie du bruit du fond, une sélection est appliquée. La première étape consiste à sélectionner des événements contenant uniquement un seul photon. On utilise pour cela une méthode d'identification des photons. Suivant les besoin des analyses, cette méthode peut être optimisée pour obtenir une grande efficacité de sélection et une faible pureté (beaucoup d'événements sont sélectionnés, mais certains ne sont pas des vrais photons) ou au contraire une grande pureté et une faible efficacité (moins d'événements sont sélectionnés, mais la probabilité qu'ils ne soient pas de vrais photons est très faible).
+Afin d'éliminer une grande partie du bruit de fond, une sélection est appliquée. La première étape consiste à sélectionner des événements contenant uniquement un seul photon. On utilise pour cela une méthode d'identification des photons. Suivant les besoin des analyses, cette méthode peut être optimisée pour obtenir une grande efficacité de sélection et une faible pureté (beaucoup d'événements sont sélectionnés, mais certains ne sont pas des vrais photons) ou au contraire une grande pureté et une faible efficacité (moins d'événements sont sélectionnés, mais la probabilité qu'ils ne soient pas de vrais photons est très faible).
 
-On souhaite obtenir les événements les plus pure possible. On choisit donc le point de fonctionnement offrant la plus grande pureté (\tilde\SI{96}{\%} des photons sont des vrais photons), mais une efficacité plus faible ($\tilde \SI{70}{\%}$). Cette identification est définie de la façon suivante :
+On souhaite obtenir les événements les plus pures possible. On choisit donc le point de fonctionnement offrant la plus grande pureté (\tilde\SI{96}{\%} des photons sont des vrais photons), mais une efficacité plus faible ($\tilde \SI{70}{\%}$). Cette identification est définie de la façon suivante :
 
 \begin{enumerate}
     \item Un contrôle est effectué pour vérifier que le photon n'est pas en réalité un électron dont la trace n'a pas pu être liée au dépôt calorimétrique, et qu'il ne provient pas du rayonnement bremsstrahlung d'un électron lors de son passage dans le ECAL.
@@ -512,11 +514,12 @@ ce qui est effectivement le but recherché.
 
 \bigskip
 
-On présente par la suite les résultats obtenus avec les méthodes de la balance et MPF, avec et sans extrapolation, qui permettent d'extraire le facteur de correction résiduel. Pour chaque méthode, les distributions des réponses moyennes et des résolutions seront présentées pour différentes classes en \aeta.
+On présente par la suite les résultats obtenus avec les méthodes de la balance et MPF, avec et sans extrapolation, qui permettent d'extraire le facteur de correction résiduel. Pour chaque méthode, les distributions des réponses moyennes seront présentées pour différentes classes en \aeta.
 
 \subsubsection{Méthode de la balance, sans extrapolation}
 
-On présente \cref{fig:balancing_resp} les distributions des réponses moyennes pour différentes classes en \aeta. Le ratio entre les données et la simulation accompagne ces distributions, ce qui permet d'extraire les facteurs de corrections. Pour ce faire, une interpolation linéaire par une constante est dérivée à l'aide des divers ratios. On trouve aussi \cref{fig:balancing_reso} les distributions des résolutions pour les mêmes classes en \aeta. Même si ces résolutions ne sont pas utilisées pour dériver les corrections résiduelles, elles sont intéressantes pour se rendre compte des performances de reconstruction des algorithmes. On s'aperçoit d'ailleurs que les jets sont mieux reconstruits sur la simulation que sur les données. Cet effet donne lieu à une autre série de corrections pour la résolution, qui vise à dégrader la résolution des jets sur la simulation pour correspondre à celle des données.
+On présente \cref{fig:balancing_resp} les distributions des réponses moyennes pour différentes classes en \aeta. Le ratio entre les données et la simulation accompagne ces distributions, ce qui permet d'extraire les facteurs de corrections. Pour ce faire, une interpolation linéaire par une constante est dérivée à l'aide des divers ratios.
+% On trouve aussi \cref{fig:balancing_reso} les distributions des résolutions pour les mêmes classes en \aeta. Même si ces résolutions ne sont pas utilisées pour dériver les corrections résiduelles, elles sont intéressantes pour se rendre compte des performances de reconstruction des algorithmes. On s'aperçoit d'ailleurs que les jets sont mieux reconstruits sur la simulation que sur les données. Cet effet donne lieu à une autre série de corrections pour la résolution, qui vise à dégrader la résolution des jets sur la simulation pour correspondre à celle des données.
 
 \begin{figure}[p]
     \centering
@@ -528,15 +531,15 @@ On présente \cref{fig:balancing_resp} les distributions des réponses moyennes 
     \label{fig:balancing_resp}
 \end{figure}
 
-\begin{figure}[p]
-    \centering
-    \subcaptionbox{\label{fig:reso_bal_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta008_balancing.pdf}}\hfill
-    \subcaptionbox{\label{fig:reso_bal_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta0813_balancing.pdf}}
-    \subcaptionbox{\label{fig:reso_bal_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta1319_balancing.pdf}}\hfill
-    \subcaptionbox{\label{fig:reso_bal_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta1925_balancing.pdf}}
-    \caption{Résolutions pour la méthode de la balance pour $\aeta < \num{0.8}$ (\subref{fig:reso_bal_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:reso_bal_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:reso_bal_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:reso_bal_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
-    \label{fig:balancing_reso}
-\end{figure}
+% \begin{figure}[p]
+%     \centering
+%     \subcaptionbox{\label{fig:reso_bal_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta008_balancing.pdf}}\hfill
+%     \subcaptionbox{\label{fig:reso_bal_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta0813_balancing.pdf}}
+%     \subcaptionbox{\label{fig:reso_bal_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta1319_balancing.pdf}}\hfill
+%     \subcaptionbox{\label{fig:reso_bal_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing/resolution_eta1925_balancing.pdf}}
+%     \caption{Résolutions pour la méthode de la balance pour $\aeta < \num{0.8}$ (\subref{fig:reso_bal_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:reso_bal_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:reso_bal_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:reso_bal_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
+%     \label{fig:balancing_reso}
+% \end{figure}
 
 \begin{table}[p!] \centering
  \begin{tabular}{@{}ccc@{}} \toprule
@@ -563,7 +566,7 @@ On présente \cref{fig:balancing_resp} les distributions des réponses moyennes 
  \num{1.9} - \num{2.5} & \num{0.944 \pm 0.002} & \num{1.060 \pm 0.002}\\
  \num{2.5} - \num{3} & \num{0.923 \pm 0.005} & \num{1.083 \pm 0.006}\\
  \num{3} - \num{3.2} & \num{0.844 \pm 0.013} & \num{1.185 \pm 0.018}\\
- \num{3.2} - \num{5.2} & \num{0.301 \pm 0.005} & \num{3.324 \pm 0.057}\\
+ \num{3.2} - \num{5.2} & -  & -\\
  \bottomrule
  \end{tabular}
  \caption{Ratios et facteurs de correction pour différentes classes en \aeta obtenus grâce à la méthode de la balance, avec extrapolation.}
@@ -572,11 +575,9 @@ On présente \cref{fig:balancing_resp} les distributions des réponses moyennes 
 
 \bigskip
 
-On présente dans le \cref{tab:res_balancing} un résumé des ratios et des facteurs de correction extrais pour chaque classe en \aeta.
+On présente dans le \cref{tab:res_balancing} un résumé des ratios et des facteurs de correction extrais pour chaque classe en \aeta. Le ratio est stable dans le tonneau ($\aeta < \num{2.1}$), avec un facteur de correction d'environ \SI{4}{\%}. Dans les bouchons, le ratio chute jusqu'à des facteurs de correction atteignant \SI{23}{\%}. Au delà de \SI{3.2}{\radian}, l'absence de trajectographe empêche la bonne reconstruction des hadrons chargés, et la réponse devient très mauvaise.
 
-Le ratio est stable dans le tonneau ($\aeta < \num{2.1}$), avec un facteur de correction d'environ \SI{4}{\%}. Dans les bouchons, le ratio chute jusqu'à des facteurs de correction atteignant \SI{23}{\%}. Au delà de \SI{3.2}{\radian}, l'absence de trajectographe empêche la bonne reconstruction des hadrons chargés, et la réponse devient très mauvaise.
-
-\subsubsection{Dépendance de la réponse en fonction de l'acitvité additionnelle} \label{sec:res_balancing_extrap}
+\subsubsection{Dépendance de la réponse en fonction de l'activité additionnelle} \label{sec:res_balancing_extrap}
 
 \begin{figure}[tbp]
     \centering
@@ -595,15 +596,15 @@ Le ratio est stable dans le tonneau ($\aeta < \num{2.1}$), avec un facteur de co
     \label{fig:balancing_extrap_resp}
 \end{figure}
 
-\begin{figure}[p!]
-    \centering
-    \subcaptionbox{\label{fig:reso_bal_extrap_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta008_balancing_extrap.pdf}}\hfill
-    \subcaptionbox{\label{fig:reso_bal_extrap_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta0813_balancing_extrap.pdf}}
-    \subcaptionbox{\label{fig:reso_bal_extrap_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta1319_balancing_extrap.pdf}}\hfill
-    \subcaptionbox{\label{fig:reso_bal_extrap_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta1925_balancing_extrap.pdf}}
-    \caption{Résolutions pour la méthode de la balance, avec extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:reso_bal_extrap_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:reso_bal_extrap_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:reso_bal_extrap_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:reso_bal_extrap_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
-    \label{fig:balancing_extrap_reso}
-\end{figure}
+% \begin{figure}[p!]
+%     \centering
+%     \subcaptionbox{\label{fig:reso_bal_extrap_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta008_balancing_extrap.pdf}}\hfill
+%     \subcaptionbox{\label{fig:reso_bal_extrap_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta0813_balancing_extrap.pdf}}
+%     \subcaptionbox{\label{fig:reso_bal_extrap_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta1319_balancing_extrap.pdf}}\hfill
+%     \subcaptionbox{\label{fig:reso_bal_extrap_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_balancing_extrap/resolution_eta1925_balancing_extrap.pdf}}
+%     \caption{Résolutions pour la méthode de la balance, avec extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:reso_bal_extrap_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:reso_bal_extrap_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:reso_bal_extrap_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:reso_bal_extrap_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
+%     \label{fig:balancing_extrap_reso}
+% \end{figure}
 
 On a vu précédemment que la méthode de la balance était sensible à la présence de jets additionnels dans l'événement. Afin de contrer cet effet, on extrapole la réponse moyenne à $\alpha \rightarrow 0$. On présente \cref{fig:extrap_balancing} un exemple d'extrapolation pour la méthode de la balance, pour $155 \leq p_T^\gamma < \SI{180}{\GeV}$ et $\aeta < \num{1.3}$, et \cref{fig:extrap_mpf} pour la méthode MPF. On constate une très nette dépendance de la réponse moyenne en fonction de $\alpha$ pour la méthode de la balance. Au contraire, la méthode MPF n'est pas dépendante de la présence d'activité additionnelle. Ce comportement est attendu puisque, par définition, la méthode MPF utilise déjà l'activité additionnelle pour calculer la réponse ($p_T^\text{recul}$, voir \cref{sec:mpf}).
 
@@ -616,13 +617,13 @@ Pour la méthode de la balance, on sépare la réponse de la simulation en deux 
 
 La partie intrinsèque n'est pas dépendante de la présence de jets additionnels, d'où l'allure plate \cref{fig:extrap_balancing}. Elle est uniquement sensible aux problèmes de calibrations des divers détecteurs, problèmes résolus à l'aide des corrections de niveau 1, 2 et 3. C'est ainsi qu'on obtient une réponse intrinsèque très proche de l'unité. La deuxième partie correspond au déséquilibre entre le photon et le premier jet de l'événement, et dépend fortement de $\alpha$.
 
-On utilise comme réponse moyenne la valeur de l'interpolation pour $\alpha = 0$, et on reproduit la même procédure que section précédente. À haut \pt et haut \aeta, la statistique n'est parfois pas suffisante pour réaliser l'extrapolation. Dans ce cas, le point est simplement ignoré et n'apparait pas dans la distribution des réponses.
+On utilise comme réponse moyenne la valeur de l'interpolation pour $\alpha = 0$, et on reproduit la même procédure que section précédente. À haut \pt et haut \aeta, la statistique n'est parfois pas suffisante pour réaliser l'extrapolation. Dans ce cas, le point est simplement ignoré et n'apparaît pas dans la distribution des réponses.
 
-On présente \cref{fig:balancing_extrap_resp} les distributions des réponses moyennes après extrapolation pour différentes classes en \aeta, et \cref{fig:balancing_extrap_reso} les résolutions associées. Les facteurs de correction sont récapitulés dans le \cref{tab:res_balancing_extrap}. On constate une légère amélioration des ratios pour toutes les classes en \aeta, sauf la dernière, où la statistique n'est pas suffisante pour effectuer une extrapolation sensée.
+On présente \cref{fig:balancing_extrap_resp} les distributions des réponses moyennes après extrapolation pour différentes classes en \aeta. Les facteurs de correction sont récapitulés dans le \cref{tab:res_balancing_extrap}. On constate une légère amélioration des ratios pour toutes les classes en \aeta. Aucun résultat n'est disponible pour la dernière classe en \aeta, la statistique n'étant pas suffisante pour effectuer une extrapolation sensée.
 
 \subsubsection{Méthode MPF}
 
-On présente les distributions des réponses moyennes obtenues avec la méthode MPF \cref{fig:mpf_resp}, et les résolutions associées \cref{fig:mpf_reso}. Un récapitulatif des résultats peut être trouvé dans le \cref{tab:res_mpf}.
+On présente les distributions des réponses moyennes obtenues avec la méthode MPF \cref{fig:mpf_resp}. Un récapitulatif des résultats peut être trouvé dans le \cref{tab:res_mpf}.
 
 \begin{table}[htb] \centering
  \begin{tabular}{@{}ccc@{}} \toprule
@@ -650,15 +651,15 @@ On présente les distributions des réponses moyennes obtenues avec la méthode 
     \label{fig:mpf_resp}
 \end{figure}
 
-\begin{figure}[p!]
-    \centering
-    \subcaptionbox{\label{fig:reso_mpf_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta008_mpf.pdf}}\hfill
-    \subcaptionbox{\label{fig:reso_mpf_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta0813_mpf.pdf}}
-    \subcaptionbox{\label{fig:reso_mpf_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta1319_mpf.pdf}}\hfill
-    \subcaptionbox{\label{fig:reso_mpf_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta1925_mpf.pdf}}
-    \caption{Résolutions pour la méthode MPF, sans extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:reso_mpf_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:reso_mpf_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:reso_mpf_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:reso_mpf_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
-    \label{fig:mpf_reso}
-\end{figure}
+% \begin{figure}[p!]
+%     \centering
+%     \subcaptionbox{\label{fig:reso_mpf_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta008_mpf.pdf}}\hfill
+%     \subcaptionbox{\label{fig:reso_mpf_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta0813_mpf.pdf}}
+%     \subcaptionbox{\label{fig:reso_mpf_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta1319_mpf.pdf}}\hfill
+%     \subcaptionbox{\label{fig:reso_mpf_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/reso_mpf/resolution_eta1925_mpf.pdf}}
+%     \caption{Résolutions pour la méthode MPF, sans extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:reso_mpf_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:reso_mpf_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:reso_mpf_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:reso_mpf_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
+%     \label{fig:mpf_reso}
+% \end{figure}
 
 Par rapport à la méthode de la balance, on constate deux améliorations. Premièrement, les ratios sont plus proches de l'unité, avec des incertitudes comparables. Deuxièmement, ces ratios sont plus stables en fonction de \aeta, particulièrement à haut \aeta, là où la statistique se réduit.
 
@@ -670,7 +671,18 @@ Par rapport à la méthode de la balance, on constate deux améliorations. Premi
     \label{fig:resp_vs_npv}
 \end{figure}
 
-Au niveau de la résolution, on constate qu'elle est bien meilleure sur les données avec la méthode MPF qu'avec la méthode de la balance. Ce résultat était en effet prévisible, puisqu'on a vu précédemment que la méthode était beaucoup moins sensible à l'activité secondaire dans le détecteur, puisqu'elle utilise dès sa définition la totalité de l'impulsion transverse des particules. Les différences de modélisation du \pu entre données et simulation n'affectent ainsi pas les performances de la méthode MPF. On peut voir \cref{fig:resp_vs_npv} l'évolution du ratio données sur simulation pour la méthode de la balance et la méthode MPF en fonction du nombre de vertex primaires. On constate que la réponse de la méthode MPF est plus proche de l'unité, et ce même à haut nombre d'interactions. De plus, elle reste stable en fonction du nombre de vertex, contrairement à la méthode de la balance, où on constate une faible évolution.
+Ces résultats étaient en effet prévisible, puisqu'on a vu précédemment que la méthode était beaucoup moins sensible à l'activité secondaire dans le détecteur, puisqu'elle utilise dès sa définition la totalité de l'impulsion transverse des particules. La présence du \pu n'affectent ainsi pas les performances de la méthode MPF. On peut voir \cref{fig:resp_vs_npv} l'évolution du ratio données sur simulation pour la méthode de la balance et la méthode MPF en fonction du nombre de vertex primaires. On constate que la réponse de la méthode MPF est plus proche de l'unité, et ce même à haut nombre d'interactions. De plus, elle reste stable en fonction du nombre de vertex, contrairement à la méthode de la balance, où on constate une faible évolution.
+
+\subsubsection{Résolution}
+
+Comme évoqué précédemment, on extrait en plus des réponses la résolution sur la réponse des jets. Ces résolutions ne sont pas utilisées dans l'analyse, mais il est néanmoins intéressant de voir les performances de chaque méthode d'extraction de la réponse. La \cref{fig:resolutions} présente les résolutions sur les réponses pour les méthodes de la balance et MPF, pour la classe $\aeta < \num{1.3}$. On constate que la différence de résolution entre les données et la simulation est d'environ \SI{20}{\percent} pour la méthode de la balance, et de seulement \tilde\SI{5}{\percent} pour la méthode MPF.
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{Méthode de la balance}[0.4\textwidth]{\includegraphics[width=0.4\textwidth]{chapitre4/figs/reso_balancing/resolution_eta013_balancing.pdf}} \qquad
+    \subcaptionbox{Méthode MPF}[0.4\textwidth]{\includegraphics[width=0.4\textwidth]{chapitre4/figs/reso_mpf/resolution_eta013_mpf.pdf}}
+    \caption{Résolutions sur la réponse des jets pour les méthodes de la balance et MPF, pour $\aeta < \num{1.3}$.}
+    \label{fig:resolutions}
+\end{figure}
 
 \subsection{Extraction des corrections résiduelles}
 
@@ -682,9 +694,7 @@ Au niveau de la résolution, on constate qu'elle est bien meilleure sur les donn
 \end{figure}
 
 
-Afin d'obtenir les corrections résiduelles finales, on combine les résultats de l'analyse \Pphoton + jets avec les analyses $\PZ \rightarrow \Pmuon \APmuon$ + jets et \PZ $\rightarrow$ \Pelectron \APelectron + jets. L'analyse \PZ $\rightarrow$ \Pelectron \APelectron permet de vérifier directement les résultats obtenus par \Pphoton + jets, puisque ces deux analyses utilisent principalement le calorimètre électromagnétique, et que les objets photons et électrons sont très similaire. L'analyse $\PZ \rightarrow \Pmuon \APmuon$ est plus indépendante des deux autres, et permet de conforter les résultats obtenus avec les autres analyses.
-
-La \cref{fig:jec_residuals_combined} présente la combinaison entre les trois analyses. Une interpolation globale entre les trois résultats permet d'obtenir les facteurs de corrections résiduelles officiels. Cette interpolation est étendue aux zones à bas et haut $p_T$, non couvertes par les analyses : les incertitudes liées à cette extrapolation sont utilisées comme source d'erreurs systématiques, comme présenté \cref{sec:jec_uncertainties}.
+Afin d'obtenir les corrections résiduelles finales, on combine les résultats de l'analyse \Pphoton + jets avec les analyses $\PZ \rightarrow \Pmuon \APmuon$ + jets et \PZ $\rightarrow$ \Pelectron \APelectron + jets. La \cref{fig:jec_residuals_combined} présente la combinaison entre ces trois analyses. Une interpolation globale entre les trois résultats permet d'obtenir les facteurs de corrections résiduelles officiels. Cette interpolation est étendue aux zones à bas et haut $p_T$, non couvertes par les analyses : les incertitudes liées à cette extrapolation sont utilisées comme source d'erreurs systématiques, comme présenté \cref{sec:jec_uncertainties}.
 
 \bigskip
 
@@ -715,7 +725,9 @@ La \cref{fig:comp_mpf_residuals} présente la distribution des réponses pour un
 
 \section{Corrections résiduelles dépendantes de la saveur des jets}
 
-Tout au long de ce chapitre, les corrections en énergie des jets ont été dérivées sans tenir compte de la saveur du jet. Il est cependant tout à fait raisonnable d'imaginer que la réponse d'un jet puisse dépendre de sa saveur. Cette hypothèse est en effet confirmée, comme on a pu le voir \cref{fig:jet_flavor_resp}. Il est alors intéressant de regarder comment varient les différents niveaux de corrections appliqués aux jets en fonction de la saveur de ces jets. Des études sont actuellement en cours dans CMS, et cette section aborde rapidement les premières études préliminaires réalisées pour les corrections résiduelles.
+Tout au long de ce chapitre, les corrections en énergie des jets ont été dérivées sans tenir compte de la saveur du jet. Il est cependant tout à fait raisonnable d'imaginer que la réponse d'un jet puisse dépendre de sa saveur. Cette hypothèse est en effet confirmée, comme on a pu le voir \cref{fig:jet_flavor_resp}. Actuellement, cette différence de réponse est prise en compte dans les incertitudes systématiques, en utilisant comme valeur la différence entre la réponse des jets légers et les jets de gluons, qui encadrent la réponse des jets de \Pcharm et \Pbottom (\tilde\SI{2}{\percent}, voir \cref{fig:flavor_response}).
+
+Il est donc intéressant de regarder comment varient les différents niveaux de corrections appliqués aux jets en fonction de la saveur de ces jets. Des études sont actuellement en cours dans CMS, et cette section aborde rapidement les premières études préliminaires réalisées pour les corrections résiduelles.
 
 \subsection{Détermination de la saveur d'un jet}
 
@@ -728,9 +740,9 @@ On dispose déjà d'un algorithme permettant d'identifier les jets provenant d'u
 \end{itemize}
 
 \begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:flavor_response}}[0.49\textwidth]{\includegraphics[width=0.49\textwidth]{chapitre4/figs/flavor_response.pdf}}
     \subcaptionbox{\label{fig:qgd}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/qgd.pdf}}
-    \subcaptionbox{}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/qgd.pdf}}
-    \caption{(\subref{fig:qgd}) Valeur du discriminant quarks / gluons pour des événements simulées (histogrammes) et pour les données 2012 (points noirs). Les jets de quarks ont majoritairement une valeur du discriminant proche de 1. \fxerror{Mettre quelque chose à droite}}
+    \caption{(\subref{fig:flavor_response}) Facteurs de corrections dépendants de la saveur dérivées à l'aide de la vérité Monte-Carlo. (\subref{fig:qgd}) Valeur du discriminant quarks / gluons pour des événements simulées (histogrammes) et pour les données 2012 (points noirs). Les jets de quarks ont majoritairement une valeur du discriminant proche de 1.}
 \end{figure}
 
 La \cref{fig:qgd} présente les performances de l'algorithme. Un grand pouvoir de séparation entre jets de quarks et jets de gluons est obtenu, les jets de quarks ayant majoritairement une valeur du discriminant proche de 1, alors que les jets de gluons sont plus proches de 0.
@@ -772,7 +784,7 @@ Chacune des zones enrichies est représentée visuellement sur la \cref{fig:2d_z
 
 \subsection{Estimation de la réponse par saveur}
 
-Pour chacune des zones enrichies en saveur, on est capable de mesurer la réponse des jets sur les données et la simulation, en utilisant les méthodes définis précédemment dans ce chapitre. Cependant, ce qui nous intéresse réellement est la réponse par saveur, et non pas la réponse par zone. Les deux seraient équivalentes si l'on était capable de définir des zones enrichies en saveur où la fraction atteint \SI{100}{\%}, mais ce n'est pas le cas (voir \cref{tab:2d_zones}). Les réponses en saveurs sont reliées aux réponses par zones par la relation suivante :
+Pour chacune des zones enrichies en saveur, on est capable de mesurer la réponse des jets sur les données et la simulation, en utilisant les méthodes définis précédemment dans ce chapitre. Cependant, ce qui nous intéresse réellement est la réponse par saveur, et non pas la réponse par zone. Les réponses en saveurs sont reliées aux réponses par zones par la relation suivante :
 \begin{align} \label{eq:resp_zone}
   \begin{pmatrix}
     \mathcal{R}_1 \\ \mathcal{R}_2 \\ \mathcal{R}_3 \\ \mathcal{R}_4
@@ -823,7 +835,7 @@ L'étude de la réponse en fonction de la saveur des jets à l'aide des événem
 
 \subsection{Résultats}
 
-La première étape de l'analyse consiste à vérifier la validité de la méthode. On utilise les mêmes événements que pour l'extraction des corrections résiduelles, avec la même sélection. On extrait la réponse pour chacune des zones enrichies, en se limitant uniquement à la méthode MPF, plus performante que les autres méthodes. En utilisant l'\cref{eq:resp_flavor}, on calcule la réponse pour chaque saveur, en utilisant les fractions de jets dans chaque zone enrichie dérivées à l'aide de la simulation. Le résultat obtenu est ensuite comparée à la réponse en saveur calculée en utilisant la vérité Monte Carlo. Cette confrontation est présentée \cref{fig:2d_mc_vs_mc}. Les réponses des jets légers, \Pcharm et \Pbottom sont bien reproduites, alors que la réponse des jets de gluons est légèrement surestimée (\tilde \SI{2}{\%}). C'est en effet la catégorie où il est le plus difficile d'obtenir une zone réellement enrichie en jets de gluons, ce qui rend la méthode présentée ci-dessus moins performante. Cependant, pour une étude préliminaire, on estime que ces résultats permettent de valider notre méthode d'extraction des réponses.
+La première étape de l'analyse consiste à vérifier la validité de la méthode. On utilise les mêmes événements que pour l'extraction des corrections résiduelles, avec la même sélection. On extrait la réponse pour chacune des zones enrichies, en se limitant uniquement à la méthode MPF, plus performante que les autres méthodes. En utilisant l'\cref{eq:resp_flavor}, on calcule la réponse pour chaque saveur, en utilisant les fractions de jets dans chaque zone enrichie dérivées à l'aide de la simulation. Le résultat obtenu est ensuite comparée à la réponse en saveur calculée en utilisant la vérité Monte Carlo. Cette confrontation est présentée \cref{fig:2d_mc_vs_mc}. Les réponses des jets légers, \Pcharm et \Pbottom sont bien reproduites, alors que la réponse des jets de gluons est légèrement surestimée (\tilde \SI{2}{\%}). C'est en effet la catégorie pour laquelle il est le plus difficile d'obtenir une zone réellement, ce qui rend la méthode présentée ci-dessus moins performante. Cette différence est cependant couverte par les erreurs systématiques associées à la saveur, et on estime donc que ces résultats permettent de valider notre méthode d'extraction des réponses.
 
 \begin{figure}[htbp]
   \centering
@@ -840,15 +852,17 @@ La première étape de l'analyse consiste à vérifier la validité de la métho
 
 \bigskip
 
-On extrait maintenant la réponse par saveur sur les données et sur la simulation. Il est à noter que pour cette étude, les corrections résiduelles sont appliquées sur les données, puisqu'on souhaite vérifier si elles sont sensibles à la saveur des jets. On calcule ensuite le facteur de correction supplémentaire à appliquer grâce au ratio entre la réponse sur les données et celle sur la simulation, de façon identique à la \cref{sec:jetmet_results}. La \cref{fig:flavor_results} présente la comparaison entre la réponse obtenue sur les données et celle obtenue sur la simulation. Le ratio entre ces réponses est ajoutée en bas de la figure. Comme on peut le constater, les réponses données et simulations sont compatibles entre elles dans les incertitudes. Il semble donc que les effets de la saveur des jets sur la réponse ne soit pas perceptible au travers des événements \Pphoton + jets.
+On extrait maintenant la réponse par saveur sur les données et sur la simulation. Il est à noter que pour cette étude, les corrections résiduelles sont appliquées sur les données, puisqu'on souhaite vérifier si elles sont sensibles à la saveur des jets. On calcule ensuite le facteur de correction supplémentaire à appliquer grâce au ratio entre la réponse sur les données et celle sur la simulation, de façon identique à la \cref{sec:jetmet_results}. La \cref{fig:flavor_results} présente la comparaison entre la réponse obtenue sur les données et celle obtenue sur la simulation. Le ratio entre ces réponses est ajoutée en bas de la figure. Comme on peut le constater, les réponses données et simulations sont compatibles entre elles dans les incertitudes. Ainsi, la simulation permet de correctement reproduire la réponse observée sur les données.
 
 \bigskip
 
-  Cette étude préliminaire ouvre la voix à des corrections résiduelles dépendantes de la saveur dans CMS. Le nombre d'événements disponible après sélection n'est cependant pas encore suffisant pour pouvoir réaliser une étude en différentes classes en impulsion transverse et \aeta, qui pourrait mettre en évidence une dépendance de la réponse en fonction de la saveur.
+  % Cette étude préliminaire ouvre la voix à des corrections résiduelles dépendantes de la saveur dans CMS. Le nombre d'événements disponible après sélection n'est cependant pas encore suffisant pour pouvoir réaliser une étude en différentes classes en impulsion transverse et \aeta, qui pourrait mettre en évidence une dépendance de la réponse en fonction de la saveur.
+
+L'effet de la saveur des jets sur la réponse ne semblent pas être perceptible au travers des événements \Pgamma + jets. La méthode employée dans cette étude permet de reproduire la réponse observée sur les données à l'aide de la simulation, et reproduit également les réponses obtenues à l'aide de la vérité Monte-Carlo. La seule difficulté vient de la réponse des gluons, surestimée d'environ \tilde\SI{2}{\percent}, ordre de grandeur des erreurs systématiques associées à la saveur. Cette étude préliminaire pourrait ainsi servir à valider les erreurs systématiques associées à la saveur, en s'assurant que les différences de réponses sont couvertes par ces erreurs. Cela semble être le cas, mais il est nécessaire d'effectuer une étude complète en tenant compte des incertitudes systématiques avant de pouvoir réellement conclure.
 
 \section{Conclusion}
 
-Au travers de ce chapitre, on a vu en détail comment CMS corrige l'énergie des jets. L'enjeu est en effet important, puisqu'une mauvaise calibration des jets peut avoir d'énormes conséquences sur les analyses de physique. Ainsi, l'expérience CDF du Tevatron publie en 2011 un nouveau résultat et annonce la mise en évidence d'une nouvelle résonance dans le spectre de masse di-jet, à environ \SI{125}{\GeV} \citep{CDF_old}. Cependant, l'expérience partenaire au Tevatron, D0, ne voit elle aucun signe de cette résonance dans ses propres données. Il s'avère qu'il s'agissait en réalité d'un problème de corrections en énergie des jets entre les jets de gluons et les jets de quarks, confirmé il y a peu \citep{CDF_new}. Même aujourd'hui, les corrections en énergie des jets restent la source d'incertitude dominante dans la majorité des mesures de précisions, telles que la mesure de la masse du quark top par exemple. Il est donc capital de maitriser au mieux ces corrections afin de réduire le plus possible leurs incertitudes.
+Au travers de ce chapitre, on a vu en détail comment CMS détermine les corrections en énergie des jets. L'enjeu est en effet important, puisqu'une mauvaise calibration des jets peut avoir d'énormes conséquences sur les analyses de physique. Ainsi, l'expérience CDF du Tevatron publie en 2011 un nouveau résultat et annonce la mise en évidence d'une nouvelle résonance dans le spectre de masse di-jet, à environ \SI{125}{\GeV} \citep{CDF_old}. Cependant, l'expérience partenaire au Tevatron, D0, ne voit elle aucun signe de cette résonance dans ses propres données. Il s'avère qu'il s'agissait en réalité d'un problème de corrections en énergie des jets entre les jets de gluons et les jets de quarks, confirmé il y a peu \citep{CDF_new}. Même aujourd'hui, les corrections en énergie des jets restent la source d'incertitude dominante dans la majorité des mesures de précisions, telles que la mesure de la masse du quark top par exemple. Il est donc capital de maîtriser au mieux ces corrections afin de réduire le plus possible leurs incertitudes.
 
 \bigskip
 
@@ -856,4 +870,4 @@ Les événements \Pphoton + jets sont de puissants outils pour déterminer les f
 
 \bigskip
 
-La dernière partie de ce chapitre est consacrée à l'étude préliminaire de la réponse en fonction de la saveur dans la détermination des corrections résiduelles. Aucune dépendance n'a été trouvé, mais la statistique disponible n'est pas encore suffisante pour réaliser une étude dépendante de l'impulsion transverse et de \aeta. Des études similaires sont actuellement en cours pour les autres niveaux de corrections afin de déterminer des facteurs de corrections dépendants de la saveur.
+La dernière partie de ce chapitre est consacrée à l'étude préliminaire de la réponse en fonction de la saveur dans la détermination des corrections résiduelles. Aucune dépendance n'a été trouvé, mais la statistique disponible n'est pas encore suffisante pour réaliser une étude dépendante de l'impulsion transverse et de \aeta. Il semble cependant que la dépendance en saveur des réponses soient correctement couvertes par les erreurs systématiques.
