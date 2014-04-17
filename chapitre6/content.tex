@@ -22,7 +22,7 @@ Deux problèmes majeurs se posent :
     \item L'énergie transverse manquante est utilisée pour reconstruire le neutrino. Comme le bilan d'énergie ne peut être effectué que dans le plan transverse, seule l'impulsion transverse du neutrino est définie, c'est-à-dire $p_x^{\Pnu}$ et $p_y^{\Pnu}$. Il faut donc trouver un moyen de reconstruire $p_z^{\Pnu}$ qui sera utilisé dans le calcul de la masse invariante \ttbar. C'est l'objet de la \cref{sec:neutrino}.
 \end{itemize}
 
-Une fois ces problèmes surmontés, il est possible de reconstruire la masse invariante pour chaque événement. Il est ainsi possible d'obtenir un spectre de masse invariante.
+Une fois ces problèmes surmontés, il est possible de reconstruire la masse invariante pour chaque événement.
 
 \section{Reconstruction du neutrino} \label{sec:neutrino}
 
@@ -43,9 +43,9 @@ Après quelques calculs, on obtient une équation d'ordre 2 permettant de déter
 \end{align*}
 avec
 \begin{align*}
-  a &= E_{\Plepton}^2 - \left( p_z^{{\Pneutrino}} \right)^2 \\
+  a &= E_{\Plepton}^2 - \left( p_z^{{\Plepton}} \right)^2 \\
   b &= \left( m_{\Plepton}^2 - m_{\PW}^2 - 2 \left( p_x^{\Plepton} p_x^{\Pneutrino} + p_y^{\Plepton} p_y^{\Pneutrino} \right) \right) p_z^{\Plepton} \\
-  c &= E_{\Plepton}^2 \left( p_z^{\Pneutrino} \right)^2 - \left( \frac{1}{2} \left( m_{\PW}^2 - m_{\Plepton}^2 \right) + p_x^{\Plepton} p_x^{\Pneutrino} + p_y^{\Plepton} p_y^{\Pneutrino} \right)^2
+  c &= E_{\Plepton}^2 \left( p_z^{\Plepton} \right)^2 - \left( \frac{1}{2} \left( m_{\PW}^2 - m_{\Plepton}^2 \right) + p_x^{\Plepton} p_x^{\Pneutrino} + p_y^{\Plepton} p_y^{\Pneutrino} \right)^2
 \end{align*}
 
 \begin{figure}[tbp]
@@ -88,7 +88,7 @@ où
 \begin{align*}
   \chi^2_X &= \frac{\left( X_\text{mesuré} - \left\langle X_\text{MC} \right\rangle \right)^2}{\sigma_\text{MC}^2}
 \end{align*}
-avec $X$ le discriminant considéré, $X_\text{mesuré}$ la valeur du discriminant mesurée, $\left\langle X_\text{MC} \right\rangle$ la valeur de référence du discriminant et $\sigma_\text{MC}$ l'incertitude sur la valeur de référence du discriminant.
+avec $X$ le discriminant considéré, $X_\text{mesuré}$ la valeur mesurée de ce discriminant, $\left\langle X_\text{MC} \right\rangle$ la valeur de référence du discriminant et $\sigma_\text{MC}$ l'incertitude sur la valeur de référence du discriminant.
 
 Les discriminants formant le $\chi^2$ total sont :
 \begin{itemize}
@@ -108,7 +108,7 @@ Les discriminants formant le $\chi^2$ total sont :
     \label{fig:chi2_distributions}
 \end{figure}
 
-Les valeurs de références des discriminants sont définies comme les valeurs les plus probables des discriminants sur la simulation. Afin d'extraire ces valeurs, on reconstruit l'événement \ttbar en utilisant uniquement la bonne association de jet. Cette bonne association est déterminée en utilisant la vérité Monte Carlo. À chaque jet reconstruit, on tente d'assigner un parton provenant de la désintégration \ttbar. Cette procédure d'assignation est réalisée en demandant que la distance entre le jet reconstruit et le parton dans le plan $(\eta, \phi)$ ($\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$) soit inférieure à $0.4$, et que la différence d'impulsion transverse ($\Delta p_T$) soit inférieure à \SI{300}{\%}. Dans le cas où aucune association ne peut être faite (\tilde \SI{60}{\%} des cas), l'événement n'est considéré ni pour les bonnes ni pour les mauvaises combinaisons.
+Les valeurs de références des discriminants sont définies comme les valeurs les plus probables des discriminants sur la simulation. Afin d'extraire ces valeurs, on reconstruit l'événement \ttbar en utilisant uniquement la bonne association de jet. Cette bonne association est déterminée en utilisant la vérité Monte Carlo. À chaque jet reconstruit, on tente d'assigner un parton provenant de la désintégration \ttbar. Cette procédure d'assignation est réalisée en demandant que la distance entre le jet reconstruit et le parton dans le plan $(\eta, \phi)$ ($\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$) soit inférieure à $0.4$, et que la différence d'impulsion transverse ($\Delta p_T$) soit inférieure à \SI{300}{\%}. Dans le cas où on ne peut pas associer les 4 quarks initiaux (\tilde \SI{60}{\%} des cas), l'événement n'est considéré ni pour les bonnes ni pour les mauvaises combinaisons.
 
 \begin{table} \centering
     \begin{tabular}{@{}ccc@{}} \toprule
@@ -123,7 +123,7 @@ Les valeurs de références des discriminants sont définies comme les valeurs l
     \label{tab:chi2_ref_values}
 \end{table}
 
-On évalue la valeur de chaque discriminant pour chaque bonne combinaison. La \cref{fig:chi2_distributions} présente les distributions de chaque discriminant. Les valeurs de références et les incertitudes associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur moyenne et la moyenne quadratique (RMS) de la distribution sont utilisées.
+On évalue la valeur de chaque discriminant pour chaque bonne combinaison. La \cref{fig:chi2_distributions} présente les distributions de chaque discriminant. Les valeurs de référence et les incertitudes associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur moyenne et la moyenne quadratique (RMS) de la distribution sont utilisées.
 
 Le \cref{tab:chi2_ref_values} résume les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs incertitudes associées. Ces valeurs ont été déterminées sur des événements \ttbar simulés.
 
@@ -274,14 +274,14 @@ On compare aussi les performances du BDT par rapport à l'algorithme de tri par 
 
 Les résultats de cette étude montrent tous que l'algorithme de tri par $\chi^2$ est le plus performant en terme de résolution, au détriment d'une légère perte de linéarité de la reconstruction en fonction de masse invariante générée. Il est intéressant de voir s'il est possible d'améliorer encore les performances de reconstruction en améliorant la résolution. On a en effet vu plus haut qu'une résonance étroite augmente le potentiel de découverte. Un moyen d'améliorer cette résolution est d'utiliser un ajustement cinétique, détaillé dans la suite.
 
-\subsection{Ajustement cinématique}
+\subsection{Ajustement cinématique} \label{sec:mtt_kf}
 
 Pour un événement \ttbar, les objets reconstruits (leptons, jets, ...) doivent vérifier certaines contraintes cinématiques, telles que la conservation de l'énergie ou reproduire les masses invariantes des particules. Néanmoins, l'impulsion et l'énergie des particules utilisées pour reconstruire l'événement \ttbar ne sont connues qu'avec des incertitudes, liées à la résolution expérimentale, aux techniques de reconstruction, etc. Ces incertitudes peuvent conduire à un non-respect des contraintes d'un événement \ttbar.
 
 \medskip
 
 % L'idée de l'ajustement cinématique est simple : faire varier les quantités physiques des objets sélectionnées, dans leurs incertitudes, afin de respecter au mieux les con\-traintes d'un événement \ttbar. On utilise pour cela la méthode des multiplicateurs de Lagrange afin de trouver les valeurs optimales des quantités physiques des particules sélectionnées sous diverses contraintes.
-L'idée de l'ajustement cinématique est simple : on utilise la connaissance de la cinématique d'un événement \ttbar afin d'améliorer la résolution des objets physiques. La méthode des multiplicateurs de Lagrange est utilisée pour optimiser les quantités physiques de chaque objet et respecter au mieux les contraintes d'un événement \ttbar.
+L'idée de l'ajustement cinématique est simple : on utilise la connaissance de la cinématique d'un événement \ttbar afin d'améliorer la résolution des objets physiques. Les quantités physiques de chaque objet sont optimisées afin de respecter au mieux les contraintes d'un événement \ttbar.
 
 \bigskip
 
@@ -310,7 +310,7 @@ Afin de quantifier les améliorations apportées par l'ajustement cinétique, on
     \label{fig:mtt_resp_reso_kf_good}
 \end{figure}
 
-Lorsque l'on utilise l'ajustement cinématique sur tous les événements sélectionnés par l'algorithme de tri par $\chi^2$, les choses sont différentes. La \cref{fig:kinfit_all_events} présente la résolution sur la masse invariante, et la \cref{fig:mtt_resp_reso_kf_all_events} la linéarité de la reconstruction ainsi que l'évolution de la résolution en fonction de \mttgen. On note une nette dégradation de la résolution, allant de \tilde\SI{15}{\%} à bas \mtt à \tilde\SI{50}{\%} à haut \mtt. La linéarité de la reconstruction est aussi impactée. On a vu précédemment que l'efficacité d'avoir un événement associable est d'environ \SI{40}{\%} (voir \cref{tab:chi2_study}). Parmi ces événements, l'algorithme de tri par $\chi^2$ choisit environ \num{80} fois sur cent la bonne combinaison de jets : l'ajustement cinématique est donc en mesure de sélectionner la bonne combinaison de jets dans environ \SI{32}{\%} des cas. S'il est très efficace dès lors qu'il utilise la bonne combinaison de jets (voir paragraphe précédent), il dégrade fortement la résolution lorsqu'une mauvaise combinaison est utilisée. Étant donné que des mauvaises combinaisons sont majoritairement sélectionnées, l'utilisation de l'ajustement cinématique dégrade la résolution au lieu de l'améliorer.
+Intéressons nous maintenant aux cas où l'on utilise l'ajustement cinématique sur tous les événements sélectionnés par l'algorithme de tri par $\chi^2$. La \cref{fig:kinfit_all_events} présente la résolution sur la masse invariante, et la \cref{fig:mtt_resp_reso_kf_all_events} la linéarité de la reconstruction ainsi que l'évolution de la résolution en fonction de \mttgen. On note une nette dégradation de la résolution, allant de \tilde\SI{15}{\%} à bas \mtt à \tilde\SI{50}{\%} à haut \mtt. La linéarité de la reconstruction est aussi impactée. On a vu précédemment que l'efficacité d'avoir un événement associable est d'environ \SI{40}{\%} (voir \cref{tab:chi2_study}). Parmi ces événements, l'algorithme de tri par $\chi^2$ choisit environ \num{80} fois sur cent la bonne combinaison de jets : l'ajustement cinématique est donc en mesure de sélectionner la bonne combinaison de jets dans environ \SI{32}{\%} des cas. S'il est très efficace dès lors qu'il utilise la bonne combinaison de jets (voir paragraphe précédent), il dégrade fortement la résolution lorsqu'une mauvaise combinaison est utilisée. Étant donné que des mauvaises combinaisons sont majoritairement sélectionnées, l'utilisation de l'ajustement cinématique dégrade la résolution au lieu de l'améliorer.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mtt_response_kf_all}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_all_events.pdf}} \hfill
@@ -327,8 +327,8 @@ On verra dans le \cref{chap:zprime} que ces résultats, obtenus sur des événem
 
 \section{Conclusion}
 
-Comme on a pu le voir tout au long de ce chapitre, deux étapes sont nécessaires pour reconstruire la masse invariante \ttbar. Dans un premier temps, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. On utilise pour cela un algorithme de tri par $\chi^2$, qui s'est trouvé plus performant que des algorithmes plus complexes comme les MVA. Une fois les jets sélectionnés, il reste à reconstruire la composante longitudinale de l'impulsion du neutrino, ce qui permet d'évaluer correctement l'énergie. Finalement, il est possible de reconstruire la masse invariante du système \ttbar. La résolution typique obtenue sur cette reconstruction est d'environ \SI{55}{\GeV}.
+Comme on a pu le voir tout au long de ce chapitre, deux étapes sont nécessaires pour reconstruire la masse invariante \ttbar. Dans un premier temps, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. On utilise pour cela un algorithme de tri par $\chi^2$, qui s'est trouvé plus performant que des algorithmes plus complexes comme les MVA. Une fois les jets sélectionnés, il reste à reconstruire la composante longitudinale de l'impulsion du neutrino, ce qui permet d'évaluer correctement l'énergie. Finalement, il est possible de reconstruire la masse invariante du système \ttbar. La résolution typique obtenue sur cette reconstruction est d'environ \SI{10}{\percent}.
 
 \bigskip
 
-Toutes ces techniques sont utilisées avec succès dans les analyses de recherche de nouvelles physiques, sujets des \cref{chap:zprime,chap:higgs}.
+Toutes ces techniques sont utilisées dans les analyses de recherche de nouvelles physiques, comme on le verra dans les \cref{chap:zprime,chap:higgs}.
