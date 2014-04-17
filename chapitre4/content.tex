@@ -75,9 +75,16 @@ Après application des corrections de niveau 1, la réponse des jets, définie c
 
 \subsection[Les corrections de niveau 2 et 3]{Les corrections de niveau 2 et 3 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l2l3}
 
-Les corrections de niveau 2 (corrections en fonction de \aeta) et de niveaux 3 (corrections en fonction de \pt) sont appliquées après celles de niveau 1. Ces deux niveaux de corrections forment en réalité une correction unique, la séparation en deux niveaux distincts étant purement historique.
+Les corrections de niveau 2 (corrections en fonction de \aeta) et de niveau 3 (corrections en fonction de \pt) sont appliquées après celles de niveau 1. Ces deux niveaux de corrections forment en réalité une correction unique, la séparation en deux niveaux distincts étant purement historique.
 
 Après les corrections de niveaux 1, la réponse n'est plus dépendante du \pu. Néanmoins, elle varie toujours en fonction de \aeta et du $p_T$. On corrige cette dépendance grâce à la simulation.
+
+\begin{figure}[tbp]
+    \centering
+    \subcaptionbox{\label{fig:resp_l1l2l3}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/response_after_l1l2l3.pdf}} \hfill
+    \subcaptionbox{\label{fig:jet_flavor_resp}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/jet_flavor_response.pdf}} \hfill
+    \caption{(\subref{fig:resp_l1l2l3}) Réponse des jets après application des corrections de niveau 1, 2 et 3, pour des événements multi-jets simulés. (\subref{fig:jet_flavor_resp}) Différence de réponse entre les jets légers (\Pup, \Pdown, \Pstrange), les jets de gluons, les jets de \Pcharm et les jets de \Pbottom.}
+\end{figure}
 
 \smallskip
 
@@ -96,13 +103,6 @@ où $p_T^\text{vrai}$ est l'impulsion transverse du jet généré à partir des 
   %\caption{Évolution de la réponse des jets en fonction de l'impulsion transverse simulée, avant l'application des corrections de niveau 1 (\subref%{fig:l1_no_corr}) et après (\subref{fig:l1_with_corr}), pour différentes classes de $N_{PV}$.}
 %  \label{fig:jec_l2l3}
 %\end{figure}
-
-\begin{figure}[tbp]
-    \centering
-    \subcaptionbox{\label{fig:resp_l1l2l3}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/response_after_l1l2l3.pdf}} \hfill
-    \subcaptionbox{\label{fig:jet_flavor_resp}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/jet_flavor_response.pdf}} \hfill
-    \caption{(\subref{fig:resp_l1l2l3}) Réponse des jets après application des corrections de niveau 1, 2 et 3, pour des événements multi-jets simulés. (\subref{fig:jet_flavor_resp}) Différence de réponse entre les jets légers (\Pup, \Pdown, \Pstrange), les jets de gluons, les jets de \Pcharm et les jets de \Pbottom.}
-\end{figure}
 
 \bigskip
 
@@ -409,8 +409,6 @@ Finalement, la simulation des événements multi-jets et $\gamma$ + jets a été
 
 On présente \cref{fig:pt_photon_jet} une comparaison entre la simulation et les données pour l'impulsion transverse du photon, du premier jet de l'événement, du second, ainsi que l'énergie transverse manquante. Les distributions ont été normalisées à la luminosité, et l'incertitude sur la simulation comprend l'incertitude statistique, l'incertitude sur la luminosité de \SI{2.6}{\%}, ainsi qu'une incertitude de \SI{10}{\%} sur la valeur des sections efficaces de production \Pphoton + jets et multi-jets.
 
-\fxnote{Discuter du désaccord data / MC}
-
 \subsection{Stratégie d'analyse} \label{sec:jetmet_strategy}
 
 Les événements sélectionnés sont classés suivant l'impulsion transverse du photon et la position angulaire du jet, afin d'augmenter la sensibilité de l'analyse. 14 classes sont définies en impulsion transverse :
@@ -573,6 +571,17 @@ On présente \cref{fig:balancing_resp} les distributions des réponses moyennes 
  \label{tab:res_balancing_extrap}
 \end{table}
 
+
+\begin{figure}[p!]
+    \centering
+    \subcaptionbox{\label{fig:bal_extrap_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta008_balancing_extrap.pdf}}\hfill
+    \subcaptionbox{\label{fig:bal_extrap_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta0813_balancing_extrap.pdf}}
+    \subcaptionbox{\label{fig:bal_extrap_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1319_balancing_extrap.pdf}}\hfill
+    \subcaptionbox{\label{fig:bal_extrap_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1925_balancing_extrap.pdf}}
+    \caption{Réponses moyennes pour la méthode de la balance, avec extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:bal_extrap_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:bal_extrap_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:bal_extrap_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:bal_extrap_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
+    \label{fig:balancing_extrap_resp}
+\end{figure}
+
 \bigskip
 
 On présente dans le \cref{tab:res_balancing} un résumé des ratios et des facteurs de correction extrais pour chaque classe en \aeta. Le ratio est stable dans le tonneau ($\aeta < \num{2.1}$), avec un facteur de correction d'environ \SI{4}{\%}. Dans les bouchons, le ratio chute jusqu'à des facteurs de correction atteignant \SI{23}{\%}. Au delà de \SI{3.2}{\radian}, l'absence de trajectographe empêche la bonne reconstruction des hadrons chargés, et la réponse devient très mauvaise.
@@ -586,15 +595,6 @@ On présente dans le \cref{tab:res_balancing} un résumé des ratios et des fact
     \caption{Extrapolation de la réponse moyenne pour la méthode de la balance (\subref{fig:extrap_balancing}) et la méthode MPF (\subref{fig:extrap_mpf}). Pour la méthode de la balance, la réponse de la simulation (MC) a été séparée en deux parties, détaillées \cref{sec:res_balancing_extrap}.}
 \end{figure}
 
-\begin{figure}[p!]
-    \centering
-    \subcaptionbox{\label{fig:bal_extrap_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta008_balancing_extrap.pdf}}\hfill
-    \subcaptionbox{\label{fig:bal_extrap_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta0813_balancing_extrap.pdf}}
-    \subcaptionbox{\label{fig:bal_extrap_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1319_balancing_extrap.pdf}}\hfill
-    \subcaptionbox{\label{fig:bal_extrap_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1925_balancing_extrap.pdf}}
-    \caption{Réponses moyennes pour la méthode de la balance, avec extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:bal_extrap_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:bal_extrap_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:bal_extrap_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:bal_extrap_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
-    \label{fig:balancing_extrap_resp}
-\end{figure}
 
 % \begin{figure}[p!]
 %     \centering
@@ -686,7 +686,7 @@ Comme évoqué précédemment, on extrait en plus des réponses la résolution s
 
 \subsection{Extraction des corrections résiduelles}
 
-\begin{figure}[p!]
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=0.65\textwidth]{chapitre4/figs/jec_residuals_combined.pdf}
   \caption{Extraction des facteurs de corrections résiduels grâce à une combinaison entre les analyses $\PZ \rightarrow \Pmuon \APmuon$ + jets, \PZ $\rightarrow$ \Pelectron \APelectron + jets et \Pphoton + jets.}
@@ -733,17 +733,17 @@ Il est donc intéressant de regarder comment varient les différents niveaux de 
 
 Le parton responsable de la création d'un jet permet de définir sa saveur. S'il est aisé de déterminer cette saveur sur la simulation en utilisant la vérité Monte Carlo, la tâche est plus compliquée sur les données.
 
-On dispose déjà d'un algorithme permettant d'identifier les jets provenant d'un quark \Pbottom, présenté \cref{sec:b_tagging}. Il s'avère que cet algorithme est aussi capable d'identifier les jets provenant d'un quark \Pcharm, ces jets ayant des caractéristiques similaires aux jets de \Pbottom. Il reste donc à différencier les jets provenant d'un gluon de ceux provenant d'un quark léger (\Pup, \Pdown, \Pstrange). On dispose pour cela d'un algorithme spécialisé, le discriminant quark - gluons (QGD, \emph{Quark-Gluon discriminant}) \citep{CMS-PAS-JME-13-002}, qui permet de séparer les jets provenant d'un quark de ceux provenant d'un gluon. Cet algorithme exploite plusieurs différences entre ces jets :
-\begin{itemize}
-  \item Le nombre de particules chargées constituant les jets de gluons est plus important que dans les jets de quarks, puisque les gluons, contrairement aux quarks, portent une "double" charge de couleur \citep{Dremin:2000wt}.
-  \item Pour des raisons similaires, l'étalement du jet dans le plan $(\eta, \phi)$ est plus important pour les jets provenant de gluons que pour les jets provenant de quarks.
-\end{itemize}
-
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:flavor_response}}[0.49\textwidth]{\includegraphics[width=0.49\textwidth]{chapitre4/figs/flavor_response.pdf}}
     \subcaptionbox{\label{fig:qgd}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/qgd.pdf}}
     \caption{(\subref{fig:flavor_response}) Facteurs de corrections dépendants de la saveur dérivées à l'aide de la vérité Monte-Carlo. (\subref{fig:qgd}) Valeur du discriminant quarks / gluons pour des événements simulées (histogrammes) et pour les données 2012 (points noirs). Les jets de quarks ont majoritairement une valeur du discriminant proche de 1.}
 \end{figure}
+
+On dispose déjà d'un algorithme permettant d'identifier les jets provenant d'un quark \Pbottom, présenté \cref{sec:b_tagging}. Il s'avère que cet algorithme est aussi capable d'identifier les jets provenant d'un quark \Pcharm, ces jets ayant des caractéristiques similaires aux jets de \Pbottom. Il reste donc à différencier les jets provenant d'un gluon de ceux provenant d'un quark léger (\Pup, \Pdown, \Pstrange). On dispose pour cela d'un algorithme spécialisé, le discriminant quark - gluons (QGD, \emph{Quark-Gluon discriminant}) \citep{CMS-PAS-JME-13-002}, qui permet de séparer les jets provenant d'un quark de ceux provenant d'un gluon. Cet algorithme exploite plusieurs différences entre ces jets :
+\begin{itemize}
+  \item Le nombre de particules chargées constituant les jets de gluons est plus important que dans les jets de quarks, puisque les gluons, contrairement aux quarks, portent une "double" charge de couleur \citep{Dremin:2000wt}.
+  \item Pour des raisons similaires, l'étalement du jet dans le plan $(\eta, \phi)$ est plus important pour les jets provenant de gluons que pour les jets provenant de quarks.
+\end{itemize}
 
 La \cref{fig:qgd} présente les performances de l'algorithme. Un grand pouvoir de séparation entre jets de quarks et jets de gluons est obtenu, les jets de quarks ayant majoritairement une valeur du discriminant proche de 1, alors que les jets de gluons sont plus proches de 0.
 
@@ -837,7 +837,7 @@ L'étude de la réponse en fonction de la saveur des jets à l'aide des événem
 
 La première étape de l'analyse consiste à vérifier la validité de la méthode. On utilise les mêmes événements que pour l'extraction des corrections résiduelles, avec la même sélection. On extrait la réponse pour chacune des zones enrichies, en se limitant uniquement à la méthode MPF, plus performante que les autres méthodes. En utilisant l'\cref{eq:resp_flavor}, on calcule la réponse pour chaque saveur, en utilisant les fractions de jets dans chaque zone enrichie dérivées à l'aide de la simulation. Le résultat obtenu est ensuite comparée à la réponse en saveur calculée en utilisant la vérité Monte Carlo. Cette confrontation est présentée \cref{fig:2d_mc_vs_mc}. Les réponses des jets légers, \Pcharm et \Pbottom sont bien reproduites, alors que la réponse des jets de gluons est légèrement surestimée (\tilde \SI{2}{\%}). C'est en effet la catégorie pour laquelle il est le plus difficile d'obtenir une zone réellement, ce qui rend la méthode présentée ci-dessus moins performante. Cette différence est cependant couverte par les erreurs systématiques associées à la saveur, et on estime donc que ces résultats permettent de valider notre méthode d'extraction des réponses.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=0.60\textwidth]{chapitre4/figs/flavor/gammajet_flavors.pdf}
   \caption{Composition en saveur des jets pour des événements \Pphoton + jets.}
@@ -858,7 +858,7 @@ On extrait maintenant la réponse par saveur sur les données et sur la simulati
 
   % Cette étude préliminaire ouvre la voix à des corrections résiduelles dépendantes de la saveur dans CMS. Le nombre d'événements disponible après sélection n'est cependant pas encore suffisant pour pouvoir réaliser une étude en différentes classes en impulsion transverse et \aeta, qui pourrait mettre en évidence une dépendance de la réponse en fonction de la saveur.
 
-L'effet de la saveur des jets sur la réponse ne semblent pas être perceptible au travers des événements \Pgamma + jets. La méthode employée dans cette étude permet de reproduire la réponse observée sur les données à l'aide de la simulation, et reproduit également les réponses obtenues à l'aide de la vérité Monte-Carlo. La seule difficulté vient de la réponse des gluons, surestimée d'environ \tilde\SI{2}{\percent}, ordre de grandeur des erreurs systématiques associées à la saveur. Cette étude préliminaire pourrait ainsi servir à valider les erreurs systématiques associées à la saveur, en s'assurant que les différences de réponses sont couvertes par ces erreurs. Cela semble être le cas, mais il est nécessaire d'effectuer une étude complète en tenant compte des incertitudes systématiques avant de pouvoir réellement conclure.
+L'effet de la saveur des jets sur la réponse ne semblent pas être perceptible au travers des événements \Pgamma + jets. La méthode employée dans cette étude permet de reproduire la réponse observée sur les données à l'aide de la simulation, et reproduit également les réponses obtenues à l'aide de la vérité Monte-Carlo. La seule difficulté vient de la réponse des gluons, surestimée d'environ \tilde\SI{2}{\percent}, ordre de grandeur des erreurs systématiques associées à la saveur. Cette étude préliminaire pourrait ainsi servir à valider ces erreurs systématiques, en s'assurant que les différences de réponses sont couvertes par ces erreurs. Cela semble être le cas, mais il est nécessaire d'effectuer une étude complète en tenant compte des incertitudes systématiques avant de pouvoir réellement conclure.
 
 \section{Conclusion}
 
