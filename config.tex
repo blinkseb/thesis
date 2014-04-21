@@ -257,7 +257,7 @@
 %     \newcommand\formatchapter[1]{%
 %     \vbox to \ht\strutbox{
 %     \setbox0=\hbox{\chapterNumber\thechapter\hspace{10pt}\vline\ } 
-%     \advance\hsize-\wd0 \advance\hsize-10pt\raggedright 
+%     \advance\hsize-\w\dzero \advance\hsize-10pt\raggedright 
 %     \spacedallcaps{#1}\vss}} 
 %     \titleformat{\chapter}[block] 
 %        {\normalfont\Large\sffamily} 
@@ -450,7 +450,7 @@
 \newcommand{\mtt}{\ensuremath{m_{\Pqt\Paqt}}\xspace}
 \newcommand{\zprime}{\ensuremath{\PZ^{\prime}}\xspace}
 \newcommand{\mzp}{\ensuremath{m_{\PZ^{\prime}}}\xspace}
-\newcommand{\kkglu}{K. K. gluon\xspace}
+\newcommand{\kkglu}{gluon K. K.\xspace}
 
 \newcommand{\gmu}{\ensuremath{\gamma_\mu}}
 \newcommand{\gzero}{\ensuremath{\gamma_0}}
@@ -553,6 +553,9 @@
 \usepackage{longtable}
 
 \usepackage{fmtcount}
+\FCloadlang{frenchb}
+\fmtcountsetoptions{french=france}
+\fmtcountsetoptions{abbrv=true}
 
 \newcommand{\ptg}{\ensuremath{p_T^{\Pphoton}}\xspace}
 \newcommand{\ptfjet}{\ensuremath{p_T^{\text{\ordinalnum{1} jet}}}\xspace}
@@ -568,10 +571,18 @@
 \definecolor{violet}{HTML}{542437}
 \definecolor{vert}{HTML}{8A9B0F}
 
-\newcommand{\rouge}{\textcolor{rouge_grandmere}{rouge}}
-\newcommand{\vertc}{\textcolor{vert}{vert}}
-\newcommand{\gris}{\textcolor{bleu_gris}{gris}}
-\newcommand{\violet}{\textcolor{violet}{violet}}
-\newcommand{\violette}{\textcolor{violet}{violette}}
+\newcommand{\rouge}{\textcolor{rouge_grandmere}{rouge}\xspace}
+\newcommand{\vertc}{\textcolor{vert}{vert}\xspace}
+\newcommand{\gris}{\textcolor{bleu_gris}{gris}\xspace}
+\newcommand{\violet}{\textcolor{violet}{violet}\xspace}
+\newcommand{\violette}{\textcolor{violet}{violette}\xspace}
+\newcommand{\orange}{\textcolor{orange}{orange}\xspace}
+
+\newcommand{\dzero}{DØ\xspace}
 
 \usepackage{footnote}
+
+%\setlength{\rightskip}{10cm}
+%\AtNextShipout{\global\rightskip=0pt}
+
+\usepackage[shortcuts]{extdash}
