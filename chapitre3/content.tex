@@ -241,6 +241,32 @@ Enfin, les blocs \emph{particle-flow} restant n'ont aucune trace liée. On recon
 
 On présente \cref{fig:mgg} la résolution expérimentale obtenue lors de la reconstruction d'événement $\Ppizero \rightarrow \Pgamma \Pgamma$. On trouve une résolution $\sigma = \SI{13}{\MeV}$. L'efficacité d'identification pour les trois points de fonctionnement définis par la collaboration CMS est présentée \cref{fig:gamma_eff}. Dans tous les cas, cette efficacité est supérieure à \SI{65}{\%}.
 
+\subsubsection{Isolation des leptons} \label{sec:lepton_isolation}
+
+Bien souvent, il est important pour les analyses de physique de savoir si un lepton est isolé, c'est-à-dire de savoir si l'activité autour du lepton est faible. L'isolation du lepton est définie par la relation
+\begin{align*}
+  I_{\Plepton} &= \frac{\sum{\pt^\text{hadrons chargés}} + \sum{\pt^\text{hadrons neutres}} + \sum{\pt^\text{photons}}}{\pt^{\Plepton}}
+\end{align*}
+où les sommes portent sur les particules contenues dans un cône de rayon $\Delta R$ centré autour du lepton. Ainsi, plus $I$ tend vers 0, plus la particule est isolée. Deux valeurs de $\Delta R$ sont utilisées, suivant la saveur du lepton :
+\begin{align*}
+  \Delta R &= \num{0.4} \quad\text{muons}\\
+  \Delta R &= \num{0.3} \quad\text{électrons}
+\end{align*}
+
+Dans le cas des muons, la définition de l'isolation $I$ est modifiée afin d'être plus robuste face au \pu. On considère en effet les hadrons chargés provenant d'un vertex autre que le vertex principal comme du \pu : ils ne sont donc pas utilisés dans le calcul de l'isolation. Ce n'est malheureusement pas suffisant, puisque le \pu est aussi composé de hadrons neutres et de photons : on estime que ces hadrons sont responsables d'environ la moitié de l'énergie du \pu. Ainsi, on soustrait du calcul de l'isolation la moitié de l'énergie des hadrons identifiés comme provenant du \pu, en vérifiant bien que l'énergie provenant de la partie neutre ne soit jamais négative. On obtient alors
+\begin{align*}
+  I_{\Pmu}^\text{corrigé} &= \frac{\sum{\pt^\text{hadrons chargés}} + \overbrace{\left(\sum{\pt^\text{hadrons neutres}} + \sum{\pt^\text{photons}} - \num{0.5} \sum{\pt^\text{hadrons chargés \pu}} \right)}^{= 0 \text{ si négatif}}}{\pt^{\Plepton}}
+\end{align*}
+On considère un muon comme isolé si $I_{\Pmu}^\text{corrigé} < \SI{12}{\%}$.
+
+\smallskip
+
+Pour les électrons, on applique une procédure similaire. Néanmoins, au lieu de soustraire la moitié de l'énergie des hadrons chargés provenant du \pu, on estime l'énergie restant due au \pu en utilisant la densité d'énergie dans l'événement par unité de surface ($\rho$, voir \cref{sec:jec_l1}). Au lieu d'utiliser la surface du cône d'isolation, parfois délicate à calculer géométriquement, pour estimer la quantité d'énergie du \pu, on évalue une surface effective ($EA$) sur des événements \PZ $\rightarrow$ \Pelectron{}\Ppositron.% Cette surface est définie comme le rapport entre la pente de la droite $\rho = f(N_{\text{vertex}})$ et la pente de la droite $I = f(N_\text{vertex})$. \fxnote{Revoir la partie sur EA.}
+\begin{align*}
+  I_{\Pe}^\text{corrigé} &= \frac{\sum{\pt^\text{hadrons chargés}} + \overbrace{\left(\sum{\pt^\text{hadrons neutres}} + \sum{\pt^\text{photons}} - \rho\,EA \right)}^{= 0 \text{ si négatif}}}{\pt^{\Plepton}}
+\end{align*}
+On considère un électron comme isolé si $I_{\Pe}^\text{corrigé} < \SI{10}{\%}$. Cette valeur est plus faible en raison de la taille du cône plus faible également.
+
 \subsection{Calibration des calorimètres}
 
 \begin{figure}[tbp]
