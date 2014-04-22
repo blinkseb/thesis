@@ -1,5 +1,7 @@
 \chapter{Reconstruction expérimentale d'événements \ttbar} \label{chap:mtt_reco}
 
+\fxnote{Relire attentivement après la réorganisation du chapitre}
+
 Les \cref{chap:zprime,chap:higgs} sont consacrés à la recherche de nouvelle physique dans le spectre de masse invariante de paires \ttbar. Avant de pouvoir chercher de quelconques déviations dans le spectre de masse, il faut être capable de reconstruire la masse invariante du système \ttbar. Ce chapitre présente les techniques mises en œuvre pour la reconstruction de la masse invariante de paires \ttbar.
 
 \section{Masse invariante du système \ttbar}
@@ -19,7 +21,7 @@ Afin de reconstruire la masse invariante du système \ttbar, il faut être capab
 Deux problèmes majeurs se posent :
 \begin{itemize}
     \item L'énergie transverse manquante est utilisée pour reconstruire le neutrino. Comme le bilan d'énergie ne peut être effectué que dans le plan transverse, seule l'impulsion transverse du neutrino est définie, c'est-à-dire $p_x^{\Pnu}$ et $p_y^{\Pnu}$. Il faut donc trouver un moyen de reconstruire $p_z^{\Pnu}$ qui sera utilisé dans le calcul de la masse invariante \ttbar. C'est l'objet de la \cref{sec:neutrino}.
-    \item 4 jets composent l'état final d'une désintégration \ttbar. Il faut donc être capable de correctement identifier ces jets parmi les nombreux jets de \pu ou de radiations dans l'événement. Pour cela, diverses techniques peuvent être employées, décrites plus loin dans ce chapitre \fxnote{Renvoi}.
+    \item 4 jets composent l'état final d'une désintégration \ttbar. Il faut donc être capable de correctement identifier ces jets parmi les nombreux jets de \pu ou de radiations dans l'événement. Pour cela, diverses techniques peuvent être employées, décrites \cref{sec:chi2}.
 \end{itemize}
 
 Une fois ces problèmes surmontés, il est possible de reconstruire la masse invariante pour chaque événement.
@@ -67,7 +69,7 @@ La \cref{fig:neutrino_correction} présente l'effet de la reconstruction de la c
 
 Lors d'une désintégration \ttbar dans le canal semi-leptonique, 4 jets composent l'état final : 2 jets de \Pbottom, provenant de la désintégrations des deux quarks top, et deux jets de quark légers, provenant de la désintégration hadronique d'un des bosons \PW.
 
-De nombreux jets additionnels sont produits lors d'une collision au LHC, venant du \pu, de l'événement sous-jacent, de radiations de gluon, etc. Il faut donc un moyen d'identifier précisément les jets provenant de la désintégration \ttbar parmi tous les jets de l'événement. Deux méthodes sont étudiées dans cette section, la méthode de tri par $\chi^2$, et la méthode de tri par MVA (\emph{Multi-Variate Analysis}, analyse multi-variée).
+De nombreux jets additionnels sont produits lors d'une collision au LHC, venant du \pu, de l'événement sous-jacent, de radiations de gluon, etc. Il faut donc un moyen d'identifier précisément les jets provenant de la désintégration \ttbar parmi tous les jets de l'événement. Deux méthodes sont étudiées dans ce chapitre, la méthode de tri par $\chi^2$, présentée ci-dessous, et la méthode de tri par MVA (\emph{Multi-Variate Analysis}, analyse multi-variée), présentée \cref{sec:mva}.
 
 \medskip
 
@@ -173,7 +175,34 @@ D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La 
 %     \label{fig:label}
 % \end{figure}
 
-\subsection{Algorithme de tri par MVA}
+\section{Performances de la reconstruction de la masse invariante} \label{sec:perf_reco_tt}
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:mtt_reso_chi2}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_chi2.pdf}} \hfill
+    \subcaptionbox{\label{fig:mtt_reso_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_four_jets.pdf}}
+    \caption{Résolution de la masse invariante \mtt évaluée sur des événements \ttbar simulés, en utilisant l'algorithme de tri par $\chi^2$ (\subref{fig:mtt_reso_chi2}) et en utilisant les quatre jet de plus haut \pt (\subref{fig:mtt_reso_four_jets}).}
+\end{figure}
+
+Deux critères sont utilisés pour déterminer la qualité de la reconstruction de la masse invariante. Le plus important est la résolution, définie comme la différence entre la masse invariante reconstruite ($\mtt^\text{reco}$) et la masse invariante générée ($\mtt^\text{gen}$). Ainsi, plus la reconstruction est de qualité, plus la résolution est faible. On peut aussi observer la linéarité de la reconstruction, en traçant l'évolution de $\mtt^\text{reco}$ en fonction de $\mtt^{gen}$. Cette section est dédiée à la comparaison de ces deux critères pour l'algorithme de tri par $\chi^2$.
+
+\bigskip
+
+La \cref{fig:mtt_reso_chi2} présente la résolution obtenue avec l'utilisation de l'algorithme de tri par $\chi^2$ sur la masse invariante \mtt. Il est intéressant de comparer ce résultat avec l'utilisation des quatre jets de plus grande impulsion de l'événement pour reconstruire la masse invariante. Les performances de ces deux algorithmes sont présentées dans la \cref{fig:mtt_reso_chi2_vs_four_jets}. La \cref{fig:mtt_response_chi2_vs_four_jets} montre la linéarité de la reconstruction pour ces deux algorithmes, tandis que la \cref{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets} présente l'évolution de la résolution en fonction de $\mtt^\text{gen}$. On peut observer deux effets opposés : utiliser l'algorithme de tri par $\chi^2$ permet d'améliorer la résolution d'environ \SI{2}{\%}, au détriment d'une légère perte de linéarité. Le critère de résolution est cependant plus important que la linéarité, puisqu'on cherche à détecter des résonances dans le spectre de masse invariante : une résonance plus étroite est plus aisée à détecter qu'une résonance large. À l'augmentation de la résolution s'ajoute aussi un élargissement des queues de la distribution de résolution, comme on peut le voir en comparant la \cref{fig:mtt_reso_four_jets} à la \cref{fig:mtt_reso_chi2}. L'utilisation de l'algorithme par $\chi^2$ permet donc d'améliorer significativement le spectre de masse invariante reconstruit.
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:mtt_response_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_vs_gen_comparison_chi2_four_jets.pdf}}\hfill
+    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_vs_gen_comparison_chi2_four_jets.pdf}}
+    \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_chi2_vs_four_jets}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets}) pour l'algorithme de tri par $\chi^2$ (\rouge) et en utilisant les quatre jets de plus haut \pt (\vertc).}
+    \label{fig:mtt_reso_chi2_vs_four_jets}
+\end{figure}
+
+\bigskip
+
+Les résultats de cette étude montrent tous que l'algorithme de tri par $\chi^2$ est le plus performant en terme de résolution, au détriment d'une légère perte de linéarité de la reconstruction en fonction de masse invariante générée. Il est intéressant de voir s'il est possible d'améliorer encore les performances de reconstruction en améliorant la résolution. On a en effet vu plus haut qu'une résonance étroite augmente le potentiel de découverte. Un moyen d'améliorer cette résolution est d'utiliser un ajustement cinétique, détaillé \cref{sec:mtt_kf}.
+
+\section{Possibles améliorations étudiées (mais non retenues)}
+
+\subsection{Algorithme de tri par MVA} \label{sec:mva}
 
 Des nombreuses variables rentrent en jeu lors du calcul de la masse invariante \ttbar. Une méthode simple pour les exploiter serait d'étendre le $\chi^2$ (\cref{eq:chi2}) pour ajouter autant de termes que nécessaire. Cela suppose néanmoins que les variables que l'on utilise comme discriminant soient gaussiennes, ce qui est le cas pour des distributions de masses invariantes, mais pas pour d'autres variables, telles que $\Delta \phi$ entre deux objets, ou l'impulsion transverse d'un autre objet.
 
@@ -211,7 +240,11 @@ L'utilisation d'un MVA permet de classer un événement en deux catégories : "s
     \caption{Valeurs de sortie pour les bonnes (bleu) et mauvaises (rouge) combinaisons, pour l'algorithme BDT (\subref{fig:mva_bdt_discr}) et le réseau de neurones (\subref{fig:mva_nn_discr}).}
 \end{figure}
 
-Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. On identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA. Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA, et est retenu pour être utilisé dans les analyses.
+Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. On identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA.
+
+\subsubsection{Performances}
+
+Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA.
 
 \begin{table}[tbp] \centering
     \sisetup{separate-uncertainty = true}
@@ -225,35 +258,9 @@ Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties
 \end{table}
 
 
+\smallskip
 
-\bigskip
-
-Toutefois, l'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Il est donc possible que ces techniques puissent être utilisées à l'avenir pour remplacer l'algorithme de tri par $\chi^2$.
-
-\section{Performances de la reconstruction de la masse invariante} \label{sec:perf_reco_tt}
-
-Deux critères sont utilisés afin de déterminer la qualité de la reconstruction de la masse invariante. Le plus important est la résolution, définie comme la différence entre la masse invariante reconstruite ($\mtt^\text{reco}$) et la masse invariante générée ($\mtt^\text{gen}$). Ainsi, plus la reconstruction est de qualité, plus la résolution est faible. On peut aussi observer la linéarité de la reconstruction, en traçant l'évolution de $\mtt^\text{reco}$ en fonction de $\mtt^{gen}$. Cette section est dédiée à la comparaison de ces deux critères pour l'algorithme de tri par $\chi^2$ ainsi que pour le BDT. À cause des faibles performances du réseau de neurones, cet algorithme n'est pas inclus dans cette étude.
-
-\bigskip
-
-La \cref{fig:mtt_reso_chi2} présente la résolution obtenue avec l'utilisation de l'algorithme de tri par $\chi^2$ sur la masse invariante \mtt. Il est intéressant de comparer ce résultat avec l'utilisation des quatre jets de plus grande impulsion de l'événement pour reconstruire la masse invariante. Les performances de ces deux algorithmes sont présentées dans la \cref{fig:mtt_reso_chi2_vs_four_jets}. La \cref{fig:mtt_response_chi2_vs_four_jets} montre la linéarité de la reconstruction pour ces deux algorithmes, tandis que la \cref{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets} présente l'évolution de la résolution en fonction de $\mtt^\text{gen}$. On peut observer deux effets opposés : utiliser l'algorithme de tri par $\chi^2$ permet d'améliorer la résolution d'environ \SI{2}{\%}, au détriment d'une légère perte de linéarité. Le critère de résolution est cependant plus important que la linéarité, puisqu'on cherche à détecter des résonances dans le spectre de masse invariante : une résonance plus étroite est plus aisée à détecter qu'une résonance large. À l'augmentation de la résolution s'ajoute aussi un élargissement des queues de la distribution de résolution, comme on peut le voir en comparant la \cref{fig:mtt_reso_four_jets} à la \cref{fig:mtt_reso_chi2}. L'utilisation de l'algorithme par $\chi^2$ permet donc d'améliorer significativement le spectre de masse invariante reconstruit.
-
-\begin{figure}[tbp] \centering
-    \subcaptionbox{\label{fig:mtt_reso_chi2}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_chi2.pdf}} \hfill
-    \subcaptionbox{\label{fig:mtt_reso_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_four_jets.pdf}}
-    \caption{Résolution de la masse invariante \mtt évaluée sur des événements \ttbar simulés, en utilisant l'algorithme de tri par $\chi^2$ (\subref{fig:mtt_reso_chi2}) et en utilisant les quatre jet de plus haut \pt (\subref{fig:mtt_reso_four_jets}).}
-\end{figure}
-
-\begin{figure}[tbp] \centering
-    \subcaptionbox{\label{fig:mtt_response_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_vs_gen_comparison_chi2_four_jets.pdf}}\hfill
-    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_vs_gen_comparison_chi2_four_jets.pdf}}
-    \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_chi2_vs_four_jets}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets}) pour l'algorithme de tri par $\chi^2$ (\rouge) et en utilisant les quatre jets de plus haut \pt (\vertc).}
-    \label{fig:mtt_reso_chi2_vs_four_jets}
-\end{figure}
-
-\bigskip
-
-On compare aussi les performances du BDT par rapport à l'algorithme de tri par $\chi^2$. La \cref{fig:mtt_reso_bdt} présente la résolution sur la masse invariante obtenue avec l'utilisation du BDT (à comparer à la \cref{fig:mtt_reso_chi2}). Là encore, la résolution est dégradée par l'utilisation du BDT. La \cref{fig:mtt_reso_chi2_vs_bdt} confirme cette analyse : la linéarité de la reconstruction est identique entre les deux algorithmes, mais la résolution est dégradée sur toute la gamme de masse invariante.
+On compare également les performances du MVA par rapport à l'algorithme de tri par $\chi^2$. À cause des faibles performances du réseau de neurones, cet algorithme n'est pas inclus dans cette étude. La \cref{fig:mtt_reso_bdt} présente la résolution sur la masse invariante obtenue avec l'utilisation du BDT (à comparer à la \cref{fig:mtt_reso_chi2}). On constate que la résolution est dégradée par l'utilisation du BDT. La \cref{fig:mtt_reso_chi2_vs_bdt} confirme cette analyse : la linéarité de la reconstruction est identique entre les deux algorithmes, mais la résolution est dégradée sur toute la gamme de masse invariante.
 
 \begin{figure}[tbp]
   \centering
@@ -261,8 +268,6 @@ On compare aussi les performances du BDT par rapport à l'algorithme de tri par 
   \caption{Résolution de la masse invariante \mtt obtenue avec l'utilisation du BDT, évaluée sur des événements \ttbar simulés.}
   \label{fig:mtt_reso_bdt}
 \end{figure}
-
-
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mtt_response_chi2_vs_bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_vs_gen_comparison_chi2_bdt.pdf}}\hfill
     \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_chi2_vs_bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_vs_gen_comparison_chi2_bdt.pdf}}
@@ -272,7 +277,7 @@ On compare aussi les performances du BDT par rapport à l'algorithme de tri par 
 
 \bigskip
 
-Les résultats de cette étude montrent tous que l'algorithme de tri par $\chi^2$ est le plus performant en terme de résolution, au détriment d'une légère perte de linéarité de la reconstruction en fonction de masse invariante générée. Il est intéressant de voir s'il est possible d'améliorer encore les performances de reconstruction en améliorant la résolution. On a en effet vu plus haut qu'une résonance étroite augmente le potentiel de découverte. Un moyen d'améliorer cette résolution est d'utiliser un ajustement cinétique, détaillé dans la suite.
+L'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Il est donc possible que ces techniques puissent être utilisées à l'avenir pour remplacer l'algorithme de tri par $\chi^2$.
 
 \subsection{Ajustement cinématique} \label{sec:mtt_kf}
 
@@ -285,7 +290,7 @@ L'idée de l'ajustement cinématique est simple : on utilise la connaissance de 
 
 \bigskip
 
-\begin{figure}[p] \centering
+\begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:kinfit_matched_events}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_comparison_kf_good_solutions.pdf}} \hfill
     \subcaptionbox{\label{fig:kinfit_all_events}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_comparison_kf_all_events.pdf}}
     \caption{Résolution sur la masse invariante \mtt sans ajustement cinématique (\rouge), après ajustement cinématique (\textcolor{vert}{vert}) et après ajustement cinématique et une coupure $p > \num{0.2}$ (\textcolor{violet}{violet}). Les distributions ont été obtenues avec des événements \ttbar simulés, en utilisant la bonne combinaison de jets (\subref{fig:kinfit_matched_events}) et avec tous les événements (\subref{fig:kinfit_all_events}). Un ajustement avec une Breit-Wigner est superposé afin de facile la comparaison entre les trois méthodes.}
