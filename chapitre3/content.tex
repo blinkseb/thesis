@@ -21,9 +21,9 @@ La section efficace partonique $\sigma_{ij} \rightarrow X$, avec $i, j = \Pgluon
   \sigma_{X} &= \sum_{ij} \int \displaylimits_0^1 \int \displaylimits_0^1 f_i\left( x_i, \mu^2 \right) f_j\left(x_j, \mu^2\right) \sigma_{ij \rightarrow X}\, \mathrm{d}x_i \mathrm{d}x_j \notag \\
   \sigma_{ij \rightarrow X} &\propto \int \prod \displaylimits_{k = 1}^{N} \frac{\mathrm{d}^3p_k}{\left( 2 \pi \right)^2 2 E_k} \delta^4\left( p_i + p_j - \sum_{k = 1}^{N} p_k \right) \left| \mathcal{M}_{fi} \right|^2 \label{eq:section_efficace}
 \end{align}
-où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus loin \fxnote{renvoi}), $x_i$ la fraction d'impulsion emportée par le parton $i$, $\mu^2$ l'échelle d'énergie du processus et $\mathcal{M}_{fi}$ l'élément de matrice de transition entre l'état initial $i$ et l'état final $f$. L'élément de matrice est calculé jusqu'à un ordre donné, limité par l'ordre auquel les calculs théoriques ont pu être mené, et l'intégration est effectuée numériquement selon une méthode d'intégration Monte Carlo.
+où $f_{i, j}$ est la densité de probabilité partonique (détaillée \cref{sec:pdf}), $x_i$ la fraction d'impulsion emportée par le parton $i$, $\mu^2$ l'échelle d'énergie du processus et $\mathcal{M}_{fi}$ l'élément de matrice de transition entre l'état initial $i$ et l'état final $f$. L'élément de matrice est calculé jusqu'à un ordre donné, limité par l'ordre auquel les calculs théoriques ont pu être mené, et l'intégration est effectuée numériquement selon une méthode d'intégration Monte Carlo.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=0.99\textwidth]{chapitre3/figs/parton_shower_legend.pdf}
     \caption{Représentation graphique d'une collision de deux protons simulée à l'aide d'un générateur. L'événement dur (au centre, en rouge) est produit par l'interaction de deux partons. Les trois particules produites (rond rouge plein) se désintègrent. C'est à ce niveau qu'intervient l'hadronisation.Des radiations de photons (jaune) ont été rajoutées à chaque étape.}
@@ -31,6 +31,22 @@ où $f_{i, j}$ est la distribution de probabilité partonique (détaillée plus 
 \end{figure}
 
 On obtient en sortie du générateur le quadrivecteur impulsion de chaque particule produite lors de l'événement dur.
+
+\subsection{Densité de probabilité partonique (PDF)} \label{sec:pdf}
+
+Le calcul des sections efficaces des processus faisant intervenir des hadrons nécessite la connaissance des densités de probabilité partonique (PDF) $f_i\left( x, \mu^2 \right)$, qui représente la probabilité de trouver un parton $i$ au sein du hadron, emportant une fraction d'impulsion $x$ lors d'un processus à l'échelle d'énergie $\mu^2$. Ces fonctions ne peuvent pas être déterminées par des calculs perturbatifs, mais sont obtenus à partir d'ajustement des données expérimentales. Les principales sources de données proviennent des mesures de l'expérience HERA, permettant de sonder la structure du proton en faisant collisionner des protons avec des électrons. L'étude de la production des jets au Tevatron et au LHC contribue également considérablement à la connaissance des PDFs des gluons. Malheureusement, l'échelle d'énergie du LHC permet d'obtenir des collisions à très petit $x$ et très grand $\mu^2$, gamme non couverte par les données expérimentales : il est nécessaire d'extrapoler les PDFs, augmentant ainsi les incertitudes liées aux PDFs.
+
+\smallskip
+
+Deux groupes principaux fournissent les PDFs, CTEQ \citep{Owens:2012bv} et MSTW \citep{Martin:2009iq}, qui publient régulièrement des nouvelles PDFs tenant compte des dernières mesures. La \cref{fig:cj12} présente les PDFs pour divers partons issues du jeu de PDFs CJ12, pour une échelle en énergie $\mu^2 = \SI{100}{\GeV}$.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{chapitre3/figs/Fx_errl.pdf}
+  \caption{PDFs pour divers partons issues du jeu de PDFs CJ12 \citep{Owens:2012bv}.}
+  \label{fig:cj12}
+\end{figure}
+
 
 \subsection{L'hadronisation des partons : la gerbe partonique}
 
