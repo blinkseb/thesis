@@ -66,7 +66,9 @@ Lors du redémarrage du LHC en 2015 à \SI{14}{\TeV}, la section efficace de pro
 
 Un deuxième mode de production permet de produire des quarks top célibataires, \emph{via} l'interaction faible. Trois canaux de productions existent, présentés \cref{fig:singletop_diagrams,fig:singletop_diagrams_2}. Le diagramme \cref{fig:single_top_t_channel}, connu sous le nom de voie t, est le processus dominant, avec une section efficace NNLO approchée de \SI{87.2}{\pb} au LHC à \SI{8}{\TeV} \citep{Kidonakis:2012db}. Les deux autres canaux sont la voie s (\cref{fig:single_top_s_channel}, $\sigma = \SI{5.55}{\pb}$ \citep{Kidonakis:2012db}) et la production associée d'un quark top et d'un boson \PW (voie tW, \cref{fig:singletop_diagrams_2}, $\sigma = \SI{22.2}{\pb}$ \citep{Kidonakis:2012db}). La confirmation expérimentale de ces canaux de production est très récente. En effet, le Tevatron conclut à l'existence des canaux s et t en 2009 \citep{Aaltonen:2009jj}, tandis que le canal tW a été observé pour la première fois en 2014 par l'expérience CMS \citep{Chatrchyan:1642680}.
 
-\fxnote{Asymétrie \ttbar}
+\smallskip
+
+Il est aussi à noter que, étant donné que le proton est chargé positivement, la production de quarks top est privilégiée face à la production de quarks anti-top. Ainsi, dans la voie s et t, la section efficace de production de quarks top est près de 2 fois plus grande que celle de production de quarks anti-top.
 
 \begin{figure}[btp] \centering
     \subcaptionbox{\label{fig:single_top_s_channel}}[0.48\textwidth]{
@@ -534,8 +536,6 @@ Les topgluons et \zprime prédits par ces modèles peuvent se désintégrer en \
 
 \subsection{Modèles à dimensions supplémentaires}
 
-\fxnote{Introduire échelle de Planck}
-
 Les modèles à dimensions supplémentaires ont principalement été développé afin de fournir une explication au problème de hiérarchie du Modèle Standard. En effet, l’interaction gravitationnelle est \SI{e32} fois plus faible que l'interaction faible. Dans le but d'expliquer cette différence de couplage, on introduit une ou plusieurs dimensions supplémentaire, dans lesquelles la gravitation est beaucoup plus forte que dans les dimensions usuelles de l'espace-temps. Tous ces modèles prédisent de nouveaux bosons de spin 2, les gravitons, médiateurs de l'interaction gravitationnelle.
 
 %\subsubsection{Les modèles Randall-Sundrum}
@@ -562,7 +562,7 @@ En introduisant une nouvelle dimension, la valeur au minimum $v$ du champ de Hig
   v_{\text{eff}} &= e^{- \kappa \abs{y}} \, v
 \end{align*}
 
-Les masses des particules dans le Modèle Standard étant proportionnelles à $v$, on observe ainsi une suppression exponentielle de toutes les masses, expliquant ainsi le problème de hiérarchie. La \cref{fig:hierarchie} illustre cet effet. Ainsi, la brane localisée à $y = 0$ est communément appelé "brane de Planck". Les particules se propageant dans cette brane ont typiquement des masses de l'ordre de la masse de Planck. Au contraire, la brane localisée à $y = \pm \pi R$ est appelé "brane \si{\TeV}" : c'est ici que sont localisées les particules du Modèle Standard.
+Les masses des particules dans le Modèle Standard étant proportionnelles à $v$, on observe ainsi une suppression exponentielle de toutes les masses, expliquant ainsi le problème de hiérarchie. La \cref{fig:hierarchie} illustre cet effet. Ainsi, la brane localisée à $y = 0$ est communément appelée "brane de Planck". Le couplage de l'interaction gravitationnelle y est comparable au couplage de l'interaction faible, et les particules se propageant dans cette brane ont typiquement des masses de l'ordre de la masse de Planck. Au contraire, la brane localisée à $y = \pm \pi R$ est appelée "brane \si{\TeV}" : la gravité y est très faible, et c'est ici que sont localisées les particules du Modèle Standard.
 
 % Le problème de hiérarchie est expliqué par la fonction exponentielle, qui dépend du rayon de compactification, présente devant la métrique de l'espace à 4 dimensions usuel. Ainsi, un petit rayon de compactification peut entrainer d'énorme différentes entre l'échelle de Planck et l'échelle électrofaible. Un facteur $\kappa R \simeq 10$ permet en effet de retrouver la hiérarchie entre l'échelle de Planck et l'échelle électrofaible.
 
@@ -579,7 +579,8 @@ La dimension supplémentaire étant compactifiée, on voit apparaitre des excita
     \label{fig:mtt_gravitons_RS}
 \end{figure}
 
-Une extension courante des modèles de Randall-Sundrum \citep{Davoudiasl:2000wi,Lillie:2007yh,Agashe:2003zs,Agashe:2006hk} permet en plus d'expliquer la hiérarchie de masses entre les particules du Modèle Standard. Dans ces modèles, les champs du Modèle Standard sont autorisés à se propager dans la dimension supplémentaire. Comme la dimension est compactifiée, on voit apparaitre des excitations de Kaluza-Klein pour tous les fermions et bosons du Modèle Standard. On identifie ainsi les particules du Modèle Standard comme étant les excitations d'ordre 0 de Kaluza-Klein. Les fermions acquièrent leurs masses grâce au couplage avec le champ de Higgs. La masse "4d" est obtenue en intégrant le long de la \ordinalnum{5} dimension :
+Une extension courante des modèles de Randall-Sundrum \citep{Davoudiasl:2000wi,Lillie:2007yh,Agashe:2003zs,Agashe:2006hk} permet en plus d'expliquer la hiérarchie de masses entre les particules du Modèle Standard. Dans ces modèles, les champs du Modèle Standard sont autorisés à se propager dans la dimension supplémentaire. Comme la dimension est compactifiée, on voit apparaitre des excitations de Kaluza-Klein pour tous les fermions et bosons du Modèle Standard. On identifie ainsi les particules du Modèle Standard comme étant les excitations d'ordre 0 de Kaluza-Klein.
+Les fermions acquièrent leur masse grâce au couplage avec le champ de Higgs. La masse "4d" est obtenue en intégrant le long de la \ordinalnum{5} dimension :
 \begin{align*}
   m_i &\propto \int \limits_{-\pi R}^{\pi R} \frac{\mathrm{d}y}{2 \pi R} \, \lambda_i^\text{(5)} \, e^{-4 \kappa \abs{y}} \, H(y) \, f_0^i(y) \\
   H(y) &= H_0 \, e^{4 \kappa \left(\abs{y} - \pi R \right)}
@@ -595,7 +596,7 @@ où $i$ représente le fermion considéré (\Pe, \Pmu, \Ptop, ...), $\lambda_i^\
     \label{fig:rs}
 \end{figure}
 
-Parmi les signatures expérimentales de ces modèles, attardons nous spécifiquement sur le premier mode excité des gluons, un gluon massif de spin 1 ($g^1$, \kkglu). Du fait du très fort recouvrement entre les fonctions d'ondes des quarks top et des gluons K. K. (voir \cref{fig:rs}), la rapport d'embranchement $g^1 \rightarrow \ttbar$ est proche de \SI{100}{\percent}. L'étude du spectre de masse \ttbar est alors le moyen le plus prometteur de mettre en évidence de telles particules.
+Parmi les signatures expérimentales de ces modèles, attardons nous spécifiquement sur le premier mode excité des gluons, un gluon massif de spin 1 (\kkg, \kkglu). Du fait du très fort recouvrement entre les fonctions d'ondes des quarks top et des gluons K. K. (voir \cref{fig:rs}), la rapport d'embranchement $\kkg \rightarrow \ttbar$ est proche de \SI{100}{\percent}. L'étude du spectre de masse \ttbar est alors le moyen le plus prometteur de mettre en évidence de telles particules.
 
 \section{Conclusion}
 
