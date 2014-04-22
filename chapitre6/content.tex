@@ -9,7 +9,7 @@ En utilisant le quadrivecteur énergie-impulsion ($p = \left(E,\,\vec{p}\right)$
   m^2 &= \norm{p}^2 = E^2 - \norm{\vec{p}}^2
 \end{align*}
 
-Concentrons nous uniquement sur la désintégration semi-leptonique de paires \ttbar, c'est-à-dire un quark top qui se désintègrent en \Plepton{}\Pneutrino{}\Pbottom, et le deuxième en \Pbottom{}\Pquark{}\APquark (voir \cref{fig:top_pair_decay_semileptonic})\footnote{Ce choix particulier sera expliqué en détail dans le chapitre suivant.}. Toutes les particules peuvent être reconstruites, excepté le neutrino. En effet, n'interagissant que très faiblement avec la matière, les neutrinos traversent le détecteur sans laisser de dépôts dans les sous-détecteurs. Le seul moyen d'identifier les neutrinos est d'utiliser l'énergie transverse manquante. En faisant le bilan d'énergie de la collision dans le plan transverse, le neutrino apparait comme de l'énergie manquante. Dans le cas d'une désintégration \ttbar, on identifie la totalité de l'énergie transverse manquante comme venant du neutrino.
+Concentrons nous uniquement sur la désintégration semi-leptonique de paires \ttbar, c'est-à-dire un quark top qui se désintègre en \Plepton{}\Pneutrino{}\Pbottom, et le deuxième en \Pbottom{}\Pquark{}\APquark (voir \cref{fig:top_pair_decay_semileptonic})\footnote{Ce choix particulier sera expliqué en détail dans le chapitre suivant.}. Toutes les particules peuvent être reconstruites, excepté le neutrino. En effet, n'interagissant que très faiblement avec la matière, les neutrinos traversent le détecteur sans laisser de dépôts dans les sous-détecteurs. Le seul moyen d'identifier les neutrinos est d'utiliser l'énergie transverse manquante. En faisant le bilan d'énergie de la collision dans le plan transverse, le neutrino apparait comme de l'énergie manquante. Dans le cas d'une désintégration \ttbar semi-leptonique, on identifie la totalité de l'énergie transverse manquante comme venant du neutrino.
 
 Afin de reconstruire la masse invariante du système \ttbar, il faut être capable de reconstruire la cinématique de chaque produit de la désintégration. On peut ensuite reconstruire la masse invariante \ttbar :
 \begin{align} \label{eq:invariant_mass_tt}
@@ -18,8 +18,8 @@ Afin de reconstruire la masse invariante du système \ttbar, il faut être capab
 
 Deux problèmes majeurs se posent :
 \begin{itemize}
-    \item 4 jets composent l'état final d'une désintégration \ttbar. Il faut donc être capable de correctement identifier ces jets parmi les nombreux jets de \pu ou de radiations dans l'événement. Pour cela, diverses techniques peuvent être employées, décrites plus loin dans ce chapitre.
     \item L'énergie transverse manquante est utilisée pour reconstruire le neutrino. Comme le bilan d'énergie ne peut être effectué que dans le plan transverse, seule l'impulsion transverse du neutrino est définie, c'est-à-dire $p_x^{\Pnu}$ et $p_y^{\Pnu}$. Il faut donc trouver un moyen de reconstruire $p_z^{\Pnu}$ qui sera utilisé dans le calcul de la masse invariante \ttbar. C'est l'objet de la \cref{sec:neutrino}.
+    \item 4 jets composent l'état final d'une désintégration \ttbar. Il faut donc être capable de correctement identifier ces jets parmi les nombreux jets de \pu ou de radiations dans l'événement. Pour cela, diverses techniques peuvent être employées, décrites plus loin dans ce chapitre \fxnote{Renvoi}.
 \end{itemize}
 
 Une fois ces problèmes surmontés, il est possible de reconstruire la masse invariante pour chaque événement.
@@ -61,7 +61,7 @@ Lorsque l'on obtient deux solutions réelles, le choix est fait en utilisant la 
 
 \medskip
 
-La \cref{fig:neutrino_correction} présente l'effet de la reconstruction de la composante longitudinale sur la mesure de l'énergie du neutrino. Avant reconstruction, l'énergie du neutrino est clairement sous estimée. Une fois $p_z^{\Pnu}$ reconstruit, l'énergie du neutrino coïncide avec l'énergie du neutrino générée. On mesure ici toute l'importance de la reconstruction du neutrino sur la mesure de l'énergie, et donc sur la reconstruction de la masse invariante du système \ttbar.
+La \cref{fig:neutrino_correction} présente l'effet de la reconstruction de la composante longitudinale sur la mesure de l'énergie du neutrino. Avant reconstruction, l'énergie du neutrino est clairement sous estimée. Une fois $p_z^{\Pnu}$ reconstruit, l'énergie du neutrino se rapproche de l'énergie du neutrino générée. On mesure ici toute l'importance de la reconstruction du neutrino sur la mesure de l'énergie, et donc sur la reconstruction de la masse invariante du système \ttbar.
 
 \section{Choix de la bonne combinaison de jets} \label{sec:chi2}
 
@@ -79,7 +79,15 @@ Pour chaque événement candidat \ttbar, parmi $N (\geq 4)$ jets sélectionnés,
 
 \medskip
 
-Afin de choisir la bonne combinaison, on minimise une variable de $\chi^2$, construite à partir de composantes qui permettent de discriminer entre les bonnes et les mauvaises combinaisons. Le $\chi^2$ total est donné par
+Afin de choisir la bonne combinaison, on minimise une variable de $\chi^2$, construite à partir de quantités qui permettent de discriminer entre les bonnes et les mauvaises combinaisons. Les discriminants formant le $\chi^2$ sont :
+\begin{itemize}
+    \item masse du quark top dans la branche leptonique.
+    \item masse du quark top dans la branche hadronique.
+    \item masse du boson \PW dans la branche hadronique.
+    \item $\sum\limits_i{p_T} / \sum\limits_j{p_T}$ où $i$ court sur les 4 jets considérés comme issus du système \ttbar, et $j$ sur tous les jets sélectionnés.
+\end{itemize}
+
+Le $\chi^2$ total est donné par
 \begin{align} \label{eq:chi2}
   \chi^2 &= \chi^2_{m_{\Ptop}^{\text{lept.}}} + \chi^2_{m_{\Ptop}^{\text{hadr.}}} + \chi^2_{m_{\PW}^{\text{hadr.}}} + \chi^2_{H_{T}^{\text{frac.}}}
 \end{align}
@@ -89,14 +97,6 @@ où
   \chi^2_X &= \frac{\left( X_\text{mesuré} - \left\langle X_\text{MC} \right\rangle \right)^2}{\sigma_\text{MC}^2}
 \end{align*}
 avec $X$ le discriminant considéré, $X_\text{mesuré}$ la valeur mesurée de ce discriminant, $\left\langle X_\text{MC} \right\rangle$ la valeur de référence du discriminant et $\sigma_\text{MC}$ l'incertitude sur la valeur de référence du discriminant.
-
-Les discriminants formant le $\chi^2$ total sont :
-\begin{itemize}
-    \item $\chi^2_{m_{\Ptop}^{\text{lept.}}}$ : masse du quark top dans la branche leptonique. Deux valeurs sont utilisées, selon la saveur du lepton (électron ou muon).
-    \item $\chi^2_{m_{\Ptop}^{\text{hadr.}}}$ : masse du quark top dans la branche hadronique.
-    \item $\chi^2_{m_{\PW}^{\text{hadr.}}}$ : masse du boson \PW dans la branche hadronique.
-    \item $\chi^2_{H_{T}^{\text{frac.}}}$ : $\sum\limits_i{p_T} / \sum\limits_j{p_T}$ où $i$ court sur les 4 jets considérés comme issus du système \ttbar, et $j$ sur tous les jets sélectionnés.
-\end{itemize}
 
 \begin{figure}[p] \centering
     \subcaptionbox{$m_{\Ptop}^{\text{lept.}}$ semi-$\mu$}[0.41\textwidth]{\includegraphics[width=0.41\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_leptonic_top_mass_mu.pdf}} \qquad
@@ -123,9 +123,9 @@ Les valeurs de références des discriminants sont définies comme les valeurs l
     \label{tab:chi2_ref_values}
 \end{table}
 
-On évalue la valeur de chaque discriminant pour chaque bonne combinaison. La \cref{fig:chi2_distributions} présente les distributions de chaque discriminant. Les valeurs de référence et les incertitudes associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur moyenne et la moyenne quadratique (RMS) de la distribution sont utilisées.
+On évalue la valeur de chaque discriminant pour chaque bonne combinaison. La \cref{fig:chi2_distributions} présente les distributions de chaque discriminant. Les valeurs de référence et les incertitudes associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur de référence est fixée à 1, et l'incertitude est estimée à partir de la moyenne quadratique (RMS) de la distribution.
 
-Le \cref{tab:chi2_ref_values} résume les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs incertitudes associées. Ces valeurs ont été déterminées sur des événements \ttbar simulés.
+Le \cref{tab:chi2_ref_values} résume les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs incertitudes associées.
 
 \bigskip
 
@@ -152,7 +152,7 @@ Pour pouvoir évaluer les performances de l'algorithme de tri par $\chi^2$, il e
   \label{fig:chi2_vs_jets}
 \end{figure}
 
-Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse invariante d'un système à 6 corps (voir \cref{eq:invariant_mass_tt}). La position des jets sélectionnés n'a au final aucune influence sur la valeur de la masse invariante. Seul importe le fait de choisir les 4 bons jets. On cherche donc à maximiser l'efficacité d'obtenir la bonne combinaison de jets. Pour cela, on cherche à savoir si l'ajout d'un autre terme dans le $\chi^2$ permet d'améliorer cette efficacité. L'étude s'est concentrée sur la possible d'ajouter le $p_T$ du système \ttbar comme variable discriminante. On peut voir \cref{fig:chi2_ptsyst} le pouvoir de discrimination d'une telle variable. Les résultats de cette étude sont présentés \cref{tab:chi2_study}. En ajoutant une variable supplémentaire, l'efficacité diminue de près d'\SI{1}{\%}. Le choix a donc été fait de garder le $\chi^2$ tel que présenté \cref{eq:chi2}.
+Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse invariante d'un système à 6 corps (voir \cref{eq:invariant_mass_tt}). La position des jets sélectionnés n'a au final aucune influence sur la valeur de la masse invariante. Seul importe le fait de choisir les 4 bons jets. On cherche donc à maximiser l'efficacité d'obtenir la bonne combinaison de jets. Pour cela, on cherche à savoir si l'ajout d'un autre terme dans le $\chi^2$ permet d'améliorer cette efficacité. L'étude s'est concentrée sur la possibilité d'ajouter le $p_T$ du système \ttbar comme variable discriminante (voir  \cref{fig:chi2_ptsyst}), mais également sur le pouvoir de discrimination de la variable $H_{T}^{\text{frac.}}$. Les résultats de cette étude sont présentés \cref{tab:chi2_study}. En ajoutant une variable supplémentaire, l'efficacité diminue de près d'\SI{1}{\%}. Le choix a donc été fait de garder le $\chi^2$ tel que présenté \cref{eq:chi2}.
 
 \begin{table}[h] \centering
     \begin{tabular}{@{}ccccc@{}} \toprule
@@ -165,7 +165,7 @@ Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse inv
     \label{tab:chi2_study}
 \end{table}
 
-D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elle consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport cette méthode. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée.
+D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elle consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport à cette méthode. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée.
 
 % \begin{figure}[tbp] \centering
 %     \subcaptionbox{\label{fig:chi2_vs_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/jet_selection_efficiency.pdf}}
@@ -183,9 +183,9 @@ Afin d'exploiter toutes les informations possibles pour discriminer entre bonnes
 
 \subsubsection{Arbres de décisions boostés}
 
-Un arbre de décision est un algorithme de classification des événements utilisant en entrée plusieurs variables, et qui permet en sortie de classer les événements en deux catégories distinct : "signal" ou "fond". L'algorithme commence au nœud racine, où une première coupure sur une variable $x_i$ est appliquée.Une deuxième coupure sur une variable $x_j$ est ensuite appliquée, qui dépend du résultat de la première coupure: on obtient ainsi 2 nouveaux noeuds. Cette procédure est répétée jusqu'à ce qu'une condition d'arrêt soit atteinte. L'événement est alors classé "signal" ou "fond". Un exemple d'arbre de décision est présenté \cref{fig:bdt}.
+Un arbre de décision est un algorithme de classification des événements utilisant en entrée plusieurs variables, et qui permet en sortie de classer les événements en deux catégories distinct : "signal" ou "fond". L'algorithme commence au nœud racine, où une première coupure sur une variable $x_i$ est appliquée. Une deuxième coupure sur une variable $x_j$ est ensuite appliquée, qui dépend du résultat de la première coupure: on obtient ainsi 2 nouveaux nœuds. Cette procédure est répétée jusqu'à ce qu'une condition d'arrêt soit atteinte. L'événement est alors classé "signal" ou "fond". Un exemple d'arbre de décision est présenté \cref{fig:bdt}.
 
-Afin de construire un tel arbre, une phase d'entrainement est nécessaire. Cette entrainement est réalisé à la fois sur des événements classés comme "signal" et sur des événements classés comme "fond". Un des principaux problèmes de cet algorithme est son instabilité vis-à-vis des fluctuations statistiques dans l'échantillon utilisé pour l'entrainement. Par exemple, si deux variables font preuves d'un pouvoir de discrimination similaire, une fluctuation statistique pourrait décider l'algorithme à utiliser la première variable au lieu de la deuxième.
+Afin de construire un tel arbre, une phase d'entrainement est nécessaire. Cet entrainement est réalisé à la fois sur des événements classés comme "signal" et sur des événements classés comme "fond". Un des principaux problèmes de cet algorithme est son instabilité vis-à-vis des fluctuations statistiques dans l'échantillon utilisé pour l'entrainement. Par exemple, si deux variables font preuves d'un pouvoir de discrimination similaire, une fluctuation statistique pourrait décider l'algorithme à utiliser la première variable au lieu de la deuxième.
 
 Le problème est contourné en construisant une "forêt" d'arbres de décision. La classification d'un événement en "signal" ou "fond" est déterminée par le résultat majoritaire sur tous les arbres. L'entrainement de chaque arbre est réalisé sur le même échantillon. La seule différence vient de l'application d'un poids particulier à chaque événement : les événements mal classés durant l'entrainement de l'arbre de décision auront un poids plus grand lors de l'entrainement de l'arbre suivant. Cette technique est appelé \emph{boost} \citep{Freund1997119} et permet de stabiliser l'algorithme.
 
@@ -211,14 +211,14 @@ L'utilisation d'un MVA permet de classer un événement en deux catégories : "s
     \caption{Valeurs de sortie pour les bonnes (bleu) et mauvaises (rouge) combinaisons, pour l'algorithme BDT (\subref{fig:mva_bdt_discr}) et le réseau de neurones (\subref{fig:mva_nn_discr}).}
 \end{figure}
 
-Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. On identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA. Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA.
+Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. On identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA. Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA, et est retenu pour être utilisé dans les analyses.
 
 \begin{table}[tbp] \centering
     \sisetup{separate-uncertainty = true}
     \begin{tabular}{@{}cccc@{}} \toprule
         & $\chi^2$ & BDT & NN \\ \midrule
-        $\epsilon_\text{associé}$ & \SI{80.23 \pm 1.08}{\%} & \SI{78.12 \pm 1.17}{\%} & \SI{74.33 \pm 1.18}{\%} \\
-        $\epsilon_\text{associé et bien placé}$ & \SI{44.27 \pm 1.34}{\%} & \SI{44.56 \pm 1.34}{\%} & \SI{38.51 \pm 1.31}{\%} \\ \bottomrule
+        $\epsilon_\text{associé}$ & \SI{79.55 \pm 0.12}{\%} & \SI{78.12 \pm 1.17}{\%} & \SI{74.33 \pm 1.18}{\%} \\
+        $\epsilon_\text{associé et bien placé}$ & \SI{44.04 \pm 0.14}{\%} & \SI{44.56 \pm 1.34}{\%} & \SI{38.51 \pm 1.31}{\%} \\ \bottomrule
     \end{tabular}
     \caption{Efficacité d'obtenir un événement associé ($\epsilon_\text{associé}$) et un événement associé et bien placé ($\epsilon_\text{associé et bien placé}$) pour différentes configurations du $\chi^2$. La configuration optimale est celle utilisant uniquement le terme supplémentaire $H_{T}^{\text{frac.}}$.}
     \label{tab:chi2_vs_bdt_vs_nn}
@@ -228,11 +228,11 @@ Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties
 
 \bigskip
 
-L'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Avant que ces études ne soient menées, il a été décidé de ne pas utiliser de MVA en raison des moins bonnes performances par rapport à l'algorithme de tri par $\chi^2$.
+Toutefois, l'étude dédiée au MVA est encore très préliminaire. De nombreuses améliorations sont possibles, comme par exemple optimiser la liste des variables en entrée afin d'améliorer encore la discrimination entre bonnes et mauvaises combinaisons. Il est donc possible que ces techniques puissent être utilisées à l'avenir pour remplacer l'algorithme de tri par $\chi^2$.
 
 \section{Performances de la reconstruction de la masse invariante} \label{sec:perf_reco_tt}
 
-Deux critères sont utilisés afin de déterminer la qualité de la reconstruction de la masse invariante. Le plus important est la résolution, définie comme la différence entre la masse invariante reconstruite ($\mtt^\text{reco}$) et la masse invariante générée ($\mtt^\text{gen}$). Ainsi, plus la reconstruction est de qualité, plus la résolution est faible. On peut aussi observer la linéarité de la reconstruction, en traçant l'évolution de $\mtt^\text{reco}$ en fonction de $\mtt^{gen}$. Cette section est dédiée à la comparaison de ces deux critères pour l'algorithme de tri par $\chi^2$ ainsi que pour le BDT. À cause des faibles performances du réseau de neurones, cet algorithme n'est pas inclut dans cette étude.
+Deux critères sont utilisés afin de déterminer la qualité de la reconstruction de la masse invariante. Le plus important est la résolution, définie comme la différence entre la masse invariante reconstruite ($\mtt^\text{reco}$) et la masse invariante générée ($\mtt^\text{gen}$). Ainsi, plus la reconstruction est de qualité, plus la résolution est faible. On peut aussi observer la linéarité de la reconstruction, en traçant l'évolution de $\mtt^\text{reco}$ en fonction de $\mtt^{gen}$. Cette section est dédiée à la comparaison de ces deux critères pour l'algorithme de tri par $\chi^2$ ainsi que pour le BDT. À cause des faibles performances du réseau de neurones, cet algorithme n'est pas inclus dans cette étude.
 
 \bigskip
 
@@ -301,7 +301,7 @@ On utilise l'ajustement cinématique en sortie de l'algorithme de tri par $\chi^
 
 % L'effet de l'ajustement cinématique sur la résolution de la masse invariante est présenté \cref{fig:kinfit_ttbar} pour des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définie la qualité de l'ajustement. On demande $p > 0.2$ (courbe \textcolor{rouge_grandmere}{rouge} sur les distributions des figures \ref{fig:kinfit_ttbar}).
 
-Afin de quantifier les améliorations apportées par l'ajustement cinétique, on présente \cref{fig:kinfit_ttbar} la résolution sur la masse invariante mesurée sur des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définie la qualité de l'ajustement. On demande $p > \num{0.2}$. On évalue dans un premier temps les performances de l'ajustement sur des événements où la bonne combinaison de jets est sélectionnée par l'algorithme de tri par $\chi^2$. La \cref{fig:mtt_resp_reso_kf_good} présente la linéarité de la reconstruction et l'évolution de la résolution en fonction de la masse invariante \ttbar générée, avant et après utilisation de l'ajustement cinématique. Premièrement, la linéarité est rétablie après l'utilisation de l'ajustement cinématique. De plus, on constate une nette amélioration de la résolution, avec des gains allant de \tilde\SI{75}{\%} à bas \mtt à \tilde\SI{38}{\%} à haut \mtt. La coupure $p > \num{0.2}$ permet de gagner \tilde\SI{10}{\%} à haut \mtt, au détriment d'une diminution du nombre d'événements sélectionnés d'environ \SI{35}{\%}.
+Afin de quantifier les améliorations apportées par l'ajustement cinétique, on présente \cref{fig:kinfit_ttbar} la résolution sur la masse invariante mesurée sur des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définit la qualité de l'ajustement. On demande $p > \num{0.2}$. On évalue dans un premier temps les performances de l'ajustement sur des événements où la bonne combinaison de jets est sélectionnée par l'algorithme de tri par $\chi^2$. La \cref{fig:mtt_resp_reso_kf_good} présente la linéarité de la reconstruction et l'évolution de la résolution en fonction de la masse invariante \ttbar générée, avant et après utilisation de l'ajustement cinématique. Premièrement, la linéarité est rétablie après l'utilisation de l'ajustement cinématique. De plus, on constate une nette amélioration de la résolution, avec des gains allant de \tilde\SI{75}{\%} à bas \mtt à \tilde\SI{38}{\%} à haut \mtt. La coupure $p > \num{0.2}$ permet de gagner \tilde\SI{10}{\%} à haut \mtt, au détriment d'une diminution du nombre d'événements sélectionnés d'environ \SI{35}{\%}.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mtt_response_kf_good}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_good_solutions.pdf}} \hfill
