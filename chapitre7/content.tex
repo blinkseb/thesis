@@ -66,7 +66,7 @@ D'autres processus entrent aussi dans la composition du bruit de fond, tels que 
 
 Afin de reproduire correctement les conditions de \pu des données dans la simulation, les événements dans la simulation sont pondérés de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
 
-\section{Sélection des événements}
+\section{Sélection des événements} \label{sec:zprime_sel}
 
 On souhaite sélectionner des événements compatibles avec la désintégration semi-leptonique de paires \ttbar, c'est-à-dire comprenant un lepton isolé, au moins 4 jets et de l'énergie transverse manquante. On applique pour cela une série de coupures afin de réduire le plus possible le bruit de fond tout en gardant un maximum d'événements de signal.
 
@@ -227,7 +227,7 @@ Les événements passant la sélection sont ensuite classés en 4 catégories, s
 
 \section{Performances de la sélection}
 
-\subsection{Efficacité des chemins de déclenchements}
+\subsection{Efficacité des chemins de déclenchements} \label{sec:zp_eff_hlt}
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_fourthJet_zoom.pdf}}
@@ -289,8 +289,6 @@ $\epsilon$ (\ttbar)& \num{0.956\pm 0.005} & \num{0.954\pm 0.004} & \num{0.957\pm
 \label{tab:HLT_el_eff_1btag}
 \end{table}
 
-%Les chemins de déclenchements ne sont pas correctement simulés. En effet, les conditions de prises de données, et donc les différents seuils de chaque chemin, les facteurs de préscale, etc. ne sont pas connus au moment de la génération de la simulation.
-
 Afin d'estimer au mieux l'efficacité des chemins de déclenchements utilisés par l'analyse, chaque chemin a été simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
 
 Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont calculés centralement par la collaboration avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, et pour chacune des catégories de l'analyse. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
@@ -320,7 +318,7 @@ Un facteur de correction additionnel est appliqué à chaque efficacité pour te
 %     \label{fig:trig_eff_e_jets}
 % \end{figure}
 
-\subsection{Efficacité de sélection}
+\subsection{Efficacité de sélection} \label{sec:zprime_eff_sel}
 
 \begin{table}[p!] \centering
   \begin{tabular}{ccccccc} \toprule
@@ -450,7 +448,7 @@ Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ re
     \label{fig:kf_zp}
 \end{figure}
 
-\subsubsection{L'ajustement cinématique}
+\subsubsection{L'ajustement cinématique} \label{sec:zprime_kf}
 
 Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Cette section complète cette étude en incluant des événements \ttbar produit par des processus de nouvelle physique, plus particulièrement des \zprime.
 
@@ -565,7 +563,7 @@ Le signal est décrit en utilisant une interpolation par noyaux gaussiens \citep
 
 La \cref{fig:signal_pdf} présente les distributions de masse invariante pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, pour toutes les catégories de l'analyse. L'interpolation par noyaux gaussiens est superposée sur chaque distribution. Il est important de noter que l'interpolation par noyaux gaussiens n'est pas une fonction analytique : la PDF ainsi obtenue ne possède aucun paramètre libre.
 
-\subsection{Choix de la PDF du fond}
+\subsection{Choix de la PDF du fond} \label{sec:zp_bkg_pdf}
 
 On souhaite être capable de détecter une résonance présente dans un spectre de masse décroissant. On cherche ainsi une fonction analytique strictement décroissante. Parmi plusieurs formes, on sélectionne la fonction qui biaise le moins l'analyse : en cas de présence de signal, la fonction décrivant le fond ne doit pas être en mesure d'absorber ce signal. Pour cela, plusieurs études ont été effectuée, décrites dans la suite de cette section.
 
