@@ -1,1 +1,489 @@
 \chapter{Recherche de résonances de spin 0 dans le spectre de masse \ttbar} \label{chap:higgs}
+
+Ce chapitre est dédié à la recherche de résonance de spin 0 (\sz) dans le spectre de masse \ttbar. Contrairement à l'analyse présentée dans le \cref{chap:zprime} (analyse \zprime), cette analyse se base sur un modèle particulier. On interprète en effet la résonance de spin 0 comme un boson de Higgs massif se désintégrant exclusivement en \ttbar, comme prédit par un modèle à deux doublets de Higgs (voir \cref{sec:2hdm}).
+
+\section{Signaux et bruits de fonds}
+
+La production de particule de spin 0 (\sz) se produit exclusivement par fusion de gluons, à l'aide d'une boucle de quarks top. Le diagramme de Feynman de cette production est visible sur la \cref{fig:f_signal}. Le couplage $g_{\sz \ttbar}$ de la résonance aux quarks top est défini par
+\begin{align*}
+  g_{\sz \ttbar} &= \alpha \, i \frac{m_{\Ptop}}{v} + \beta \, \gfive \frac{m_{\Ptop}}{v}
+\end{align*}
+et comporte deux parties : une scalaire, proportionnelle à $\alpha$, et une pseudo-scalaire, proportionnelle à $\beta$. Ainsi, il est possible de générer des particules purement scalaire ($\alpha \neq 0$, $\beta = 0$), purement pseudo-scalaire ($\alpha = 0$, $\beta \neq 0$), voire un mélange d'état scalaire - pseudo-scalaire.
+
+\medskip
+
+Deux types de signaux sont générés :
+\begin{itemize}
+    \item Une résonance purement scalaire, avec un couplage $g_{\sz \ttbar} = i \frac{m_{\Ptop}}{v}$. On interprète cette particule comme le boson scalaire massif du 2HDM, \PHz.
+    \item Une résonance purement pseudo\-/scalaire, avec un couplage $g_{\sz \ttbar} = \gfive \frac{m_{\Ptop}}{v}$, qu'on interprète comme le boson pseudo\-/scalaire massif du 2HDM, \PAz.
+\end{itemize}
+
+Le rapport d'embranchement en \ttbar est fixé à \SI{100}{\percent}, et la section efficace ainsi que la largeur de la résonance sont fixées par la masse de la résonance. Plusieurs masses sont générées, allant de \SI{400}{\GeV} à \SI{800}{\GeV} par pas de \SI{100}{\GeV}.
+
+\bigskip
+
+Cette analyse se concentre sur le canal de désintégration des paires \ttbar semi\-/leptonique. Les bruits de fonds considérés sont résumés dans le \cref{tab:backgrounds_higgs}. On remarque que le bruit de fond di-boson est ajouté en plus de ceux déjà présents dans l'analyse \zprime.
+
+\begin{table} \centering
+  \begin{tabular}{@{}ccc@{}} \toprule
+    Processus & Section efficace (\si{\pb}) & Luminosité équivalente (\si{\invfb}) \\ \midrule
+    \ttbar & \num{245.8} (NNLO) & \num{84.34} \\
+    \PW + jets & \num{37509} (NNLO) & \num{1.54} \\
+    \PZ + jets & \num{3504} (NNLO) & \num{8.69} \\
+    Top célibataire (voie s) & \num{5,56} (NNLO appr.) & \num{71.96} \\
+    Top célibataire (voie t) & \num{87,1} (NNLO appr.) & \num{65.37} \\
+    Top célibataire (voie t\PW) & \num{22.35} (NNLO appr.) & \num{44.34} \\
+    Di-bosons & \num{97,2} (NLO) & \num{30.65} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Section efficace et luminosité équivalente pour chacun des bruits de fond considérés.}
+  \label{tab:backgrounds_higgs}
+\end{table}
+
+\bigskip
+
+Afin de reproduire correctement les conditions de \pu des données dans la simulation, les événements dans la simulation sont pondérés de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
+
+\subsection{Génération du signal}
+
+La production de résonances de spin 0 se fait par fusion de gluons, à l'aide d'une boucle de quarks top (voir \cref{fig:f_signal}). Les états initiaux et finaux de cette production sont identiques à ceux du mode de production dominant de quarks top Modèle Standard au LHC. Comme évoqué brièvement \cref{sec:2hdm}, la production de \sz va interférer avec celle du Modèle Standard, ne conduisant pas simplement à un pic dans la masse invariante dans le spectre \mtt, mais à une structure plus compliquée de type pic - trou. Les \cref{eq:sigma_scalar,eq:sigma_pscalar} présentent respectivement les sections efficaces théoriques pour un scalaire et un pseudo-scalaire dans le modèle 2HDM \citep{Dicus:1994bm}. Les termes de signal et d'interférences sont représentées sur la \cref{fig:theo_sigma}, pour différents points de masse. Comme on peut le constater, l'effet des interférences est loin d'être négligeable, la partie négative de l'interférence étant même parfois plus importante que la partie positive.
+
+\begin{align} \label{eq:sigma_scalar}
+  \begin{split}
+      \sigma(\hat{s}) &= \overbrace{\frac{ 3 \alpha_s^2 G_F^2 m_t^6 \beta^3 }{ 2048 \pi^3 } \frac{ 16 + 8 \beta^2\left(\pi^2 -y_t^2\right) + \beta^4\left(y_t^2 + \pi^2\right)^2 }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}^{\text{signal scalaire}} \\
+      &- \underbrace{\frac{ \alpha_s^2 G_F m_t^4 \beta^2 }{ 32 \pi \sqrt{2} \hat{s} } y_t \frac{ \left(\hat{s} - m_{\sz}^2\right) \left(4 + \beta^2 \left(\pi^2 - y_t^2\right)\right) + 2 \pi \beta^2 m_{\sz} \Gamma_{\sz} y_t }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}_{\text{interférences}} \\
+      &+ \sigma_\text{QCD}(\hat{s})
+  \end{split} \\ \label{eq:sigma_pscalar}
+  \begin{split}
+      \sigma(\hat{s}) &= \overbrace{\frac{ 3 \alpha_s^2 G_F^2 m_t^6 \beta }{ 2048 \pi^3 } \frac{ \left(y_t^2 + \pi^2\right)^2 }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}^{\text{signal pseudo-scalaire}} \\
+                   &- \underbrace{\frac{ \alpha_s^2 G_F m_t^4 }{ 32 \pi \sqrt{2} \hat{s} } y_t \frac{ \left(\hat{s} - m_{\sz}^2\right) \left(\pi^2 - y_t^2\right) + 2 \pi m_{\sz} \Gamma_{\sz} y_t }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}_{\text{interférences}} \\
+                   &+ \sigma_\text{QCD}(\hat{s})
+  \end{split} \\ \notag
+  \hat{s} &= \mtt^2, \qquad \beta = \sqrt{ 1 - \frac{4 \mt^2}{\hat{s}} }, \qquad y_t = \ln\left( \frac{1 + \beta}{1 - \beta} \right), \qquad \Gamma_{\sz} = \frac{3 G_F \mt^2 \hat{s}\beta^3}{4 \pi \msz \sqrt{2}}
+\end{align}
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{Scalaire}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/theory_scalar.pdf}}
+    \subcaptionbox{Pseudo-scalaire}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/theory_pseudoscalar.pdf}}
+    \caption{Section efficace signal + interférences, pour la désintégration $\sz \rightarrow \ttbar$ en fonction de \mtt, pour différentes masses de signal. Les PDFs des partons ne sont pas incluses dans le calcul.}
+    \label{fig:theo_sigma}
+\end{figure}
+
+\bigskip
+
+Afin d'obtenir ce phénomène d'interférence, il est nécessaire, lors de la génération du signal, de générer en même temps le signal et la production \ttbar Modèle Standard. On obtient alors au final non pas le signal seul, mais le signal accompagné du bruit de fond \ttbar. Il est ensuite possible d'obtenir le signal, accompagné des interférences, en soustrayant simplement le bruit de fond \ttbar.
+
+\smallskip
+
+Il n'est malheureusement pas possible de procéder ainsi à la génération de tous les points de signal. En effet, si l'on souhaite obtenir une luminosité équivalente pour le signal d'environ \SI{100}{\invfb}, il est nécessaire de générer environ \num{25000000} d'événements pour chaque point de masse. Les ressources disponibles ne sont pas suffisantes pour réaliser une telle génération.
+
+\smallskip
+
+\begin{fmffile}{chapitre8}
+
+\begin{figure}[btp] \centering
+    \subcaptionbox{\label{fig:f_signal} Signal}[0.48\textwidth]{
+    \begin{fmfgraph*}(160,70)
+          \fmfpen{0.5}
+          \fmfleftn{i}{2} \fmfrightn{o}{2}
+          \fmf{gluon,tension=1.3}{i1,v1}
+          \fmf{gluon,tension=1.3}{i2,v2}
+          \fmf{fermion,tension=0.8}{v1,v2,v3}
+          \fmf{fermion,tension=0.8}{v3,v1}
+          \fmf{dashes,label=$\PHz,,\PAz$,tension=1,label.side=left}{v3,v4}
+          \fmf{fermion,tension=0.72}{o1,v4,o2}
+          \fmfv{label=\Ptop}{o1}
+          \fmfv{label=\APtop}{o2}
+          \fmfdot{v3,v4}
+    \end{fmfgraph*}
+    }\hfill
+    \subcaptionbox{\label{fig:f_bkg_1} Fond}[0.48\textwidth]{
+    \begin{fmfgraph*}(160,70)
+        \fmfstraight
+        \fmfpen{0.5}
+        \fmfleftn{i}{2} \fmfrightn{o}{2}
+        \fmf{gluon}{i1,v1,i2}
+        \fmf{gluon}{v1,v2}
+        \fmf{fermion}{o1,v2,o2}
+        \fmfv{label=\Ptop}{o1}
+        \fmfv{label=\APtop}{o2}
+        \fmfdotn{v}{2}
+    \end{fmfgraph*}
+    } \\ \vspace{5mm}
+    \subcaptionbox{\label{fig:f_bkg_2} Fond}[0.48\textwidth]{
+    \begin{fmfgraph*}(160,70)
+        \fmfstraight
+        \fmfpen{0.5}
+        \fmfleftn{i}{2} \fmfrightn{o}{2}
+        \fmf{gluon}{i1,v1}
+        \fmf{fermion}{v1,o1}
+        \fmf{gluon}{i2,v2}
+        \fmf{fermion}{o2,v2}
+        \fmf{fermion,label=\APtop}{v2,v1}
+        \fmfv{label=\Ptop}{o1}
+        \fmfv{label=\APtop}{o2}
+        \fmfdotn{v}{2}
+    \end{fmfgraph*}
+    } \hfill
+    \subcaptionbox{\label{fig:f_bkg_3} Fond}[0.48\textwidth]{
+    \begin{fmfgraph*}(160,70)
+        \fmfstraight
+        \fmfpen{0.5}
+        \fmfleftn{i}{2} \fmfrightn{o}{2}
+        \fmf{gluon}{i1,v1}
+        \fmf{fermion}{o1,v1}
+        \fmf{gluon}{i2,v2}
+        \fmf{fermion}{v2,o2}
+        \fmf{fermion,label=\Ptop}{v1,v2}
+        \fmfv{label=\Ptop}{o2}
+        \fmfv{label=\APtop}{o1}
+        \fmfdotn{v}{2}
+    \end{fmfgraph*}
+    }
+    \caption{Diagrammes de Feynman des processus intervenants dans le calcul de l'élément de matrice pour la génération du signal.}
+    \label{fig:f_interference}
+\end{figure}
+
+\end{fmffile}
+
+Il existe cependant un moyen de générer directement le signal accompagné des interférences, sans avoir à générer le bruit de fond en même temps. Lors de la génération du signal, 4 diagrammes interviennent dans le calcul de l'élément de matrice à l'arbre. Ces diagrammes sont présentés dans la \cref{fig:f_interference}. L'élément de matrice total est donné par
+\begin{align*}
+  \mathcal{M}^2 &\propto \abs{\mathcal{M}_a + \mathcal{M}_b + \mathcal{M}_c + \mathcal{M}_d}^2
+\end{align*}
+
+La génération du bruit de fond seul ne nous intéresse pas. On modifie l'élément de matrice afin de ne garder que les termes interférant avec le signal. On obtient ainsi
+\begin{align} \label{eq:matrix_element_higgs}
+  \mathcal{M}^2 &\propto \mathcal{M}_a^2 + \mathcal{M}_a\mathcal{M}_b^\ast + \mathcal{M}_a\mathcal{M}_c^\ast + \mathcal{M}_a\mathcal{M}_d^\ast + \text{complexe conjugué}.
+\end{align}
+
+Le signal est généré à l'aide de \texttt{MadGraph 5}. Le code généré et responsable du calcul de l'élément de matrice est modifié manuellement afin de correspondre à l'\cref{eq:matrix_element_higgs}. Afin de valider cette procédure, on procède à deux générations : une génération signal + bruit de fond, à laquelle on soustrait le bruit de fond généré séparément (méthode standard), et une générant en modifiant l'élément de matrice (méthode alternative). Les distributions de masse invariante \mtt obtenues dans chacun des cas sont présentées sur la \cref{fig:mtt_check}. Les deux générations donnent des résultats comparables, ce qui permet de valider notre méthode de génération du signal. Il est également intéressant de constater que les erreurs statistiques sont nettement réduites en utilisant la méthode alternative, et ce en générant un nombre d'événement bien inférieure : \tilde\num{20000000} événements ont été générés pour la méthode standard, contre seulement \tilde\SI{200000} événements pour la méthode alternative.
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chapitre8/figs/plot_overlaid_500_cpl1_S_i_B_plus_S_i_B_minus_B_more_stat.pdf}
+    \caption{Distribution de masse invariante \mtt pour un \sz scalaire de masse $\msz = \SI{500}{\GeV}$, avec interférences. La distribution rouge est obtenue en générant le signal et le bruit de fond ensemble, puis en soustrayant le bruit de fond généré séparément. La distribution bleue est obtenue en générant uniquement le signal et les interférences, en modifiant le calcul de l'élément de matrice.}
+    \label{fig:mtt_check}
+\end{figure}
+
+\bigskip
+
+Chaque signal utilisé dans cette analyse est généré à l'aide de la méthode alternative. On peut voir sur la \cref{fig:gen_higgs} les distributions de masse invariante pour un \sz scalaire et pseudo-scalaire en sortie du générateur. Ces distributions sont légèrement différentes des prédictions théoriques visible sur la \cref{fig:theo_sigma}, en raison de la présence des PDFs des partons lors de la génération \texttt{MadGraph}. Les sections efficaces de production à l'arbre prédites par \texttt{MadGraph} sont résumées dans le \cref{tab:cross_sections}.
+\begin{table}[htbp] \centering
+    \begin{tabular}{cccccc} \toprule
+     & \SI{400}{\GeV} & \SI{500}{\GeV} & \SI{600}{\GeV} & \SI{700}{\GeV} & \SI{800}{\GeV} \\ \midrule
+     $\sigma_{\text{scalaire}}$ & \SI{0.5289}{\pb} & \SI{0.3023}{\pb} & \SI{0.1891}{\pb} & \SI{0.1295}{\pb} & \SI{0.0944}{\pb} \\
+     $\sigma_{\text{pseudo-scalaire}}$ & \SI{1.169}{\pb} & \SI{0.6756}{\pb} & \SI{0.4414}{\pb} & \SI{0.3121}{\pb} & \SI{0.2325}{\pb} \\
+     \bottomrule
+    \end{tabular}
+    \caption{Sections efficaces de production à l'arbre d'un Higgs scalaire ou pseudo-scalaire telles que prédites par \texttt{MadGraph}, pour un rapport d'embranchement en \ttbar de \SI{100}{\percent}.}
+    \label{tab:cross_sections}
+\end{table}
+
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{Pseudo-scalaire, $\msz = \SI{400}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/plot_400_cpl1_pseudoscalar_normalized.pdf}} \hfill
+    \subcaptionbox{Scalaire, $\msz = \SI{800}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/plot_800_cpl1_normalized.pdf}}
+    \caption{caption}
+    \label{fig:gen_higgs}
+\end{figure}
+
+\section{Sélection et reconstruction des événements}
+
+La sélection des événements est identique à celle décrite dans le chapitre précédent, plus particulièrement dans la \cref{sec:zprime_sel}. Seule la coupure sur l'impulsion transverse des jets est différente.
+
+La coupure sur l'impulsion transverse des jets dépend maintenant de la période de prise de données, à cause de changements dans la définition des chemins de déclenchement. On demande toujours au moins 4 jets, et
+\begin{itemize}
+    \item Pour les \emph{runs} A et B : $\pt > 45\,/\,45\,/\,45\,/\,\SI{30}{\GeV}$
+    \item Pour les \emph{runs} C et D : $\pt > 55\,/\,45\,/\,35\,/\,\SI{30}{\GeV}$
+\end{itemize}
+
+Ce changement de coupure a deux conséquences :
+\begin{itemize}
+    \item Les coupures sur les deux premiers jets étant plus lâches, la reconstruction du signal à basse masse (\SI{400}{\GeV}) est plus efficace.
+    \item Ce jeu de coupures étant recommandé par la collaboration, il est possible d'utiliser les efficacités des chemins de déclenchements calculées centralement au lieu de les mesurer nous même.
+\end{itemize}
+
+Les événements passant la sélection sont ensuite classés en 4 catégories, selon la saveur du lepton et le nombre de jets étiquetés \Pbottom :
+\begin{center}
+  \begin{tabular}{c} \toprule
+    muon \\
+    électron \\ \bottomrule
+  \end{tabular} \qquad $\otimes$ \qquad
+  \begin{tabular}{c} \toprule
+    Exactement 1 jet étiqueté \Pbottom \\
+    Au moins 2 jets étiquetés \Pbottom \\ \bottomrule
+  \end{tabular}
+\end{center}
+
+\subsection{Reconstruction des événements}
+
+Les techniques utilisées pour reconstruire l'événement \ttbar sont détaillées dans le \cref{chap:mtt_reco}.
+
+Au moment de la génération du signal, un poids est associé à chaque événement. Un événement de signal pur (provenant uniquement du diagramme \ref{fig:f_signal}), ou contenant une interférence constructive possède un poids $+1$, alors qu'un événement contenant une interférence destructive possède un poids $-1$. Le fait qu'un événement puisse posséder un poids négatif affecte directement l'efficacité de notre sélection. Ce problème sera discuté en détails dans la \cref{sec:higgs_sel_eff}.
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{Scalaire}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,origin=c,angle=-90]{chapitre8/figs/scalar/mttSelected_btag_sel_reco_fullsel.pdf}} \hfill
+    \subcaptionbox{Pseudo-scalaire}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,origin=c,angle=-90]{chapitre8/figs/pseudoscalar/mttSelected_btag_sel_reco_fullsel.pdf}}
+    \caption{Distribution de masse invariante \mtt pour un \sz de masse $\msz = \SI{400}{\GeV}$ (\bleu), $\msz = \SI{600}{\GeV}$ (\rouge) et $\msz = \SI{800}{\GeV}$ (\orange), après sélection et reconstruction.}
+    \label{fig:higgs_sig_reco}
+\end{figure}
+
+La distribution de masse invariante \mtt du signal après sélection et reconstruction est visible sur la \cref{fig:higgs_sig_reco}, pour différentes masses de signal. On constate que la partie en pic de l'interférence est clairement visible après reconstruction. La partie négative de l'interférence est encore légèrement visible, mais trop peu pour être significative. On verra dans la \cref{sec:higgs_sel_eff} que, même si la partie négative de l'interférence n'est plus significative après reconstruction, l'effet de la présence d'interférences n'est pas sans effet pour notre analyse.
+
+\section{Performance de la sélection}
+
+\subsection{Efficacité des chemins de déclenchements}
+
+Les efficacités des chemins de déclenchement sont calculées centralement par la collaboration directement sur les données : il n'est donc pas nécessaire d'appliquer des facteurs de corrections additionnels pour tenir compte des différences de performances entre les données et la simulation. Pour le canal semi-muonique, l'efficacité moyenne obtenue est de \SI{89,5}{\percent}, et de \SI{94,3}{\percent} pour le canal semi-électronique. Si l'on compare ces valeurs aux efficacités obtenues dans l'analyse \zprime (voir \cref{sec:zp_eff_hlt}), on remarque que les efficacités obtenues centralement sont légèrement plus faibles, à cause des coupures sur l'impulsion transverse des jets plus lâches.
+
+\subsection{Efficacité de la sélection} \label{sec:higgs_sel_eff}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chapitre8/figs/interferences.pdf}
+    \caption{Exemple d'interférence produit par un processus de nouvelle physique sur un prédiction Modèle Standard. La zone A correspond à un excès d'événement, et la zone B à un déficit d'événement par rapport au Modèle Standard.}
+    \label{fig:int_eff}
+\end{figure}
+
+La présence de poids négatifs nous oblige à modifier la façon dont on calcule l'efficacité de sélection. Traditionnellement, l'efficacité de sélection est définie comme le rapport entre le nombre d'événements sélectionnés (équivalent à l'intégrale de la distribution de masse invariante) et le nombre d'événements générés. En appliquant la même méthode sur notre signal et ses interférences, l'efficacité est définie comme
+\begin{align*}
+  \epsilon &= \frac{N_A - N_B}{N_\text{généré}}
+\end{align*}
+où $N_A$ est le nombre d'événements positifs et $N_B$ le nombre d'événements négatifs (voir \cref{fig:int_eff}). Or, on souhaite quantifier une déviation par rapport à la prédiction du Modèle Standard : un événement négatif contribue tout autant à la déviation qu'un événement positif. On définit donc l'efficacité de sélection par
+\begin{align*}
+  \epsilon &= \frac{N_A + N_B}{N_\text{généré}}.
+\end{align*}
+
+\begin{table}[p] \centering
+  \begin{tabular}{ccccccc} \toprule
+    & \SI{400}{\GeV} & \SI{500}{\GeV} & \SI{600}{\GeV} & \SI{700}{\GeV} & \SI{800}{\GeV} \\ \midrule
+    \multicolumn{3}{l}{Exactement 1 jet étiqueté \Pbottom} \\ \cmidrule{1-3}
+    $\epsilon$, semi-$\mu$ & \num{0.168 \pm 0.003} & \num{0.230 \pm 0.003} & \num{0.357 \pm 0.004} & \num{0.464 \pm 0.005} & \num{0.589 \pm 0.005}\\
+    $\epsilon$, semi-e & \num{0.141 \pm 0.003} & \num{0.193 \pm 0.003} & \num{0.294 \pm 0.004} & \num{0.400 \pm 0.004} & \num{0.504 \pm 0.005} \\ \midrule
+    \multicolumn{3}{l}{Au moins 2 jets étiquetés \Pbottom} \\ \cmidrule{1-3}
+    $\epsilon$, semi-$\mu$ & \num{0.138 \pm 0.003} &  \num{0.200 \pm 0.003} &  \num{0.313 \pm 0.004} & \num{0.416 \pm 0.005} & \num{0.519 \pm 0.005} \\
+    $\epsilon$, semi-e & \num{0.119 \pm 0.002} &  \num{0.171 \pm 0.003} & \num{0.264 \pm 0.003} & \num{0.354 \pm 0.004} & \num{0.448 \pm 0.005} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Efficacités de sélection (en pourcent) du signal pour différentes masses de \sz scalaire. Ces efficacités sont calculés par rapport à la désintégration $\sz \rightarrow \ttbar$ inclusive.}
+  \label{tab:eff_scalar}
+\end{table}
+
+\begin{table}[p] \centering
+  \begin{tabular}{ccccccc} \toprule
+    & \SI{400}{\GeV} & \SI{500}{\GeV} & \SI{600}{\GeV} & \SI{700}{\GeV} & \SI{800}{\GeV} \\ \midrule
+    \multicolumn{3}{l}{Exactement 1 jet étiqueté \Pbottom} \\ \cmidrule{1-3}
+    $\epsilon$, semi-$\mu$ & \num{0.176 \pm 0.003} & \num{0.341 \pm 0.004} & \num{0.504 \pm 0.005} & \num{0.668 \pm 0.006} & \num{0.772 \pm 0.006}\\
+    $\epsilon$, semi-e & \num{0.148 \pm 0.003} & \num{0.288 \pm 0.004} & \num{0.436 \pm 0.005} & \num{0.576 \pm 0.005} & \num{0.656 \pm 0.006} \\ \midrule
+    \multicolumn{3}{l}{Au moins 2 jets étiquetés \Pbottom} \\ \cmidrule{1-3}
+    $\epsilon$, semi-$\mu$ & \num{0.156 \pm 0.003} & \num{0.301 \pm 0.004} & \num{0.446 \pm 0.005} & \num{0.583 \pm 0.005} & \num{0.657 \pm 0.006}\\
+    $\epsilon$, semi-e & \num{0.130 \pm 0.002} & \num{0.252 \pm 0.004} & \num{0.374 \pm 0.004} & \num{0.480 \pm 0.005} & \num{0.558 \pm 0.005}\\
+    \bottomrule
+  \end{tabular}
+  \caption{Efficacités de sélection (en pourcent) du signal pour différentes masses de \sz pseudo-scalaire. Ces efficacités sont calculés par rapport à la désintégration $\sz \rightarrow \ttbar$ inclusive.}
+  \label{tab:eff_pseudoscalar}
+\end{table}
+
+Les efficacités de sélection sont résumés dans les \cref{tab:eff_scalar,tab:eff_pseudoscalar}. On constate que ces efficacités sont bien plus faible que celles obtenues dans l'analyse \zprime (voir \cref{sec:zprime_eff_sel}), ce qui peut sembler surprenant au premier abord, étant donné que les même techniques de reconstructions sont utilisées dans les deux analyses. Cette différence provient de la présence d'interférences. En effet, on a vu au cours du \cref{chap:mtt_reco} que la résolution typique sur la reconstruction de la masse invariante \mtt est de l'ordre de \SI{10}{\percent}. Imaginons un événement auquel le générateur assigne un poids négatif : cet événement contribue à la partie destructive de l'interférence. Après reconstruction, deux phénomènes peuvent se produire :
+\begin{itemize}
+    \item L'événement est reconstruit avec une masse invariante correcte. Comme prévu, l'événement contribue à la partie destructive de l'interférence.
+    \item L'événement est reconstruit avec une mauvaise masse invariante. Dans ce cas, il est possible d'obtenir l'effet inverse : au lieu de contribuer à la partie destructive de l'interférence, l'événement va venir atténuer la partie constructive de l'interférence. L'inverse est également possible : un événement sensé contribuer à la partie constructive de l'interférence peut venir atténuer la partie destructive à cause d'une mauvaise reconstruction.
+\end{itemize}
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{Pseudo-scalaire, $\msz = \SI{400}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,origin=c,angle=-90]{chapitre8/figs/S0/s0_positive_negative_pseudoscalar_400.pdf}}
+    \subcaptionbox{Pseudo-scalaire, $\msz = \SI{800}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,origin=c,angle=-90]{chapitre8/figs/S0/s0_positive_negative_scalar_800.pdf}}
+    \caption{Effet des interférences sur la reconstruction du signal. Les événements avec un poids positif sont représentés en \rouge et ceux avec un poids négatif en \vertc. Le signal reconstruit, représenté en \gris, est obtenu en sommant les distributions \rouge et \vertc.}
+    \label{fig:interference_effet}
+\end{figure}
+
+Cet effet est illustré sur la \cref{fig:interference_effet}. Si l'on compare avec les distributions obtenues au niveau générateur (\cref{fig:gen_higgs}), on constate très clairement que les parties constructives et destructives de l'interférence sont élargies par la reconstruction. Le signal reconstruit, qui est simplement la somme des parties constructives et destructives de l'interférence, se trouve ainsi artificiellement atténué. Cette atténuation est d'autant plus importante que le recouvrement entre les parties constructives et destructives est important. Ainsi, l'effet est maximal à \SI{400}{\GeV}, et diminue à mesure que la masse augmente, ce qui explique pourquoi l'efficacité de sélection augmente avec la masse de la résonance.
+
+Ainsi, la résolution sur la reconstruction de \mtt influe directement sur l'efficacité de sélection. Au vu des très faibles efficacités de sélection obtenues, il semble difficile que l'analyse puisse être sensible à la présence de d'un signal de nouvelle physique. Un travail important devra être fait dans le but d'améliorer au maximum la résolution sur la reconstruction de \mtt, et ainsi augmenter la sensibilité de l'analyse.
+
+\bigskip
+
+%On a pu voir que les interférences n'ont pas autant d'effet sur la forme du signal après reconstruction qu'au niveau générateur, la partie négative de l'interférence ayant disparu. Pour autant, il n'est pas possible de négliger ces interférences, au risque de surestimer considérablement les efficacités de sélection, et ainsi le pouvoir d'exclusion de l'analyse.
+
+De manière analogue à l'analyse \zprime, des facteurs de corrections sont appliqués afin de prendre en compte les différences de performances entre les données et la simulation. Ces facteurs sont appliqués événement par événement, pour chaque bruits de fonds et signal considérés : en plus de modifier la normalisation, ce changement permet de prendre en compte les possibles modifications de la forme des distributions.
+% En moyenne:
+% \begin{itemize}
+%   \item Identification et isolation des muons : \num{0.992 \pm 0.005}.
+%   \item Identification et isolation des électrons : \num{0.982 \pm 0.003}.
+%   \item Étiquetage des jets de \Pbottom : \num{1.043 \pm 0.022} pour exactement 1 jet étiqueté \Pbottom, et \num{0.927 \pm 0.038} pour au moins deux jets étiquetés \Pbottom.
+% \end{itemize}
+
+\section{Stratégie de l'analyse}
+
+La production de résonances de spin 0 se désintégrant en \ttbar peut se produire dès que $\msz = 2 m_{\Ptop} \simeq \SI{350}{\GeV}$. Ainsi, il est nécessaire d'étendre la gamme en masse invariante afin d'être sensible à la présence d'un signal à basse masse. Notre point de signal de plus haute masse étant \SI{800}{\GeV}, il est possible de réduire la borne supérieure de la gamme en masse invariante. Au final, on considère dans cette analyse $\mtt \in \left[\SI{250}{\GeV}, \SI{1250}{\GeV}\right]$. Le nombre de classes en \mtt est choisit de façon à ce que la largeur de chaque classe soit de \SI{10}{\GeV}.
+
+On souhaite garder la même stratégie que dans l'analyse \zprime. Il est donc nécessaire de trouver une forme analytique permettant de décrire tout le spectre de masse invariante, et non plus seulement la partie décroissante. Plusieurs fonctions ont été testées, mais aucune n'a été en mesure de produire un ajustement correct sur toute la gamme de masse invariante.
+
+Il a donc été décidé de changer la stratégie de l'analyse. Au lieu d'estimer le bruit de fond directement sur les données, la simulation est utilisée pour décrire le spectre de masse invariante \mtt. Il est ainsi aisé de décrire toute la gamme de masse, puisque aucune fonction analytique n'est nécessaire. En contre\-/partie, cette méthode introduit plusieurs incertitudes systématiques qui n'étaient pas présentes dans l'analyse \zprime. Ces nouvelles incertitudes sont décrites dans la \cref{sec:higgs_syst}.
+
+\subsection{Comparaisons données / simulation}
+
+Les comparaisons entre les données et la simulation est visible sur la \cref{fig:higgs_data_mc}, pour chacune des catégories de l'analyse. La simulation est normalisée au nombre d'événements dans les données, en utilisant des facteurs de correction extraits d'un ajustement par la méthode du maximum de vraisemblance, présenté dans la \cref{sec:higgs_stat}. La zone hachurée grise correspond aux incertitudes statistiques et systématiques.
+
+% \begin{figure}[p!] \centering
+%     \subcaptionbox{Canal semi-muonique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc_old_syst/2-btag/semimu/mttSelected_btag_sel_reco_fullsel.pdf}} \hfill
+%     \subcaptionbox{Canal semi-électronique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc_old_syst/2-btag/semie/mttSelected_btag_sel_reco_fullsel.pdf}}
+%     \caption{Comparaison entre les données et la simulation, en sélectionnant au moins 2 jets étiquetés \Pbottom{}. Un ratio est présenté en bas de la distribution. La simulation est normalisée à la luminosité collectée, et la zone hachurée correspond aux incertitudes statistiques + systématiques.}
+%     \label{fig:higgs_data_mc_2b}
+% \end{figure}
+%  \begin{figure}[p!] \centering
+%     \subcaptionbox{Canal semi-muonique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc_old_syst/1-btag/semimu/mttSelected_btag_sel_reco_fullsel.pdf}} \hfill
+%     \subcaptionbox{Canal semi-électronique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc_old_syst/1-btag/semie/mttSelected_btag_sel_reco_fullsel.pdf}}
+%     \caption{Comparaison entre les données et la simulation, en sélectionnant exactement moins 1 jet étiqueté \Pbottom{}. Un ratio est présenté en bas de la distribution. La simulation est normalisée à la luminosité collectée, et la zone hachurée correspond aux incertitudes statistiques + systématiques.}
+%     \label{fig:higgs_data_mc_1b}
+% \end{figure}
+
+\begin{figure}[p!] \centering
+    \captionsetup{format=plain,indention=0.2cm,font=small,labelfont={sf,bf},justification=centering}
+    \subcaptionbox{Canal semi-muonique,\\au moins 2 jets étiquetés \Pbottom}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc/without_shift/2-btag/semimu/mttSelected_btag_sel_reco_fullsel.pdf}} \hfill
+    \subcaptionbox{Canal semi-électronique,\\au moins 2 jets étiquetés \Pbottom}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc/without_shift/2-btag/semie/mttSelected_btag_sel_reco_fullsel.pdf}} \\ \vspace{5mm}
+    \subcaptionbox{Canal semi-muonique,\\exactement 1 jet étiqueté \Pbottom}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc/without_shift/1-btag/semimu/mttSelected_btag_sel_reco_fullsel.pdf}} \hfill
+    \subcaptionbox{Canal semi-électronique,\\exactement 1 jet étiqueté \Pbottom}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc/without_shift/1-btag/semie/mttSelected_btag_sel_reco_fullsel.pdf}}
+    \captionsetup{format=plain,indention=0.2cm,font=small,labelfont={sf,bf},justification=justified}
+    \caption{Comparaison entre les données et la simulation, en sélectionnant au moins 2 jets étiquetés \Pbottom{}. Un ratio est présenté en bas de la distribution. La simulation est normalisée au nombre d'événements dans les données, en utilisant des facteurs de correction extraits d'un ajustement par la méthode du maximum de vraisemblance. La zone hachurée correspond aux incertitudes statistiques + systématiques.}
+    \label{fig:higgs_data_mc}
+\end{figure}
+
+\begin{table} \centering% \sisetup{separate-uncertainty = true} \small
+\begin{tabular}{ccccc} \toprule
+ & \multicolumn{2}{c}{semi-$\mu$} & \multicolumn{2}{c}{semi-e} \\ \cmidrule{2-5}
+ & $N_{\Pbottom} == 1$ & $N_{\Pbottom} \geq 2$  & $N_{\Pbottom} == 1$ & $N_{\Pbottom} \geq 1$ \\ \midrule
+ \ttbar & \num{61881.73} & \num{50626.43} & \num{53021.79} & \num{42605.62} \\
+ Top célibataire & \num{2625,65} & \num{1479,12} & \num{2200,39} & \num{1237,9} \\
+ \PW + jets & \num{6704,42} & \num{884,17} & \num{5777,97} & \num{731,86} \\
+ \PZ + jets & \num{1014,09} & \num{162,87} & \num{1093,29} & \num{187,85} \\
+ Di-bosons & \num{169,94} & \num{38,33} & \num{154,35} & \num{32,29} \\ \cmidrule{1-1}
+ Total & \num{72396 \pm 9260} & \num{53191 \pm 7669} & \num{62248 \pm 8794} & \num{44796 \pm 6756} \\ \cmidrule{1-1}
+ Données & \num{69862} & \num{52885} & \num{63892} & \num{46184} \\
+ \bottomrule
+\end{tabular}
+\caption{Nombre d’événements attendus et observés après sélection pour une luminosité de \SI{19,7}{\invfb}, après application des facteurs de corrections extraient de l'ajustement par la méthode du maximum de vraisemblance. L'incertitude sur le nombre d'événements attendues tient compte des incertitudes statistiques et systématiques.}
+\label{tab:higgs_yield}
+\end{table}
+
+Le \cref{tab:higgs_yield} résume le nombre d'événements attendus et observés pour une luminosité intégrée de \SI{19.7}{\invfb}, après application des facteurs de corrections extraient de l'ajustement par la méthode du maximum de vraisemblance. L'incertitude sur le nombre d'événements attendues tient compte des incertitudes statistiques et systématiques. On constate que le nombre d'événements observés est compatible avec les prédictions théoriques dans les incertitudes systématiques, et ce pour chaque catégorie de l'analyse.
+
+\section{Analyse statistique} \label{sec:higgs_stat}
+
+Le nombre d'événements dans chaque classe de \mtt suit une loi de Poisson de moyenne $\lambda_i$. On définit ainsi la fonction de vraisemblance $\mathcal{L}$ comme le produit des lois de Poisson pour chaque classe :
+\begin{align*}
+  \mathcal{L} &= \prod\limits_{i = 0}^B \left( \frac{\lambda_i^{n_i} \, e^{- \lambda_i}}{n_i!} \right) \\
+\end{align*}
+où $B$ est le nombre de classes de \mtt et $n_i$ le nombre d'événements observés dans la classe $i$. $\lambda_i$, le nombre d'événements attendus dans la classe $i$, est définit par
+\begin{align*}
+  \lambda_i &= \mu S_i + \sum \limits_k F_{k, i}
+\end{align*}
+Ici, $k$ court sur tous les bruits de fonds considérés, $B_{k, i}$ est le nombre d'événements du bruit de fond $k$ dans la classe $i$, $S_i$ le nombre d'événements de signal dans la classe $i$ et $\mu$ la force du signal. Le signal est normalisé à la luminosité collectée ainsi qu'à la section efficace de production à l'arbre prédite par \texttt{MadGraph}.
+
+La présence d'incertitudes systématiques impacte le nombre d'événements attendus $\lambda_i$. Un paramètre de nuisance est ajouté à la fonction de vraisemblance pour chaque source d'incertitude systématique. Pour les paramètres de nuisances impactant seulement la normalisation, un coefficient est ajouté avec un \emph{prior} log-normal. Pour les paramètres impactant à la fois la forme et la normalisation, un coefficient est ajouté avec un \emph{prior} gaussien : la valeur de ce coefficient est utilisée afin d'interpoler la forme de la distribution entre la forme nominale et les formes obtenues en appliquant une variation de $\pm 1 \sigma$.
+
+\subsection{Incertitudes systématiques} \label{sec:higgs_syst}
+
+Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Toutes les incertitudes considérées dans l'analyse \zprime, exceptées celles liées aux choix des PDFS, sont présentes dans cette analyse. Ainsi, seules les nouvelles incertitudes systématiques sont décrites ci-dessous. Il est important de noter que ces incertitudes affectent à la fois les distributions de signal et des bruits de fonds.
+
+\begin{description}
+  \item[Sections efficaces des bruits de fonds] Afin de prendre en compte les incertitudes systématiques sur la normalisation des bruits de fonds, les sections efficaces sont autorisées à varier de : \SI{15}{\percent} pour \ttbar, \SI{30}{\percent} pour le bruit de fond top célibataire, et \SI{50}{\percent} pour \PW + jets, \PZ + jets et di-bosons.
+  \item[Modélisation des bruits de fonds] Une variation simultanée des échelles de factorisation et de renormalisation d'un facteur \num{0.5} et \num{2} est utilisée afin d'estimer les incertitudes liées à l'absence d'ordres supérieurs dans la simulation Monte-Carlo des bruits de fonds \ttbar, \PW + jets et \PZ + jets.
+\end{description}
+
+\section{Résultats}
+
+En cas d'absence d'interférences entre le signal et le bruit de fond, le nombre d'événements de signal est directement proportionnel à la section efficace de production de ce signal. Cette relation de proportionnalité est utilisée lors de la procédure d'extraction des limites, où le nombre d'événements de signal est converti en limite supérieure sur la section efficace.
+La présence d'interférences ne permet plus d'établir une relation de proportionnalité simple entre le nombre d'événements et la section efficace théorique. En effet, la section efficace est donnée schématiquement par
+\begin{align*}
+  \sigma &\propto \mathcal{M}^2 \propto M_{S}^2 + 2 M_{S}M_{B} \\
+         &\propto g_{\sz\ttbar}^4 + g_{\sz\ttbar}^2.
+\end{align*}
+Ainsi, changer la section efficace revient à changer le couplage entre \sz et \ttbar, ce qui impact directement la structure de l'interférence : le nombre d'événements dans la partie constructive de l'interférence augmente d'un facteur différent du nombre d'événements dans la partie destructive de l'interférence, modifiant la forme de la distribution de masse invariante du signal. Cette forme est donc fixée par la section efficace, et change de façon non prévisible lorsque la section efficace change. Il n'est ainsi pas possible de laisser le nombre d'événements de signal varier lors des procédures statistiques.
+
+\bigskip
+
+Afin de quantifier la sensibilité de l'analyse à un possible signal de nouvelle physique, on utilise une approche fréquentiste, qui permet de déterminer la probabilité que les données collectées soient compatible avec une hypothèse d'absence de signal (\emph{p-value}). On définit pour cela un test statistique $q$, basé sur un rapport de fonctions de vraisemblance. On a
+\begin{align*}
+  q &= \log{ \frac{\mathcal{L}_\text{s + f}}{\mathcal{L}_\text{f}} }
+\end{align*}
+où $\mathcal{L}_\text{s + f}$ est la fonction de vraisemblance dans l'hypothèse de la présence de signal ($\mu = 1$), et $\mathcal{L}_\text{f}$ est la fonction de vraisemblance dans l'hypothèse d'absence de signal ($\mu = 0$). Chaque fonction de vraisemblance est maximisée avant l'évaluation de $q$.
+
+\medskip
+
+On extrait dans un premier la valeur attendue de $q$, $q_0$. Pour cela, \num{2000} pseudo\-/expériences sont générées à partir de la simulation, dans l'hypothèse de présence de signal. Pour chaque pseudo\-/expérience, le test statistique $q$ est calculé. On obtient ainsi une distribution, de laquelle on extrait $q_0$, définit comme la médiane de la distribution, ainsi que les intervalles de confiance à \SI{68}{\percent} et \SI{95}{\percent}, obtenus en intégrant respectivement \SI{68}{\percent} et \SI{95}{\percent} de la distribution autour de la médiane. Un exemple d'un telle distribution est présenté sur la \cref{fig:qzero}. La ligne bleue correspond à $q_0$, médiane de la distribution, la zone en vert foncé (vert clair) correspond à l'intervalle de confiance à \SI{68}{\percent} (\SI{95}{\percent}).
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:qzero}Extraction de $q_0$. La ligne bleue correspond à $q_0$, médiane de la distribution, la zone en vert foncé (vert clair) correspond à l'intervalle de confiance à \SI{68}{\percent} (\SI{95}{\percent}).}[0.495\textwidth]{\includegraphics[width=0.495\textwidth,angle=-90,origin=c]{chapitre8/figs/stats/dnll_expected.pdf}} \hfill
+    \subcaptionbox{\label{fig:pvalues}Extraction de la \pvalue attendue. La ligne bleue correspond à $q_0$, la ligne pointillée violette à $q_\text{obs}$ et les zones vertes et hachurée représentent respectivement l'intégrale de la distribution à partir de $q_0$ et à partir de $q_\text{obs}$.}[0.495\textwidth]{\includegraphics[width=0.495\textwidth,angle=-90,origin=c]{chapitre8/figs/stats/dnll_toy.pdf}}
+    \caption{Distributions de $q$ utilisées dans la procédure d'extraction des \pvalues.}
+    \label{fig:label}
+\end{figure}
+
+La valeur observée $q_\text{obs}$ est extraite en calculant le test statistique $q$ sur les données.
+
+\medskip
+
+Afin de calculer la \emph{p-value} attendue et observée, \SI{100 000} pseudo-expériences sont générées dans l'hypothèse d'une absence de signal. On obtient ainsi une nouvelle distribution $f(q)$. On définit la \emph{p-value} attendue $p_\text{attendue}$ comme la probabilité qu'une pseudo-expérience donne une valeur $q$ supérieure à $q_0$,
+\begin{align*}
+  p_\text{attendue} &= \frac{ \int \limits_{q_0}^{+ \infty} f(q) \mathrm{d}q }{ \int f(q) \mathrm{d}q },
+\end{align*}
+et la \emph{p-value} observée $p_\text{observée}$ comme la probabilité qu'une pseudo-expérience donne une valeur $q$ supérieure à $q_\text{obs}$,
+\begin{align*}
+  p_\text{observée} &= \frac{ \int \limits_{q_\text{obs}}^{+ \infty} f(q) \mathrm{d}q }{ \int f(q) \mathrm{d}q }.
+\end{align*}
+
+La \cref{fig:pvalues} représente la distribution $f(q)$ obtenue après la génération des \num{100 000} pseudo\-/expériences, pour $\msz = \SI{500}{\GeV}$. La ligne bleue correspond à $q_0$, la ligne pointillée violette à $q_\text{obs}$ et les zones vertes et hachurée représentent respectivement l'intégrale de la distribution à partir de $q_0$ et à partir de $q_\text{obs}$. Une procédure similaire est utilisée afin d'extraire les intervalles de confiance à \SI{68}{\percent} et \SI{95}{\percent} sur la \emph{p-value} observée, en remplaçant simplement $q_0$ par les bornes de l'intervalle de confiance sur $q_0$.
+
+\bigskip
+
+Cette procédure est appliquée pour chaque point de masse, dans le cas de résonances scalaires et pseudo-scalaires. La \cref{fig:pvalues_mass} présente les \emph{p-values} obtenues pour chaque point de masse. Comme on peut le constater, les \pvalues observées et attendues sont en accord sur toute la gamme en masse. Certaines \pvalue observées dépassent légèrement de l'intervalle de confiance à \SI{68}{\%}, mais ces fluctuations sont couvertes par l'intervalle de confiance à \SI{95}{\%}.
+
+\medskip
+
+Afin de pouvoir prétendre à une observation d'une déviation significative des prédictions théoriques, la \pvalue doit être au minimum supérieure à $3\sigma$. On constate tout de suite que ce niveau de confiance n'est pas atteint par les \pvalues attendues : notre analyse n'est ainsi pas assez sensible pour être en mesure d'observer la présence d'un éventuel signal de nouvelle physique.
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\sz scalaire}[0.65\textwidth]{\includegraphics[width=0.65\textwidth,angle=-90,origin=c]{chapitre8/figs/pvalues_scalar.pdf}} \\
+    \subcaptionbox{\sz pseudo-scalaire}[0.65\textwidth]{\includegraphics[width=0.65\textwidth,angle=-90,origin=c]{chapitre8/figs/pvalues_pseudoscalar.pdf}}
+    \caption{Distributions des \pvalues pour chaque point de masse considérés. La ligne verte correspond aux \pvalues attendues et la ligne bleue aux \pvalues observées. Les bandes en vert foncé et vert clair correspondent respectivement aux intervalles de confiance à \SI{68}{\percent} et \SI{95}{\percent} sur la \pvalue attendue.}
+    \label{fig:pvalues_mass}
+\end{figure}
+
+\section{Conclusion et perspectives}
+
+Ce chapitre est consacré à la recherche de résonances scalaire et pseudo-scalaire dans le spectre de masse \ttbar, interférant avec la production de paires \ttbar du Modèle Standard. Une technique de génération a été développé spécifiquement pour cette analyse afin d'être en mesure de générer le signal accompagné des interférences sans avoir à générer en plus le bruit de fond.
+
+\medskip
+
+La présence d'interférence modifie grandement les stratégies d'analyses. En effet, même si après reconstruction l'effet des interférences destructives est atténué, il est néanmoins nécessaire de prendre en compte ces interférences, impactant l'efficacité de sélection. Négliger les interférences entraînerait une surestimation du pouvoir d'exclusion de l'analyse.
+
+\bigskip
+
+Finalement, on a vu que la sensibilité de l'analyse n'était pas suffisante pour espérer pour prétendre à une observation. Une signification statistique d'au moins $3\sigma$ est en effet nécessaire, alors que l'analyse n'arrive à obtenir que \num{0.5}$\sigma$ au mieux. Il est ainsi nécessaire d'améliorer l'analyse si l'on souhaite être en mesure de pouvoir être sensible à un signal de nouvelle physique. Plusieurs pistes peuvent être explorées :
+\begin{itemize}
+    \item La première chose à faire est d'améliorer les performances de la reconstruction, afin d'éviter au maximum le recouvrement entre les interférences constructives et destructives, ce qui permet d'augmenter l'efficacité de la sélection, et ainsi la sensibilité de l'analyse. Pour cela, la piste de l'ajustement cinématique semble la plus prometteuse. Même si les tests effectués lors des précédentes études (voir \cref{sec:mtt_kf,sec:zprime_kf}) n'ont pas été concluant, l'algorithme peut être configuré de plusieurs manières différentes (contraintes, résolutions, ...), qui n'ont pas toutes été testées. L'ajustement cinématique est en effet utilisé avec succès dans diverses analyses de CMS, telles que la mesure de la masse du quark top \citep{CMS-PAS-TOP-14-001}, ce qui laisse supposé qu'il doit être possible de l'utiliser afin d'améliorer les performances de reconstructions de notre analyse.
+
+    \item L'analyse effectuée dans ce chapitre est complètement dépendante du modèle de nouvelle physique considéré. Ainsi, il est possible d'ajouter des coupures exploitant les différences topologiques entre les événements de nouvelle physique et les événements du Modèle Standard. Par exemple, il semblerait que les quarks top provenant de la désintégration de \sz soient plus centraux que les quarks top Modèle Standard. Ainsi, en ajoutant une coupure sur $\aeta$ des quarks top, il serait possible de réduire le bruit de fond, augmentant ainsi le rapport signal sur bruit, et par la même occasion les performances de l'analyse.
+
+    \item Les performances de la sélection pourrait être augmentée en utilisant une analyse multivariée au lieu d'un série de coupure, exploitant en plus certaines variables angulaires.
+\end{itemize}
+
+Des études sont également en cours dans le but d'utiliser une procédure d'extraction de limites, afin de procéder à des exclusions si aucun signe de nouvelle physique n'est trouvé. Les interférences compliquent la tâche, puisqu'il est nécessaire de tenir compte des modifications de la forme du signal en fonction du changement de la section efficace de production, ce qui n'est pas chose aisée. Il semblerait pour l'instant que la stratégie de l'analyse soit à revoir.
+
+\bigskip
+
+\begin{table} \centering
+\begin{tabular}{ccccc} \toprule
+ & \multicolumn{2}{c}{$\sigma_\text{scalaire}$} & \multicolumn{2}{c}{$\sigma_\text{pseudo-scalaire}$} \\ \cmidrule{2-5}
+ & \SI{400}{\GeV} & \SI{800}{\GeV} & \SI{400}{\GeV} & \SI{800}{\GeV} \\ \midrule
+ \SI{8}{\TeV} & \SI{0,5289}{\pb} & \SI{0,0944}{\pb} & \SI{1,169}{\pb} & \SI{0,2325}{\pb} \\
+ \SI{14}{\TeV} & \SI{1.775}{\pb} & \SI{0.3551}{\pb} & \SI{4.192}{\pb} & \SI{0.787}{\pb} \\ \cmidrule{1-1}
+ Gain & $\times\,\num{3,36}$ & $\times\,\num{3,76}$ & $\times\,\num{3,59}$ & $\times\,\num{3,38}$ \\
+ \bottomrule
+\end{tabular}
+\caption{Comparaison entre les sections efficaces à l'arbre à \SI{8}{\TeV} et \SI{14}{\TeV} prédites par \texttt{MadGraph} pour un \sz de masse $\msz = \SI{400}{\GeV}$ ou $\msz = \SI{800}{\GeV}$. La dernière ligne présente le gain de la montée en énergie, à comparer au facteur \num{3,9} d'augmentation de la section efficace \ttbar Modèle Standard.}
+\label{tab:sigma_14tev}
+\end{table}
+
+Lors du redémarrage du LHC à \SI{14}{\TeV}, les sections efficaces de production vont augmenter. Les gains attendus pour différentes masses sont résumés dans le \cref{tab:sigma_14tev}. Ces gains sont à comparer au facteur \num{3,9} d'augmentation de la section efficace \ttbar Modèle Standard à \SI{14}{\TeV}. Le gain en sensibilité de l'analyse sera obtenu uniquement grâce à la luminosité intégrée plus important. \fxnote{Ajouter une phrase sur la luminosité nécessaire pour devenir bon}.
