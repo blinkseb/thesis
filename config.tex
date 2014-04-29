@@ -294,12 +294,21 @@
 %************************************************************
 % caption
 %************************************************************
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[fileext=eqs,placement={tbp},name=Éq.]{eq}
+
 \usepackage{subcaption}
 \DeclareCaptionSubType{figure}
 \DeclareCaptionSubType{table}
+\DeclareCaptionSubType{eq}
 
 \captionsetup{format=plain,indention=0.2cm,font=small,labelfont={sf,bf}}
-	 		
+\captionsetup[eq]{format=plain,indention=0.2cm,font=small,labelfont={sf,bf}}
+
+\makeatletter
+\let\c@eq\c@equation
+\makeatother
+
 % ********************************************************************
 % footnotes setup   
 % ********************************************************************   
@@ -581,6 +590,7 @@
 \newcommand{\rouge}{\textcolor{rouge_grandmere}{rouge}\xspace}
 \newcommand{\vertc}{\textcolor{vert}{vert}\xspace}
 \newcommand{\gris}{\textcolor{bleu_gris}{gris}\xspace}
+\newcommand{\grise}{\textcolor{bleu_gris}{grise}\xspace}
 \newcommand{\bleu}{\textcolor{bleu}{bleu}\xspace}
 \newcommand{\violet}{\textcolor{violet}{violet}\xspace}
 \newcommand{\violette}{\textcolor{violet}{violette}\xspace}
@@ -595,4 +605,5 @@
 
 \usepackage[shortcuts]{extdash}
 
-\newcommand{\stretchablespace}{\nobreak\hspace{.16667em plus .08333em}}
+\crefname{eq}{équation}{équations}
+\crefformat{equation}{équation~#2#1#3}
