@@ -2,17 +2,28 @@
 
 \begin{fmffile}{chapitre5}
 
-Le quark top est la particule élémentaire la plus lourde connue à ce jour. De par ses propriétés, le quark top doit jouer un rôle spécial dans la découverte de physique au-delà du Modèle Standard. En effet, on verra par la suite que de nombreux modèles prédisent de nouvelles particules se couplant préférentiellement au quark top. Afin d'être en mesure de mettre en évidence des couplages anormaux au quark top, il est nécessaire de bien connaître ses propriétés : c'est l'objet du début de ce chapitre.
+Le quark top est la particule élémentaire la plus lourde connue à ce jour. De par ses propriétés, le quark top doit jouer un rôle spécial dans la découverte de physique au-delà du Modèle Standard. En effet, de nombreux modèles prédisent de nouvelles particules se couplant préférentiellement au quark top. Afin d'être en mesure de mettre en évidence de la nouvelle physique dans le secteur du quark top, il est nécessaire de comprendre et décrire ses propriétés au sein du Modèle Standard.
 
 \bigskip
 
-Le quark top a été découvert en 1995 par les expériences \dzero et CDF au Tevatron. Son existence était cependant prédite bien avant son observation. En effet, le quark \Pbottom, découvert en 1977, se désintègre par interaction faible, désintégration autorisée uniquement lorsque la particule appartient à un doublet de $SU(2)_L$, ce qui implique qu'un partenaire d'isospin du quark \Pbottom doit exister. On présente ci-dessous les différents modes de production du quark top, ainsi que ses modes de désintégrations. Un résumé de ses propriétés sera aussi présenté.
+Le quark top a été découvert en 1995 par les expériences \dzero et CDF au Tevatron. Son existence était cependant prédite bien avant son observation. En effet, le quark \Pbottom, découvert en 1977, se désintègre par interaction faible, désintégration autorisée uniquement lorsque la particule appartient à un doublet de $SU(2)_L$, ce qui implique qu'un partenaire d'isospin du quark \Pbottom doit exister. La grande différence de masse entre le quark \Pbottom et le quark top explique les 18 années de recherche nécessaires avant sa découverte.
+
+\bigskip
+
+Le LHC est l'accélérateur parfait pour l'étude des propriétés du quark top : il y est en effet produit en grande quantité. On présente ci-dessous les différents modes de production du quark top, ainsi que ses modes de désintégrations. Un résumé de ses propriétés sera aussi présenté.
 
 \section{Production du quark top}
 
 \subsection{Production par paires}
 
-Le mécanisme de production dominant des quarks top en collisionneur hadronique se fait par interaction forte. Comme cette interaction conserve la saveur, le quark top doit être produit par paire. À \SI{14}{\TeV}, environ \SI{80}{\%} de cette production s'effectue par fusion de gluons, et \SI{20}{\%} par annihilation de quarks. Depuis peu, la section efficace de production de paire \ttbar est calculée de façon exacte au NNLO (\emph{next-to-next-to-leading order}) \citep{Czakon:2013goa}. Au LHC, pour $\sqrt{s} = \SI{8}{\TeV}$, cette section efficace a pour valeur $\sigma_{\ttbar} = \SI{245.8}{\pb}$. La \cref{fig:ttbar_diagrams} résume les diagrammes de Feynman des différents modes de production de paires \ttbar.
+Le mécanisme de production dominant des quarks top en collisionneur hadronique se fait par interaction forte. Comme cette interaction conserve la saveur, le quark top doit être produit par paire. À \SI{14}{\TeV}, environ \SI{80}{\%} de cette production s'effectue par fusion de gluons, et \SI{20}{\%} par annihilation de quarks. Depuis peu, la section efficace de production de paire \ttbar est calculée de façon exacte au NNLO (\emph{next-to-next-to-leading order}) \citep{Czakon:2013goa}. Au LHC, pour $\sqrt{s} = \SI{8}{\TeV}$, cette section efficace a pour valeur $\sigma_{\ttbar} = \SI{245.8}{\pb}$, avec une incertitude d'environ \SI{4}{\percent}. La \cref{fig:tt_sigma} montre l'évolution de la section efficace de production en fonction de l'énergie dans le centre de masse, et la \cref{fig:ttbar_diagrams} résume les diagrammes de Feynman des différents modes de production de paires \ttbar.
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chapitre6/figs/LHC-sqrt_s-abs-short.pdf}
+    \caption{Évolution de la section efficace de production de paires \ttbar en fonction de l'énergie dans le centre de masse. Les incertitudes liées à l'échelle de renormalisation (vert) ainsi qu'aux densités de probabilité partonique (gris) sont aussi représentées. Les mesures de la section efficace de production par les expériences ATLAS et CMS à \SI{7}{\TeV} et \SI{8}{\TeV} sont représentées par des points.}
+    \label{fig:tt_sigma}
+\end{figure}
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:ttbar_fusion_gluon_1}}[0.32\textwidth]{
@@ -147,7 +158,7 @@ Il est aussi à noter que, étant donné que le proton est chargé positivement,
 
 La durée de vie mesurée du quark top est d'environ $\SI{3.3e-25}{\s}$ \citep{pdg}. Ce temps de vie est suffisamment faible pour que le quark top se désintègre avant que le processus d'hadronisation ne commence ($\tau_{\text{hadronisation}} \simeq \SI{3e-24}{\s}$). Il offre donc une possibilité unique d'étudier un quark dans un état non-lié.
 
-Le quark top se désintègre uniquement par interaction faible, selon trois modes de désintégrations : $\Ptop \rightarrow \Pbottom \PWplus$, $\Ptop \rightarrow \Pstrange \PWplus$ et $\Ptop \rightarrow \Pdown \PWplus$. La probabilité que ces désintégrations interviennent est proportionnelle aux éléments de la matrice CKM, respectivement à $\abs{V_{tb}}^2$, $\abs{V_{ts}}^2$ et $\abs{V_{td}}^2$. Le terme dominant est $\abs{V_{tb}}^2 = \num{0.89 \pm 0.07}$ \citep{pdg}. Ainsi, le quark top se désintègre majoritairement en $\Ptop \rightarrow \Pbottom \PWplus$, avec un rapport d'embranchement de $\num{0.91 \pm 0.04}$ \citep{pdg}.
+Le quark top se désintègre uniquement par interaction faible, selon trois modes de désintégrations : $\Ptop \rightarrow \Pbottom \PWplus$, $\Ptop \rightarrow \Pstrange \PWplus$ et $\Ptop \rightarrow \Pdown \PWplus$. La probabilité que ces désintégrations interviennent est proportionnelle aux éléments de la matrice CKM, respectivement à $\abs{V_{\Ptop\Pbottom}}^2$, $\abs{V_{\Ptop\Pstrange}}^2$ et $\abs{V_{\Ptop\Pdown}}^2$. Le terme dominant est $\abs{V_{\Ptop\Pbottom}}^2 = \num{0.89 \pm 0.07}$ \citep{pdg}. Ainsi, le quark top se désintègre majoritairement en $\Ptop \rightarrow \Pbottom \PWplus$, avec un rapport d'embranchement de $\num{0.91 \pm 0.04}$ \citep{pdg}. La mesure de la section efficace de production de quarks top célibataires permet donc de mesurer directement $\abs{V_{\Ptop\Pbottom}}$.
 
 L'état final exact de la désintégration du quark top dépend de la désintégration du \PW, qui se désintègre environ \SI{33}{\%} du temps en lepton - neutrino, et \SI{67}{\%} en paire de quark-antiquark. Les rapports d'embranchements exacts de la désintégration du \PW sont résumés \cref{fig:br_W}.
 
@@ -283,11 +294,11 @@ Cette classification est résumée \cref{fig:top_pair_decay_channels}. Les rappo
 
 \section{Propriétés du quark top}
 
-Découvert en 1995, les propriétés du quark top sont encore assez méconnues. Il est donc très intéressant de les étudier précisément, puisque toutes déviations par rapport aux prédictions du Modèle Standard seraient le signe d'éventuelle nouvelle physique. Cette section présente un récapitulatif des dernières mesures expérimentales des propriétés du quark top.
+Il est très intéressant d'étudier précisément les propriétés du quark top, puisque toutes déviations par rapport aux prédictions du Modèle Standard seraient le signe d'éventuelle nouvelle physique. Cette section présente un récapitulatif des dernières mesures expérimentales des ces propriétés, en ce limitant exclusivement aux mesures obtenues avec des événements \ttbar.
 
 \subsection{Masse}
 
-Comme pour les autres particules du Modèle Standard, la masse du quark top est un paramètre libre. Il est néanmoins possible de prédire cette masse grâce aux corrections radiatives lors du calcul de la masse du boson \PW, à l'aide d'un ajustement global des paramètres électrofaibles du Modèle Standard. Cette masse est mesurée précisément par les expériences du LHC et du Tevatron, et est en excellent accord avec les prédictions théoriques :
+Comme pour les autres particules du Modèle Standard, la masse du quark top est un paramètre libre. Néanmoins, cette masse est liée aux autres paramètres du Modèle Standard à travers les corrections radiatives de la masse du boson \PW. Elle peut donc est contrainte grâce à des mesures de précisions des autres paramètres. Cette masse est mesurée précisément par les expériences du LHC et du Tevatron, et est en excellent accord avec les prédictions théoriques du Modèle Standard :
 
 \begin{align*}
   m_t^{\text{théorique}} &= 175{,}8 \substack{+2{,}7 \\ -2{,}4}\,\si{\GeV}\ \citep{ewk_fit} \\
@@ -322,7 +333,7 @@ Afin de déterminer la charge électrique du quark top, on sélectionne des év�
 \begin{align*}
   \Ptop^{(2/3)} \rightarrow \Pbottom^{(-1/3)} + \PW^{(+1)}
 \end{align*}
-alors que dans le cas d'un quark top exotique ($\Ptop_X$), on a
+alors que dans le cas d'un quark top exotique ($\Ptop_X$), on aurait
 \begin{align*}
   \Ptop_X^{(-4/3)} \rightarrow \Pbottom^{(-1/3)} + \PW^{(-1)}
 \end{align*}
@@ -372,7 +383,7 @@ $A_{\Delta\phi}$ & \num{0.113 \pm 0.017} & $0{,}115 \substack{+0{,}014 \\ -0{,}0
 
 On a déjà vu lors du \cref{chap:sm} que de nombreux arguments laissent penser que le Modèle Standard n'est qu'une théorie effective d'un modèle plus fondamentale se manifestant à plus haute énergie. De nombreux modèles existent ainsi, chacun prédisant de nouvelles particules, interactions, dimensions, ... Pour autant, aucun n'a encore été confirmé expérimentalement, et nombreuses recherches sont actuellement en cours au sein des expériences du LHC afin de tenter de découvrir des signes de nouvelle physique, ou, le cas échéant, de contraindre l'espace des paramètres de ces modèles.
 
-Parmi ces modèles, beaucoup prévoient des phénoménologies où le quark top joue un rôle particulier. En effet, étant la particule fondamentale la plus massive, il est naturel de penser que des nouvelles particules à l'échelle du \si{\TeV} se désintègrent préférentiellement en donnant au moins un quark top. Les travaux réalisés au cours de cette thèse se concentrent sur la recherche de déviations dans le spectre de masse invariante \ttbar ($\mathrm{d}\sigma / \mathrm{d}\mtt$), déviations pouvant être causées par la production résonante de paire de quark top \emph{via} la désintégration d'une particule exotique. Ces déviations peuvent se présenter sous plusieurs formes, selon la présence ou non d'interférences avec la production du Modèle Standard. Dans le cas le plus simple, elles prennent la forme d'un pic dans le spectre de masse invariante. Des structures plus complexes peuvent aussi être observées, comme la présence d'un pic suivi d'un trou. Ces déviations seront présentées plus en détails dans les \cref{chap:zprime,chap:higgs}, dédiés à la recherche expérimentale de résonances dans le spectre de masse \ttbar.
+Parmi ces modèles, beaucoup prévoient des phénoménologies où le quark top joue un rôle particulier. En effet, étant la particule fondamentale la plus massive, il est naturel de penser que des nouvelles particules à l'échelle du \si{\TeV} se désintègrent préférentiellement en donnant au moins un quark top. Les travaux réalisés au cours de cette thèse se concentrent sur la recherche de déviations dans le spectre de masse invariante \ttbar ($\mathrm{d}\sigma / \mathrm{d}\mtt$), déviations pouvant être causées par la production résonante de paire de quark top \emph{via} la désintégration d'une particule exotique. Ces déviations peuvent se présenter sous plusieurs formes, selon la présence ou non d'interférences avec la production du Modèle Standard. Dans le cas le plus simple, elles prennent la forme d'un pic dans le spectre de masse invariante. Des structures plus complexes peuvent aussi être observées, comme la présence d'un pic suivi d'un trou, voire d'un excès continu d'événement dans tout le spectre de masse. Ces déviations seront présentées plus en détails dans les \cref{chap:zprime,chap:higgs}, dédiés à la recherche expérimentale de résonances dans le spectre de masse \ttbar.
 
 \medskip
 
@@ -598,11 +609,11 @@ Parmi les signatures expérimentales de ces modèles, attardons nous spécifique
 
 \section{Conclusion}
 
-On a vu au travers ce chapitre que les propriétés du quark top sont encore assez mal connues, tout du moins avec une précision moindre que les autres particules du Modèle Standard. Néanmoins, de nombreuses études sont menées afin d'améliorer nos connaissances, indispensables pour la recherche de nouvelle physique, mais également pour vérifier la cohérence du Modèle Standard.
+On a vu au travers ce chapitre que les propriétés du quark top sont de mieux en mieux connues. De nombreuses études sont menées afin d'améliorer nos connaissances, indispensables pour la recherche de nouvelle physique, mais également pour vérifier la cohérence du Modèle Standard.
 
 \medskip
 
-De nombreuses extensions du Modèle Standard prédisent de nouvelles particules se désintégrant préférentiellement en quark top. Expérimentalement, ces particules peuvent se manifester par la présence de résonances dans le spectre de masse \ttbar. Suivant le spin et le mode de production des particules, ces résonances peuvent avoir des structures différentes, comme un pic dans le spectre de masse, voire des structures plus compliquées comme un pic - trou. Il est donc primordial d'avoir une excellente connaissance de \mtt pour espérer détecter des déviations.
+De nombreuses extensions du Modèle Standard prédisent de nouvelles particules se désintégrant préférentiellement en quark top. Expérimentalement, ces particules peuvent se manifester par la présence de résonances dans le spectre de masse \ttbar. Suivant le spin et le mode de production des particules, ces résonances peuvent avoir des structures différentes, comme un pic dans le spectre de masse, voire des structures plus compliquées comme un pic - trou. Il est donc primordial d'avoir une excellente description de \mtt pour espérer détecter des déviations.
 
 \smallskip
 
