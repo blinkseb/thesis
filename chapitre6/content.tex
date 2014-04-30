@@ -1,8 +1,6 @@
 \chapter{Reconstruction expérimentale d'événements \ttbar} \label{chap:mtt_reco}
 
-\fxnote{Relire attentivement après la réorganisation du chapitre}
-
-Les \cref{chap:zprime,chap:higgs} sont consacrés à la recherche de nouvelle physique dans le spectre de masse invariante de paires \ttbar. Avant de pouvoir chercher de quelconques déviations dans le spectre de masse, il faut être capable de reconstruire la masse invariante du système \ttbar. Ce chapitre présente les techniques mises en œuvre pour la reconstruction de la masse invariante de paires \ttbar.
+Afin d'étudier le spectre de masse \mtt, il faut être capable de reconstruire la masse invariante du système \ttbar. Ce chapitre présente les techniques mises en œuvre pour la reconstruction de la masse invariante de paires \ttbar.
 
 \section{Masse invariante du système \ttbar}
 
@@ -15,7 +13,7 @@ Concentrons nous uniquement sur la désintégration semi-leptonique de paires \t
 
 Afin de reconstruire la masse invariante du système \ttbar, il faut être capable de reconstruire la cinématique de chaque produit de la désintégration. On peut ensuite reconstruire la masse invariante \ttbar :
 \begin{align} \label{eq:invariant_mass_tt}
-  m_{\ttbar} &= \norm{ p_{\Plepton} + p_{\Pneutrino} + p_{\Pquark} + p_{\APquark} + p_{\Pbottom}^{\text{hadronique}} + p_{\Pbottom}^\text{leptonique} }
+  m_{\ttbar}^2 &= \norm{ p_{\Plepton} + p_{\Pneutrino} + p_{\Pquark} + p_{\APquark} + p_{\Pbottom}^{\text{hadronique}} + p_{\Pbottom}^\text{leptonique} }²
 \end{align}
 
 Deux problèmes majeurs se posent :
@@ -30,10 +28,10 @@ Une fois ces problèmes surmontés, il est possible de reconstruire la masse inv
 
 Comme on a vu précédemment, la présence d'un neutrino se caractérise par de l'énergie manquante. En considérant que la seule source d'énergie manquante dans l'événement provient du neutrino, on a alors
 \begin{align*}
-  p_t^{\Pneutrino} &= \met
+  p_T^{\Pneutrino} &= \met
 \end{align*}
 
-Afin de reconstruire la masse invariante, il faut pouvoir reconstruire la composante longitudinale de l'impulsion transverse du neutrino. On sait que le neutrino émis vient obligatoirement de la désintégration d'un boson \PW en $\Plepton + \Pneutrino$. On peut déterminer la composante $p_z$ de l'impulsion du neutrino en utilisant comme contrainte la valeur de la masse du boson \PW ($m = \SI{80.385 \pm 0.015}{\GeV}$ \citep{pdg}). On a :
+Afin de reconstruire la masse invariante, il faut pouvoir reconstruire la composante longitudinale de l'impulsion transverse du neutrino. On sait que le neutrino émis vient principalement de la désintégration d'un boson \PW en $\Plepton + \Pneutrino$. On peut déterminer la composante $p_z$ de l'impulsion du neutrino en utilisant comme contrainte la valeur de la masse du boson \PW ($m = \SI{80.385 \pm 0.015}{\GeV}$ \citep{pdg}). On a :
 \begin{align*}
   m_{\PW}^2 &= \left( E_{\Pneutrino} + E_{\Plepton} \right)^2 - \norm{ \vec{p}_{\Pneutrino} + \vec{p}_{\Plepton} }^2 \\
   &= m_{\Plepton} + 2E_{\Pneutrino}E_{\Plepton} - 2 \vec{p}_{\Pneutrino} \cdot \vec{p}_{\Plepton}
@@ -52,8 +50,8 @@ avec
 
 \begin{figure}[tbp]
     \centering
-    \includegraphics[width=0.55\textwidth]{chapitre6/figs/neutrino_energy/plot_met_energy.pdf}
-    \caption{Effet de la reconstruction de la composante longitudinale du neutrino sur la mesure de l'énergie du neutrino sur des événements \ttbar simulés (en \textcolor{rouge_grandmere}{rouge}, avant reconstruction de $p_z$, en \textcolor{orange}{orange} après reconstruction). À titre de comparaison, l'énergie du neutrino au niveau générateur (en \textcolor{bleu_gris}{gris}) est aussi tracée.}
+    \includegraphics[width=0.55\textwidth,origin=c,angle=-90]{chapitre6/figs/plot_met_energy.pdf}
+    \caption{Effet de la reconstruction de la composante longitudinale du neutrino sur la mesure de l'énergie du neutrino sur des événements \ttbar simulés (en \textcolor{rouge_grandmere}{rouge}, avant reconstruction de $p_z$, en \vertc après reconstruction). À titre de comparaison, l'énergie du neutrino au niveau générateur (en \gris) est aussi tracée.}
     \label{fig:neutrino_correction}
 \end{figure}
 
@@ -127,7 +125,7 @@ Les valeurs de références des discriminants sont définies comme les valeurs l
 
 On évalue la valeur de chaque discriminant pour chaque bonne combinaison. La \cref{fig:chi2_distributions} présente les distributions de chaque discriminant. Les valeurs de référence et les incertitudes associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur de référence est fixée à 1, et l'incertitude est estimée à partir de la moyenne quadratique (RMS) de la distribution.
 
-Le \cref{tab:chi2_ref_values} résume les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs incertitudes associées.
+Le \cref{tab:chi2_ref_values} résume les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs incertitudes associées. On remarque que la valeur de référence de la masse du quark top dans la branche leptonique est différente de celle dans la branche hadronique. Cette différence s'explique par les corrections en énergie des jets : dans le cas de la désintégration leptonique du boson \PW, 1 seul jet intervient dans la reconstruction, contre 3 pour la désintégration hadronique du boson \PW.
 
 \bigskip
 
@@ -187,7 +185,7 @@ Deux critères sont utilisés pour déterminer la qualité de la reconstruction 
 
 \bigskip
 
-La \cref{fig:mtt_reso_chi2} présente la résolution obtenue avec l'utilisation de l'algorithme de tri par $\chi^2$ sur la masse invariante \mtt. Il est intéressant de comparer ce résultat avec l'utilisation des quatre jets de plus grande impulsion de l'événement pour reconstruire la masse invariante. Les performances de ces deux algorithmes sont présentées dans la \cref{fig:mtt_reso_chi2_vs_four_jets}. La \cref{fig:mtt_response_chi2_vs_four_jets} montre la linéarité de la reconstruction pour ces deux algorithmes, tandis que la \cref{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets} présente l'évolution de la résolution en fonction de $\mtt^\text{gen}$. On peut observer deux effets opposés : utiliser l'algorithme de tri par $\chi^2$ permet d'améliorer la résolution d'environ \SI{2}{\%}, au détriment d'une légère perte de linéarité. Le critère de résolution est cependant plus important que la linéarité, puisqu'on cherche à détecter des résonances dans le spectre de masse invariante : une résonance plus étroite est plus aisée à détecter qu'une résonance large. À l'augmentation de la résolution s'ajoute aussi un élargissement des queues de la distribution de résolution, comme on peut le voir en comparant la \cref{fig:mtt_reso_four_jets} à la \cref{fig:mtt_reso_chi2}. L'utilisation de l'algorithme par $\chi^2$ permet donc d'améliorer significativement le spectre de masse invariante reconstruit.
+La \cref{fig:mtt_reso_chi2} présente la résolution obtenue avec l'utilisation de l'algorithme de tri par $\chi^2$ sur la masse invariante \mtt. Il est intéressant de comparer ce résultat avec l'utilisation des quatre jets de plus grande impulsion de l'événement pour reconstruire la masse invariante. Les performances de ces deux algorithmes sont présentées dans la \cref{fig:mtt_reso_chi2_vs_four_jets}, en utilisant tous les événements reconstruits. La \cref{fig:mtt_response_chi2_vs_four_jets} montre la linéarité de la reconstruction pour ces deux algorithmes, tandis que la \cref{fig:mtt_reso_vs_mtt_gen_chi2_vs_four_jets} présente l'évolution de la résolution en fonction de $\mtt^\text{gen}$. On peut observer deux effets opposés : utiliser l'algorithme de tri par $\chi^2$ permet d'améliorer la résolution d'environ \SI{2}{\%}, au détriment d'une légère perte de linéarité. Le critère de résolution est cependant plus important que la linéarité, puisqu'on cherche à détecter des résonances dans le spectre de masse invariante : une résonance plus étroite est plus aisée à détecter qu'une résonance large. À l'augmentation de la résolution s'ajoute aussi un élargissement des queues de la distribution de résolution, comme on peut le voir en comparant la \cref{fig:mtt_reso_four_jets} à la \cref{fig:mtt_reso_chi2}. L'utilisation de l'algorithme par $\chi^2$ permet donc d'améliorer significativement le spectre de masse invariante reconstruit.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mtt_response_chi2_vs_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_response_vs_gen_comparison_chi2_four_jets.pdf}}\hfill
@@ -198,9 +196,9 @@ La \cref{fig:mtt_reso_chi2} présente la résolution obtenue avec l'utilisation 
 
 \bigskip
 
-Les résultats de cette étude montrent tous que l'algorithme de tri par $\chi^2$ est le plus performant en terme de résolution, au détriment d'une légère perte de linéarité de la reconstruction en fonction de masse invariante générée. Il est intéressant de voir s'il est possible d'améliorer encore les performances de reconstruction en améliorant la résolution. On a en effet vu plus haut qu'une résonance étroite augmente le potentiel de découverte. Un moyen d'améliorer cette résolution est d'utiliser un ajustement cinétique, détaillé \cref{sec:mtt_kf}.
+Les résultats de cette étude montrent que l'algorithme de tri par $\chi^2$ est le plus performant en terme de résolution, au détriment d'une légère perte de linéarité de la reconstruction en fonction de masse invariante générée. Plusieurs études ont été menées afin de voir s'il était possible d'améliorer les performances de la reconstruction, présentées dans la \cref{sec:reco_tests}. Aucune de ces améliorations potentielles n'a été retenues.
 
-\section{Possibles améliorations étudiées (mais non retenues)}
+\section{Possibles améliorations étudiées (mais non retenues)} \label{sec:reco_tests}
 
 \subsection{Algorithme de tri par MVA} \label{sec:mva}
 
@@ -224,7 +222,7 @@ Le problème est contourné en construisant une "forêt" d'arbres de décision. 
     \caption{Vue schématique de deux algorithmes de MVA.}
 \end{figure}
 
-\subsubsection{Réseau de neurones}
+\subsubsection{Réseau de neurones} \fxnote{Détailler un peu plus}
 
 Un réseau de neurones consiste en une collection interconnectée de neurones, où chaque neurone dispose d'une fonction de transfert transformant une valeur d'entrée en valeur de sortie. En utilisant plusieurs couches de neurones, il est possible de créer un réseau complexe qui permet de classer des événements. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
 
@@ -244,7 +242,7 @@ Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties
 
 \subsubsection{Performances}
 
-Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que les deux MVA.
+Le \cref{tab:chi2_vs_bdt_vs_nn} résume les efficacités de sélectionner la bonne combinaison de jets pour l'algorithme de tri par $\chi^2$, pour le BDT et le NN. Malgré un très bon pouvoir de discrimination, l'algorithme de tri par $\chi^2$ reste plus performant que le NN, mais comparable au BDT.
 
 \begin{table}[tbp] \centering
     \sisetup{separate-uncertainty = true}
@@ -281,12 +279,18 @@ L'étude dédiée au MVA est encore très préliminaire. De nombreuses améliora
 
 \subsection{Ajustement cinématique} \label{sec:mtt_kf}
 
-Pour un événement \ttbar, les objets reconstruits (leptons, jets, ...) doivent vérifier certaines contraintes cinématiques, telles que la conservation de l'énergie ou reproduire les masses invariantes des particules. Néanmoins, l'impulsion et l'énergie des particules utilisées pour reconstruire l'événement \ttbar ne sont connues qu'avec des incertitudes, liées à la résolution expérimentale, aux techniques de reconstruction, etc. Ces incertitudes peuvent conduire à un non-respect des contraintes d'un événement \ttbar.
+Afin d'améliorer le potentiel de découverte, il est intéressant d'améliorer les performances de reconstruction en améliorant la résolution. Un moyen d'améliorer cette résolution est d'utiliser un ajustement cinématique.
+
+\bigskip
+
+Pour un événement \ttbar, les objets reconstruits (leptons, jets, ...) doivent vérifier certaines contraintes cinématiques, telles que la conservation de l'énergie ou reproduire les masses invariantes des particules. Néanmoins, l'impulsion et l'énergie des particules utilisées pour reconstruire l'événement \ttbar ne sont connues qu'avec des incertitudes, liées à la résolution expérimentale et aux techniques de reconstruction.
+%Ces incertitudes peuvent conduire à un non-respect des contraintes d'un événement \ttbar.
 
 \medskip
 
 % L'idée de l'ajustement cinématique est simple : faire varier les quantités physiques des objets sélectionnées, dans leurs incertitudes, afin de respecter au mieux les con\-traintes d'un événement \ttbar. On utilise pour cela la méthode des multiplicateurs de Lagrange afin de trouver les valeurs optimales des quantités physiques des particules sélectionnées sous diverses contraintes.
-L'idée de l'ajustement cinématique est simple : on utilise la connaissance de la cinématique d'un événement \ttbar afin d'améliorer la résolution des objets physiques. Les quantités physiques de chaque objet sont optimisées afin de respecter au mieux les contraintes d'un événement \ttbar.
+% L'idée de l'ajustement cinématique est simple : on utilise la connaissance de la cinématique d'un événement \ttbar afin d'améliorer la résolution des objets physiques. Les quantités physiques de chaque objet sont optimisées afin de respecter au mieux les contraintes d'un événement \ttbar.
+L'ajustement cinématique impose les contraintes liées à la connaissance de la cinématique d'un événement \ttbar aux objets reconstruis, et les faisant varier d'un façon compatible à leur résolution expérimentale, afin d'améliorer leur précision.
 
 \bigskip
 
@@ -297,7 +301,14 @@ L'idée de l'ajustement cinématique est simple : on utilise la connaissance de 
     \label{fig:kinfit_ttbar}
 \end{figure}
 
-On utilise l'ajustement cinématique en sortie de l'algorithme de tri par $\chi^2$ : les particules provenant de la désintégration des paires \ttbar sont déjà sélectionnées. L'ajustement cinématique est utilisé pour ajuster au mieux les contraintes, et placer correctement les jets sélectionnés à la bonne position. Les contraintes utilisées dans l'algorithme sont les suivantes :
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:mtt_response_kf_good}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_good_solutions.pdf}} \hfill
+    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_kf_good}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_vs_gen_comparison_kf_good_solutions.pdf}}
+    \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_kf_good}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_kf_good}) en utilisant la bonne combinaison de jets (\rouge), après utilisation de l'ajustement cinématique (\vertc) et après utilisation de l'ajustement cinématique et $p > \num{0.2}$ (\violet).}
+    \label{fig:mtt_resp_reso_kf_good}
+\end{figure}
+
+On utilise l'ajustement cinématique en sortie de l'algorithme de tri par $\chi^2$ : on dispose ainsi d'un jeu de 4 jets sélectionnés, sans avoir connaissance de leur position. Cette position étant importante pour l'ajustement cinématique, on itère sur toutes les combinaisons de jets parmi les 4 jets sélectionnés. L'ajustement cinématique est utilisé sur chaque combinaison afin d'ajuster au mieux les contraintes, et la combinaison la plus compatible avec un événement \ttbar est sélectionnée\footnote{L'ajustement cinématique utilise en interne un algorithme de $\chi^2$. La combinaison qui donne le plus petit $\chi^2$ est considérée comme étant la plus compatible avec un événement \ttbar.}. Les contraintes utilisées dans l'algorithme sont les suivantes :
 \begin{itemize}
     \item La masse invariante des deux jets légers doit être égale à la masse du boson \PW.
     \item La masse invariante du neutrino, du lepton ainsi que du jet \Pbottom leptonique doit être égale à la masse du quark top.
@@ -306,23 +317,16 @@ On utilise l'ajustement cinématique en sortie de l'algorithme de tri par $\chi^
 
 % L'effet de l'ajustement cinématique sur la résolution de la masse invariante est présenté \cref{fig:kinfit_ttbar} pour des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définie la qualité de l'ajustement. On demande $p > 0.2$ (courbe \textcolor{rouge_grandmere}{rouge} sur les distributions des figures \ref{fig:kinfit_ttbar}).
 
-Afin de quantifier les améliorations apportées par l'ajustement cinétique, on présente \cref{fig:kinfit_ttbar} la résolution sur la masse invariante mesurée sur des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définit la qualité de l'ajustement. On demande $p > \num{0.2}$. On évalue dans un premier temps les performances de l'ajustement sur des événements où la bonne combinaison de jets est sélectionnée par l'algorithme de tri par $\chi^2$. La \cref{fig:mtt_resp_reso_kf_good} présente la linéarité de la reconstruction et l'évolution de la résolution en fonction de la masse invariante \ttbar générée, avant et après utilisation de l'ajustement cinématique. Premièrement, la linéarité est rétablie après l'utilisation de l'ajustement cinématique. De plus, on constate une nette amélioration de la résolution, avec des gains allant de \tilde\SI{75}{\%} à bas \mtt à \tilde\SI{38}{\%} à haut \mtt. La coupure $p > \num{0.2}$ permet de gagner \tilde\SI{10}{\%} à haut \mtt, au détriment d'une diminution du nombre d'événements sélectionnés d'environ \SI{35}{\%}.
-
-\begin{figure}[tbp] \centering
-    \subcaptionbox{\label{fig:mtt_response_kf_good}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_good_solutions.pdf}} \hfill
-    \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_kf_good}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_vs_gen_comparison_kf_good_solutions.pdf}}
-    \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_kf_good}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_kf_good}) en utilisant la bonne combinaison de jets (\rouge), après utilisation de l'ajustement cinématique (\vertc) et après utilisation de l'ajustement cinématique et $p > \num{0.2}$ (\violet).}
-    \label{fig:mtt_resp_reso_kf_good}
-\end{figure}
-
-Intéressons nous maintenant aux cas où l'on utilise l'ajustement cinématique sur tous les événements sélectionnés par l'algorithme de tri par $\chi^2$. La \cref{fig:kinfit_all_events} présente la résolution sur la masse invariante, et la \cref{fig:mtt_resp_reso_kf_all_events} la linéarité de la reconstruction ainsi que l'évolution de la résolution en fonction de \mttgen. On note une nette dégradation de la résolution, allant de \tilde\SI{15}{\%} à bas \mtt à \tilde\SI{50}{\%} à haut \mtt. La linéarité de la reconstruction est aussi impactée. On a vu précédemment que l'efficacité d'avoir un événement associable est d'environ \SI{40}{\%} (voir \cref{tab:chi2_study}). Parmi ces événements, l'algorithme de tri par $\chi^2$ choisit environ \num{80} fois sur cent la bonne combinaison de jets : l'ajustement cinématique est donc en mesure de sélectionner la bonne combinaison de jets dans environ \SI{32}{\%} des cas. S'il est très efficace dès lors qu'il utilise la bonne combinaison de jets (voir paragraphe précédent), il dégrade fortement la résolution lorsqu'une mauvaise combinaison est utilisée. Étant donné que des mauvaises combinaisons sont majoritairement sélectionnées, l'utilisation de l'ajustement cinématique dégrade la résolution au lieu de l'améliorer.
-
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mtt_response_kf_all}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_response_vs_gen_comparison_kf_all_events.pdf}} \hfill
     \subcaptionbox{\label{fig:mtt_reso_vs_mtt_gen_kf_all}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_vs_gen_comparison_kf_all_events.pdf}}
     \caption{Linéarité de la reconstruction (\subref{fig:mtt_response_kf_all}) et évolution de la résolution en fonction de $\mtt^\text{gen}$ (\subref{fig:mtt_reso_vs_mtt_gen_kf_all}) en utilisant les jets sélectionnés par l'algorithme de $\chi^2$ (\rouge), après utilisation de l'ajustement cinématique (\vertc) et après utilisation de l'ajustement cinématique et $p > \num{0.2}$ (\violet).}
     \label{fig:mtt_resp_reso_kf_all_events}
 \end{figure}
+
+Afin de quantifier les améliorations apportées par l'ajustement cinématique, on présente \cref{fig:kinfit_ttbar} la résolution sur la masse invariante mesurée sur des événements \ttbar simulés. Afin d'améliorer les performances de l'ajustement cinématique, une coupure supplémentaire est réalisée sur la valeur de sortie $p$ de l'algorithme, qui définit la qualité de l'ajustement. On demande $p > \num{0.2}$. On évalue dans un premier temps les performances de l'ajustement sur des événements où la bonne combinaison de jets est sélectionnée par l'algorithme de tri par $\chi^2$. La \cref{fig:mtt_resp_reso_kf_good} présente la linéarité de la reconstruction et l'évolution de la résolution en fonction de la masse invariante \ttbar générée, avant et après utilisation de l'ajustement cinématique. Premièrement, la linéarité est rétablie après l'utilisation de l'ajustement cinématique. De plus, on constate une nette amélioration de la résolution, avec des gains allant de \tilde\SI{75}{\%} à bas \mtt à \tilde\SI{38}{\%} à haut \mtt. La coupure $p > \num{0.2}$ permet de gagner \tilde\SI{10}{\%} à haut \mtt, au détriment d'une diminution du nombre d'événements sélectionnés d'environ \SI{35}{\%}.
+
+Intéressons nous maintenant aux cas où l'on utilise l'ajustement cinématique sur tous les événements sélectionnés par l'algorithme de tri par $\chi^2$. La \cref{fig:kinfit_all_events} présente la résolution sur la masse invariante, et la \cref{fig:mtt_resp_reso_kf_all_events} la linéarité de la reconstruction ainsi que l'évolution de la résolution en fonction de \mttgen. On note une nette dégradation de la résolution, allant de \tilde\SI{15}{\%} à bas \mtt à \tilde\SI{50}{\%} à haut \mtt. La linéarité de la reconstruction est aussi impactée. On a vu précédemment que l'efficacité d'avoir un événement associable est d'environ \SI{40}{\%} (voir \cref{tab:chi2_study}). Parmi ces événements, l'algorithme de tri par $\chi^2$ choisit environ \num{80} fois sur cent la bonne combinaison de jets : l'ajustement cinématique est donc en mesure de sélectionner la bonne combinaison de jets dans environ \SI{32}{\%} des cas. S'il est très efficace dès lors qu'il utilise la bonne combinaison de jets (voir paragraphe précédent), il dégrade fortement la résolution lorsqu'une mauvaise combinaison est utilisée. Étant donné que des mauvaises combinaisons sont majoritairement sélectionnées, l'utilisation de l'ajustement cinématique dégrade la résolution au lieu de l'améliorer.
 
 \bigskip
 
@@ -332,8 +336,8 @@ On verra dans le \cref{chap:zprime} que ces résultats, obtenus sur des événem
 
 \section{Conclusion}
 
-Comme on a pu le voir tout au long de ce chapitre, deux étapes sont nécessaires pour reconstruire la masse invariante \ttbar. Dans un premier temps, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. On utilise pour cela un algorithme de tri par $\chi^2$, qui s'est trouvé plus performant que des algorithmes plus complexes comme les MVA. Une fois les jets sélectionnés, il reste à reconstruire la composante longitudinale de l'impulsion du neutrino, ce qui permet d'évaluer correctement l'énergie. Finalement, il est possible de reconstruire la masse invariante du système \ttbar. La résolution typique obtenue sur cette reconstruction est d'environ \SI{10}{\percent}.
+Au cours de ce chapitre, les deux étapes nécessaires à la reconstruction de la masse invariante \ttbar ont été présentées. Premièrement, il est nécessaire de choisir correctement les jets provenant de la désintégration des quarks top, et non pas des jets provenant du \pu ou de radiations. On utilise pour cela un algorithme de tri par $\chi^2$, qui s'est trouvé au moins aussi performant que des algorithmes plus complexes comme les MVA. Une fois les jets sélectionnés, il reste à reconstruire l'impulsion du neutrino grâce à l'énergie transverse manquante et la contrainte de la masse du boson \PW, ce qui permet d'évaluer correctement l'énergie du système, et ainsi permettre la reconstruction directe de la masse invariante du système \ttbar. La résolution typique obtenue sur cette reconstruction est d'environ \SI{10}{\percent}.
 
 \bigskip
 
-Toutes ces techniques sont utilisées dans les analyses de recherche de nouvelles physiques, comme on le verra dans les \cref{chap:zprime,chap:higgs}.
+Toutes ces techniques sont utilisées dans les analyses de recherche de nouvelles physiques, présentées dans les \cref{chap:zprime,chap:higgs}.
