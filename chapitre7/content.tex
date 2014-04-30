@@ -8,21 +8,21 @@ Plus spécifiquement, cette analyse se concentre sur la recherche de \zprime, bo
 
 \section{Signaux et bruits de fonds}
 
-On modélise le signal par une résonance générique, dont la largeur est fixée arbitrairement, tout comme la section efficace. Afin de couvrir une vaste gamme de modèles théoriques, deux types de résonances sont modélisées :
+On modélise le signal par une résonance générique, dont la largeur est libre, tout comme la section efficace. Afin de couvrir une vaste gamme de modèles théoriques, deux types de résonances sont modélisées :
 \begin{itemize}
-    \item Les résonances étroites, avec une largeur $\Gamma = \num{0.01} \, \mzp$, plus faible que la résolution expérimentale sur la reconstruction de la masse invariante \ttbar.
-    \item Les résonances larges, avec une largeur $\Gamma = \num{0.10} \, \mzp$, équivalent à la résolution expérimentale sur la reconstruction de la masse invariante \ttbar.
+    \item Une résonance dont la largeur $\Gamma = \num{0.01} \, \mzp$ est plus faible que la résolution expérimentale sur la reconstruction de la masse invariante \ttbar, qu'on appelle résonance étroite.
+    \item Une résonance dont la largeur $\Gamma = \num{0.10} \, \mzp$ est équivalente à la résolution expérimentale sur la reconstruction de la masse invariante \ttbar, qu'on appelle résonance large.
 \end{itemize}
 
-Ces résonances sont générées à l'aide de \texttt{MadGraph 4}, en utilisant un modèle de \zprime générique. Dans ce modèle, le \zprime possède les même couplages fermioniques que le boson \PZ du Modèle Standard, et le rapport d'embranchement en \ttbar est fixé à \SI{100}{\%}. Plusieurs masses sont générées, allant de \SI{500}{\GeV} à \SI{2}{\TeV}, par pas de \SI{250}{\GeV} (excepté \SI{1750}{\GeV}). \fxnote{Extra-jets ?}
+Chaque échantillon de signal est générée à l'aide de \texttt{MadGraph\;4}, en utilisant un modèle de \zprime générique. Dans ce modèle, le \zprime possède les même couplages fermioniques que le boson \PZ du Modèle Standard, et le rapport d'embranchement en \ttbar est fixé à \SI{100}{\%}. Plusieurs masses sont générées, allant de \SI{500}{\GeV} à \SI{2}{\TeV}, par pas de \SI{250}{\GeV} (sauf $\mzp = \SI{1750}{\GeV}$).
 
 \smallskip
 
-En plus de résonances \zprime génériques, on génère également des résonances selon un modèle théorique particulier d'excitations de Kaluza-Klein du gluon (\kkg) \citep{Agashe:2006hk,Randall:1999vf} à l'aide de \texttt{Pythia 8}. Dans ce modèle, la largeur de la résonance ainsi que la section efficace de production sont fixées par la masse de la résonance, et on génère des masses de \SI{700}{\GeV}, \SI{1}{\TeV}, \SI{1.2}{\GeV} et \SI{1.5}{\TeV}. Dans ce modèle aussi, le rapport d'embranchement en \ttbar est fixé à \SI{100}{\percent}.
+En plus d'une production de \zprime génériques, on génère également des résonances selon un modèle théorique particulier d'excitations de Kaluza-Klein du gluon (\kkg) \citep{Agashe:2006hk,Randall:1999vf} à l'aide de \texttt{Pythia\;8}. Dans ce modèle, la largeur de la résonance ainsi que la section efficace de production sont fixées par la masse de la résonance, et on génère des masses de \SI{700}{\GeV}, \SI{1}{\TeV}, \SI{1.2}{\GeV} et \SI{1.5}{\TeV}. Dans ce modèle aussi, le rapport d'embranchement en \ttbar est fixé à \SI{100}{\percent}.
 
 \medskip
 
-La \cref{fig:mtt_gen} présente les distributions de masse invariante \ttbar pour chacune des résonances simulées, au niveau générateur (sans effet de reconstruction).
+La \cref{fig:mtt_gen} présente les distributions de masse invariante \ttbar pour chacune des résonances simulées, au niveau générateur (sans effet de reconstruction). On constate l'apparition à haute masse d'un queue dans les distributions de masse invariante, visible principalement pour les résonances larges et les gluons de Kaluza-Klein. C'est distorsion est due à la présence des densités de probabilité partonique : on observe ainsi une convolution entre le signal, caractérisée par une fonction Breit-Wigner, et une fonction exponentiellement décroissante pour les PDFs.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\zprime étroit}[0.33\textwidth]{\includegraphics[width=0.33\textwidth]{chapitre7/figs/mtt_zprime_narrow_gen.pdf}} \hfill
@@ -41,7 +41,7 @@ L'analyse se concentre exclusivement sur le canal de désintégration des paires
     \item L'absence de neutrino dans le canal tout-hadronique est compensé par la nécessité de correctement sélectionner les 6 bons jets provenant de la désintégration \ttbar dans un environnement hadronique.
 \end{itemize}
 
-Expérimentalement, une telle désintégration se traduit par la présence d'un lepton isolé, de 4 jets, et de l'énergie transverse manquante (neutrino). Tous les processus physique du Modèle Standard produisant des états finaux similaires sont considérés comme des bruits de fond. Le fond le plus important est bien évidemment la production de paires \ttbar du Modèle Standard, bruit de fond irréductible. Les autres bruits de fond considérés sont :
+Expérimentalement, une telle désintégration se traduit par la présence d'un lepton isolé, de 4 jets, et de l'énergie transverse manquante (neutrino). Tous les processus physique du Modèle Standard produisant des états finaux similaires sont considérés comme des bruits de fond, le plus important étant la production de paires \ttbar du Modèle Standard, bruit de fond irréductible. Les autres bruits de fond considérés sont :
 \begin{itemize}
     \item La production d'un boson \PW avec des jets associés (\PW + jets).
     \item La production d'un boson \PZ avec des jets associés (\PZ + jets) : un des leptons provenant de la désintégration du \PZ est mal identifié.
@@ -51,20 +51,22 @@ Expérimentalement, une telle désintégration se traduit par la présence d'un 
 \begin{table} \centering
   \begin{tabular}{@{}ccc@{}} \toprule
     Processus & Section efficace (\si{\pb}) & Luminosité équivalente (\si{\invfb}) \\ \midrule
-    \ttbar & \num{245.8} (NNLO) & \num{84.34} \\
-    \PW + jets & \num{37509} (NNLO) & \num{1.54} \\
-    \PZ + jets & \num{3504} (NNLO) & \num{8.69} \\
-    Top célibataire (voie s) & \num{5,56} (NNLO appr.) & \num{71.96} \\
-    Top célibataire (voie t) & \num{87,1} (NNLO appr.) & \num{65.37} \\
-    Top célibataire (voie t\PW) & \num{22.35} (NNLO appr.) & \num{44.34} \\ \bottomrule
+    \ttbar & \num{245.8} (NNLO) & \num{84.3} \\
+    \PW + jets & \num{37509} (NNLO) & \num{1.5} \\
+    \PZ + jets & \num{3504} (NNLO) & \num{8.7} \\
+    Top célibataire (voie s) & \num{5,6} (NNLO appr.) & \num{72.0} \\
+    Top célibataire (voie t) & \num{87,1} (NNLO appr.) & \num{65.4} \\
+    Top célibataire (voie t\PW) & \num{22.4} (NNLO appr.) & \num{44.3} \\ \bottomrule
   \end{tabular}
   \caption{Section efficace et luminosité équivalente pour chacun des bruits de fond considérés.}
   \label{tab:backgrounds}
 \end{table}
 
-D'autres processus entrent aussi dans la composition du bruit de fond, tels que les événements multi-jets ou di-bosons (\PW{}\PW, \PZ{}\PZ, \PW{}\PZ). Après notre sélection, le nombre d'événement provenant de ces fonds est très largement minoritaire face aux autres fonds. Ils ne sont donc pas inclus dans notre analyse. Le \cref{tab:backgrounds} liste les sections efficaces de production pour chaque bruit de fond considéré, ainsi que la luminosité équivalente disponible pour l'analyse, définie par $\mathcal{L_\text{equiv}} = N_\text{généré} \, / \, \sigma$.
+D'autres processus entrent aussi dans la composition du bruit de fond, tels que les événements multi-jets ou di-bosons (\PW{}\PW, \PZ{}\PZ, \PW{}\PZ). Après notre sélection, le nombre d'événement provenant de ces fonds est très largement minoritaire face aux autres fonds. Ils ne sont donc pas inclus dans notre analyse. Le \cref{tab:backgrounds} liste les sections efficaces de production les plus précises disponibles pour chaque bruit de fond considéré, ainsi que la luminosité équivalente disponible pour l'analyse, définie par $\mathcal{L_\text{equiv}} = N_\text{généré} \, / \, \sigma$. Ces sections efficaces sont utilisées pour normaliser les distributions des bruits de fonds.
 
-Afin de reproduire correctement les conditions de \pu des données dans la simulation, les événements dans la simulation sont pondérés de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
+\bigskip
+
+Afin de reproduire correctement les conditions de \pu des données, les événements dans la simulation sont pondérés de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
 
 \section{Sélection des événements} \label{sec:zprime_sel}
 
@@ -72,7 +74,7 @@ On souhaite sélectionner des événements compatibles avec la désintégration 
 
 \medskip
 
-Chaque événement est catégorisé selon la saveur du lepton. On définit ainsi le canal semi-muonique (semi-$\mu$), lorsque le lepton isolé est un muon, et le canal semi-électronique (semi-e) lorsque c'est un électron.
+Chaque événement est catégorisé selon la saveur du lepton. On définit ainsi le canal semi-muonique (semi-$\mu$), lorsque le lepton isolé est un muon, et le canal semi-électronique (semi-e) lorsque c'est un électron. Le tau n'est pas considéré, puisqu'il nécessite des techniques d'identifications et de reconstructions spéciales.
 
 \subsection{Identification des objets}
 
@@ -87,7 +89,7 @@ Des critères de qualité sont appliqués aux muons et électrons \pf, afin de s
 
 \subsubsection{Muons} \label{sec:sel_muon}
 
-Afin d'être identifié comme \textbf{lâche}, un muon doit passer les coupures suivantes :
+Afin d'être identifié comme lâche, un muon doit passer les coupures suivantes :
 \begin{itemize}
     \item Le muon doit être reconstruit avec l'algorithme du \pf, et être soit \emph{tracker} ou global (voir \cref{sec:muon_reco}).
     \item L'isolation relative $I_{\Pmu}^\text{corrigé}$ doit être inférieure à \SI{20}{\%}.
@@ -97,13 +99,13 @@ Afin d'être identifié comme \textbf{lâche}, un muon doit passer les coupures 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:muon_id_eff}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/muon_id_efficiency.png}} \hfill
     \subcaptionbox{\label{fig:muon_iso_eff}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/muon_iso_efficiency.png}}
-    \caption{Efficacité de la sélection appliquée aux muons (hors isolation) (\subref{fig:muon_id_eff}) ainsi que l'isolation (\subref{fig:muon_iso_eff}) en fonction de \aeta, pour les données (noir) ainsi que la simulation (rouge).}
+    \caption{Efficacité de la sélection appliquée aux muons (hors isolation) (\subref{fig:muon_id_eff}) ainsi que l'isolation (\subref{fig:muon_iso_eff}) en fonction de \aeta, pour les données 2012 (noir) ainsi que la simulation (rouge).}
 \end{figure}
 
 En plus de ces coupures, on identifie un muon de qualité (\emph{tight}) s'il vérifie les critères suivants :
 \begin{itemize}
   \item Le muon doit être reconstruit avec l'algorithme du \pf, et être un muon global.
-  \item L'isolation relative $I_{\Pmu}^\text{corrigé}$ doit être inférieure à \SI{12}{\%}.
+  \item L'isolation relative $I_{\Pmu}^\text{corrigé}$ (voir \cref{sec:lepton_isolation}) doit être inférieure à \SI{12}{\%}.
   \item La valeur du $\chi^2$ de l'ajustement global de la trace du muon divisé par le nombre de degrés de liberté de l'ajustement doit être inférieure à \num{10}.
   \item Le nombre de \emph{hits} laissés par le muons dans les couches du trajectographe doit être au moins égal à 5, afin d'assurer une mesure précise de l'impulsion transverse.
   \item L'ajustement global de la trace doit inclure au moins un \emph{hit} dans les chambres à muons.
@@ -112,7 +114,7 @@ En plus de ces coupures, on identifie un muon de qualité (\emph{tight}) s'il v�
   \item L'impulsion transverse du muon doit être supérieure à \SI{26}{\GeV}, et $\aeta < \num{2.1}$.
 \end{itemize}
 
-La \cref{fig:muon_id_eff} présente l'efficacité de cette sélection, qui varie entre \num{88} et \SI{98}{\%}. L'efficacité de l'isolation est-elle présentée sur la \cref{fig:muon_iso_eff}, et varie entre \num{92} et \SI{96}{\%}.
+La \cref{fig:muon_id_eff} présente l'efficacité de cette sélection, qui varie entre \num{88} et \SI{98}{\%}. L'efficacité de l'isolation, évaluée sur les données après sélection, est présentée sur la \cref{fig:muon_iso_eff}, et varie entre \num{92} et \SI{96}{\%}.
 
 \subsubsection{Électrons} \label{sec:sel_electron}
 
@@ -121,7 +123,7 @@ De façon analogue aux muons, on définit également deux jeux de critères pour
 \begin{table}[htbp] \centering
   \begin{tabular}{@{}ccc@{}} \toprule
 
-  Variable & Électron \textbf{lâche} & Électron de qualité \\ \midrule
+  Variable & Électron lâche & Électron de qualité \\ \midrule
   & \multicolumn{2}{c}{électron \pf} \\
   $\Delta \eta_{IN}$ & \num{< 0.007} & \num{< 0.004} \\
   $\Delta \phi_{IN}$ & \num{< 0.8} & \num{< 0.03} \\
@@ -132,7 +134,7 @@ De façon analogue aux muons, on définit également deux jeux de critères pour
   $1 / E - 1 / P$ & - & < 0.05 \\
   \pt & \SI{>= 20}{\GeV} & \SI{>= 30}{\GeV} \\
   $\aeta$ & \num{< 2.5} & \num{< 2.5} \\
-  $I_{\Pe}^\text{corrigé}$ & \num{< 0.15} & \num{< 0.10} \\
+  $I_{\Pe}^\text{corrigé}$ (voir \cref{sec:lepton_isolation}) & \num{< 0.15} & \num{< 0.10} \\
   \bottomrule
 
   \end{tabular}
@@ -142,7 +144,7 @@ $\Delta \eta_{IN}$ est la différence entre $\eta$ de l'agrégat calorimétrique
 
 \begin{figure}[thbp]
   \centering
-  \includegraphics[width=0.55\textwidth]{chapitre7/figs/electron_id_eff.pdf}
+  \includegraphics[width=0.53\textwidth]{chapitre7/figs/electron_id_eff.pdf}
   \caption{Comparaison entre l'efficacité de la sélection d'un électron de qualité pour la simulation (rouge) et les données 2012 (noir). Le ratio entre données et simulation est présenté en dessous de la figure.}
   \label{fig:electron_id_eff}
 \end{figure}
@@ -155,9 +157,9 @@ On a évoqué rapidement dans le \cref{chap:jetmet} que la résolution des jets 
 \begin{align*}
   C &= \max\left(0, 1 + \left[ 1 - \frac{\pt^\text{gen}}{\pt^\text{jet}} \right] \, f(\pt, \eta)\right)
 \end{align*}
-où $\pt^\text{jet}$ est l'impulsion transverse du jet, $\pt^\text{gen}$ est l'impulsion transverse du jet généré, et $f(\pt, \eta)$ un facteur de correction permettant de corriger la dégrader la résolution des jets. Les corrections en énergie et en résolution des jets sont propagées à l'énergie transverse manquante (voir \cref{sec:jetmet_sel}, \cpageref{page:met_propagation} pour plus détails sur la façon dont ces corrections sont propagées à l'énergie transverse manquante).
+où $\pt^\text{jet}$ est l'impulsion transverse du jet, $\pt^\text{gen}$ est l'impulsion transverse du jet généré, et $f(\pt, \eta)$ un facteur de correction permettant de dégrader la résolution des jets. Les corrections en énergie et en résolution des jets sont propagées à l'énergie transverse manquante (voir \cref{sec:jetmet_sel}, \cpageref{page:met_propagation} pour plus détails).
 
-L'algorithme utilisé pour l'étiquetage des jets de \Pbottom est présenté en détails \cref{sec:b_tagging}. Afin d'éliminer les jets provenant des bruits des détecteurs, une sélection lâche est appliquée, demandant que la fraction d'énergie hadronique du jet soit inférieure à \SI{99}{\percent}, et que le nombre de constituants du jet soit au moins égal à 2. Cette sélection a une efficacité supérieure à \SI{99}{\%}.
+L'algorithme utilisé pour l'étiquetage des jets de \Pbottom est présenté en détails \cref{sec:b_tagging}. Afin d'éliminer les jets provenant des bruits des détecteurs, une sélection lâche est appliquée, demandant que la fraction d'énergie hadronique du jet soit inférieure à \SI{99}{\percent}, et que le nombre de particules constituants le jet soit au moins égal à 2. Cette sélection a une efficacité supérieure à \SI{99}{\%}.
 
 \subsubsection{Énergie transverse manquante}
 
@@ -200,14 +202,14 @@ Des filtres ont ainsi été développés afin de supprimer les événements cont
 
 % On souhaite sélectionner des événements ayant un lepton isolé ainsi qu'au moins 4 jets. Afin de baisser au maximum les seuils en impulsion transverse sur les chemins de déclenchements, on demande aux données d'avoir activé les chemins de déclenchements demandant un lepton isolé et au moins 3 jets centraux ($\aeta < \num{2.5}$). On arrive ainsi à obtenir
 
-On considère pour l'analyse la totalité des données collectées par CMS en 2012 (\SI{19.6}{\invfb}), et plus particulièrement les événements ayant activé des chemins de déclenchements demandant un muon isolé d'au moins \SI{17}{\GeV} ou un électron isolé d'au moins \SI{25}{\GeV}, accompagnés d'au moins trois jets d'au moins \SI{30}{\GeV}. Les conditions de prises de données ayant changé pendant l'année 2012, les seuils sur les jets des chemins de déclenchements ont dû être ajustés. Ainsi, on demande au final 4 chemins différents pour le canal semi-muonique et 4 pour le canal semi-électronique. Dans les figures qui suivent, ces chemins ont pour alias respectivement \texttt{HLT\_MuX} (\texttt{HLT\_EleX}), X = A, B, C et D.
+On considère pour l'analyse la totalité des données collectées par CMS en 2012 (\SI{19.6}{\invfb}), et plus particulièrement les événements ayant activé des chemins de déclenchements demandant un muon isolé d'au moins \SI{17}{\GeV} ou un électron isolé d'au moins \SI{25}{\GeV}, accompagnés d'au moins trois jets d'au moins \SI{30}{\GeV}. Les conditions de prises de données ayant changé pendant l'année 2012, les seuils sur l'impulsion transverse des jets des chemins de déclenchements ont dû être ajustés. Ainsi, on demande au final 4 chemins différents pour le canal semi-muonique et 4 pour le canal semi-électronique. Dans les figures qui suivent, ces chemins ont pour alias respectivement \texttt{HLT\_MuX} (\texttt{HLT\_EleX}), X = A, B, C et D.
 
 \bigskip
 
 La sélection appliquée pour chaque canal est identique, excepté la saveur du lepton demandé. Pour être sélectionné, une événement doit contenir :
 
 \begin{itemize}
-  \item Exactement un muon (électron) de qualité, suivant les critères définis \cref{sec:sel_muon} (\cref{sec:sel_electron}). L'événement est rejeté s'il contient en plus un ou plusieurs leptons vérifiant les conditions \textbf{lâches}.
+  \item Exactement un muon (électron) de qualité, suivant les critères définis \cref{sec:sel_muon} (\cref{sec:sel_electron}). L'événement est rejeté s'il contient en plus un ou plusieurs leptons vérifiant les conditions lâches.
   \item Au moins 4 jets avec $\aeta < \num{2.4}$ et $\pt > 70\,/\,50\,/\,30\,/\,\SI{30}{\GeV}$. Cette coupure étagée permet d'optimiser le rapport signal sur bruit.
   \item Au moins 1 jet étiqueté \Pbottom.
   \item $\met > \SI{20}{\GeV}$. Cette coupure permet d'éliminer une majorité du fond multi-jets.
@@ -291,7 +293,7 @@ $\epsilon$ (\ttbar)& \num{0.956\pm 0.005} & \num{0.954\pm 0.004} & \num{0.957\pm
 
 Afin d'estimer au mieux l'efficacité des chemins de déclenchements utilisés par l'analyse, chaque chemin a été simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
 
-Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont calculés centralement par la collaboration avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, et pour chacune des catégories de l'analyse. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
+Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont calculés centralement par la collaboration avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, pour chacune des catégories de l'analyse et séparément pour chaque masse de signal et le bruit de fond \ttbar : l'efficacité de déclenchement n'est pas dépendante de la masse du \zprime, et  est compatible entre \zprime et \ttbar. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
 
 % \begin{figure}[tbp] \centering
 %     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_lepton_zoom.pdf}}
@@ -393,11 +395,11 @@ Afin d'obtenir l'efficacité de sélection d'un éventuel signal sur les donnée
 
 \section{Stratégie de l'analyse}
 
-On souhaite détecter d'éventuelles résonances dans le spectre de masse invariante de paires \ttbar. On reconstruit dans un premier temps \mtt à l'aide des méthodes présentées dans le \cref{chap:mtt_reco}. Plus précisément, on utilise l'algorithme de tri par $\chi^2$ pour sélectionner la bonne combinaison de jets. Les performances de cet algorithme sur des événements \zprime sont détaillées plus loin.
+Pour détecter d'éventuelles résonances dans le spectre de masse invariante de paires \ttbar, on reconstruit dans un premier temps \mtt à l'aide des méthodes présentées dans le \cref{chap:mtt_reco}. Plus précisément, on utilise l'algorithme de tri par $\chi^2$ pour sélectionner la bonne combinaison de jets. Les performances de cet algorithme sur des événements \zprime sont détaillées plus loin.
 
 \smallskip
 
-Il faut ensuite être capable de comparer le spectre \mtt reconstruit à l'aide des données collectées aux prédictions théorique du Modèle Standard. Une première méthode consiste à estimer chacun ou une partie des bruits de fond en utilisant la simulation. Cette méthode nécessite d'avoir une excellente connaissance des générateurs d'événements, et introduit de nombreuses sources d'erreurs systématiques. Afin de réduire ces erreurs, il est possible d'estimer le bruit de fond directement sur les données, en utilisant une interpolation et la connaissance de la forme des distributions. On s'affranchit ainsi de toutes les incertitudes liées à l'utilisation de la simulation pour modéliser les bruits de fond. C'est cette méthode qui est utilisée dans l'analyse, la simulation étant utilisée uniquement pour obtenir la forme du signal, ainsi que l'efficacité de sélection. On sélectionne uniquement la région $\mtt > \SI{550}{\GeV}$ : la tâche se réduit alors à la recherche d'un signal résonant sur un fond strictement décroissant.
+Il faut ensuite être capable de comparer le spectre \mtt reconstruit à l'aide des données collectées aux prédictions théoriques du Modèle Standard. Une première méthode consiste à estimer chacun ou une partie des bruits de fond en utilisant la simulation. Cette méthode nécessite d'avoir une excellente connaissance des générateurs d'événements, et introduit de nombreuses sources d'erreurs systématiques. Afin de réduire ces erreurs, il est possible d'estimer le bruit de fond directement sur les données, en utilisant une interpolation et la connaissance de la forme des distributions. On s'affranchit ainsi de toutes les incertitudes liées à l'utilisation de la simulation pour modéliser les bruits de fond. C'est cette méthode qui est utilisée dans l'analyse, la simulation étant utilisée uniquement pour obtenir la forme du signal, ainsi que l'efficacité de sélection. On sélectionne uniquement la région $\mtt > \SI{550}{\GeV}$ : la tâche se réduit alors à la recherche d'un signal résonant sur un fond strictement décroissant.
 
 \smallskip
 
@@ -410,7 +412,7 @@ Une fois les bruits de fond estimés, la confrontation entre données et prédic
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.9\textwidth]{chapitre7/figs/chi2_eff_vs_zprime_mass.pdf}
-  \caption{Évolution de l'efficacité d'avoir un événement associable (bleu), un événement associé (rouge), et un événement associé et bien placé (jaune) en fonction de la masse des résonances, dans l'hypothèse de résonances étroites. A titre de comparaison, l'efficacité de choisir la bonne combinaison de jets en utilisant les 4 premiers jets de l'événement est présentée en vert.}
+  \caption{Évolution de l'efficacité d'avoir un événement associable (bleu), un événement associé (rouge), et un événement associé et bien placé (jaune) en fonction de la masse des résonances, dans l'hypothèse de résonances étroites. A titre de comparaison, l'efficacité de choisir la bonne combinaison de jets en utilisant les 4 premiers jets de l'événement est présentée en vert. Les efficacités présentées sont absolues, c'est-à-dire par exemple $\epsilon^\prime_\text{associé} \equiv \epsilon_\text{associable} \times \epsilon_\text{associé}$.}
   \label{fig:eff_vs_zprime}
 \end{figure}
 
@@ -439,7 +441,7 @@ Afin de contourner ce problème, une autre analyse dédiée spécifiquement aux 
     \label{fig:rms_reso_zprime}
 \end{figure}
 
-Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ reste stable en fonction de la masse de la résonance, augmentant même légèrement à haute masse. La \cref{fig:mtt_reso_zprime} présente les résolutions obtenues sur la masse invariante pour deux masses de résonances, dans l'hypothèse de résonances étroites. On constate l'apparition d'une distorsion de la résolution à haute masse, causée intégralement par les événements non-associables ou non-associés. Pour ces événements, on tente de reconstruire la masse invariante du système \ttbar en utilisant des jets ne provenant probablement pas de la désintégration du système \ttbar. D'ailleurs, en regardant l'évolution de la moyenne quadratique (RMS) de la résolution en fonction de la masse des résonances (\cref{fig:rms_zprime}), on constate que tous les modèles considérés se comportent de la même façon lorsque la masse de résonance augmente : une distorsion de la résolution apparaît, de plus en plus marquée à mesure que la masse augmente. Notons que la RMS est utilisée plutôt que la résolution relative extraite de l'interpolation gaussienne afin de quantifier la distorsion de la résolution à haute masse. La \cref{fig:reso_zprime} montre quant à elle l'évolution de la résolution, extraite à l'aide d'une interpolation gaussienne, en fonction de la masse de la résonance. On remarque ici que la résolution est quasiment identique pour chaque point de masse et pour chaque type de modèle. Face à cette dégradation de la résolution à haute masse, on s'attend d'ores et déjà à de mauvaises performances de l'analyse dans ces régions de signal.
+Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ reste stable en fonction de la masse de la résonance, augmentant même légèrement à haute masse, et reste supérieure qu'en choisissant uniquement les 4 jets de plus haut \pt. La \cref{fig:mtt_reso_zprime} présente les résolutions obtenues sur la masse invariante pour deux masses de résonances, dans l'hypothèse de résonances étroites. On constate l'apparition d'une distorsion de la résolution à haute masse, causée intégralement par les événements non-associables ou non-associés. Pour ces événements, on tente de reconstruire la masse invariante du système \ttbar en utilisant des jets ne provenant probablement pas de la désintégration du système \ttbar. D'ailleurs, en regardant l'évolution de la moyenne quadratique (RMS) de la résolution en fonction de la masse des résonances (\cref{fig:rms_zprime}), on constate que tous les modèles considérés se comportent de la même façon lorsque la masse de résonance augmente : une distorsion de la résolution apparaît, de plus en plus marquée à mesure que la masse augmente. Notons que la RMS est utilisée plutôt que la résolution relative extraite de l'interpolation gaussienne afin de quantifier la distorsion de la résolution à haute masse. La \cref{fig:reso_zprime} montre quant à elle l'évolution de la résolution, extraite à l'aide d'une interpolation gaussienne, en fonction de la masse de la résonance. On remarque ici que la résolution est quasiment identique pour chaque point de masse et pour chaque type de modèle. Face à cette dégradation de la résolution à haute masse, on s'attend d'ores et déjà à de mauvaises performances de l'analyse dans ces régions de signal.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:kf_zp_750}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,angle=-90,origin=c]{chapitre7/figs/kinfit/mtt_resolution_comparison_kf_zp750_all_events.pdf}} \hfill
@@ -454,7 +456,7 @@ Les performances de l'ajustement cinématique ont été détaillées dans le \cr
 
 \medskip
 
-La \cref{fig:kf_zp} présente l'effet de l'ajustement cinématique sur la résolution de la masse invariante pour deux masses de \zprime, $\mzp = \SI{750}{\GeV}$ et $\mzp = \SI{2}{\TeV}$, dans l'hypothèse de résonances étroites. Comme on peut le voir sur ces distributions, l'effet de l'ajustement cinématique est catastrophique : la résolution est fortement dégradée, allant même jusqu'à faire disparaître le pic de résonance à \SI{2}{\TeV}. L'effet, déjà présent sur des événements \ttbar Modèle Standard, se trouve encore plus accentué sur des événements \ttbar produits par des processus de nouvelle physique. En effet, à \SI{500}{\GeV}, l'efficacité d'avoir un événement associable est comparable à celle du Modèle Standard (environ \SI{35}{\percent}), et chute à mesure que la masse augmente. Or, on a vu dans la \cref{sec:mtt_kf} que l'ajustement cinématique gère très mal les événements où la mauvaise combinaison de jet est sélectionnée, ce qui explique pourquoi les performances de l'ajustement cinématique sont comparables à celles sur des événements \ttbar du Modèle Standard pour un \zprime de \SI{500}{\GeV}, et très mauvaises à \SI{2}{\TeV}.
+La \cref{fig:kf_zp} présente l'effet de l'ajustement cinématique sur la résolution de la masse invariante pour deux masses de \zprime, $\mzp = \SI{750}{\GeV}$ et $\mzp = \SI{2}{\TeV}$, dans l'hypothèse de résonances étroites. Comme on peut le voir sur ces distributions, l'effet de l'ajustement cinématique est catastrophique : la résolution est fortement dégradée, allant même jusqu'à faire disparaître le pic de résonance à \SI{2}{\TeV}. L'effet, déjà présent sur des événements \ttbar Modèle Standard, se trouve encore plus accentué sur des événements \ttbar produits par des processus de nouvelle physique. En effet, à \SI{500}{\GeV}, l'efficacité d'avoir un événement associable est comparable à celle du Modèle Standard (environ \SI{35}{\percent}), et chute à mesure que la masse augmente. Dans la \cref{sec:mtt_kf} on a vu que l'ajustement cinématique gère très mal les événements où la mauvaise combinaison de jet est sélectionnée, ce qui explique pourquoi les performances de l'ajustement cinématique sont comparables à celles sur des événements \ttbar du Modèle Standard pour un \zprime de \SI{500}{\GeV}, et très mauvaises à \SI{2}{\TeV}.
 
 \subsection{Comparaisons données / simulation}
 
@@ -475,7 +477,7 @@ Afin de valider notre sélection, il est utile de procéder à quelques comparai
     \label{fig:data_mc_1b}
 \end{figure}
 
-La \cref{fig:data_mc_2b} présente la comparaison entre les données et la simulation, pour une sélection d'au moins 2 jets étiquetés \Pbottom, pour les canaux semi-muonique et semi-électronique. La simulation est normalisée au nombre d'événements dans les données. De façon analogue, la \cref{fig:data_mc_1b} présente la comparaison entre les données et la simulation, pour une sélection d'exactement 1 jet étiqueté \Pbottom. Les incertitudes présentées sur les distributions ne tiennent compte que des incertitudes statistiques ainsi que l'incertitude sur la luminosité totale collectée.
+La \cref{fig:data_mc_2b} présente la comparaison entre les données et la simulation pour \mtt, pour une sélection d'au moins 2 jets étiquetés \Pbottom, pour les canaux semi-muonique et semi-électronique. La simulation est normalisée au nombre d'événements dans les données. De façon analogue, la \cref{fig:data_mc_1b} présente la comparaison entre les données et la simulation, pour une sélection d'exactement 1 jet étiqueté \Pbottom. Les incertitudes présentées sur les distributions ne tiennent compte que des incertitudes statistiques ainsi que l'incertitude sur la luminosité totale collectée.
 
 \medskip
 
@@ -529,7 +531,7 @@ où $\theta$ symbolise l'ensemble des paramètres libres des PDFs, $B$ le nombre
 
 \medskip
 
-Les événements sélectionnés par l'analyse sont classés dans 4 catégories, selon le nombre de jets étiquetés \Pbottom et la saveur du lepton. Si un signal de nouvelle physique est présent, il doit apparaître de façon cohérente dans chacune des catégories. On effectue un ajustement simultané, en ajoutant comme contrainte que le nombre d'événements dans chaque catégorie soit compatible avec l'efficacité de sélection dans cette catégorie. Lors de l’ajustement, les paramètres de la PDF décrivant le signal sont fixés aux valeurs déterminées sur la simulation, tandis que ceux de la PDF décrivant le fond sont libres de varier. Les PDFs du fond et du signal sont obtenues séparément pour chacune des catégories considérées dans l'analyse.
+Les événements sélectionnés par l'analyse sont classés dans 4 catégories, selon le nombre de jets étiquetés \Pbottom et la saveur du lepton. Si un signal de nouvelle physique est présent, il doit apparaître de façon cohérente dans chacune des catégories. On effectue un ajustement simultané, en ajoutant comme contrainte que le nombre d'événements de signal dans chaque catégorie soit compatible avec l'efficacité de sélection dans cette catégorie. Lors de l’ajustement, les paramètres de la PDF décrivant le signal sont fixés aux valeurs déterminées sur la simulation, tandis que ceux de la PDF décrivant le fond sont libres de varier. Les PDFs du fond et du signal sont obtenues séparément pour chacune des catégories considérées dans l'analyse.
 
 \bigskip
 
@@ -537,7 +539,7 @@ Une fois l'ajustement effectué, on peut extraire la section efficace de product
 \begin{align} \label{eq:cross_section}
   \sigma &= \frac{\hat{N_S}}{\mathcal{L} \; \epsilon_{\text{sélection}}}
 \end{align}
-où $\mathcal{L}$ est ici la luminosité intégrée collectée.
+où $\mathcal{L}$ est ici la luminosité intégrée collectée, et $\epsilon_{\text{sélection}}$ l'efficacité de sélection du signal.
 
 \subsection{Choix de la PDF de signal}
 
@@ -565,7 +567,7 @@ La \cref{fig:signal_pdf} présente les distributions de masse invariante pour un
 
 \subsection{Choix de la PDF du fond} \label{sec:zp_bkg_pdf}
 
-On souhaite être capable de détecter une résonance présente dans un spectre de masse décroissant. On cherche ainsi une fonction analytique strictement décroissante. Parmi plusieurs formes, on sélectionne la fonction qui biaise le moins l'analyse : en cas de présence de signal, la fonction décrivant le fond ne doit pas être en mesure d'absorber ce signal. Pour cela, plusieurs études ont été effectuée, décrites dans la suite de cette section.
+Le signal se manifeste sous la forme d'une résonance dans un spectre de masse décroissant. On cherche ainsi une fonction analytique strictement décroissante. Parmi plusieurs formes, on sélectionne la fonction qui biaise le moins l'analyse : en cas de présence de signal, la fonction décrivant le fond ne doit pas être en mesure d'absorber ce signal. Pour cela, plusieurs études ont été effectuée, décrites dans la suite de cette section.
 
 \medskip
 
@@ -611,7 +613,7 @@ où $N^S_\text{mesuré}$ est le nombre d'événements de signal extrait par l'aj
   \label{fig:pulls}
 \end{figure}
 
-Au final, on obtient 9 distributions de \emph{pull}, une pour chaque couple "fonction ayant générée les pseudo\-/expériences / fonction ayant ajustée les pseudo\-/expériences". Une représentation schématique est visible sur la \cref{fig:pull_matrix}. On souhaite cependant obtenir un unique estimateur par fonction. On somme donc les distributions de \emph{pull} de chaque couple où la même fonction a servi à l'ajustement, en excluant le couple où la même fonction a servi à la génération et à l'ajustement, non biaisé par définition. Autrement dit, si on se réfère à la \cref{fig:pull_matrix}, on somme les distributions associées à chaque ligne, en excluant la diagonale.
+Au final, on obtient 9 distributions de \emph{pull}, une pour chaque couple \enquote{fonction ayant générée les pseudo\-/expériences / fonction ayant ajustée les pseudo\-/expériences}. Une représentation schématique est visible sur la \cref{fig:pull_matrix}. On souhaite cependant obtenir un unique estimateur par fonction. On somme donc les distributions de \emph{pull} de chaque couple où la même fonction a servi à l'ajustement, en excluant le couple où la même fonction a servi à la génération et à l'ajustement, non biaisé. Autrement dit, si on se réfère à la \cref{fig:pull_matrix}, on somme les distributions associées à chaque ligne, en excluant la diagonale.
 
 Les résultats de cette étude sont visible \cref{fig:pulls} pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites. Chaque distribution est ajustée avec une fonction gaussienne de laquelle on extrait la moyenne, décrivant le biais sur le nombre d'événement de signal de la fonction utilisée pour l'ajustement des pseudo\-/expériences.
 
@@ -648,7 +650,7 @@ On effectue un ajustement simultané dans les quatre catégories de l'analyse, e
     \subcaptionbox{Canal semi-électronique, au moins 2 jets étiquetés \Pbottom.}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,angle=-90,origin=c]{chapitre7/figs/likelihood_fit_e_2b.pdf}} \\
     \subcaptionbox{Canal semi-muonique, exactement 1 jet étiqueté \Pbottom.}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,angle=-90,origin=c]{chapitre7/figs/likelihood_fit_mu_1b.pdf}} \hfill
     \subcaptionbox{Canal semi-électronique, exactement 1 jet étiqueté \Pbottom.}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,angle=-90,origin=c]{chapitre7/figs/likelihood_fit_e_1b.pdf}}
-    \caption{Ajustement des données à l'aide de la méthode du maximum de vraisemblance en incluant un signal de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites, pour les 4 catégories de l'analyse. La distribution du \zprime est normalisée à une section efficace de \SI{1}{\pb}.}
+    \caption{Ajustement des données à l'aide de la méthode du maximum de vraisemblance en incluant un signal de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites, pour les 4 catégories de l'analyse. La bande jaune correspond à l'incertitude de l'ajustement, et la distribution du \zprime est normalisée à une section efficace de \SI{1}{\pb}.}
     \label{fig:likelihood_fit}
 \end{figure}
 
@@ -720,16 +722,16 @@ La limite supérieure est définie comme la borne supérieur de l'intégrale :
 
 \subsubsection{Erreurs systématiques}
 
-Des erreurs systématiques peuvent modifier la mesure de la section efficace, en affectant l'efficacité de sélection, le nombre d'événements de signal attendu, ... Les sources suivantes d'incertitudes systématiques sont considérées dans l'analyse :
+Des erreurs systématiques peuvent modifier la mesure de la section efficace, en affectant l'efficacité de sélection ou le nombre d'événements de signal attendu. Les sources suivantes d'incertitudes systématiques sont considérées dans l'analyse :
 
 \begin{table}[p] \centering
   \begin{tabular}{@{}ccccc@{}} \toprule
   Erreur & semi-$\mu$, 1 \Pbottom & semi-e, 1 \Pbottom & semi-$\mu$, 2 \Pbottom & semi-e, 2 \Pbottom \\ \midrule
-  Luminosité & \multicolumn{4}{c}{\SI{4.4}{\percent}} \\
-  JEC & \multicolumn{4}{c}{\SI{1.08}{\percent}} \\
-  JER & \multicolumn{4}{c}{\SI{0.07}{\percent}} \\
-  Repondération du \pu & \multicolumn{4}{c}{\SI{0.05}{\percent}} \\
-  PDF du signal & \multicolumn{4}{c}{\SI{0.64}{\percent}} \\
+  Luminosité & \SI{4.4}{\percent} & \SI{4.4}{\percent} & \SI{4.4}{\percent} & \SI{4.4}{\percent} \\
+  JEC & \SI{1.08}{\percent} & \SI{1.08}{\percent} & \SI{1.08}{\percent} & \SI{1.08}{\percent} \\
+  JER & \SI{0.07}{\percent} & \SI{0.07}{\percent} & \SI{0.07}{\percent} & \SI{0.07}{\percent} \\
+  Repondération du \pu & \SI{0.05}{\percent} & \SI{0.05}{\percent} & \SI{0.05}{\percent} & \SI{0.05}{\percent} \\
+  PDF du signal & \SI{0.64}{\percent} & \SI{0.64}{\percent} & \SI{0.64}{\percent} & \SI{0.64}{\percent} \\
   Efficacité & \SI{3.45}{\percent} & \SI{3.42}{\percent} & \SI{4.03}{\percent} & \SI{4.01}{\percent} \\
   \bottomrule
   \end{tabular}
@@ -744,17 +746,16 @@ Des erreurs systématiques peuvent modifier la mesure de la section efficace, en
   \label{fig:keys_syst}
 \end{figure}
 
-\begin{itemize}
-  \item Les efficacité de sélection sont déterminées sur la simulation. Des facteurs sont appliqués afin de corriger des différences entre la simulation et les données, déterminés avec une certaine précision. Les incertitudes de chaque facteur de correction sont sommées en quadrature, et le résultat est considéré comme une erreur systématique sur l'efficacité de sélection.
-  \item Les corrections en énergie des jets (JEC) possèdent également une incertitude. Afin d'en tenir compte, les facteurs de corrections des jets sont modifiés de \pm{} l'incertitude, et l'analyse complète est refaite. La variation de la section efficace du signal extraite à l'aide de l'ajustement est considérée en tant qu'erreur systématique.
-  \item De manière analogue aux corrections en énergie des jets, on ajoute une erreur systématique pour les corrections en résolution des jets (JER). Les facteurs de corrections sont modifiés de \pm{} 1 $\sigma$, et l'analyse complète est refaite. La variation de la section efficace du signal extraite est considérée en tant qu'erreur systématique.
-  \item La section efficace des collisions \Pproton{}\Pproton{} utilisée lors du calcul des facteurs de repondération du \pu est variée de \pm{} \SI{5}{\percent}. La variation de la section efficace du signal extraite est considérée en tant qu'erreur systématique.
-  \item On utilise une interpolation par noyaux gaussiens pour décrire la PDF signal, déterminée sur des événements de signal simulés. Cette PDF est fixée pendant l'ajustement. Afin d'évaluer l'effet systématique du choix de cette description du signal sur $N_S$, on génère environ 150 pseudo\-/expériences pour chaque point de masse à partir de l'interpolation du signal. Pour chaque pseudo\-/expérience, on extrait une nouvelle PDF pour le signal (voir \cref{fig:keys_syst}), qu'on utilise pour extraire une nouvelle valeur de $N_S$. On obtient ainsi une distribution de $N_S$, dont on utilise la moyenne quadratique (RMS) comme erreur systématique liée au choix de PDF du signal.
-  \item L'incertitude sur la mesure de la luminosité (\SI{4.4}{\percent}) est aussi considérée comme une erreur systématique.
-  \item Les fonctions de densité partonique ne sont connues qu'avec une certaine précision. Les valeurs propres de ces fonctions sont modifiés dans leurs incertitudes dans la simulation du signal, et l'analyse est refaite avec la nouvelle fonction de densité partonique. L'effet sur le nombre d'événements de signal est totalement négligeable par rapport aux autres erreurs systématiques, et n'est pas inclus dans la liste des incertitudes systématiques.
-\end{itemize}
+\begin{description}
+  \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{4.4}{\percent}) est considérée comme une source d'erreur systématique.
+  \item[\pu] La section efficace des collisions \Pproton{}\Pproton{} utilisée lors du calcul des facteurs de repondération du \pu est variée de \pm{} \SI{5}{\percent}. La variation de la section efficace du signal extraite est considérée en tant qu'erreur systématique.
+  \item[Facteurs de corrections] Les incertitudes sur les facteurs de corrections liés à l’identification et à l’isolation des leptons, à l’algorithme d’étiquetage des jets de b ainsi qu’aux performances des chemins de déclenchement sont sommées en quadratique et considérées comme une source d’incertitude systématique impactant l'efficacité de la sélection.
+  \item[Corrections des jets] Les incertitudes sur les corrections en énergie et résolution des jets sont considérées comme une source d’incertitude systématique. Afin d'en tenir compte, les facteurs de corrections des jets sont modifiés de \pm{} leur incertitude, et l'analyse complète est refaite. La variation de la section efficace du signal extraite à l'aide de l'ajustement est considérée comme incertitude systématique.
+  \item[Modélisation du signal] On utilise une interpolation par noyaux gaussiens pour décrire la PDF du signal, déterminée sur des événements de signal simulés. Cette PDF est fixée pendant l'ajustement. Afin d'évaluer l'effet systématique du choix de cette description du signal sur $N_S$, on génère environ 150 pseudo\-/expériences pour chaque point de masse à partir de l'interpolation du signal. Pour chaque pseudo\-/expérience, on extrait une nouvelle PDF pour le signal (voir \cref{fig:keys_syst}), qu'on utilise pour extraire une nouvelle valeur de $N_S$. On obtient ainsi une distribution de $N_S$, dont on utilise la moyenne quadratique (RMS) comme erreur systématique liée au choix de PDF du signal.
+  \item[Densités de probabilité partonique] Les fonctions de densité de probabilité partonique ne sont connues qu'avec une certaine précision. Les valeurs propres de ces fonctions sont modifiées dans leurs incertitudes lors la simulation du signal, et l'analyse est refaite avec la nouvelle fonction de densité partonique. L'effet sur le nombre d'événements de signal est négligeable par rapport aux autres erreurs systématiques, et n'est pas inclus dans la liste des incertitudes systématiques.
+\end{description}
 
-Toutes ces erreurs systématiques sont introduites dans le calcul du \emph{posterior} en utilisant des \emph{prior} log-normal. À titre d'exemple, le \cref{tab:syst} résume les valeurs des erreurs systématiques pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites.
+Toutes ces erreurs systématiques sont considérées comme des paramètres de nuisances et sont introduites dans le calcul du \emph{posterior} en utilisant des \emph{prior} log-normal. À titre d'exemple, le \cref{tab:syst} résume les valeurs des erreurs systématiques pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites.
 
 \section{Résultats}
 
@@ -786,7 +787,7 @@ On cherche à calculer deux types de quantités :
     \label{fig:limits_zprime}
 \end{figure}
 
-On compare ensuite les limites attendues et observées sur les \cref{fig:limits_zprime,fig:limits_kk}. Les limites observées vont fluctuer autour des limites attendues, et un désaccord entre ces limites de plus de 2$\sigma$ (la limite observée est en dehors de l'intervalle de confiance à \SI{95}{\%}) serait soit le signe qu'un signal est présent dans les données, mais pas dans les prédictions du Modèle Standard, et qu'il est très peu probable que ce signal soit uniquement une fluctuation statistique\footnote{Il est a noté que dans ce cas, l'étape précédente d'extraction du nombre d'événements de signal aurait mis en évidence un excès d'événements par rapport à la prédiction théorique.}, soit le signe d'un problème de modélisation du fond ou du signal par l'analyse. Comme on peut le voir sur les courbes de limites, la limite supérieure sur la section efficace du signal est pleinement compatible avec l'hypothèse d'absence de signal.
+On compare ensuite les limites attendues et observées sur les \cref{fig:limits_zprime,fig:limits_kk}. Les limites observées vont fluctuer autour des limites attendues, et un désaccord entre ces limites de plus de 2$\sigma$ (la limite observée est en dehors de l'intervalle de confiance à \SI{95}{\%}) serait soit le signe qu'un signal est présent dans les données, mais pas dans les prédictions du Modèle Standard, et qu'il est très peu probable que ce signal soit uniquement une fluctuation statistique\footnote{Il est a noter que dans ce cas, l'étape précédente d'extraction du nombre d'événements de signal aurait mis en évidence un excès d'événements par rapport à la prédiction théorique.}, soit le signe d'un problème de modélisation du fond ou du signal par l'analyse. Comme on peut le voir sur les courbes de limites, la limite supérieure sur la section efficace du signal est pleinement compatible avec l'hypothèse d'absence de signal.
 
 \begin{figure}[tbp] \centering
     \includegraphics[width=0.8\textwidth]{chapitre7/figs/low-mass-limits-kk.png}
@@ -829,11 +830,11 @@ L'analyse présentée dans ce chapitre est optimisée pour les résonances non b
   \label{fig:limits_narrow_cms_full}
 \end{figure}
 
-Il n'est pas possible d'effectuer une combinaison statistique entre ces deux analyses, puisque les sélections utilisées ne sont pas orthogonales (un même événement peut être sélectionné par les deux analyses). À la place, on utilise les limites de chaque analyse pour construite la courbe d'exclusion, et la transition entre les limites de notre analyse et celles de l'analyse boostée se fait en fonction de la sensibilité de la limite attendue. La \cref{fig:limits_narrow_cms} présente la courbe de limite ainsi obtenue pour des \zprime, dans l'hypothèse de résonances étroites : la ligne verticale correspond au point de transition entre les limites de notre analyse et celles de l'analyse boostée.
+Il n'est pas possible d'effectuer une combinaison statistique entre ces deux analyses, puisque les sélections utilisées ne sont pas mutuellement exclusives (un même événement peut être sélectionné par les deux analyses). À la place, on utilise les limites de chaque analyse pour construite la courbe d'exclusion, et la transition entre les limites de cette analyse et celles de l'analyse boostée se fait en fonction de la sensibilité de la limite attendue. La \cref{fig:limits_narrow_cms} présente la courbe de limite ainsi obtenue pour des \zprime, dans l'hypothèse de résonances étroites : la ligne verticale correspond au point de transition entre les limites de cette analyse et celles de l'analyse boostée.
 
-Une seconde combinaison est réalisée entre les analyses semi-leptonique et l'analyse exploitant le canal tout-hadronique, optimisée elle aussi pour les résonances boostées \citep{Chatrchyan:1599045}. Le résultat de cette combinaison est visible sur la \cref{fig:limits_narrow_cms_full}.
+Une seconde combinaison est réalisée entre la première combinaison des analyses semi-leptonique et l'analyse exploitant le canal tout-hadronique, optimisée elle aussi pour les résonances boostées \citep{Chatrchyan:1599045}. Le résultat de cette combinaison est visible sur la \cref{fig:limits_narrow_cms_full}.
 
-Il est intéressant de noter que, même si les analyses boostées sont meilleures à haute masse, notre analyse reste indispensable à basse masse. On peut voir sur la \cref{fig:limits_comp} la comparaison entre les limites des trois analyses. Le gain apporté à basse masse par notre analyse est considérable, permettant de gagner jusqu'à un facteur 10 comparé à l'analyse boostée semi-leptonique.
+Il est intéressant de noter que, même si les analyses boostées sont meilleures à haute masse, l'analyse présentée dans ce chapitre reste indispensable à basse masse. On peut voir sur la \cref{fig:limits_comp} la comparaison entre les limites des trois analyses. Le gain apporté à basse masse par l'analyse est considérable, permettant de gagner jusqu'à un facteur 10 comparé à l'analyse boostée semi-leptonique.
 
 \begin{figure}[tbp]
   \centering
@@ -852,7 +853,7 @@ Le même type de recherche a aussi été mené au Tevatron par les expérience C
     Modèle & ATLAS\footnote{Seulement \SI{14.2}{\invfb} sur les \SI{20}{\invfb} disponibles ont été analysés par ATLAS} & CDF & CMS\footnote{Combinaison entre les analyses semi-leptoniques et tout-hadronique} & \dzero \\ \midrule
     \zprime, résonances étroites & \SI{1.8}{\TeV} & \SI{915}{\GeV} & \SI{2.1}{\TeV} & \SI{835}{\GeV} \\
     \zprime, résonances larges & - & - & \SI{2.7}{\TeV} & - \\
-    Gluons de Kaluza-Klein & \SI{2.0}{\TeV} \footnote{Contrairement à CMS, le facteur \num{1.3} n'est pas inclus pour obtenir une section efficace théorique aux ordres supérieurs.} & - & \SI{2.5}{\TeV} & - \\
+    Gluons de Kaluza-Klein & \SI{2.0}{\TeV} \footnote{Contrairement à CMS, le facteur \num{1.3} n'est pas inclut pour obtenir une section efficace théorique aux ordres supérieurs.} & - & \SI{2.5}{\TeV} & - \\
     \bottomrule
   \end{tabular}
   \caption{Exclusions posées par ATLAS, CDF, CMS et \dzero, pour différents types de résonances de spin 1.}
@@ -862,7 +863,7 @@ Le même type de recherche a aussi été mené au Tevatron par les expérience C
 
 \section{Conclusion}
 
-Les résultats de la recherche de résonances de spin 1 dans le spectre de masse \ttbar ont été présentés tout au long de ce chapitre. Ces résultats, validés par la collaboration, ont été publiés au sein de la revue \emph{Physical Review Letters} \citep{Chatrchyan:1599045}, signe du grand intérêt porté par la communauté scientifique dans la recherche de nouvelle physique dans le secteur du quark top. La combinaison avec les analyses boostées semi- et tout-hadroniques permettent d'obtenir les limites d'exclusions les plus hautes jamais posées sur la recherche de résonances de spin 1 à ce jour. Les \zprime leptophobiques dans le modèle topcolor sont exclus pour des masses inférieures à \SI{2.1}{\TeV} dans l'hypothèse de résonances étroites et \SI{2.7}{\TeV} dans l'hypothèse de résonances larges. Dans un modèle plus particulier de résonances de Kaluza-Klein du gluon, les masses inférieures à \SI{2.5}{\TeV} sont exclues.
+Les résultats de la recherche de résonances de spin 1 dans le spectre de masse \ttbar ont été présentés tout au long de ce chapitre. Ces résultats, validés par la collaboration, ont été publiés au sein de la revue \emph{Physical Review Letters} \citep{Chatrchyan:1599045}, signe du grand intérêt porté par la communauté scientifique dans la recherche de nouvelle physique dans le secteur du quark top. La combinaison avec les analyses boostées semi- et tout-hadroniques permettent d'obtenir les limites d'exclusions les plus hautes jamais posées sur la recherche de résonances de spin 1 se désintégrant en \ttbar à ce jour. Les \zprime leptophobiques dans le modèle topcolor sont exclus pour des masses inférieures à \SI{2.1}{\TeV} dans l'hypothèse de résonances étroites et \SI{2.7}{\TeV} dans l'hypothèse de résonances larges. Dans un modèle plus particulier de résonances de Kaluza-Klein du gluon, les masses inférieures à \SI{2.5}{\TeV} sont exclues.
 
 \bigskip
 
