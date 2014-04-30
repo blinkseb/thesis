@@ -85,54 +85,45 @@ void wilenbrock(double m)
 
 #include "tdrstyle.C"
 
-void wilenbrock()
+void signal_interference_overlaid_scalar()
 {
 
   setTDRStyle();
 
   TCanvas* c = new TCanvas();
-  TF1* func = new TF1("Signal + Interferences",Somme,350,900,1);
-  func->SetTitle("Scalar : Signal + interferences");
-  func->SetMinimum(-4e-9);
+  TF1* func = new TF1("Signal + Interferences",Signal,350,900,1);
+  func->SetMinimum(-6e-9);
   //func->GetXaxis()->SetTitle("m_{t#bar{t}}");
-  double m=400;
+  double m=500;
   func->SetParameter(0,m);
-  func->SetLineColor(TColor::GetColor("#542437"));
+  func->SetLineColor(TColor::GetColor("#8A9B0F"));
   func->SetLineWidth(2);
-  func->SetNpx(500);
+  func->SetNpx(1000);
   func->Draw();
   func->GetXaxis()->SetTitle("m_{t#bar{t}}");
-  func->GetYaxis()->SetTitle("#sigma(#hat{s}) - #sigma_{QCD}(#hat{s})");
-  TF1* func2 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=500;
+  TF1* func2 = new TF1("Signal + Interferences",Interference,350,900,1);
   func2->SetParameter(0,m);
-  func2->SetLineColor(TColor::GetColor("#C02942"));
+  func2->SetLineColor(TColor::GetColor("#E97F02"));
   func2->SetLineWidth(2);
-  func2->SetNpx(500);
+  func2->SetNpx(1000);
   func2->Draw("SAME");
   TF1* func3 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=600;
   func3->SetParameter(0,m);
   func3->SetLineColor(TColor::GetColor("#53777A"));
   func3->SetLineWidth(2);
-  func3->SetNpx(500);
+  func3->SetLineStyle(kDashed);
+  func3->SetNpx(1000);
   func3->Draw("SAME");
-  TF1* func4 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=700;
-  func4->SetParameter(0,m);
-  func4->SetLineColor(TColor::GetColor("#D95B43"));
-  func4->SetLineWidth(2);
-  func4->SetNpx(500);
-  func4->Draw("SAME");
-  TF1* func5 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=800;
-  func5->SetParameter(0,m);
-  func5->SetLineColor(TColor::GetColor("#ECD078"));
-  func5->SetLineWidth(2);
-  func5->SetNpx(500);
-  func5->Draw("SAME");
 
-  c->SaveAs("scalar.pdf");
+  TLegend l(0.65 - 0.1, 0.75 - 0.5, 0.9 - 0.1, 0.9 - 0.5);
+  l.SetBorderSize(0);
+  l.SetFillColor(0);
+  l.SetTextFont(42);
+  l.SetTextSize(0.033);
+  l.AddEntry(func, "Signal", "L");
+  l.AddEntry(func2, "Interference", "L");
+  l.AddEntry(func3, "Signal + interference", "L");
+  l.Draw("same");
+
+  c->SaveAs("scalar_sig_int.pdf");
 }
-
-

@@ -49,11 +49,6 @@
   mg->GetXaxis()->SetTitle("m_{t#bar{t}} (GeV)");
   mg->GetYaxis()->SetTitleOffset(1.3);
   mg->GetYaxis()->SetTitle("Resolution (%)");
-  mg->GetYaxis()->SetRangeUser(8, 13);
-
-  gPad->Update();
-  mg->Draw("A");
-
   TLegend l(0.65, 0.75, 0.9, 0.9);
   l.SetBorderSize(0);
   l.SetFillColor(0);
