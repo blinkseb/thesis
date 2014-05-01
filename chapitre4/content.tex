@@ -458,7 +458,7 @@ Les événements sélectionnés sont classés suivant l'impulsion transverse du 
 
 À \SI{8}{\TeV} et à l'arbre, un processus $\Pphoton$ + 1 / 2 jets a une section efficace de \SI[allow-number-unit-breaks]{99668 \pm 236}{\pb}. À cause de cette section efficace élevée, les chemins de déclenchement demandant simplement un photon possèdent un facteur de \emph{prescale}. Le seul qui ne l'est pas demande ainsi un photon d'au moins \SI{150}{\GeV}. Afin d'éviter tout biais possible dans l'analyse, chaque classe en \ptg{} a été choisie de façon à être associée de façon exclusive à un chemin de déclenchement précis, tout en ayant, si possible, une efficacité de déclenchement maximale. Par exemple, pour la classe 100 - \SI{125}{\GeV}, on demande à ce que l'événement ait déclenché le chemin demandant un photon d'au moins \SI{90}{\GeV} (\texttt{HLT\_Photon90}). Les \SI{10}{\GeV} de différence entre le seuil du déclencheur et la classe en \pt permettent de tenir compte des possibles corrections en énergie entre le photon reconstruit au niveau HLT et le photon \pf. À partir de \SI{155}{\GeV} (ou \SI{180}{\GeV} pour une période spécifique de prise de données), tous les événements doivent déclencher le premier chemin ayant un facteur de \emph{prescale} de 1. Le \cref{tab:triggers_jetmet} résume les chemins de déclenchement associés à chaque classe en \ptg. Les chemins de déclenchement ayant changé pendant la période de prise de données (notamment avec l'apparition puis la disparition du déclencheur \texttt{HLT\_Photon150}), deux tableaux sont présents, un pour chaque période de prise de données.
 
-Les facteurs de \emph{prescale} des chemins de déclenchement vont aussi affecter les distributions de \pu associées. Ainsi, lors de la procédure de repondération du \pu sur la simulation, il faut tenir compte du déclencheur associé à l'événement. En fonction de l'impulsion transverse du photon dans les événement simulés, on détermine quel chemin de déclenchement l'événement aurait dû déclencher sur les données pour passer la sélection, et on utilise cette information pour obtenir le profil de \pu correspondant. On présente \cref{fig:pu_jetmet} une comparaison entre deux profils de \pu, obtenus pour deux chemins de déclenchement différents. On voit très clairement la différence entre les deux profils.
+Les facteurs de \emph{prescale} des chemins de déclenchement vont aussi affecter les distributions de \pu associées. Ainsi, lors de la procédure de repondération du \pu sur la simulation, il faut tenir compte du déclencheur associé à l'événement. En fonction de l'impulsion transverse du photon dans les événements simulés, on détermine quel chemin de déclenchement l'événement aurait dû déclencher sur les données pour passer la sélection, et on utilise cette information pour obtenir le profil de \pu correspondant. On présente \cref{fig:pu_jetmet} une comparaison entre deux profils de \pu, obtenus pour deux chemins de déclenchement différents. On voit très clairement la différence entre les deux profils.
 
 \begin{figure}[tbp]
     \centering
@@ -584,7 +584,7 @@ On présente \cref{fig:balancing_resp} les distributions des réponses moyennes 
 
 \bigskip
 
-On présente dans le \cref{tab:res_balancing} un résumé des ratios et des facteurs de correction extrais pour chaque classe en \aeta. Le ratio est stable dans le tonneau ($\aeta < \num{2.1}$), avec un facteur de correction d'environ \SI{4}{\%}. Dans les bouchons, le ratio chute jusqu'à des facteurs de correction atteignant \SI{23}{\%}. Au delà de \SI{3.2}{\radian}, l'absence de trajectographe empêche la bonne reconstruction des hadrons chargés, et la réponse devient très mauvaise.
+On présente dans le \cref{tab:res_balancing} un résumé des ratios et des facteurs de correction extraits pour chaque classe en \aeta. Le ratio est stable dans le tonneau ($\aeta < \num{2.1}$), avec un facteur de correction d'environ \SI{4}{\%}. Dans les bouchons, le ratio chute jusqu'à des facteurs de correction atteignant \SI{23}{\%}. Au delà de \SI{3.2}{\radian}, l'absence de trajectographe empêche la bonne reconstruction des hadrons chargés, et la réponse devient très mauvaise.
 
 \subsubsection{Dépendance de la réponse en fonction de l'activité additionnelle} \label{sec:res_balancing_extrap}
 
@@ -617,7 +617,7 @@ Pour la méthode de la balance, on sépare la réponse de la simulation en deux 
 
 La partie intrinsèque n'est pas dépendante de la présence de jets additionnels, d'où l'allure plate \cref{fig:extrap_balancing}. Elle est uniquement sensible aux problèmes de calibrations des divers détecteurs, problèmes résolus à l'aide des corrections de niveau 1, 2 et 3. C'est ainsi qu'on obtient une réponse intrinsèque très proche de l'unité. La deuxième partie correspond au déséquilibre entre le photon et le premier jet de l'événement, et dépend fortement de $\alpha$.
 
-On utilise comme réponse moyenne la valeur de l'interpolation pour $\alpha = 0$, et on reproduit la même procédure que section précédente. À haut \pt et haut \aeta, la statistique n'est parfois pas suffisante pour réaliser l'extrapolation. Dans ce cas, le point est simplement ignoré et n'apparaît pas dans la distribution des réponses.
+On utilise comme réponse moyenne la valeur de l'interpolation pour $\alpha = 0$, et on reproduit la même procédure que dans la section précédente. À haut \pt et haut \aeta, la statistique n'est parfois pas suffisante pour réaliser l'extrapolation. Dans ce cas, le point est simplement ignoré et n'apparaît pas dans la distribution des réponses.
 
 On présente \cref{fig:balancing_extrap_resp} les distributions des réponses moyennes après extrapolation pour différentes classes en \aeta. Les facteurs de correction sont récapitulés dans le \cref{tab:res_balancing_extrap}. On constate une légère amélioration des ratios pour toutes les classes en \aeta. Aucun résultat n'est disponible pour la dernière classe en \aeta, le nombre d'événements n'étant pas suffisant pour effectuer une extrapolation.
 
@@ -727,7 +727,7 @@ La \cref{fig:comp_mpf_residuals} présente la distribution des réponses pour un
 
 Tout au long de ce chapitre, les corrections en énergie des jets ont été dérivées sans tenir compte de la saveur du jet. Il est cependant tout à fait raisonnable d'imaginer que la réponse d'un jet puisse dépendre de sa saveur. Cette hypothèse est en effet confirmée, comme on a pu le voir \cref{fig:jet_flavor_resp}. Actuellement, cette différence de réponse est prise en compte dans les incertitudes systématiques, en utilisant comme valeur la différence entre la réponse des jets légers et les jets de gluons, qui encadrent la réponse des jets de \Pcharm et \Pbottom (\tilde\SI{2}{\percent}, voir \cref{fig:flavor_response}).
 
-Il est donc intéressant de regarder comment varient les différents niveaux de corrections appliqués aux jets en fonction de la saveur de ces jets. Des études sont actuellement en cours dans CMS, et cette section aborde rapidement les premières études préliminaires réalisées pour les corrections résiduelles.
+Il est donc intéressant de regarder comment varient les différents niveaux de corrections appliquées aux jets en fonction de la saveur de ces jets. Des études sont actuellement en cours dans CMS, et cette section aborde rapidement les premières études préliminaires réalisées pour les corrections résiduelles.
 
 \subsection{Détermination de la saveur d'un jet}
 
@@ -750,7 +750,7 @@ La \cref{fig:qgd} présente les performances de l'algorithme. Un grand pouvoir d
     \subcaptionbox{jets de \Pcharm}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/flavor/2DTaggingPlan_c_ptPhot_100_800_stageM2.pdf}} \\
     \subcaptionbox{jets de \Pbottom}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/flavor/2DTaggingPlan_b_ptPhot_100_800_stageM2.pdf}}
     \subcaptionbox{jets de gluons}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/flavor/2DTaggingPlan_g_ptPhot_100_800_stageM2.pdf}}
-    \caption{Distribution de la fraction des différentes saveurs de jets dans le plan 2D. Une couleur bleue signifie une zone pauvre en jets, et une couleur rouge riche en jets. Les cadres noires représentent les zones sélectionnées enrichies en saveur.}
+    \caption{Distribution de la fraction des différentes saveurs de jets dans le plan 2D. Une couleur bleue signifie une zone pauvre en jets, et une couleur rouge riche en jets. Les cadres noirs représentent les zones sélectionnées enrichies en saveur.}
     \label{fig:2d_zones}
 \end{figure}
 
@@ -778,11 +778,11 @@ On combine l'algorithme d'étiquetage des jets de \Pbottom avec le discriminant 
   \item[Enrichie en jets de gluons] $CSV < \num{0.3}$ et $QGL < \num{0.05}$
 \end{description}
 
-Chacune des zones enrichies est représentée visuellement sur la \cref{fig:2d_zones}, et les fractions de chaque saveur de jets dans chacune des zones sont résumés dans le \cref{tab:2d_zones}. On constate une très bonne discrimination pour les jets légers, de \Pbottom et de \Pcharm, mais moins bonne pour les jets de gluons.
+Chacune des zones enrichies est représentée visuellement sur la \cref{fig:2d_zones}, et les fractions de chaque saveur de jets dans chacune des zones sont résumées dans le \cref{tab:2d_zones}. On constate une très bonne discrimination pour les jets légers, de \Pbottom et de \Pcharm, mais moins bonne pour les jets de gluons.
 
 \subsection{Estimation de la réponse par saveur}
 
-Pour chacune des zones enrichies en saveur, on est capable de mesurer la réponse des jets sur les données et la simulation, en utilisant les méthodes définis précédemment dans ce chapitre. Cependant, ce qui nous intéresse réellement est la réponse par saveur, et non pas la réponse par zone. Les réponses en saveurs sont reliées aux réponses par zones par la relation suivante :
+Pour chacune des zones enrichies en saveur, on est capable de mesurer la réponse des jets sur les données et la simulation, en utilisant les méthodes définies précédemment dans ce chapitre. Cependant, ce qui nous intéresse réellement est la réponse par saveur, et non pas la réponse par zone. Les réponses en saveurs sont reliées aux réponses par zones par la relation suivante :
 \begin{align} \label{eq:resp_zone}
   \begin{pmatrix}
     \mathcal{R}_1 \\ \mathcal{R}_2 \\ \mathcal{R}_3 \\ \mathcal{R}_4
@@ -833,7 +833,7 @@ L'étude de la réponse en fonction de la saveur des jets à l'aide des événem
 
 \subsection{Résultats}
 
-La première étape de l'analyse consiste à vérifier la validité de la méthode. On utilise les mêmes événements que pour l'extraction des corrections résiduelles, avec la même sélection. On extrait la réponse pour chacune des zones enrichies, en se limitant uniquement à la méthode MPF, plus performante que les autres méthodes. En utilisant l'\cref{eq:resp_flavor}, on calcule la réponse pour chaque saveur, en utilisant les fractions de jets dans chaque zone enrichie dérivées à l'aide de la simulation. Le résultat obtenu est ensuite comparée à la réponse en saveur calculée en utilisant la vérité Monte Carlo. Cette confrontation est présentée \cref{fig:2d_mc_vs_mc}. Les réponses des jets légers, \Pcharm et \Pbottom sont bien reproduites, alors que la réponse des jets de gluons est légèrement surestimée (\tilde \SI{2}{\%}). C'est en effet la catégorie pour laquelle il est le plus difficile d'obtenir une zone réellement enrichie, ce qui rend la méthode présentée ci-dessus moins performante. Cette différence est cependant couverte par les erreurs systématiques associées à la saveur, et on estime donc que ces résultats permettent de valider notre méthode d'extraction des réponses.
+La première étape de l'analyse consiste à vérifier la validité de la méthode. On utilise les mêmes événements que pour l'extraction des corrections résiduelles, avec la même sélection. On extrait la réponse pour chacune des zones enrichies, en se limitant uniquement à la méthode MPF, plus performante que les autres méthodes. En utilisant l'\cref{eq:resp_flavor}, on calcule la réponse pour chaque saveur, en utilisant les fractions de jets dans chaque zone enrichie dérivées à l'aide de la simulation. Le résultat obtenu est ensuite comparé à la réponse en saveur calculée en utilisant la vérité Monte Carlo. Cette confrontation est présentée \cref{fig:2d_mc_vs_mc}. Les réponses des jets légers, \Pcharm et \Pbottom sont bien reproduites, alors que la réponse des jets de gluons est légèrement surestimée (\tilde \SI{2}{\%}). C'est en effet la catégorie pour laquelle il est le plus difficile d'obtenir une zone réellement enrichie, ce qui rend la méthode présentée ci-dessus moins performante. Cette différence est cependant couverte par les erreurs systématiques associées à la saveur, et on estime donc que ces résultats permettent de valider notre méthode d'extraction des réponses.
 
 \begin{figure}[tbp]
   \centering
@@ -850,7 +850,7 @@ La première étape de l'analyse consiste à vérifier la validité de la métho
 
 \bigskip
 
-On extrait maintenant la réponse par saveur sur les données et sur la simulation. Il est à noter que pour cette étude, les corrections résiduelles sont appliquées sur les données, puisqu'on souhaite vérifier si elles sont sensibles à la saveur des jets. On calcule ensuite le facteur de correction supplémentaire à appliquer grâce au ratio entre la réponse sur les données et celle sur la simulation, de façon identique à la \cref{sec:jetmet_results}. La \cref{fig:flavor_results} présente la comparaison entre la réponse obtenue sur les données et celle obtenue sur la simulation. Le ratio entre ces réponses est ajoutée en bas de la figure. Comme on peut le constater, les réponses données et simulations sont compatibles entre elles dans les incertitudes. Ainsi, la simulation permet de correctement reproduire la réponse observée sur les données.
+On extrait maintenant la réponse par saveur sur les données et sur la simulation. Il est à noter que pour cette étude, les corrections résiduelles sont appliquées sur les données, puisqu'on souhaite vérifier si elles sont sensibles à la saveur des jets. On calcule ensuite le facteur de correction supplémentaire à appliquer grâce au ratio entre la réponse sur les données et celle sur la simulation, de façon identique à la \cref{sec:jetmet_results}. La \cref{fig:flavor_results} présente la comparaison entre la réponse obtenue sur les données et celle obtenue sur la simulation. Le ratio entre ces réponses est ajouté en bas de la figure. Comme on peut le constater, les réponses données et simulations sont compatibles entre elles dans les incertitudes. Ainsi, la simulation permet de correctement reproduire la réponse observée sur les données.
 
 \bigskip
 
@@ -860,7 +860,7 @@ L'effet de la saveur des jets sur la réponse ne semblent pas être perceptible 
 
 \section{Conclusion}
 
-Au travers de ce chapitre, on a vu en détail comment CMS détermine les corrections en énergie des jets. L'enjeu est en effet important, puisqu'une mauvaise calibration des jets peut avoir d'énormes conséquences sur les analyses de physique. Ainsi, l'expérience CDF du Tevatron publie en 2011 un nouveau résultat et annonce la mise en évidence d'une nouvelle résonance dans le spectre de masse di-jet, à environ \SI{125}{\GeV} \citep{CDF_old}. Cependant, l'expérience partenaire au Tevatron, \dzero, ne voit elle aucun signe de cette résonance dans ses propres données. Il s'avère qu'il s'agissait en réalité d'un problème de corrections en énergie des jets entre les jets de gluons et les jets de quarks, confirmé il y a peu \citep{CDF_new}. Même aujourd'hui, les corrections en énergie des jets restent la source d'incertitude dominante dans la majorité des mesures de précisions, telles que la mesure de la masse du quark top par exemple. Il est donc capital de maîtriser au mieux ces corrections afin de réduire le plus possible leurs incertitudes.
+Au travers de ce chapitre, on a vu en détail comment CMS détermine les corrections en énergie des jets. L'enjeu est en effet important, puisqu'une mauvaise calibration des jets peut avoir d'énormes conséquences sur les analyses de physique. Ainsi, l'expérience CDF du Tevatron publie en 2011 un nouveau résultat et annonce la mise en évidence d'une nouvelle résonance dans le spectre de masse di-jet, à environ \SI{125}{\GeV} \citep{CDF_old}. Cependant, l'expérience partenaire au Tevatron, \dzero, ne voit elle aucun signe de cette résonance dans ses propres données. Il s'avère qu'il s'agissait en réalité d'un problème de corrections en énergie des jets entre les jets de gluons et les jets de quarks, confirmé il y a peu \citep{CDF_new}. Même aujourd'hui, les corrections en énergie des jets restent la source d'incertitude dominante dans la majorité des mesures de précision, telles que la mesure de la masse du quark top par exemple. Il est donc capital de maîtriser au mieux ces corrections afin de réduire le plus possible leurs incertitudes.
 
 \bigskip
 
@@ -868,4 +868,4 @@ Les événements \Pphoton + jets sont de puissants outils pour déterminer les f
 
 \bigskip
 
-La dernière partie de ce chapitre est consacrée à l'étude préliminaire de la réponse en fonction de la saveur dans la détermination des corrections résiduelles. Aucune dépendance n'a été trouvé, mais le nombre d'événements disponible n'est pas encore suffisante pour réaliser une étude dépendante de l'impulsion transverse et de \aeta. Il semble cependant que la dépendance en saveur des réponses soient correctement couvertes par les erreurs systématiques.
+La dernière partie de ce chapitre est consacrée à l'étude préliminaire de la réponse en fonction de la saveur dans la détermination des corrections résiduelles. Aucune dépendance n'a été trouvé, mais le nombre d'événements disponible n'est pas encore suffisant pour réaliser une étude dépendante de l'impulsion transverse et de \aeta. Il semble cependant que la dépendance en saveur des réponses soit correctement couverte par les erreurs systématiques.

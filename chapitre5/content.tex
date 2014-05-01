@@ -6,7 +6,7 @@ Le quark top est la particule élémentaire la plus lourde connue à ce jour. De
 
 \bigskip
 
-Le quark top a été découvert en 1995 par les expériences \dzero et CDF au Tevatron. Son existence était cependant prédite bien avant son observation. En effet, le quark \Pbottom, découvert en 1977, se désintègre par interaction faible, désintégration autorisée uniquement lorsque la particule appartient à un doublet de $SU(2)_L$, ce qui implique qu'un partenaire d'isospin du quark \Pbottom doit exister. La grande différence de masse entre le quark \Pbottom et le quark top explique les 18 années de recherche nécessaires avant sa découverte.
+Le quark top a été découvert en 1995 par les expériences \dzero et CDF au Tevatron. Son existence était cependant prédite bien avant son observation. En effet, le quark \Pbottom, découvert en 1977, se désintègre par interaction faible, désintégration autorisée uniquement lorsque la particule appartient à un doublet de $SU(2)_L$, ce qui implique qu'un partenaire d'isospin du quark \Pbottom doit exister. La grande différence de masse entre le quark \Pbottom et le quark top explique les 18 années de recherches nécessaires avant sa découverte.
 
 \bigskip
 
@@ -75,7 +75,7 @@ Lors du redémarrage du LHC en 2015 à \SI{14}{\TeV}, la section efficace de pro
 
 \subsection{Production célibataire}
 
-Un deuxième mode de production permet de produire des quarks top célibataires, \emph{via} l'interaction faible. Trois canaux de productions existent, présentés \cref{fig:singletop_diagrams,fig:singletop_diagrams_2}. Le diagramme \cref{fig:single_top_t_channel}, connu sous le nom de voie t, est le processus dominant, avec une section efficace NNLO approchée de \SI{87.2}{\pb} au LHC à \SI{8}{\TeV} \citep{Kidonakis:2012db}. Les deux autres canaux sont la voie s (\cref{fig:single_top_s_channel}, $\sigma = \SI{5.55}{\pb}$ \citep{Kidonakis:2012db}) et la production associée d'un quark top et d'un boson \PW (voie tW, \cref{fig:singletop_diagrams_2}, $\sigma = \SI{22.2}{\pb}$ \citep{Kidonakis:2012db}). La confirmation expérimentale de ces canaux de production est très récente. En effet, le Tevatron conclut à l'existence des canaux s et t en 2009 \citep{Aaltonen:2009jj}, tandis que le canal tW a été observé pour la première fois en 2014 par l'expérience CMS \citep{Chatrchyan:1642680}.
+Un deuxième mode de production permet de produire des quarks top célibataires, \emph{via} l'interaction faible. Trois canaux de production existent, présentés \cref{fig:singletop_diagrams,fig:singletop_diagrams_2}. Le diagramme \cref{fig:single_top_t_channel}, connu sous le nom de voie t, est le processus dominant, avec une section efficace NNLO approchée de \SI{87.2}{\pb} au LHC à \SI{8}{\TeV} \citep{Kidonakis:2012db}. Les deux autres canaux sont la voie s (\cref{fig:single_top_s_channel}, $\sigma = \SI{5.55}{\pb}$ \citep{Kidonakis:2012db}) et la production associée d'un quark top et d'un boson \PW (voie tW, \cref{fig:singletop_diagrams_2}, $\sigma = \SI{22.2}{\pb}$ \citep{Kidonakis:2012db}). La confirmation expérimentale de ces canaux de production est très récente. En effet, le Tevatron conclut à l'existence des canaux s et t en 2009 \citep{Aaltonen:2009jj}, tandis que le canal tW a été observé pour la première fois en 2014 par l'expérience CMS \citep{Chatrchyan:1642680}.
 
 \smallskip
 
@@ -83,7 +83,7 @@ Il est aussi à noter que, étant donné que le proton est chargé positivement,
 
 \begin{figure}[btp] \centering
     \subcaptionbox{\label{fig:single_top_s_channel}}[0.48\textwidth]{
-    \begin{fmfgraph*}(160,70)
+    \fmfframe(0,10)(0,0){\begin{fmfgraph*}(160,70)
         \fmfpen{0.5}
         \fmfleft{i1,i2}
         \fmfright{o1,o2}
@@ -95,10 +95,10 @@ Il est aussi à noter que, étant donné que le proton est chargé positivement,
         \fmflabel{\APquark}{i2}
         \fmflabel{\Ptop}{o2}
         \fmflabel{\APbottom}{o1}
-    \end{fmfgraph*}
+    \end{fmfgraph*}}
     }\hfill
     \subcaptionbox{\label{fig:single_top_t_channel}}[0.48\textwidth]{
-    \begin{fmfgraph*}(160,70)
+    \fmfframe(0,10)(0,0){\begin{fmfgraph*}(160,70)
         \fmfpen{0.5}
         \fmfleft{i1,i2}
         \fmfright{o1,o2}
@@ -110,7 +110,7 @@ Il est aussi à noter que, étant donné que le proton est chargé positivement,
         \fmflabel{\Pbottom}{i1}
         \fmflabel{$\Pquark^\prime$}{o2}
         \fmflabel{\Pquark}{i2}
-    \end{fmfgraph*}
+    \end{fmfgraph*}}
     }
     \caption{Diagrammes de Feynman de la production de quark top célibataire, en voie s (\subref{fig:single_top_s_channel}) et en voie t (\subref{fig:single_top_s_channel})}
     \label{fig:singletop_diagrams}
@@ -158,7 +158,7 @@ Il est aussi à noter que, étant donné que le proton est chargé positivement,
 
 La durée de vie mesurée du quark top est d'environ $\SI{3.3e-25}{\s}$ \citep{pdg}. Ce temps de vie est suffisamment faible pour que le quark top se désintègre avant que le processus d'hadronisation ne commence ($\tau_{\text{hadronisation}} \simeq \SI{3e-24}{\s}$). Il offre donc une possibilité unique d'étudier un quark dans un état non-lié.
 
-Le quark top se désintègre uniquement par interaction faible, selon trois modes de désintégrations : $\Ptop \rightarrow \Pbottom \PWplus$, $\Ptop \rightarrow \Pstrange \PWplus$ et $\Ptop \rightarrow \Pdown \PWplus$. La probabilité que ces désintégrations interviennent est proportionnelle aux éléments de la matrice CKM, respectivement à $\abs{V_{\Ptop\Pbottom}}^2$, $\abs{V_{\Ptop\Pstrange}}^2$ et $\abs{V_{\Ptop\Pdown}}^2$. Le terme dominant est $\abs{V_{\Ptop\Pbottom}}^2 = \num{0.89 \pm 0.07}$ \citep{pdg}. Ainsi, le quark top se désintègre majoritairement en $\Ptop \rightarrow \Pbottom \PWplus$, avec un rapport d'embranchement de $\num{0.91 \pm 0.04}$ \citep{pdg}. La mesure de la section efficace de production de quarks top célibataires permet donc de mesurer directement $\abs{V_{\Ptop\Pbottom}}$.
+Le quark top se désintègre uniquement par interaction faible, selon trois modes de désintégration : $\Ptop \rightarrow \Pbottom \PWplus$, $\Ptop \rightarrow \Pstrange \PWplus$ et $\Ptop \rightarrow \Pdown \PWplus$. La probabilité que ces désintégrations interviennent est proportionnelle aux éléments de la matrice CKM, respectivement à $\abs{V_{\Ptop\Pbottom}}^2$, $\abs{V_{\Ptop\Pstrange}}^2$ et $\abs{V_{\Ptop\Pdown}}^2$. Le terme dominant est $\abs{V_{\Ptop\Pbottom}}^2 = \num{0.89 \pm 0.07}$ \citep{pdg}. Ainsi, le quark top se désintègre majoritairement en $\Ptop \rightarrow \Pbottom \PWplus$, avec un rapport d'embranchement de $\num{0.91 \pm 0.04}$ \citep{pdg}. La mesure de la section efficace de production de quarks top célibataires permet donc de mesurer directement $\abs{V_{\Ptop\Pbottom}}$.
 
 L'état final exact de la désintégration du quark top dépend de la désintégration du \PW, qui se désintègre environ \SI{33}{\%} du temps en lepton - neutrino, et \SI{67}{\%} en paire de quark-antiquark. Les rapports d'embranchements exacts de la désintégration du \PW sont résumés \cref{fig:br_W}.
 
@@ -175,7 +175,7 @@ L'état final exact de la désintégration du quark top dépend de la désintég
     \label{fig:br_W}
 \end{table}
 
-Lors d'une production par paire, les deux quarks top vont de désintégrer de façon indépendante. Le \PW ayant 4 modes de désintégrations, l'état final d'une désintégration \ttbar peut être classé en 3 catégories :
+Lors d'une production par paire, les deux quarks top vont se désintégrer de façon indépendante. Le \PW ayant 4 modes de désintégration, l'état final d'une désintégration \ttbar peut être classé en 3 catégories :
 
 \begin{itemize}
     \item Les deux \PW se désintègrent en $\Plepton + \Pneutrino$. On parle alors de désintégration di-leptonique (canal di-lepton).
@@ -187,7 +187,7 @@ Lors d'une production par paire, les deux quarks top vont de désintégrer de fa
     \centering
     \subcaptionbox{\label{fig:top_pair_decay_channels}}[0.45\textwidth]{\includegraphics[width=0.40\textwidth]{chapitre5/figs/top_pair_decay_channels.pdf}} \qquad
     \subcaptionbox{\label{fig:top_pair_branching_frac}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre5/figs/top_pair_branching_frac.pdf}}
-    \caption{Canaux de désintégration d'une paire \ttbar (\subref{fig:top_pair_decay_channels}) et rapports d'embranchements des différents canaux de désintégration d'une paire \ttbar (\subref{fig:top_pair_branching_frac})}
+    \caption{Canaux de désintégration d'une paire \ttbar (\subref{fig:top_pair_decay_channels}) et rapports d'embranchements des différents canaux de désintégration d'une paire \ttbar (\subref{fig:top_pair_branching_frac}).}
 \end{figure}
 
 Cette classification est résumée \cref{fig:top_pair_decay_channels}. Les rapports d'embranchements associés à chaque canal de désintégration sont résumés \cref{fig:top_pair_branching_frac}. On constate ainsi qu'environ \SI{46}{\%} des paires \ttbar se désintègrent dans le canal tout-hadronique, \tilde\SI{45}{\%} dans le canal semi-leptonique, et \tilde\SI{9}{\%} dans le canal di-leptonique. Les diagrammes de Feynman associés à ces désintégrations sont présentés \cref{fig:top_pair_decay_feynman}.
@@ -298,7 +298,7 @@ Il est très intéressant d'étudier précisément les propriétés du quark top
 
 \subsection{Masse}
 
-Comme pour les autres particules du Modèle Standard, la masse du quark top est un paramètre libre. Néanmoins, cette masse est liée aux autres paramètres du Modèle Standard à travers les corrections radiatives de la masse du boson \PW. Elle peut donc est contrainte grâce à des mesures de précisions des autres paramètres. Cette masse est mesurée précisément par les expériences du LHC et du Tevatron, et est en excellent accord avec les prédictions théoriques du Modèle Standard :
+Comme pour les autres particules du Modèle Standard, la masse du quark top est un paramètre libre. Néanmoins, cette masse est liée aux autres paramètres du Modèle Standard à travers les corrections radiatives de la masse du boson \PW. Elle peut donc être contrainte grâce à des mesures de précisions des autres paramètres. Cette masse est mesurée précisément par les expériences du LHC et du Tevatron, et est en excellent accord avec les prédictions théoriques du Modèle Standard :
 
 \begin{align*}
   m_t^{\text{théorique}} &= 175{,}8 \substack{+2{,}7 \\ -2{,}4}\,\si{\GeV}\ \text{\citep{ewk_fit}} \\
@@ -342,14 +342,14 @@ où la charge électrique est spécifiée entre parenthèse. En identifiant la c
 
 \subsection{Hélicité du boson \texorpdfstring{\PW}{W}}
 
-Le quark top se désintègre uniquement par interaction faible, principalement en \Pbottom{}\PW. L'interaction faible ne couplant que les particules de chiralité gauche, cela limite les états d'hélicité autorisés par le Modèle Standard pour le boson \PW. En effet, au niveau de l'arbre et dans la limite d'un quark \Pbottom non massif, seuls les états d'hélicités gauche et longitudinale sont autorisés. Au NNLO, le Modèle Standard prédit les fractions d'hélicité du boson \PW suivantes \citep{Czarnecki:2010gb} :
+Le quark top se désintègre uniquement par interaction faible, principalement en \Pbottom{}\PW. L'interaction faible ne couplant que les particules de chiralité gauche, cela limite les états d'hélicité autorisés par le Modèle Standard pour le boson \PW. En effet, au niveau de l'arbre et dans la limite d'un quark \Pbottom non massif, seuls les états d'hélicité gauche et longitudinale sont autorisés. Au NNLO, le Modèle Standard prédit les fractions d'hélicité du boson \PW suivantes \citep{Czarnecki:2010gb} :
 \begin{align*}
   F_0 &= \num{0.687 \pm 0.005} \\
   F_G &= \num{0.311 \pm 0.005} \\
   F_D &= \num{0.0017 \pm 0.0001}
 \end{align*}
 
-Une déviation dans la mesure de ces fractions d'hélicités serait le signe d'un couplage \Ptop{}\PW{}\Pbottom anormal, et donc un signe de nouvelle physique. Ces fractions ont été mesurées expérimentalement par l'expérience CMS \citep{CMS-PAS-TOP-13-008}. Les valeurs obtenues,
+Une déviation dans la mesure de ces fractions d'hélicité serait le signe d'un couplage \Ptop{}\PW{}\Pbottom anormal, et donc un signe de nouvelle physique. Ces fractions ont été mesurées expérimentalement par l'expérience CMS \citep{CMS-PAS-TOP-13-008}. Les valeurs obtenues,
 \begin{align*}
   F_0 &= 0{,}659 \pm 0{,}015\;\text{(stat.)} \pm 0{,}023\;\text{(syst.)} \\
   F_G &= 0{,}350 \pm 0{,}010\;\text{(stat.)} \pm 0{,}024\;\text{(syst.)} \\
@@ -367,7 +367,7 @@ Si l'on se concentre sur la désintégration de paires \ttbar dans le canal di-l
 \begin{align*}
   A_{\Delta\phi} &= \frac{ N\left(\Delta\phi_{\Pleptonplus\Pleptonminus} > \frac{\pi}{2} \right) - N\left(\Delta\phi_{\Pleptonplus\Pleptonminus} < \frac{\pi}{2} \right) }{ N\left(\Delta\phi_{\Pleptonplus\Pleptonminus} > \frac{\pi}{2} \right) + N\left(\Delta\phi_{\Pleptonplus\Pleptonminus} < \frac{\pi}{2} \right) },
 \end{align*}
-qui fournit une excellente discrimination entre une production \ttbar corrélé ou non-corrélé. Les mesures les plus récentes sont fournies par les collaborations ATLAS \citep{ATLAS:2012ao} et CMS \citep{Chatrchyan:2013wua}, qui trouvent des résultats en parfait accord avec les prédictions du Modèle Standard. Les résultats de CMS sont résumés dans le \cref{tab:top_correlation}.
+qui fournit une excellente discrimination entre une production \ttbar corrélée ou non-corrélée. Les mesures les plus récentes sont fournies par les collaborations ATLAS \citep{ATLAS:2012ao} et CMS \citep{Chatrchyan:2013wua}, qui trouvent des résultats en parfait accord avec les prédictions du Modèle Standard. Les résultats de CMS sont résumés dans le \cref{tab:top_correlation}.
 
 \begin{table}[ht] \centering
 \begin{tabular}{@{}cccc@{}} \toprule
@@ -381,13 +381,13 @@ $A_{\Delta\phi}$ & \num{0.113 \pm 0.017} & $0{,}115 \substack{+0{,}014 \\ -0{,}0
 
 \section{Au-delà du Modèle Standard}
 
-On a déjà vu lors du \cref{chap:sm} que de nombreux arguments laissent penser que le Modèle Standard n'est qu'une théorie effective d'un modèle plus fondamentale se manifestant à plus haute énergie. De nombreux modèles existent ainsi, chacun prédisant de nouvelles particules, interactions, dimensions, ... Pour autant, aucun n'a encore été confirmé expérimentalement, et nombreuses recherches sont actuellement en cours au sein des expériences du LHC afin de tenter de découvrir des signes de nouvelle physique, ou, le cas échéant, de contraindre l'espace des paramètres de ces modèles.
+On a déjà vu lors du \cref{chap:sm} que de nombreux arguments laissent penser que le Modèle Standard n'est qu'une théorie effective d'un modèle plus fondamentale se manifestant à plus haute énergie. De nombreux modèles existent ainsi, chacun prédisant de nouvelles particules, interactions, dimensions, ... Pour autant, aucun n'a encore été confirmé expérimentalement, et de nombreuses recherches sont actuellement en cours au sein des expériences du LHC afin de tenter de découvrir des signes de nouvelle physique, ou, le cas échéant, de contraindre l'espace des paramètres de ces modèles.
 
 Parmi ces modèles, beaucoup prévoient des phénoménologies où le quark top joue un rôle particulier. En effet, étant la particule fondamentale la plus massive, il est naturel de penser que des nouvelles particules à l'échelle du \si{\TeV} se désintègrent préférentiellement en donnant au moins un quark top. Les travaux réalisés au cours de cette thèse se concentrent sur la recherche de déviations dans le spectre de masse invariante \ttbar ($\mathrm{d}\sigma / \mathrm{d}\mtt$), déviations pouvant être causées par la production résonante de paire de quark top \emph{via} la désintégration d'une particule exotique. Ces déviations peuvent se présenter sous plusieurs formes, selon la présence ou non d'interférences avec la production du Modèle Standard. Dans le cas le plus simple, elles prennent la forme d'un pic dans le spectre de masse invariante. Des structures plus complexes peuvent aussi être observées, comme la présence d'un pic suivi d'un trou, voire d'un excès continu d'événement dans tout le spectre de masse. Ces déviations seront présentées plus en détails dans les \cref{chap:zprime,chap:higgs}, dédiés à la recherche expérimentale de résonances dans le spectre de masse \ttbar.
 
 \medskip
 
-De nombreux modèles prédisent des particules se désintégrant en paire de quark top. On présente ci-dessous une description succincte des modèles les plus prometteurs, qui ne se veut en aucun cas exhaustive. Les analyses présentées dans les prochains chapitres tentent de mettre en évidence les particules prédites par ces modèles.% On présente \cref{tab:summary_bsm} un résumé des modèles de nouvelle physique, classé selon le spin des particules prédites, leur parité sous la symétrie CP, et leur représentation sous $SU(3)_c$.
+De nombreux modèles prédisent des particules se désintégrant en paires de quark top. On présente ci-dessous une description succincte des modèles les plus prometteurs, qui ne se veut en aucun cas exhaustive. Les analyses présentées dans les prochains chapitres tentent de mettre en évidence les particules prédites par ces modèles.% On présente \cref{tab:summary_bsm} un résumé des modèles de nouvelle physique, classé selon le spin des particules prédites, leur parité sous la symétrie CP, et leur représentation sous $SU(3)_c$.
 
 \subsection{Le Modèle Standard et les résonances \ttbar}
 
@@ -463,7 +463,7 @@ Si l'on souhaite éviter les courants neutres changeant la saveur, fortement con
     \end{fmfgraph*}}}\hfill
     \subcaptionbox{\label{fig:2hdm_br}}[0.49\textwidth]{\includegraphics[width=0.49\textwidth]{chapitre5/figs/2hdm_br.png}}
     \caption{(\subref{fig:gg_h_tt}) Diagramme de Feynman de la production d'un boson scalaire neutre par fusion de gluons. (\subref{fig:2hdm_br})
-    Rapport d'embranchement d'un Higgs scalaire en \bbbar (rouge) et \ttbar (bleu), pour différente masses. Les rapports d'embranchement ont été calculés pour $\tan \beta = 1$ pour le modèle de type I. \citep{Branco:2011iw}}
+    Rapport d'embranchement d'un Higgs scalaire en \bbbar (rouge) et \ttbar (bleu), pour différentes masses. Les rapports d'embranchement ont été calculés pour $\tan \beta = 1$ pour le modèle de type I. \citep{Branco:2011iw}}
     \label{fig:2hdm}
 \end{figure}
 
@@ -497,7 +497,7 @@ Le modèle technicolor \citep{PhysRevD.19.1277,PhysRevD.20.2619} évite ce probl
 
 \smallskip
 
-Un modèle réaliste de technicolor doit aussi pouvoir expliquer la masse des fermions. Il faut donc que les fermions du Modèle Standard se couplent aux technifermions. Le modèle de technicolor étendu \citep{Eichten1980125,Dimopoulos1979237} (ETC) étend le secteur de jauge de la technicolor afin d'ajouter des bosons de jauge massifs additionnels qui se couplent à la fois aux fermions et aux technifermions. La principale difficulté à laquelle doit faire face le modèle de technicolor étendue est la prédiction de courants neutres changeant la saveur des fermions. Un tel mécanisme est hautement supprimé dans le Modèle Standard, et les contraintes expérimentales sur de tels courants sont très importantes. Néanmoins, la technicolor étendu permet de prédire la masse de toutes les particules, mais échoue à prédire une masse élevé pour le quark top.
+Un modèle réaliste de technicolor doit aussi pouvoir expliquer la masse des fermions. Il faut donc que les fermions du Modèle Standard se couplent aux technifermions. Le modèle de technicolor étendu \citep{Eichten1980125,Dimopoulos1979237} (ETC) étend le secteur de jauge de la technicolor afin d'ajouter des bosons de jauge massifs additionnels qui se couplent à la fois aux fermions et aux technifermions. La principale difficulté à laquelle doit faire face le modèle de technicolor étendue est la prédiction de courants neutres changeant la saveur des fermions. Un tel mécanisme est hautement supprimé dans le Modèle Standard, et les contraintes expérimentales sur de tels courants sont très importantes. Néanmoins, la technicolor étendue permet de prédire la masse de toutes les particules, mais échoue à prédire une masse élevée pour le quark top.
 
 \medskip
 
@@ -511,11 +511,11 @@ Afin d'obtenir la masse des fermions, on considère généralement le modèle to
     \item Une large composante, $(1 - \epsilon)m_{\Ptop} \simeq m_{\Ptop}$, générée par la dynamique topcolor.
 \end{enumerate}
 
-Le même mécanisme s'applique aussi au quark \Pbottom. Un moyen de supprimer la création de condensat $\Pbottom\APbottom$ consiste à introduire une nouvelle interaction attractive dans le canal \ttbar et répulsive dans le canal \bbbar. On étend pour cela le secteur de jauge de l'hypercharge faible $U(1)_Y \rightarrow U(1)_{Y1} \times U(1)_{Y2}$, où $U(1)_{Y1}$ couple préférentiellement la première et deuxième générations, et $U(1)_{Y2}$ couple préférentiellement la troisième génération. La brisure de cette symétrie fait apparaitre un nouveau boson neutre de spin 1, le \zprime.
+Le même mécanisme s'applique aussi au quark \Pbottom. Un moyen de supprimer la création de condensat $\Pbottom\APbottom$ consiste à introduire une nouvelle interaction attractive dans le canal \ttbar et répulsive dans le canal \bbbar. On étend pour cela le secteur de jauge de l'hypercharge faible $U(1)_Y \rightarrow U(1)_{Y1} \times U(1)_{Y2}$, où $U(1)_{Y1}$ couple préférentiellement la première et deuxième génération, et $U(1)_{Y2}$ couple préférentiellement la troisième génération. La brisure de cette symétrie fait apparaitre un nouveau boson neutre de spin 1, le \zprime.
 
 \medskip
 
-Les topgluons et \zprime prédits par ces modèles peuvent se désintégrer en \ttbar, parfois de façon dominante. On observerait alors une résonance dans le spectre de masse \ttbar, comme on peut le voir \cref{fig:mtt_zprime}. Dans certaines configurations, il est possible d'obtenir un \zprime leptophobique \citep{Harris:1999ya} : une telle particule ne pourrait être détectée que par l'étude des paires de quark top. On peut voir \cref{fig:zprime_feynman} l'unique mode de production d'un boson \zprime au LHC. L'interférence avec la production du Modèle Standard (\cref{fig:ttbar_qq}) est très faible et peut être négligée.
+Les topgluons et \zprime prédits par ces modèles peuvent se désintégrer en \ttbar, parfois de façon dominante. On observerait alors une résonance dans le spectre de masse \ttbar, comme on peut le voir \cref{fig:mtt_zprime}. Dans certaines configurations, il est possible d'obtenir un \zprime leptophobique \citep{Harris:1999ya} : une telle particule ne pourrait être détectée que par l'étude des paires de quarks top. On peut voir \cref{fig:zprime_feynman} l'unique mode de production d'un boson \zprime au LHC. L'interférence avec la production du Modèle Standard (\cref{fig:ttbar_qq}) est très faible et peut être négligée.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:zprime_feynman}}[0.39\textwidth]{\fmfframe(0,0)(0,50){\begin{fmfgraph*}(140,70)
@@ -545,7 +545,7 @@ Les topgluons et \zprime prédits par ces modèles peuvent se désintégrer en \
 
 \subsection{Modèles à dimensions supplémentaires}
 
-Les modèles à dimensions supplémentaires ont principalement été développé afin de fournir une explication au problème de hiérarchie du Modèle Standard. En effet, l’interaction gravitationnelle est \SI{e32} fois plus faible que l'interaction faible. Dans le but d'expliquer cette différence de couplage, on introduit une ou plusieurs dimensions supplémentaire, dans lesquelles la gravitation est beaucoup plus forte que dans les dimensions usuelles de l'espace-temps. Tous ces modèles prédisent de nouveaux bosons de spin 2, les gravitons, médiateurs de l'interaction gravitationnelle.
+Les modèles à dimensions supplémentaires ont principalement été développés afin de fournir une explication au problème de hiérarchie du Modèle Standard. En effet, l’interaction gravitationnelle est \SI{e32} fois plus faible que l'interaction faible. Dans le but d'expliquer cette différence de couplage, on introduit une ou plusieurs dimensions supplémentaires, dans lesquelles la gravitation est beaucoup plus forte que dans les dimensions usuelles de l'espace-temps. Tous ces modèles prédisent de nouveaux bosons de spin 2, les gravitons, médiateurs de l'interaction gravitationnelle.
 
 %\subsubsection{Les modèles Randall-Sundrum}
 
@@ -584,11 +584,11 @@ La dimension supplémentaire étant compactifiée, on voit apparaitre des excita
 \begin{figure}[tbp]
     \centering
     \includegraphics[width=0.60\textwidth]{chapitre5/figs/mtt_gravitons_RS.pdf}
-    \caption{Distribution de masse invariante \ttbar en présence de résonances de gravitons de Kaluza-Klein, prédites par le modèle Randall-Sundrum. La masse du premier mode d'excitation est $m = \SI{600}{\GeV}$, et les différentes couleurs représentes différents choix de paramètres théoriques \citep{Frederix:2007gi}.}
+    \caption{Distribution de masse invariante \ttbar en présence de résonances de gravitons de Kaluza-Klein, prédites par le modèle Randall-Sundrum. La masse du premier mode d'excitation est $m = \SI{600}{\GeV}$, et les différentes couleurs représentent différents choix de paramètres théoriques \citep{Frederix:2007gi}.}
     \label{fig:mtt_gravitons_RS}
 \end{figure}
 
-Une extension courante des modèles de Randall-Sundrum \citep{Davoudiasl:2000wi,Lillie:2007yh,Agashe:2003zs,Agashe:2006hk} permet en plus d'expliquer la hiérarchie de masses entre les particules du Modèle Standard. Dans ces modèles, les champs du Modèle Standard sont autorisés à se propager dans la dimension supplémentaire. Comme la dimension est compactifiée, on voit apparaitre des excitations de Kaluza-Klein pour tous les fermions et bosons du Modèle Standard. On identifie ainsi les particules du Modèle Standard comme étant les excitations d'ordre 0 de Kaluza-Klein.
+Une extension courante des modèles de Randall-Sundrum \citep{Davoudiasl:2000wi,Lillie:2007yh,Agashe:2003zs,Agashe:2006hk} permet en plus d'expliquer la hiérarchie de masse entre les particules du Modèle Standard. Dans ces modèles, les champs du Modèle Standard sont autorisés à se propager dans la dimension supplémentaire. Comme la dimension est compactifiée, on voit apparaitre des excitations de Kaluza-Klein pour tous les fermions et bosons du Modèle Standard. On identifie ainsi les particules du Modèle Standard comme étant les excitations d'ordre 0 de Kaluza-Klein.
 Les fermions acquièrent leur masse grâce au couplage avec le champ de Higgs. La masse "4d" est obtenue en intégrant le long de la \ordinalnum{5} dimension :
 \begin{align*}
   m_i &\propto \int \limits_{-\pi R}^{\pi R} \frac{\mathrm{d}y}{2 \pi R} \, \lambda_i^\text{(5)} \, e^{-4 \kappa \abs{y}} \, H(y) \, f_0^i(y) \\
@@ -609,7 +609,7 @@ Parmi les signatures expérimentales de ces modèles, attardons nous spécifique
 
 \section{Conclusion}
 
-On a vu au travers ce chapitre que les propriétés du quark top sont de mieux en mieux connues. De nombreuses études sont menées afin d'améliorer nos connaissances, indispensables pour la recherche de nouvelle physique, mais également pour vérifier la cohérence du Modèle Standard.
+On a vu au travers de ce chapitre que les propriétés du quark top sont de mieux en mieux connues. De nombreuses études sont menées afin d'améliorer nos connaissances, indispensables pour la recherche de nouvelle physique, mais également pour vérifier la cohérence du Modèle Standard.
 
 \medskip
 

@@ -57,15 +57,15 @@ avec
 
 Dans \tilde\SI{16}{\%} des cas, cette équation n'a pas de solution réelle. Cela peut être le cas lorsque l'énergie transverse manquante est surestimée. Dans ce cas, on cherche une solution réelle en faisant varier $p_x^{\Pneutrino}$ et $p_y^{\Pneutrino}$ de façon identique et synchronisée jusqu'à obtenir une solution réelle.
 
-Lorsque l'on obtient deux solutions réelles, le choix est fait en utilisant la contrainte de la masse du quark top. Le neutrino provient en effet de la cascade de désintégration $\Ptop \rightarrow \Pbottom \PW$, $\PW \rightarrow \Plepton \Pneutrino$. On retient la solution qui donne la masse invariante à trois corps entre le lepton, le neutrino et le jet \Pbottom provenant de la désintégration leptonique d'un quark top\footnote{Le choix de ce jet est l'objet de la \cref{sec:chi2}} la plus proche de la masse du quark top.
+Lorsque l'on obtient deux solutions réelles, le choix est fait en utilisant la contrainte de la masse du quark top. Le neutrino provient en effet de la cascade de désintégration $\Ptop \rightarrow \Pbottom \PW$, $\PW \rightarrow \Plepton \Pneutrino$. On retient la solution qui donne la masse invariante à trois corps entre le lepton, le neutrino et le jet \Pbottom provenant de la désintégration leptonique d'un quark top\footnote{Le choix de ce jet est l'objet de la \cref{sec:chi2}.} la plus proche de la masse du quark top.
 
 \medskip
 
-La \cref{fig:neutrino_correction} présente l'effet de la reconstruction de la composante longitudinale sur la mesure de l'énergie du neutrino. Avant reconstruction, l'énergie du neutrino est clairement sous estimée. Une fois $p_z^{\Pnu}$ reconstruit, l'énergie du neutrino se rapproche de l'énergie du neutrino générée. On mesure ici toute l'importance de la reconstruction du neutrino sur la mesure de l'énergie, et donc sur la reconstruction de la masse invariante du système \ttbar.
+La \cref{fig:neutrino_correction} présente l'effet de la reconstruction de la composante longitudinale sur la mesure de l'énergie du neutrino. Avant reconstruction, l'énergie du neutrino est clairement sous-estimée. Une fois $p_z^{\Pnu}$ reconstruit, l'énergie du neutrino se rapproche de l'énergie du neutrino générée. On mesure ici toute l'importance de la reconstruction du neutrino sur la mesure de l'énergie, et donc sur la reconstruction de la masse invariante du système \ttbar.
 
 \section{Choix de la bonne combinaison de jets} \label{sec:chi2}
 
-Lors d'une désintégration \ttbar dans le canal semi-leptonique, 4 jets composent l'état final : 2 jets de \Pbottom, provenant de la désintégrations des deux quarks top, et deux jets de quark légers, provenant de la désintégration hadronique d'un des bosons \PW.
+Lors d'une désintégration \ttbar dans le canal semi-leptonique, 4 jets composent l'état final : 2 jets de \Pbottom, provenant de la désintégration des deux quarks top, et deux jets de quark légers, provenant de la désintégration hadronique d'un des bosons \PW.
 
 De nombreux jets additionnels sont produits lors d'une collision au LHC, venant du \pu, de l'événement sous-jacent, de radiations de gluon, etc. Il faut donc un moyen d'identifier précisément les jets provenant de la désintégration \ttbar parmi tous les jets de l'événement. Deux méthodes sont étudiées dans ce chapitre, la méthode de tri par $\chi^2$, présentée ci-dessous, et la méthode de tri par MVA (\emph{Multi-Variate Analysis}, analyse multi-variée), présentée \cref{sec:mva}.
 
@@ -75,7 +75,7 @@ Ces deux méthodes sont utilisées après sélection. Cette sélection sera dét
 
 \subsection{Algorithme de tri par \texorpdfstring{$\chi^2$}{chi²}}
 
-Pour chaque événement candidat \ttbar, parmi $N (\geq 4)$ jets sélectionnés, on distingue $\binom{N}{N - 4}$ sous-ensembles de 4 jets. Pour chaque sous ensemble, on compte 12 combinaisons possibles pour assigner les jets si l'on considère les jets provenant de la désintégration du \PW hadronique indiscernables.
+Pour chaque événement candidat \ttbar, parmi $N (\geq 4)$ jets sélectionnés, on distingue $\binom{N}{N - 4}$ sous-ensembles de 4 jets. Pour chaque sous-ensemble, on compte 12 combinaisons possibles pour assigner les jets si l'on considère les jets provenant de la désintégration du \PW hadronique indiscernables.
 
 \medskip
 
@@ -108,7 +108,7 @@ avec $X$ le discriminant considéré, $X_\text{mesuré}$ la valeur mesurée de c
     \label{fig:chi2_distributions}
 \end{figure}
 
-Les valeurs de références des discriminants sont définies comme les valeurs les plus probables des discriminants sur la simulation. Afin d'extraire ces valeurs, on reconstruit l'événement \ttbar en utilisant uniquement la bonne association de jet. Cette bonne association est déterminée en utilisant la vérité Monte Carlo. À chaque jet reconstruit, on tente d'assigner un parton provenant de la désintégration \ttbar. Cette procédure d'assignation est réalisée en demandant que la distance entre le jet reconstruit et le parton dans le plan $(\eta, \phi)$ ($\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$) soit inférieure à $0.4$, et que la différence d'impulsion transverse ($\Delta p_T$) soit inférieure à \SI{300}{\%}. Dans le cas où on ne peut pas associer les 4 quarks initiaux (\tilde \SI{60}{\%} des cas), l'événement n'est considéré ni pour les bonnes ni pour les mauvaises combinaisons.
+Les valeurs de référence des discriminants sont définies comme les valeurs les plus probables des discriminants sur la simulation. Afin d'extraire ces valeurs, on reconstruit l'événement \ttbar en utilisant uniquement la bonne association de jet. Cette bonne association est déterminée en utilisant la vérité Monte Carlo. À chaque jet reconstruit, on tente d'assigner un parton provenant de la désintégration \ttbar. Cette procédure d'assignation est réalisée en demandant que la distance entre le jet reconstruit et le parton dans le plan $(\eta, \phi)$ ($\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$) soit inférieure à $0.4$, et que la différence d'impulsion transverse ($\Delta p_T$) soit inférieure à \SI{300}{\%}. Dans le cas où on ne peut pas associer les 4 quarks initiaux (\tilde \SI{60}{\%} des cas), l'événement n'est considéré ni pour les bonnes ni pour les mauvaises combinaisons.
 
 \begin{table} \centering
     \begin{tabular}{@{}ccc@{}} \toprule
@@ -125,7 +125,7 @@ Les valeurs de références des discriminants sont définies comme les valeurs l
 
 On évalue la valeur de chaque discriminant pour chaque bonne combinaison. La \cref{fig:chi2_distributions} présente les distributions de chaque discriminant. Les valeurs de référence et les incertitudes associées sont extraites grâce à une interpolation avec une fonction gaussienne (en rouge sur les figures). Seule la distribution de $H_T^\text{frac.}$ n'est pas gaussienne. Pour ce cas particulier, la valeur de référence est fixée à 1, et l'incertitude est estimée à partir de la moyenne quadratique (RMS) de la distribution.
 
-Le \cref{tab:chi2_ref_values} résume les valeurs de références utilisées pour le calcul du $\chi^2$, avec leurs incertitudes associées. On remarque que la valeur de référence de la masse du quark top dans la branche leptonique est différente de celle dans la branche hadronique. Cette différence s'explique par les corrections en énergie des jets : dans le cas de la désintégration leptonique du boson \PW, 1 seul jet intervient dans la reconstruction, contre 3 pour la désintégration hadronique du boson \PW.
+Le \cref{tab:chi2_ref_values} résume les valeurs de référence utilisées pour le calcul du $\chi^2$, avec leurs incertitudes associées. On remarque que la valeur de référence de la masse du quark top dans la branche leptonique est différente de celle dans la branche hadronique. Cette différence s'explique par les corrections en énergie des jets : dans le cas de la désintégration leptonique du boson \PW, 1 seul jet intervient dans la reconstruction, contre 3 pour la désintégration hadronique du boson \PW.
 
 \bigskip
 
@@ -134,15 +134,15 @@ Le choix de la bonne combinaison de jets est effectuée de la façon suivante : 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:chi2_distribution}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/chi2_distribution.pdf}} \hfill
     \subcaptionbox{\label{fig:chi2_ptsyst}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/chi2_discrimant_combinations_pt_syst.pdf}}
-    \caption{(\subref{fig:chi2_distribution}) Comparaison entre les distributions de $\chi^2$ pour toutes les combinaisons de jets (\textcolor{bleu_gris}{gris}) et pour la bonne combinaison de jets (\textcolor{rouge_grandmere}{rouge}), réalisée à partir d'événements \ttbar simulées. La courbe \textcolor{rouge_grandmere}{rouge} est normalisée au nombre d'événements de la courbe \textcolor{bleu_gris}{grise}. (\subref{fig:chi2_ptsyst}) $p_T$ du système \ttbar pour les bonnes combinaisons ainsi que toutes les combinaisons.}
+    \caption{(\subref{fig:chi2_distribution}) Comparaison entre les distributions de $\chi^2$ pour toutes les combinaisons de jets (\textcolor{bleu_gris}{gris}) et pour la bonne combinaison de jets (\textcolor{rouge_grandmere}{rouge}), réalisée à partir d'événements \ttbar simulés. La courbe \textcolor{rouge_grandmere}{rouge} est normalisée au nombre d'événements de la courbe \textcolor{bleu_gris}{grise}. (\subref{fig:chi2_ptsyst}) $p_T$ du système \ttbar pour les bonnes combinaisons ainsi que toutes les combinaisons.}
 \end{figure}
 
 Pour pouvoir évaluer les performances de l'algorithme de tri par $\chi^2$, il est utile de donner quelques définitions :
 
 \begin{itemize} \label{page:chi2_def}
-    \item On parle d'\textbf{événement associable} s'il est possible d'associer à chaque parton de la désintégration \ttbar un jet reconstruit, selon la procédure détaillée ce-dessus.
+    \item On parle d'\textbf{événement associable} s'il est possible d'associer à chaque parton de la désintégration \ttbar un jet reconstruit, selon la procédure détaillée ci-dessus.
     \item On parle d'\textbf{événement associé} si un événement est associable, et si l'algorithme de tri par $\chi^2$ a permis de choisir correctement les 4 jets provenant de la désintégration \ttbar. Pour cette classe d'événement, la position des jets n'est pas importante.
-    \item Enfin, on parle d'\textbf{événement associé et bien placé} si un événement est associé, et si les 4 jets sélectionnés sont aussi bien placé, c'est-à-dire si le jet choisi pour être le jet \Pbottom leptonique est correct, etc.
+    \item Enfin, on parle d'\textbf{événement associé et bien placé} si un événement est associé, et si les 4 jets sélectionnés sont aussi bien placés, c'est-à-dire si le jet choisi pour être le jet \Pbottom leptonique est correct, etc.
 \end{itemize}
 
 \begin{figure}[tbp]
@@ -165,7 +165,7 @@ Lorsque l'on reconstruit la masse invariante \ttbar, on reconstruit la masse inv
     \label{tab:chi2_study}
 \end{table}
 
-D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elle consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport à cette méthode. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée.
+D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La plus simple d'entre elles consiste à sélectionner les 4 jets de plus haute impulsion. On compare \cref{fig:chi2_vs_jets} les performances de l'algorithme de tri par $\chi^2$ par rapport à cette méthode. On constate que l'algorithme de tri par $\chi^2$ est bien plus performant que le simple choix des 4 jets, avec une différence d'efficacité variant entre \tilde\SI{15}{\%} et \tilde\SI{30}{\%} en fonction de la masse invariante \ttbar générée.
 
 % \begin{figure}[tbp] \centering
 %     \subcaptionbox{\label{fig:chi2_vs_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/jet_selection_efficiency.pdf}}
@@ -178,7 +178,7 @@ D'autres méthodes existent pour sélectionner la bonne combinaison de jets. La 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:mtt_reso_chi2}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_chi2.pdf}} \hfill
     \subcaptionbox{\label{fig:mtt_reso_four_jets}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/mtt_resolution_four_jets.pdf}}
-    \caption{Résolution de la masse invariante \mtt évaluée sur des événements \ttbar simulés, en utilisant l'algorithme de tri par $\chi^2$ (\subref{fig:mtt_reso_chi2}) et en utilisant les quatre jet de plus haut \pt (\subref{fig:mtt_reso_four_jets}).}
+    \caption{Résolution de la masse invariante \mtt évaluée sur des événements \ttbar simulés, en utilisant l'algorithme de tri par $\chi^2$ (\subref{fig:mtt_reso_chi2}) et en utilisant les quatre jets de plus haut \pt (\subref{fig:mtt_reso_four_jets}).}
 \end{figure}
 
 Deux critères sont utilisés pour déterminer la qualité de la reconstruction de la masse invariante. Le plus important est la résolution, définie comme la différence entre la masse invariante reconstruite ($\mtt^\text{reco}$) et la masse invariante générée ($\mtt^\text{gen}$). Ainsi, plus la reconstruction est de qualité, plus la résolution est faible. On peut aussi observer la linéarité de la reconstruction, en traçant l'évolution de $\mtt^\text{reco}$ en fonction de $\mtt^{gen}$. Cette section est dédiée à la comparaison de ces deux critères pour l'algorithme de tri par $\chi^2$.
@@ -204,27 +204,27 @@ Les résultats de cette étude montrent que l'algorithme de tri par $\chi^2$ est
 
 Des nombreuses variables rentrent en jeu lors du calcul de la masse invariante \ttbar. Une méthode simple pour les exploiter serait d'étendre le $\chi^2$ (\cref{eq:chi2}) pour ajouter autant de termes que nécessaire. Cela suppose néanmoins que les variables que l'on utilise comme discriminant soient gaussiennes, ce qui est le cas pour des distributions de masses invariantes, mais pas pour d'autres variables, telles que $\Delta \phi$ entre deux objets, ou l'impulsion transverse d'un autre objet.
 
-Afin d'exploiter toutes les informations possibles pour discriminer entre bonnes et mauvaises combinaisons, une analyse multi-variée a été mise en place, utilisant comme algorithmes les arbres de décisions boostés (BDT, \emph{Boosted Decision Tree}) et un réseau de neurones (NN, \emph{Neural Network}).
+Afin d'exploiter toutes les informations possibles pour discriminer entre bonnes et mauvaises combinaisons, une analyse multi-variée a été mise en place, utilisant comme algorithme les arbres de décisions boostés (BDT, \emph{Boosted Decision Tree}) et un réseau de neurones (NN, \emph{Neural Network}).
 
 %Deux algorithmes différents sont comparées dans cette section : les arbres de décisions boostés (BDT, \emph{Boosted Decision Tree}) et les réseaux de neurones (NN, \emph{Neural Network}).
 
 \subsubsection{Arbres de décisions boostés}
 
-Un arbre de décision est un algorithme de classification des événements utilisant en entrée plusieurs variables, et qui permet en sortie de classer les événements en deux catégories distinct : "signal" ou "fond". L'algorithme commence au nœud racine, où une première coupure sur une variable $x_i$ est appliquée. Une deuxième coupure sur une variable $x_j$ est ensuite appliquée, qui dépend du résultat de la première coupure: on obtient ainsi 2 nouveaux nœuds. Cette procédure est répétée jusqu'à ce qu'une condition d'arrêt soit atteinte. L'événement est alors classé "signal" ou "fond". Un exemple d'arbre de décision est présenté \cref{fig:bdt}.
+Un arbre de décision est un algorithme de classification des événements utilisant en entrée plusieurs variables, et qui permet en sortie de classer les événements en deux catégories distinctes : "signal" ou "fond". L'algorithme commence au nœud racine, où une première coupure sur une variable $x_i$ est appliquée. Une deuxième coupure sur une variable $x_j$ est ensuite appliquée, qui dépend du résultat de la première coupure: on obtient ainsi 2 nouveaux nœuds. Cette procédure est répétée jusqu'à ce qu'une condition d'arrêt soit atteinte. L'événement est alors classé "signal" ou "fond". Un exemple d'arbre de décision est présenté \cref{fig:bdt}.
 
-Afin de construire un tel arbre, une phase d'entrainement est nécessaire. Cet entrainement est réalisé à la fois sur des événements classés comme "signal" et sur des événements classés comme "fond". Un des principaux problèmes de cet algorithme est son instabilité vis-à-vis des fluctuations statistiques dans l'échantillon utilisé pour l'entrainement. Par exemple, si deux variables font preuves d'un pouvoir de discrimination similaire, une fluctuation statistique pourrait décider l'algorithme à utiliser la première variable au lieu de la deuxième.
+Afin de construire un tel arbre, une phase d'entrainement est nécessaire. Cet entrainement est réalisé à la fois sur des événements classés comme "signal" et sur des événements classés comme "fond". Un des principaux problèmes de cet algorithme est son instabilité vis-à-vis des fluctuations statistiques dans l'échantillon utilisé pour l'entrainement. Par exemple, si deux variables font preuve d'un pouvoir de discrimination similaire, une fluctuation statistique pourrait décider l'algorithme à utiliser la première variable au lieu de la deuxième.
 
-Le problème est contourné en construisant une "forêt" d'arbres de décision. La classification d'un événement en "signal" ou "fond" est déterminée par le résultat majoritaire sur tous les arbres. L'entrainement de chaque arbre est réalisé sur le même échantillon. La seule différence vient de l'application d'un poids particulier à chaque événement : les événements mal classés durant l'entrainement de l'arbre de décision auront un poids plus grand lors de l'entrainement de l'arbre suivant. Cette technique est appelé \emph{boost} \citep{Freund1997119} et permet de stabiliser l'algorithme.
+Le problème est contourné en construisant une "forêt" d'arbres de décision. La classification d'un événement en "signal" ou "fond" est déterminée par le résultat majoritaire sur tous les arbres. L'entrainement de chaque arbre est réalisé sur le même échantillon. La seule différence vient de l'application d'un poids particulier à chaque événement : les événements mals classés durant l'entrainement de l'arbre de décision auront un poids plus grand lors de l'entrainement de l'arbre suivant. Cette technique est appelé \emph{boost} \citep{Freund1997119} et permet de stabiliser l'algorithme.
 
 \begin{figure}[t!] \centering
-    \subcaptionbox{Vue schématique d'un arbre de décision. En commençant au nœud racine, une suite de sélections binaires sont appliquées en utilisant le discriminant $x_i$, qui peut varier ou non à chaque nœud de la sélection. A la fin de chaque branche de sélection, l'événement est classé comme "signal" (S) ou comme "fond" (B). \label{fig:bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/BDT.pdf}} \hfill
-    \subcaptionbox{Vue schématique d'un réseau de neurones. En vert, deux neurones d'entrées sont connectés à des neurones "cachés" (bleu), eux même connectés à un neurone de sortie (jaune). \label{fig:nn}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/Neural_network.pdf}}
+    \subcaptionbox{Vue schématique d'un arbre de décision. En commençant au nœud racine, une suite de sélections binaires est appliquée en utilisant le discriminant $x_i$, qui peut varier ou non à chaque nœud de la sélection. A la fin de chaque branche de sélection, l'événement est classé comme "signal" (S) ou comme "fond" (B). \label{fig:bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/BDT.pdf}} \hfill
+    \subcaptionbox{Vue schématique d'un réseau de neurones. En vert, deux neurones d'entrée sont connectés à des neurones "cachés" (bleu), eux-mêmes connectés à un neurone de sortie (jaune). \label{fig:nn}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/Neural_network.pdf}}
     \caption{Vue schématique de deux algorithmes de MVA.}
 \end{figure}
 
 \subsubsection{Réseau de neurones}
 
-Un neurone, par analogie au cerveau, est une entité de calcul autonome. Cette entité reçoit des valeurs d'entrées de plusieurs sources, et réponds avec une valeur de sortie grâce à la fonction de transfert qui lui est assignée. En regroupant plusieurs neurones et en les interconnectant, on forme un réseau de neurones, qui permet de traiter des informations complexes.
+Un neurone, par analogie au cerveau, est une entité de calcul autonome. Cette entité reçoit des valeurs d'entrée de plusieurs sources, et réponds avec une valeur de sortie grâce à la fonction de transfert qui lui est assignée. En regroupant plusieurs neurones et en les interconnectant, on forme un réseau de neurones, qui permet de traiter des informations complexes.
 
 Un réseau de neurones est typiquement organisé en plusieurs couches. La première couche traite l'information d'entrée, et transmet une réponse à une deuxième couche. L'opération est réitérée autant de fois qu'il y a de couche de neurones. Finalement, un neurone de sortie permet au réseau de répondre avec une unique valeur de sortie, typiquement un nombre. Lors de la phase d'entraînement, les poids assignés à la réponse de chaque neurone (et donc à la valeur d'entrée des autres neurones) varie jusqu'à obtenir une réponse satisfaisante. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
 
@@ -232,7 +232,7 @@ On assigne aux neurones de la première et dernière couche une fonction de tran
 \begin{align*}
   x \rightarrow x
 \end{align*}
-où $x$ est la valeur d'entrée totale, somme pesée de toutes les valeurs d'entrées du neurone. Pour les neurones des couches cachées, c'est-à-dire autres que ceux de la première et dernière couche, une fonction de transfert sigmoïde est utilisée :
+où $x$ est la valeur d'entrée totale, somme pesée de toutes les valeurs d'entrée du neurone. Pour les neurones des couches cachées, c'est-à-dire autres que ceux de la première et dernière couche, une fonction de transfert sigmoïde est utilisée :
 \begin{align*}
   x \rightarrow \frac{1}{1 + e^{-x}}
 \end{align*}
@@ -249,7 +249,7 @@ L'utilisation d'un MVA permet de classer un événement en deux catégories : "s
     \caption{Valeurs de sortie pour les bonnes (bleu) et mauvaises (rouge) combinaisons, pour l'algorithme BDT (\subref{fig:mva_bdt_discr}) et le réseau de neurones (\subref{fig:mva_nn_discr}).}
 \end{figure}
 
-Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sorties de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. On identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA.
+Les \cref{fig:mva_bdt_discr,fig:mva_nn_discr} présentent les valeurs de sortie de chaque MVA. On constate l'excellente discrimination entre les bonnes et mauvaises combinaisons. On identifie ici la bonne combinaison celle qui possède la plus grande valeur de sortie du MVA.
 
 \subsubsection{Performances}
 
@@ -301,14 +301,14 @@ Pour un événement \ttbar, les objets reconstruits (leptons, jets, ...) doivent
 
 % L'idée de l'ajustement cinématique est simple : faire varier les quantités physiques des objets sélectionnées, dans leurs incertitudes, afin de respecter au mieux les con\-traintes d'un événement \ttbar. On utilise pour cela la méthode des multiplicateurs de Lagrange afin de trouver les valeurs optimales des quantités physiques des particules sélectionnées sous diverses contraintes.
 % L'idée de l'ajustement cinématique est simple : on utilise la connaissance de la cinématique d'un événement \ttbar afin d'améliorer la résolution des objets physiques. Les quantités physiques de chaque objet sont optimisées afin de respecter au mieux les contraintes d'un événement \ttbar.
-L'ajustement cinématique impose les contraintes liées à la connaissance de la cinématique d'un événement \ttbar aux objets reconstruis, et les faisant varier d'un façon compatible à leur résolution expérimentale, afin d'améliorer leur précision.
+L'ajustement cinématique impose les contraintes liées à la connaissance de la cinématique d'un événement \ttbar aux objets reconstruis, et les faisant varier d'une façon compatible à leur résolution expérimentale, afin d'améliorer leur précision.
 
 \bigskip
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:kinfit_matched_events}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_comparison_kf_good_solutions.pdf}} \hfill
     \subcaptionbox{\label{fig:kinfit_all_events}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/kinfit/mtt_resolution_comparison_kf_all_events.pdf}}
-    \caption{Résolution sur la masse invariante \mtt sans ajustement cinématique (\rouge), après ajustement cinématique (\textcolor{vert}{vert}) et après ajustement cinématique et une coupure $p > \num{0.2}$ (\textcolor{violet}{violet}). Les distributions ont été obtenues avec des événements \ttbar simulés, en utilisant la bonne combinaison de jets (\subref{fig:kinfit_matched_events}) et avec tous les événements (\subref{fig:kinfit_all_events}). Un ajustement avec une Breit-Wigner est superposé afin de facile la comparaison entre les trois méthodes.}
+    \caption{Résolution sur la masse invariante \mtt sans ajustement cinématique (\rouge), après ajustement cinématique (\textcolor{vert}{vert}) et après ajustement cinématique et une coupure $p > \num{0.2}$ (\textcolor{violet}{violet}). Les distributions ont été obtenues avec des événements \ttbar simulés, en utilisant la bonne combinaison de jets (\subref{fig:kinfit_matched_events}) et avec tous les événements (\subref{fig:kinfit_all_events}). Un ajustement avec une Breit-Wigner est superposé afin de faciliter la comparaison entre les trois méthodes.}
     \label{fig:kinfit_ttbar}
 \end{figure}
 
@@ -341,7 +341,7 @@ Intéressons nous maintenant aux cas où l'on utilise l'ajustement cinématique 
 
 \bigskip
 
-On verra dans le \cref{chap:zprime} que ces résultats, obtenus sur des événements \ttbar du Modèle Standard, sont généralisables aux événements \ttbar produit par de la nouvelle physique. La résolution obtenue au final est fortement dégradée par l'utilisation de l'ajustement cinématique, ce qui nous a poussé à ne pas l'utiliser pour reconstruire la masse invariante \ttbar.
+On verra dans le \cref{chap:zprime} que ces résultats, obtenus sur des événements \ttbar du Modèle Standard, sont généralisables aux événements \ttbar produits par de la nouvelle physique. La résolution obtenue au final est fortement dégradée par l'utilisation de l'ajustement cinématique, ce qui nous a poussé à ne pas l'utiliser pour reconstruire la masse invariante \ttbar.
 
 %On verra dans le \cref{chap:zprime} que ces bons résultats sur des événements \ttbar du Modèle Standard n'impliquent pas forcément de bonnes performances pour des événements \ttbar produits par de la nouvelle physique. En effet, l'ajustement cinématique est optimiser pour la cinématique de la désintégration de paires \ttbar Modèle Standard, et on verra dans le prochain chapitre que cette cinématique peut être vraiment différente dans le cas de nouvelle physique. À cause de cette différence, on observe une dégradation de la résolution lors de l'utilisation de l'ajustement cinématique. Cette dégradation nous a poussé à ne pas utiliser l'ajustement cinématique pour reconstruire la masse invariante \ttbar.
 
