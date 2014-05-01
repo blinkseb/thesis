@@ -4,7 +4,7 @@
 
 Ce chapitre est dédié à la recherche de résonance de spin 0 (\sz) dans le spectre de masse \ttbar. Contrairement à l'analyse présentée dans le \cref{chap:zprime} (analyse \zprime), cette analyse se base sur un modèle particulier. On interprète en effet la résonance de spin 0 comme un boson de Higgs massif se désintégrant exclusivement en \ttbar, comme prédit par exemple par un modèle à deux doublets de Higgs (voir \cref{sec:2hdm}).
 
-La recherche d'une particule de spin 0 comporte plusieurs difficultés, de la génération du signal jusqu'à la stratégie d'analyse. Dans ce chapitre, certaines de ces problématiques sont résolues. Pour d'autres, les résultats sont encore très préliminaires et seulement une étude de faisabilité est présentée. Cette recherche se révèle à la fois difficile et prometteuse.
+La recherche d'une particule de spin 0 comporte plusieurs difficultés, de la génération du signal jusqu'à la stratégie d'analyse. Dans ce chapitre, certaines de ces problématiques sont résolues. Pour d'autres, les résultats sont encore très préliminaires et seule une étude de faisabilité est présentée. Cette recherche se révèle à la fois difficile et prometteuse.
 
 \section{Signaux et bruits de fonds}
 
@@ -70,7 +70,7 @@ Cette analyse se concentre sur les désintégrations semi\-/leptoniques des pair
 
 \subsection{Génération du signal}
 
-Les états initiaux et finaux de la production de \sz sont identiques à ceux du mode de production dominant de quarks top Modèle Standard au LHC. Comme évoqué brièvement \cref{sec:2hdm}, la production de \sz va interférer avec celle du Modèle Standard, ne conduisant pas simplement à un pic dans la masse invariante dans le spectre \mtt, mais à une structure plus compliquée de type pic - trou. Les \cref{eq:sigma_scalar,eq:sigma_pscalar} (adaptées de \citep{Dicus:1994bm}) présentent respectivement les sections efficaces théoriques pour un scalaire et un pseudo-scalaire dans le modèle 2HDM. La somme des termes de signal et d'interférences est représentée sur la \cref{fig:theo_sigma}, pour différents points de masse. La présence d'une telle particule donne lieu à deux effets localisés : un excès et un déficit d'événements par rapport à la prédiction du Modèle Standard. L'effet des interférences est non négligeable, le déficit étant parfois plus important que l'excès. La contribution du signal et de l'interférence à l'excès et au déficit est présentée sur la \cref{fig:signal_interference}.
+Les états initiaux et finaux de la production de \sz sont identiques à ceux du mode de production dominant de quarks top Modèle Standard au LHC. Comme évoqué brièvement \cref{sec:2hdm}, la production de \sz va interférer avec celle du Modèle Standard, ne conduisant pas simplement à un pic dans la masse invariante dans le spectre \mtt, mais à une structure plus compliquée de type pic - trou. Les \cref{eq:sigma_scalar,eq:sigma_pscalar} (adaptées de \citep{Dicus:1994bm}) présentent respectivement les sections efficaces théoriques pour un scalaire et un pseudo-scalaire dans le modèle 2HDM. La somme des termes de signal et d'interférence est représentée sur la \cref{fig:theo_sigma}, pour différents points de masse. La présence d'une telle particule donne lieu à deux effets localisés : un excès et un déficit d'événements par rapport à la prédiction du Modèle Standard. L'effet des interférences est non négligeable, le déficit étant parfois plus important que l'excès. La contribution du signal et de l'interférence à l'excès et au déficit est présentée sur la \cref{fig:signal_interference}.
 
 \begin{eq}
     \begin{align*}
@@ -113,7 +113,7 @@ Les états initiaux et finaux de la production de \sz sont identiques à ceux du
 
 \smallskip
 
-Afin de reproduire ce phénomène d'interférence, il est nécessaire, lors de la génération du signal, de le générer avec le bruit de \ttbar Modèle Standard. Le nombre d'événements générés nécessaire dans cette configuration n'est pas compatible avec les ressources disponibles. En effet, s'il on souhaite obtenir une luminosité équivalente pour le signal d'environ \SI{100}{\invfb}, il est nécessaire de générer environ \num{25000000} événements par points de masses. Pour que l'analyse soit possible, il est donc impératif de pouvoir générer uniquement les composantes dues au signal et aux interférences.
+Afin de reproduire ce phénomène d'interférence, il est nécessaire, lors de la génération du signal, de le générer avec le bruit de \ttbar Modèle Standard. Le nombre d'événements générés nécessaires dans cette configuration n'est pas compatible avec les ressources disponibles. En effet, si l'on souhaite obtenir une luminosité équivalente pour le signal d'environ \SI{100}{\invfb}, il est nécessaire de générer environ \num{25000000} événements par points de masses. Pour que l'analyse soit possible, il est donc impératif de pouvoir générer uniquement les composantes dues au signal et aux interférences.
 
 \bigskip
 
@@ -177,7 +177,7 @@ On modifie l'élément de matrice afin de ne garder que le signal et les termes 
     \label{fig:f_interference}
 \end{figure}
 
-Le signal est généré à l'aide de \texttt{MadGraph\;5}. Le code généré et responsable du calcul de l'élément de matrice est modifié manuellement afin de correspondre à l'\cref{eq:matrix_element_higgs}. Afin de valider cette méthode, on procède à deux générations : une génération signal + bruit de fond, à laquelle on soustrait le bruit de fond généré séparément (méthode standard), et une générant en modifiant l'élément de matrice (méthode alternative). Les distributions de masse invariante \mtt obtenues dans chacun des cas sont présentées sur la \cref{fig:mtt_check} pour un \sz scalaire de masse $\msz = \SI{500}{\GeV}$. Les deux générations donnent des résultats comparables, ce qui permet de valider notre méthode de génération du signal. Il est également intéressant de constater que les erreurs statistiques sont réduites d'un facteur \tilde8 en utilisant la méthode alternative, et ce en générant un nombre d'événement 100 fois inférieur.
+Le signal est généré à l'aide de \texttt{MadGraph\;5}. Le code généré et responsable du calcul de l'élément de matrice est modifié manuellement afin de correspondre à l'\cref{eq:matrix_element_higgs}. Afin de valider cette méthode, on procède à deux générations : une génération signal + bruit de fond, à laquelle on soustrait le bruit de fond généré séparément (méthode standard), et une génération en modifiant l'élément de matrice (méthode alternative). Les distributions de masse invariante \mtt obtenues dans chacun des cas sont présentées sur la \cref{fig:mtt_check} pour un \sz scalaire de masse $\msz = \SI{500}{\GeV}$. Les deux générations donnent des résultats comparables, ce qui permet de valider notre méthode de génération du signal. Il est également intéressant de constater que les erreurs statistiques sont réduites d'un facteur \tilde8 en utilisant la méthode alternative, et ce en générant un nombre d'événements 100 fois inférieur.
 
 \begin{figure}[tbp]
     \centering
@@ -188,7 +188,7 @@ Le signal est généré à l'aide de \texttt{MadGraph\;5}. Le code généré et 
 
 \bigskip
 
-Chaque échantillon de signal utilisé dans cette analyse est généré à l'aide de la méthode alternative. On peut voir sur la \cref{fig:gen_higgs} les distributions de masse invariante pour un \sz scalaire et pseudo-scalaire après la génération. On note quelques différences avec les prédictions théoriques (\cref{fig:theo_sigma}), imputables aux densités de probabilités partoniques, utilisées lors de la génération des événements. Les sections efficaces de production à l'arbre prédites par \texttt{MadGraph} pour une production signal + interférences sont résumées dans le \cref{tab:cross_sections}. Ces sections efficaces doivent être interprétées comme $\sigma - \sigma_\text{\ttbar}$, et elles sont proportionnelles au nombre d'événements observés, intégré sur le spectre \mtt. L'excès et le déficit contribuent donc avec un signe opposé aux sections efficaces. Cependant, dans l'étude de la distribution \mtt, la présence de l'un et de l'autre permet d'observer un éventuel signal. Il n'est donc pas aisé d'interpréter les valeurs dans le \cref{tab:cross_sections} en terme de sensibilité à la présence de nouvelle physique.
+Chaque échantillon de signal utilisé dans cette analyse est généré à l'aide de la méthode alternative. On peut voir sur la \cref{fig:gen_higgs} les distributions de masse invariante pour un \sz scalaire et pseudo-scalaire après la génération. On note quelques différences avec les prédictions théoriques (\cref{fig:theo_sigma}), imputables aux densités de probabilités partoniques, utilisées lors de la génération des événements. Les sections efficaces de production à l'arbre prédites par \texttt{MadGraph} pour une production signal + interférences sont résumées dans le \cref{tab:cross_sections}. Ces sections efficaces doivent être interprétées comme $\sigma - \sigma_\text{\ttbar}$, et elles sont proportionnelles au nombre d'événements observés, intégrés sur le spectre \mtt. L'excès et le déficit contribuent donc avec un signe opposé aux sections efficaces. Cependant, dans l'étude de la distribution \mtt, la présence de l'un et de l'autre permet d'observer un éventuel signal. Il n'est donc pas aisé d'interpréter les valeurs dans le \cref{tab:cross_sections} en terme de sensibilité à la présence de nouvelle physique.
 \begin{table}[tbp] \centering
     \begin{tabular}{cccccc} \toprule
      & \SI{400}{\GeV} & \SI{500}{\GeV} & \SI{600}{\GeV} & \SI{700}{\GeV} & \SI{800}{\GeV} \\ \midrule
@@ -333,7 +333,7 @@ De manière analogue à l'analyse \zprime, des facteurs de corrections sont appl
 
 \section{Stratégie de l'analyse}
 
-La production de résonances de spin 0 se désintégrant en \ttbar intervient dès que $\msz = 2 m_{\Ptop} \simeq \SI{350}{\GeV}$. On étend ainsi notre gamme de masse invariante, et on considère dans cette analyse $\mtt \in \left[\SI{250}{\GeV}, \SI{1250}{\GeV}\right]$. Le nombre de classes en \mtt est choisit de façon à ce que la largeur de chaque classe soit de \SI{10}{\GeV}.
+La production de résonances de spin 0 se désintégrant en \ttbar intervient dès que $\msz = 2 m_{\Ptop} \simeq \SI{350}{\GeV}$. On étend ainsi notre gamme de masse invariante, et on considère dans cette analyse $\mtt \in \left[\SI{250}{\GeV}, \SI{1250}{\GeV}\right]$. Le nombre de classes en \mtt est choisi de façon à ce que la largeur de chaque classe soit de \SI{10}{\GeV}.
 
 En analogie avec l'analyse \zprime, plusieurs fonctions analytiques ont été testées pour décrire le spectre de masse invariante de la production du Modèle Standard. En raison d'une gamme en masse invariante qui n'est plus limitée à la partie uniquement décroissante, aucune fonction n'a été en mesure de produire un ajustement correct et non biaisé.
 
@@ -392,7 +392,7 @@ Le nombre d'événements dans chaque classe de \mtt suit une loi de Poisson de m
 \begin{align*}
   \mathcal{L} &= \prod\limits_{i = 0}^B \left( \frac{\lambda_i^{n_i} \, e^{- \lambda_i}}{n_i!} \right) \\
 \end{align*}
-où $B$ est le nombre de classes de \mtt et $n_i$ le nombre d'événements observés dans la classe $i$. $\lambda_i$, le nombre d'événements attendus dans la classe $i$, est définit par
+où $B$ est le nombre de classes de \mtt et $n_i$ le nombre d'événements observés dans la classe $i$. $\lambda_i$, le nombre d'événements attendus dans la classe $i$, est défini par
 \begin{align*}
   \lambda_i &= \mu S_i + \sum \limits_k B_{k, i}
 \end{align*}
@@ -407,8 +407,8 @@ Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est
 \begin{description}
   \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{2.6}{\percent}) est considérée comme une source d'incertitude systématique, impactant la normalisation des échantillons.
   \item[\pu] La section efficace des collisions \Pproton{}\Pproton{} utilisée lors du calcul des facteurs de repondération du \pu est variée de \pm{} \SI{5}{\percent}. La variation de la forme des distribution est considérée comme une source d'incertitude, impactant la forme et la normalisation des échantillons.
-  \item[Facteurs de corrections] Les incertitudes sur les facteurs de corrections liés à l'identification et à l'isolation des leptons, à l'algorithme d'étiquetage des jets de \Pbottom ainsi qu'aux performances des chemins de déclenchement sont considérées comme des sources d'incertitudes systématique, impactant la forme et la normalisation des échantillons.
-  \item[Corrections des jets] Les incertitudes sur les corrections en énergie et résolution des jets sont considérées comme une source d'incertitude systématique, impactant la forme et la normalisation des échantillons.
+  \item[Facteurs de corrections] Les incertitudes sur les facteurs de corrections liés à l'identification et à l'isolation des leptons, à l'algorithme d'étiquetage des jets de \Pbottom ainsi qu'aux performances des chemins de déclenchement sont considérées comme des sources d'incertitudes systématiques, impactant la forme et la normalisation des échantillons.
+  \item[Corrections des jets] Les incertitudes sur les corrections en énergie et résolution des jets sont considérées comme une source d'incertitudes systématiques, impactant la forme et la normalisation des échantillons.
   \item[Sections efficaces des bruits de fonds] Afin de prendre en compte les incertitudes systématiques sur la normalisation des bruits de fonds, on introduit une incertitude systématique impactant uniquement la normalisation des échantillons. Cette incertitude est de \SI{15}{\percent} pour \ttbar, \SI{30}{\percent} pour le bruit de fond top célibataire, et \SI{50}{\percent} pour \PW + jets, \PZ + jets et di-bosons.
   \item[Modélisation des bruits de fonds] Une variation simultanée des échelles de factorisation et de renormalisation d'un facteur \num{0.5} et \num{2} est utilisée afin d'estimer les incertitudes liées à l'absence d'ordres supérieurs dans la simulation Monte-Carlo des bruits de fonds \ttbar, \PW + jets et \PZ + jets.
 \end{description}
@@ -517,6 +517,6 @@ Finalement, la sensibilité de l'analyse n'est pas suffisante pour prétendre à
 
 Lors du redémarrage du LHC à \SI{14}{\TeV}, les sections efficaces de production vont augmenter. Les gains attendus pour différentes masses sont résumés dans le \cref{tab:sigma_14tev}. Ces gains sont à comparer au facteur \num{3,9} d'augmentation de la section efficace \ttbar Modèle Standard à \SI{14}{\TeV}.
 
-Comme discuté précédemment, il n'est pas évident d'évaluer les changements dans la distribution de masse invariante simplement à partir de ces valeurs. Une estimation préliminaire est toutefois possible en utilisant les distributions obtenues à \SI{8}{\TeV} et les sections efficaces à \SI{14}{\TeV}. Dans cette hypothèse et pour une luminosité collectée de \SI{100}{\invfb}, le gain en signification statistique le plus important est obtenu pour un pseudo\-/ scalaire de masse $\msz = \SI{400}{\GeV}$, pour lequel une signification statistique de 2\sigma est atteinte.
+Comme discuté précédemment, il n'est pas évident d'évaluer les changements dans la distribution de masse invariante simplement à partir de ces valeurs. Une estimation préliminaire est toutefois possible en utilisant les distributions obtenues à \SI{8}{\TeV} et les sections efficaces à \SI{14}{\TeV}. Dans cette hypothèse et pour une luminosité collectée de \SI{100}{\invfb}, le gain en signification statistique le plus important est obtenu pour un pseudo\-/ scalaire de masse $\msz = \SI{400}{\GeV}$, pour lequel une signification statistique de 2\sigma{} est atteinte.
 
 \end{fmffile}
