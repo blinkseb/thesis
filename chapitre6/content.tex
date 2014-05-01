@@ -222,9 +222,20 @@ Le problème est contourné en construisant une "forêt" d'arbres de décision. 
     \caption{Vue schématique de deux algorithmes de MVA.}
 \end{figure}
 
-\subsubsection{Réseau de neurones} \fxnote{Détailler un peu plus}
+\subsubsection{Réseau de neurones}
 
-Un réseau de neurones consiste en une collection interconnectée de neurones, où chaque neurone dispose d'une fonction de transfert transformant une valeur d'entrée en valeur de sortie. En utilisant plusieurs couches de neurones, il est possible de créer un réseau complexe qui permet de classer des événements. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
+Un neurone, par analogie au cerveau, est une entité de calcul autonome. Cette entité reçoit des valeurs d'entrées de plusieurs sources, et réponds avec une valeur de sortie grâce à la fonction de transfert qui lui est assignée. En regroupant plusieurs neurones et en les interconnectant, on forme un réseau de neurones, qui permet de traiter des informations complexes.
+
+Un réseau de neurones est typiquement organisé en plusieurs couches. La première couche traite l'information d'entrée, et transmet une réponse à une deuxième couche. L'opération est réitérée autant de fois qu'il y a de couche de neurones. Finalement, un neurone de sortie permet au réseau de répondre avec une unique valeur de sortie, typiquement un nombre. Lors de la phase d'entraînement, les poids assignés à la réponse de chaque neurone (et donc à la valeur d'entrée des autres neurones) varie jusqu'à obtenir une réponse satisfaisante. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
+
+On assigne aux neurones de la première et dernière couche une fonction de transfert linéaire :
+\begin{align*}
+  x \rightarrow x
+\end{align*}
+où $x$ est la valeur d'entrée totale, somme pesée de toutes les valeurs d'entrées du neurone. Pour les neurones des couches cachées, c'est-à-dire autres que ceux de la première et dernière couche, une fonction de transfert sigmoïde est utilisée :
+\begin{align*}
+  x \rightarrow \frac{1}{1 + e^{-x}}
+\end{align*}
 
 \subsubsection{Classification des événements \ttbar}
 
