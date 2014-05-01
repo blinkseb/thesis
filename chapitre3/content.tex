@@ -48,26 +48,25 @@ Deux groupes principaux fournissent les PDFs, CTEQ \citep{Owens:2012bv} et MSTW 
 
 \subsection{De l'événement dur aux particules dans le détecteur}
 
-La majeure partie des particules produites lors de l'événement dur ne sont pas stables, et vont se désintégrer avant d'être détectées. Le cas des partons est encore plus complexe. Dans un premier temps, ils vont radier des gluons par interaction forte, créant ainsi une gerbe partonique. Ensuite, étant des particules colorées, ils doivent obligatoirement se lier à d'autres partons afin de former des états non colorés (hadrons), c'est-à-dire neutre du point de vue de l'interaction forte. Ce processus est appelé hadronisation, et a lieu environ \SI{5e-24}{\s} après la production de la particule. Il n'existe pas de théorie décrivant l'hadronisation, mais plutôt des modèles phénoménologiques. Ces modèles peuvent être classés en deux catégories : les modèles basés sur les cordes de Lund (\emph{Lund string model} \citep{Andersson198331}), et ceux basés de le modèle d'agglomération hadronique (\emph{cluster hadronisation}, \citep{cluster}). Le premier utilise les flux de couleurs reliant les partons entre eux. Lorsqu'une paire de partons s'éloignent l'un de l'autre, l'énergie augmente, jusqu'à devenir suffisante pour créer une paire \Pquark{}\APquark{}, brisant ainsi le flux de couleur au profit de deux nouveaux flux, reliant les anciennes particules aux nouvelles. Les modèles d'agglomération hadronique utilisent la conservation des nombres quantiques entre les partons et les hadrons (\emph{parton hadron duality}). Des agrégats de partons sont réalisés, neutres du point de vue de la QCD (pré-confinement). Un agrégat est identifié directement comme un hadron si sa masse est proche de celle d'un hadron connu. Si un agrégat n'est pas identifié comme hadron, il est considéré comme étant une résonance entre deux hadrons plus légers.
+Les particules colorées issues de la génération de l'événement dur radient des gluons ou des photons. Les gluons peuvent eux même radier des gluons, émettant ainsi des particules en cascade, jusqu'à atteindre une échelle d'énergie fixée par le générateur : c'est la gerbe partonique. Une fois cette échelle atteinte, les gluons restant sont forcés à se désintégrer.
 
-Les hadrons ainsi formés peuvent ou non être stables. Ces effets sont très complexes à simuler, puisque à l'échelle d'énergie où ils se produisent, la QCD devient non-perturbative. Des programmes dédiés permettent néanmoins de simuler toute la chaîne d'hadronisation des particules, chacun utilisant des algorithmes spécialisés afin de simuler au mieux le développement de la gerbe partonique et de la chaine d'hadronisation. Parmi ces programmes, on peut citer \texttt{Pythia} \citep{pythia} et \texttt{Herwig} \citep{Corcella:2000bw}.
+Des hadrons non colorés, c'est-à-dire neutre du point de vue de l'interaction forte, sont produits grâce à un processus appelé hadronisation. Ce phénomène se produit environ \SI{5e-24}{\s} après la production de la particule. Il n'existe pas de théorie décrivant l'hadronisation, mais plutôt des modèles phénoménologiques. Ces modèles peuvent être classés en deux catégories : les modèles basés sur les cordes de Lund (\emph{Lund string model} \citep{Andersson198331}), et ceux basés de le modèle d'agglomération hadronique (\emph{cluster hadronisation}, \citep{cluster}). Le premier utilise les flux de couleurs reliant les partons entre eux. Lorsqu'une paire de partons s'éloignent l'un de l'autre, l'énergie augmente, jusqu'à devenir suffisante pour créer une paire \Pquark{}\APquark{}, brisant ainsi le flux de couleur au profit de deux nouveaux flux, reliant les anciennes particules aux nouvelles. Les modèles d'agglomération hadronique utilisent la conservation des nombres quantiques entre les partons et les hadrons (\emph{parton hadron duality}). Des agrégats de partons sont réalisés, neutres du point de vue de la QCD (pré-confinement). Un agrégat est identifié directement comme un hadron si sa masse est proche de celle d'un hadron connu. Si un agrégat n'est pas identifié comme hadron, il est considéré comme étant une résonance entre deux hadrons plus légers. Les particules ainsi formées peuvent être stables ou non. En cas d'instabilité, les particules se désintègrent selon les rapports d'embranchement mesurés expérimentalement.
+
+Ces effets sont très complexes à simuler, puisque à l'échelle d'énergie où ils se produisent, la QCD devient non-perturbative. Des programmes dédiés permettent néanmoins de simuler toute la chaîne d'hadronisation des particules, chacun utilisant des algorithmes spécialisés afin de simuler au mieux le développement de la gerbe partonique et de la chaîne d'hadronisation. Parmi ces programmes, on peut citer \texttt{Pythia} \citep{pythia} et \texttt{Herwig} \citep{Corcella:2000bw}.
 
 \section{Simulation des événements}
 
-Une fois l'hadronisation terminée, on dispose d'une liste de particules créées lors de la collision. Avant de pouvoir comparer les prédictions théoriques aux données collectées, il reste encore à simuler la réponse du détecteur. Deux approches sont possibles : une simulation détaillée, basée sur \texttt{Geant\;4} \citep{Agostinelli2003250}, mais très coûteuse en temps de calcul, et une moins détaillée, mais extrêmement plus rapide. Chaque méthode permet, grâce à des algorithmes différents, de simuler :
+On dispose maintenant d'une liste de particules stables qui peuvent atteindre le détecteur. Avant de pouvoir comparer les données collectées aux prédictions théoriques, il est nécessaire de simuler la réponse de ce dernier. La simulation de la réponse inclue :
 \begin{itemize}
-    \item Le passage des particules dans le détecteur
-    \item Les courbures des trajectoires des particules chargées par le champ magnétique
-    \item Les gerbes électromagnétiques et hadroniques
-    \item Les interactions particules - matières
-    \item La réponse électrique des détecteurs
+    \item Le passage des particules dans le détecteur.
+    \item Les courbures des trajectoires des particules chargées par le champ magnétique.
+    \item Les gerbes électromagnétiques et hadroniques.
+    \item Les interactions particules - matières.
+    \item La réponse électrique des détecteurs.
+    \item La désintégration des particules avec un temps de vie qui leur permet de se désintégrer dans le détecteur.
 \end{itemize}
 
-En plus de la liste ci-dessus, la simulation est aussi responsable de la désintégration des particules instables produites lors de la génération. En effet, la notion de stabilité dépend de l'échelle de temps considérée : une particule ne se désintégrant pas avant un temps $\tau$ est considérée comme stable. Ainsi, une particule peut être vue stable par le générateur Monte Carlo, mais instable par la simulation. Cette particule se désintègre donc à l'intérieur du détecteur, et cet effet doit être pris en compte pour une simulation complète.
-
-\medskip
-
-On décrit rapidement les deux méthodes de simulation ci-dessous.
+Deux approches sont possibles : une simulation détaillée, basée sur \texttt{Geant\;4} \citep{Agostinelli2003250}, mais très coûteuse en temps de calcul, et une moins détaillée, mais extrêmement plus rapide. Ces deux méthodes sont décrites rapidement ci-dessous.
 
 \subsection{La simulation complète du détecteur}
 
