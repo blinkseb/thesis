@@ -10,63 +10,9 @@
 
 \manualmark
 \markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
-\tableofcontents 
+\tableofcontents
 \automark[section]{chapter}
 \renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
 
 \cleardoublepage
-
-\bgroup
-
-    \let\clearpage\relax
-    \let\cleardoublepage\relax
-    \let\cleardoublepage\relax
-    %*******************************************************
-    % List of Figures
-    %*******************************************************    
-    %\phantomsection 
-    %\refstepcounter{dummy}
-    %\addcontentsline{toc}{chapter}{\listfigurename}
-    %\pdfbookmark[1]{\listfigurename}{lof}
-    %\listoffigures
-
-    %\vspace*{8ex}
-
-    %*******************************************************
-    % List of Tables
-    %*******************************************************
-    %\phantomsection 
-    %\refstepcounter{dummy}
-    %\addcontentsline{toc}{chapter}{\listtablename}
-    %\pdfbookmark[1]{\listtablename}{lot}
-    %\listoftables
-        
-    %\vspace*{8ex}
-%   \newpage
-    
-%     %*******************************************************
-%     % List of Listings
-%     %*******************************************************      
-% 	  %\phantomsection 
-%     \refstepcounter{dummy}
-%     %\addcontentsline{toc}{chapter}{\lstlistlistingname}
-%     \pdfbookmark[1]{\lstlistlistingname}{lol}
-%     \lstlistoflistings 
-
-%     \vspace*{8ex}
-    
-    %*******************************************************
-    % Acronyms
-    %*******************************************************
-    %\phantomsection 
-%     \refstepcounter{dummy}
-%     \pdfbookmark[1]{Acronymes}{acronyms}
-%     \markboth{\spacedlowsmallcaps{Acronymes}}{\spacedlowsmallcaps{Acronymes}}
-%     \chapter*{Acronymes}
-%     \begin{acronym}[IPNL]
-%         \acro{IPNL}{Institut de Physique Nucléaire de Lyon}
-%         \acro{ECAL}{Calorimètre Electromagnétique}
-%         \acro{HCAL}{Calorimètre Hadronique}
-%     \end{acronym}
-\egroup
