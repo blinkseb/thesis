@@ -8,18 +8,18 @@ Comme on a pu le voir au chapitre précédent, les algorithmes de reconstruction
 
 C'est pourquoi on applique aux jets toute une série de corrections, destinées à corriger ces effets. Les différentes étapes de correction sont détaillées dans ce chapitre.
 
-\section{Les différents niveaux de corrections}
+\section{Les différents niveaux de correction}
 
 Plusieurs effets sont à prendre en compte lorsque l'on veut corriger l'énergie des jets. En effet, la réponse des sous-détecteurs peut varier selon plusieurs facteurs, tels que la présence de \pu, la position angulaire et l'impulsion transverse des particules, le type de particule, ...
 
-CMS a adopté une approche factorisée afin de corriger convenablement ces effets. Plusieurs niveaux de corrections sont ainsi définis, chacun corrigeant un effet particulier. Chaque niveau dépend des corrections appliquées au niveau précédent, et l'ordre dans lequel sont appliqués ces corrections est donc important. On compte trois niveaux de corrections différents :
+CMS a adopté une approche factorisée afin de corriger convenablement ces effets. Plusieurs niveaux de corrections sont ainsi définis, chacun corrigeant un effet particulier. Chaque niveau dépend des corrections appliquées au niveau précédent, et l'ordre dans lequel sont appliquées ces corrections est donc important. On compte trois niveaux de corrections différents :
 
 \begin{description}
     \item[Niveau 1] Ce niveau de correction corrige les effets du \pu et du bruit des détecteurs.
-    \item[Niveau 2 et 3] Ces niveaux permettent de corriger les variation d'efficacité de la reconstruction des jets, en fonction de l'angle et l'impulsion transverse des jets.
+    \item[Niveau 2 et 3] Ces niveaux permettent de corriger les variations d'efficacité de la reconstruction des jets, en fonction de l'angle et l'impulsion transverse des jets.
 \end{description}
 
-Ces corrections sont appliquées à la fois aux données collectées et à la simulation. Néanmoins, il est apparu que la simulation ne reproduisait pas (encore) parfaitement la réalité. Il a donc été décidé d'ajouter un quatrième niveau de corrections, nommé corrections résiduelles, appliqué uniquement aux données, qui permet de corriger des dernières différences qui subsistent entre données et simulation.
+Ces corrections sont appliquées à la fois aux données collectées et à la simulation. Néanmoins, il est apparu que la simulation ne reproduisait pas (encore) parfaitement la réalité. Il a donc été décidé d'ajouter un quatrième niveau de correction, nommé corrections résiduelles, appliqué uniquement aux données, qui permet de corriger des dernières différences qui subsistent entre données et simulation.
 
 \medskip
 
@@ -31,7 +31,7 @@ On a déjà vu lors du \cref{chap:detecteur} que le \pu entraînait une activit�
 
 \medskip
 
-Grâce à l'algorithme du \pf, il est possible de réduire l'impact du \pu sur la reconstruction des jets en appliquant un filtre spécial chargé d'éliminer les hadrons chargés provenant des interactions secondaires. On a en effet vu \cref{sec:pileup} que le \pu venait des collisions parasites d'autre protons. Pour les particules chargés, il est possible d'utiliser le trajectographe pour déterminer très précisément la position des vertex d'interaction. Seules les particules provenant du vertex primaire sont intéressantes. On élimine ainsi les hadrons chargés provenant des vertex de \pu.
+Grâce à l'algorithme du \pf, il est possible de réduire l'impact du \pu sur la reconstruction des jets en appliquant un filtre spécial chargé d'éliminer les hadrons chargés provenant des interactions secondaires. On a en effet vu \cref{sec:pileup} que le \pu venait des collisions parasites d'autres protons. Pour les particules chargées, il est possible d'utiliser le trajectographe pour déterminer très précisément la position des vertex d'interaction. Seules les particules provenant du vertex primaire sont intéressantes. On élimine ainsi les hadrons chargés provenant des vertex de \pu.
 
 Ce n'est cependant pas suffisant pour totalement supprimer la contribution du \pu, puisque environ \SI{40}{\%} de l'énergie d'un jet provient de hadrons neutres ou de photons (voir \cref{fig:pf_jets_composition}).
 
@@ -71,13 +71,13 @@ où $\rho_0$ est la contribution à la densité d'énergie de l'événement sous
 
 \bigskip
 
-Après application des corrections de niveau 1, la réponse des jets, définie comme le rapport en l'impulsion transverse du jet sur l'impulsion transverse vraie\footnote{L'impulsion transverse vraie d'un jet est la valeur de l'impulsion transverse dans le cas où le jet est parfaitement reconstruit. Cette valeur est déterminée en agglomérant les particules directement en sortie du générateur, plutôt que les particules après reconstruction.}, n'est plus dépendante du nombre de vertex primaires, comme on peux le voir \cref{fig:jec_l1_effect}.
+Après application des corrections de niveau 1, la réponse des jets, définie comme le rapport en l'impulsion transverse du jet sur l'impulsion transverse vraie\footnote{L'impulsion transverse vraie d'un jet est la valeur de l'impulsion transverse dans le cas où le jet est parfaitement reconstruit. Cette valeur est déterminée en agglomérant les particules directement en sortie du générateur, plutôt que les particules après reconstruction.}, n'est plus dépendante du nombre de vertex primaires, comme on peut le voir \cref{fig:jec_l1_effect}.
 
 \subsection[Les corrections de niveau 2 et 3]{Les corrections de niveau 2 et 3 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l2l3}
 
 Les corrections de niveau 2 (corrections en fonction de \aeta) et de niveau 3 (corrections en fonction de \pt) sont appliquées après celles de niveau 1. Ces deux niveaux de corrections forment en réalité une correction unique, la séparation en deux niveaux distincts étant purement historique.
 
-Après les corrections de niveaux 1, la réponse n'est plus dépendante du \pu. Néanmoins, elle varie toujours en fonction de \aeta et du $p_T$. On corrige cette dépendance grâce à la simulation.
+Après les corrections de niveau 1, la réponse n'est plus dépendante du \pu. Néanmoins, elle varie toujours en fonction de \aeta et du $p_T$. On corrige cette dépendance grâce à la simulation.
 
 \begin{figure}[tbp]
     \centering
@@ -114,13 +114,13 @@ Ces facteurs de corrections ont été déterminés sur des événements multi-je
 
 \subsection[Les corrections résiduelles]{Les corrections résiduelles \citep{1748-0221-6-11-P11002}} \label{sec:jec_res}
 
-Les corrections précédentes sont toutes dérivées à l'aide de la simulation. Malheureusement, cette simulation n'est pas parfaite, et des différences existent entre la réponse des jets dans la simulation et dans les données collectées. On applique ainsi un autre niveau de corrections, uniquement sur les données, afin de corriger des dernières différences entre données et simulation. Ces corrections, dépendante de \aeta et du $p_T$ des jets, sont déterminées à l'aide d'événements $\PZ \rightarrow \left[ \Pmuon \APmuon \, | \, \Pelectron \APelectron \right] $ + jets ou $\Pphoton$ + jets, ainsi que des événements di-jets pour la dépendance en \aeta.
+Les corrections précédentes sont toutes dérivées à l'aide de la simulation. Malheureusement, cette simulation n'est pas parfaite, et des différences existent entre la réponse des jets dans la simulation et dans les données collectées. On applique ainsi un autre niveau de corrections, uniquement sur les données, afin de corriger des dernières différences entre données et simulation. Ces corrections, dépendantes de \aeta et du $p_T$ des jets, sont déterminées à l'aide d'événements $\PZ \rightarrow \left[ \Pmuon \APmuon \, | \, \Pelectron \APelectron \right] $ + jets ou $\Pphoton$ + jets, ainsi que des événements di-jets pour la dépendance en \aeta.
 
-La détermination des corrections résiduelles à l'aide d'événement $\Pphoton$ + jets est décrite en détails dans la \cref{sec:jetmet_gamma_jet}.
+La détermination des corrections résiduelles à l'aide d'événement $\Pphoton$ + jets est décrite en détail dans la \cref{sec:jetmet_gamma_jet}.
 
 \subsection{Erreurs systématiques} \label{sec:jec_uncertainties}
 
-Face à la complexité de la détermination des corrections des jets, l'erreur systématique associée est souvent l'erreur dominante dans les analyses de physique, atteignant souvent des valeurs proches de \SI{10}{\%}. Beaucoup d'efforts sont fait pour améliorer notre compréhension des détecteurs et ainsi réduire ces erreurs systématiques.
+Face à la complexité de la détermination des corrections des jets, l'erreur systématique associée est souvent l'erreur dominante dans les analyses de physique, atteignant souvent des valeurs proches de \SI{10}{\%}. Beaucoup d'efforts sont faits pour améliorer notre compréhension des détecteurs et ainsi réduire ces erreurs systématiques.
 
 \medskip
 
@@ -148,7 +148,7 @@ On constate que la présence de \pu (ligne bleue) contribue en majorité à l'in
 
 \subsection{Intérêt des événements \texorpdfstring{$\Pphoton$}{γ} + jets}
 
-L'application des corrections résiduelles permet de corriger des dernières différences de réponse entre la simulation et les données collectées, après calibrations de niveau 1, 2 et 3. Pour cela, on mesure la réponse des jets à la fois dans les données et dans la simulation, et on corrige les données de la différence de réponse, afin de faire en sorte que la réponse dans les données et dans la simulation soit identique. Il est donc nécessaire d'utiliser un processus physique qui permet de connaître de façon la plus précise possible l'énergie d'un jet, sans avoir à utiliser la vérité de la simulation.
+L'application des corrections résiduelles permet de corriger les dernières différences de réponse entre la simulation et les données collectées, après calibrations de niveau 1, 2 et 3. Pour cela, on mesure la réponse des jets à la fois dans les données et dans la simulation, et on corrige les données de la différence de réponse, afin de faire en sorte que la réponse dans les données et dans la simulation soit identique. Il est donc nécessaire d'utiliser un processus physique qui permet de connaître de façon la plus précise possible l'énergie d'un jet, sans avoir à utiliser la vérité de la simulation.
 
 \begin{figure}[t!] \centering
   \subcaptionbox{\label{fig:g_plus_jet_1}}[.4\linewidth]{
@@ -252,7 +252,7 @@ On utilise le principe de conservation de l'impulsion transverse. Pour un évén
 \begin{align*}
   \norm{\vec{p}_T^{\Pphoton}} &= \norm{\vec{p}_T^{jet}}
 \end{align*}
-et on défini la réponse $R$ par la relation
+et on définit la réponse $R$ par la relation
 \begin{align*}
     R &= \frac{p_T^\text{jet}}{p_T^{\Pphoton}}
 \end{align*}
@@ -301,7 +301,7 @@ Pour déterminer les corrections résiduelles, on sélectionne sur les données 
 
 Afin d'éliminer une grande partie du bruit de fond, une sélection est appliquée. La première étape consiste à sélectionner des événements contenant uniquement un seul photon. On utilise pour cela une méthode d'identification des photons. Suivant les besoin des analyses, cette méthode peut être optimisée pour obtenir une grande efficacité de sélection et une faible pureté (beaucoup d'événements sont sélectionnés, mais certains ne sont pas des vrais photons) ou au contraire une grande pureté et une faible efficacité (moins d'événements sont sélectionnés, mais la probabilité qu'ils ne soient pas de vrais photons est très faible).
 
-On souhaite obtenir les événements les plus purs possible. On choisit donc le point de fonctionnement offrant la plus grande pureté (\tilde\SI{96}{\%} des photons sont des vrais photons), mais une efficacité plus faible ($\tilde \SI{70}{\%}$). Cette identification est définie de la façon suivante :
+On souhaite obtenir les événements les plus purs possibles. On choisit donc le point de fonctionnement offrant la plus grande pureté (\tilde\SI{96}{\%} des photons sont des vrais photons), mais une efficacité plus faible ($\tilde \SI{70}{\%}$). Cette identification est définie de la façon suivante :
 
 \begin{enumerate}
     \item Un contrôle est effectué pour vérifier que le photon n'est pas en réalité un électron dont la trace n'a pas pu être liée au dépôt calorimétrique, et qu'il ne provient pas du rayonnement bremsstrahlung d'un électron lors de son passage dans le ECAL.
