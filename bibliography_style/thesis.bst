@@ -1000,7 +1000,11 @@ FUNCTION {format.organization.address}
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
-  author format.key output
+  author empty$
+  { }
+  { author format.key output }
+  if$
+  %author format.key output
   new.block
   format.title "title" output.check
   new.block
@@ -1315,7 +1319,6 @@ FUNCTION {techreport}
 FUNCTION {unpublished}
 { output.bibitem
   format.authors "author" output.check
-  author format.key output
   new.block
   format.title "title" output.check
   format.date "year" output.check
