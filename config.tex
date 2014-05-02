@@ -612,3 +612,8 @@
 
 \crefname{eq}{équation}{équations}
 \crefformat{equation}{équation~#2#1#3}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{\textwidth} % échelle horizontale
+\setlength{\TPVertModule}{\textheight} % échelle verticale identique à l'horizontale
