@@ -177,7 +177,9 @@ On modifie l'élément de matrice afin de ne garder que le signal et les termes 
     \label{fig:f_interference}
 \end{figure}
 
-Le signal est généré à l'aide de \texttt{MadGraph\;5}. Le code généré et responsable du calcul de l'élément de matrice est modifié manuellement afin de correspondre à l'\cref{eq:matrix_element_higgs}. Afin de valider cette méthode, on procède à deux générations : une génération signal + bruit de fond, à laquelle on soustrait le bruit de fond généré séparément (méthode standard), et une génération en modifiant l'élément de matrice (méthode alternative). Les distributions de masse invariante \mtt obtenues dans chacun des cas sont présentées sur la \cref{fig:mtt_check} pour un \sz scalaire de masse $\msz = \SI{500}{\GeV}$. Les deux générations donnent des résultats comparables, ce qui permet de valider notre méthode de génération du signal. Il est également intéressant de constater que les erreurs statistiques sont réduites d'un facteur \tilde8 en utilisant la méthode alternative, et ce en générant un nombre d'événements 100 fois inférieur.
+Le signal est généré à l'aide de \texttt{MadGraph\;5}. Le code généré et responsable du calcul de l'élément de matrice est modifié manuellement afin de correspondre à l'\cref{eq:matrix_element_higgs}.
+
+Afin de valider cette méthode, qui consiste a modifier l’élément de matrice, on procède aussi à une génération complète, où le signal et le bruit de fond sont générés ensemble et à laquelle on soustrait le bruit de fond généré séparément. Les distributions de masse invariante \mtt obtenues dans chacun des cas sont présentées sur la \cref{fig:mtt_check} pour un \sz scalaire de masse $\msz = \SI{500}{\GeV}$. Les deux générations donnent des résultats comparables, ce qui permet de valider notre méthode de génération du signal. Il est également intéressant de constater que les erreurs statistiques sont réduites d'un facteur \tilde8, et ce en générant un nombre d'événements 100 fois inférieur.
 
 \begin{figure}[tbp]
     \centering
@@ -252,7 +254,7 @@ La distribution de masse invariante \mtt du signal après sélection et reconstr
 
 \subsection{Efficacité des chemins de déclenchement}
 
-A cause du changement de coupure sur l'impulsion transverse, il est possible d'utiliser les efficacités des chemins de déclenchement calculées centralement par la collaboration directement sur les données. Pour le canal semi-muonique, l'efficacité moyenne obtenue est de \SI{89,5}{\percent}, et de \SI{94,3}{\percent} pour le canal semi-électronique. Si l'on compare ces valeurs aux efficacités obtenues dans l'analyse \zprime (voir \cref{sec:zp_eff_hlt}), on remarque que les efficacités obtenues centralement sont légèrement plus faibles, à cause des coupures sur l'impulsion transverse des jets plus lâches.
+A cause du changement de coupure sur l'impulsion transverse, il est possible d'utiliser les efficacités des chemins de déclenchement de référence de la collaboration, calculées directement sur les données. Pour le canal semi-muonique, l'efficacité moyenne obtenue est de \SI{89,5}{\percent}, et de \SI{94,3}{\percent} pour le canal semi-électronique. Si l'on compare ces valeurs aux efficacités obtenues dans l'analyse \zprime (voir \cref{sec:zp_eff_hlt}), on remarque qu'elles sont légèrement plus faibles, à cause des coupures sur l'impulsion transverse des jets plus lâches.
 
 \subsection{Efficacité de la sélection} \label{sec:higgs_sel_eff}
 
@@ -335,13 +337,13 @@ De manière analogue à l'analyse \zprime, des facteurs de corrections sont appl
 
 La production de résonances de spin 0 se désintégrant en \ttbar intervient dès que $\msz = 2 m_{\Ptop} \simeq \SI{350}{\GeV}$. On étend ainsi notre gamme de masse invariante, et on considère dans cette analyse $\mtt \in \left[\SI{250}{\GeV}, \SI{1250}{\GeV}\right]$. Le nombre de classes en \mtt est choisi de façon à ce que la largeur de chaque classe soit de \SI{10}{\GeV}.
 
-En analogie avec l'analyse \zprime, plusieurs fonctions analytiques ont été testées pour décrire le spectre de masse invariante de la production du Modèle Standard. En raison d'une gamme en masse invariante qui n'est plus limitée à la partie uniquement décroissante, aucune fonction n'a été en mesure de produire un ajustement correct et non biaisé.
+En analogie avec l'analyse \zprime, plusieurs fonctions analytiques ont été testées pour décrire le spectre de masse invariante de la production du Modèle Standard. En raison de l'absence de la coupure à \SI{550}{\GeV}, et donc d'une gamme en masse invariante qui n'est plus limitée à la partie uniquement décroissante, aucune fonction n'a été en mesure de produire un ajustement correct et non biaisé.
 
 Au lieu d'estimer le bruit de fond directement sur les données, la simulation est utilisée pour décrire le spectre de masse invariante \mtt du Modèle Standard. Il est ainsi aisé de décrire toute la gamme de masse, puisque aucune fonction analytique n'est nécessaire. En contre\-/partie, cette méthode introduit plusieurs incertitudes systématiques qui n'étaient pas présentes dans l'analyse \zprime. Ces nouvelles incertitudes sont décrites dans la \cref{sec:higgs_syst}.
 
 \subsection{Comparaisons données / simulation}
 
-Les comparaisons entre les données et la simulation sont visibles sur la \cref{fig:higgs_data_mc}, pour chacune des catégories de l'analyse. La simulation est normalisée au nombre d'événements dans les données, en utilisant des facteurs de correction extraits d'un ajustement par la méthode du maximum de vraisemblance, présenté dans la \cref{sec:higgs_stat}. La zone hachurée grise correspond aux incertitudes statistiques et systématiques.
+Les comparaisons entre les données et la simulation sont visibles sur la \cref{fig:higgs_data_mc}, pour \mtt et pour chacune des catégories de l'analyse. La simulation est normalisée aux valeurs de sorties d'un ajustement sur les données par la méthode du maximum de vraisemblance, présenté dans la \cref{sec:higgs_stat}. La zone hachurée grise correspond aux incertitudes statistiques et systématiques. Les comparaisons pour d'autres variables sont disponibles dans l'\cref{an:higgs_data_mc}. La valeur de chaque facteur de correction est résumé dans le \cref{tab:higgs_corr}.
 
 % \begin{figure}[p!] \centering
 %     \subcaptionbox{Canal semi-muonique}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc_old_syst/2-btag/semimu/mttSelected_btag_sel_reco_fullsel.pdf}} \hfill
@@ -363,7 +365,7 @@ Les comparaisons entre les données et la simulation sont visibles sur la \cref{
     \subcaptionbox{Canal semi-muonique,\\exactement 1 jet étiqueté \Pbottom}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc/without_shift/1-btag/semimu/mttSelected_btag_sel_reco_fullsel.pdf}} \hfill
     \subcaptionbox{Canal semi-électronique,\\exactement 1 jet étiqueté \Pbottom}[0.49\textwidth]{\includegraphics[width=0.49\textwidth,angle=-90,origin=c]{chapitre8/figs/data_mc/without_shift/1-btag/semie/mttSelected_btag_sel_reco_fullsel.pdf}}
     \captionsetup{format=plain,indention=0.2cm,font=small,labelfont={sf,bf},justification=justified}
-    \caption{Comparaison entre les données et la simulation. Un ratio est présenté en bas de la distribution. La simulation est normalisée au nombre d'événements dans les données, en utilisant des facteurs de correction extraits d'un ajustement par la méthode du maximum de vraisemblance. La zone hachurée correspond aux incertitudes statistiques + systématiques.}
+    \caption{Comparaison entre les données et la simulation. Un ratio est présenté en bas de la distribution. La simulation est normalisée aux valeurs de sorties d'un ajustement sur les données par la méthode du maximum de vraisemblance. La zone hachurée correspond aux incertitudes statistiques + systématiques.}
     \label{fig:higgs_data_mc}
 \end{figure}
 
@@ -380,11 +382,25 @@ Les comparaisons entre les données et la simulation sont visibles sur la \cref{
  Données & \num{69862} & \num{52885} & \num{63892} & \num{46184} \\
  \bottomrule
 \end{tabular}
-\caption{Nombre d’événements attendus et observés après sélection pour une luminosité de \SI{19,7}{\invfb}, après application des facteurs de corrections extraient de l'ajustement par la méthode du maximum de vraisemblance. L'incertitude sur le nombre d'événements attendus tient compte des incertitudes statistiques et systématiques.}
+\caption{Nombre d’événements attendus et observés après sélection pour une luminosité de \SI{19,7}{\invfb}, après application des facteurs de corrections extraient de l'ajustement par la méthode du maximum de vraisemblance. L'incertitude sur le nombre d'événements attendus tient compte des incertitudes statistiques et systématiques. Le nombre d'événements attendus est différent du nombre d'événements observés puisque l'ajustement est réalisé simultanément sur les 4 catégories de l'analyse.}
 \label{tab:higgs_yield}
 \end{table}
 
-Le \cref{tab:higgs_yield} résume le nombre d'événements attendus et observés pour une luminosité intégrée de \SI{19.7}{\invfb}, après application des facteurs de corrections extraits de l'ajustement par la méthode du maximum de vraisemblance. L'incertitude sur le nombre d'événements attendus tient compte des incertitudes statistiques et systématiques. On constate que le nombre d'événements observés est compatible avec les prédictions théoriques dans les incertitudes systématiques, et ce pour chaque catégorie de l'analyse.
+Le \cref{tab:higgs_yield} résume le nombre d'événements attendus et observés pour une luminosité intégrée de \SI{19.7}{\invfb}, après application des facteurs de corrections extraits de l'ajustement par la méthode du maximum de vraisemblance. L'incertitude sur le nombre d'événements attendus tient compte des incertitudes statistiques et systématiques. Le nombre d'événements attendus et observés est différent puisque l'ajustement est réalisé simultanément sur les 4 catégories de l'analyse. On constate cependant que le nombre d'événements observés est compatible avec les prédictions théoriques dans les incertitudes systématiques, et ce pour toutes les catégories.
+
+\begin{table} \centering% \sisetup{separate-uncertainty = true} \small
+\begin{tabular}{cc} \toprule
+  & Facteur de correction \\ \midrule
+ \ttbar & \num{1.11} \\
+ Top célibataire & \num{0.79} \\
+ \PW + jets & \num{1.23} \\
+ \PZ + jets & \num{0.97} \\
+ Di-bosons & \num{0.84} \\
+ \bottomrule
+\end{tabular}
+\caption{Facteurs de corrections extraits d'un ajustement simultané des 4 catégories de l'analyse sur les données, par la méthode du maximum de vraisemblance.}
+\label{tab:higgs_corr}
+\end{table}
 
 \section{Analyse statistique} \label{sec:higgs_stat}
 
@@ -398,11 +414,13 @@ où $B$ est le nombre de classes de \mtt et $n_i$ le nombre d'événements obser
 \end{align*}
 Ici, $k$ court sur tous les bruits de fonds considérés, $B_{k, i}$ est le nombre d'événements du bruit de fond $k$ dans la classe $i$, $S_i$ le nombre d'événements de signal dans la classe $i$ et $\mu$ l'intensité du signal. Le signal est normalisé à la luminosité collectée ainsi qu'à la section efficace de production à l'arbre prédite par \texttt{MadGraph}.
 
+\medskip
+
 La présence d'incertitudes systématiques impacte le nombre d'événements attendus $\lambda_i$. Un paramètre de nuisance est ajouté à la fonction de vraisemblance pour chaque source d'incertitude systématique. Pour les paramètres de nuisances impactant seulement la normalisation, un coefficient est ajouté avec un \emph{prior} log-normal. Pour les paramètres impactant à la fois la forme et la normalisation, un coefficient est ajouté avec un \emph{prior} gaussien : la valeur de ce coefficient est utilisée afin d'interpoler la forme de la distribution entre la forme nominale et les formes obtenues en appliquant une variation de $\pm 1 \sigma$ sur le paramètre d'intérêt de l'incertitude systématique.
 
 \subsection{Incertitudes systématiques} \label{sec:higgs_syst}
 
-Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est important de noter que ces incertitudes affectent à la fois les distributions du signal et des bruits de fond.
+Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est important de noter que ces incertitudes affectent à la fois les distributions du signal et des bruits de fond. Pour chaque source, les distributions de signal et de bruit de fond sont déterminées à nouveau et l'effet propagé au résultat.
 
 \begin{description}
   \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{2.6}{\percent}) est considérée comme une source d'incertitude systématique, impactant la normalisation des échantillons.
@@ -415,7 +433,7 @@ Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est
 
 \section{Résultats}
 
-En cas d'absence d'interférences entre le signal et le bruit de fond, le nombre d'événements de signal est directement proportionnel à la section efficace de production de ce signal. Cette relation de proportionnalité est utilisée lors de la procédure d'extraction des limites, où le nombre d'événements de signal est ajusté sur les données et converti en limite supérieure sur la section efficace.
+En cas d'absence d'interférences entre le signal et le bruit de fond, le nombre d'événements de signal est directement proportionnel à sa section efficace de production. Cette relation de proportionnalité est utilisée lors de la procédure d'extraction des limites, où le nombre d'événements de signal est ajusté sur les données et converti en limite supérieure sur la section efficace.
 La présence d'interférences ne permet plus d'établir une relation de proportionnalité simple entre le nombre d'événements et la section efficace théorique. En effet, la section efficace est donnée schématiquement par
 \begin{align*}
   \sigma_\text{S + I} &= \sigma - \sigma_\text{\ttbar} \propto \mathcal{M}_\text{S}^2 + 2 \mathcal{M}_\text{S} \mathcal{M}_\text{B}
@@ -426,7 +444,7 @@ La présence d'interférences ne permet plus d'établir une relation de proporti
     \caption{Effet de la valeur du couplage $g_{\sz \ttbar}$ sur la forme de la distribution de masse invariante, pour un \sz de masse $\msz = \SI{500}{\GeV}$.}
     \label{fig:sig_coupling}
 \end{figure}
-où $\mathcal{M}_\text{S}$ est proportionnel à $g_{\sz \ttbar}^4$, alors que $\mathcal{M}_\text{S} \mathcal{M}_\text{B}$ est proportionnel à $g_{\sz \ttbar}^2$. Ainsi, changer la section efficace revient à changer le couplage entre \sz et \ttbar, ce qui impacte directement la structure de l'interférence. En effet, en modifiant $g_{\sz \ttbar}$, la section efficace du signal et celle de l'interférence ne sont pas modifiées d'un facteur identique, modifiant la forme de la distribution de masse invariante du signal (voir \cref{fig:signal_interference}). Cette forme est donc fixée par la section efficace, et change de façon non prévisible lorsque la section efficace change. L'effet d'un changement de couplage entre \sz et \ttbar est visible sur la \cref{fig:sig_coupling}, pour un \sz de masse $\msz = \SI{500}{\GeV}$. Comme on peut le voir, le ratio entre l'excès et le déficit change en fonction du couplage. Il n'est ainsi pas possible de laisser le nombre d'événements de signal varier lors de l'ajustement sur les données.
+où $\mathcal{M}_\text{S}$ est proportionnel à $g_{\sz \ttbar}^4$, alors que $\mathcal{M}_\text{S} \mathcal{M}_\text{B}$ est proportionnel à $g_{\sz \ttbar}^2$. Ainsi, changer la section efficace revient à changer le couplage entre \sz et \ttbar, ce qui impacte directement la structure de l'interférence. En effet, en modifiant $g_{\sz \ttbar}$, la section efficace du signal et celle de l'interférence ne sont pas modifiées d'un facteur identique, modifiant la forme de la distribution de masse invariante (voir \cref{fig:signal_interference}). Cette forme est donc fixée par la section efficace, et change de façon non prévisible lorsque la section efficace change. L'effet d'un changement de couplage entre \sz et \ttbar est visible sur la \cref{fig:sig_coupling}, pour un \sz de masse $\msz = \SI{500}{\GeV}$. Comme on peut le voir, le ratio entre l'excès et le déficit change en fonction du couplage. Il n'est ainsi pas possible de laisser le nombre d'événements de signal varier lors de l'ajustement sur les données.
 
 \medskip
 
@@ -476,7 +494,7 @@ Cette procédure est appliquée pour chaque point de masse, dans le cas de réso
 
 \medskip
 
-Afin de pouvoir prétendre à une observation d'une déviation significative des prédictions théoriques, la signification statistique doit être d'au moins $3\sigma$. On constate que ce niveau de confiance n'est pas atteint par les \pvalues attendues : l'analyse n'est ainsi pas assez sensible pour être en mesure d'observer la présence d'un (pseudo-)scalaire fortement couplé au quark top dans le modèle considéré.
+Afin de pouvoir prétendre à une observation d'une déviation significative des prédictions théoriques, la signification statistique doit être d'au moins $3\sigma$. On constate que ce niveau de confiance n'est pas atteint par les \pvalues attendues : l'analyse n'est ainsi pas assez sensible pour être en mesure d'observer la présence d'un scalaire ou d'un pseudo\-/scalaire fortement couplé au quark top dans le modèle considéré.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\sz scalaire}[0.65\textwidth]{\includegraphics[width=0.65\textwidth,angle=-90,origin=c]{chapitre8/figs/pvalues_scalar.pdf}} \\

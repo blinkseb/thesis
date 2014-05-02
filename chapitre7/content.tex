@@ -51,7 +51,7 @@ Expérimentalement, une telle désintégration se traduit par la présence d'un 
 \begin{table} \centering
   \begin{tabular}{@{}ccc@{}} \toprule
     Processus & Section efficace (\si{\pb}) & Luminosité équivalente (\si{\invfb}) \\ \midrule
-    \ttbar & \num{245.8} (NNLO) & \num{84.3} \\
+    \ttbar & \num{234} (NNLO appr.) & \num{88.6} \\
     \PW + jets & \num{37509} (NNLO) & \num{1.5} \\
     \PZ + jets & \num{3504} (NNLO) & \num{8.7} \\
     Top célibataire (voie s) & \num{5,6} (NNLO appr.) & \num{72.0} \\
@@ -74,7 +74,7 @@ On souhaite sélectionner des événements compatibles avec la désintégration 
 
 \medskip
 
-Chaque événement est catégorisé selon la saveur du lepton. On définit ainsi le canal semi-muonique (semi-$\mu$), lorsque le lepton isolé est un muon, et le canal semi-électronique (semi-e) lorsque c'est un électron. Le tau n'est pas considéré, puisqu'il nécessite des techniques d'identifications et de reconstructions spéciales.
+Chaque événement est catégorisé selon la saveur du lepton. On définit ainsi le canal semi-muonique (semi-$\mu$), lorsque le lepton isolé est un muon, et le canal semi-électronique (semi-e) lorsque c'est un électron. Le tau n'est pas considéré en tant que tel, puisqu'il nécessite des techniques d'identifications et de reconstructions spéciales. Néanmoins, s'il se désintègre en électron ou en muon, l'événement est alors considéré comme un événement de signal.
 
 \subsection{Identification des objets}
 
@@ -182,7 +182,7 @@ où $c_y$ et $c_y$ sont les facteurs de corrections, dérivées centralement par
     \caption{(\subref{fig:met_phi}) Oscillation en $\phi$ de l'énergie transverse manquante, sans aucune correction (\rouge), après propagation de la correction en énergie des jets (\violet), et après corrections dédiées à l'oscillation en $\phi$ (\vertc). (\subref{fig:met_cleaning}) Effet du nettoyage des données 2012 sur l'énergie transverse manquante.}
 \end{figure}
 
-Lors de l'analyse des données, certains événements contenaient une quantité anormalement grande d'énergie transverse manquante. Cette fausse énergie manquante a plusieurs origines :
+Un autre effet à prendre en compte est la présence, dans les données, de rares événements qui contiennent une quantité anormalement grande d'énergie transverse manquante. Cette fausse énergie manquante a plusieurs origines :
 \begin{itemize}
   \item Des collisions peuvent se produire entre les protons des faisceaux et le gaz résiduel dans les tubes transportant les protons. Dans de rare cas, ces particules peuvent traverser le détecteur, et ainsi apparaître comme de l'énergie transverse manquante.
   \item Du bruit anormal dans le HCAL, causé par des problèmes de lecture des photodiodes, peut provoquer de la fausse énergie manquante jusqu'à l'échelle du \si{\TeV}.
@@ -293,7 +293,7 @@ $\epsilon$ (\ttbar)& \num{0.956\pm 0.005} & \num{0.954\pm 0.004} & \num{0.957\pm
 
 Afin d'estimer au mieux l'efficacité des chemins de déclenchement utilisés par l'analyse, chaque chemin a été simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
 
-Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont calculés centralement par la collaboration avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, pour chacune des catégories de l'analyse et séparément pour chaque masse de signal et le bruit de fond \ttbar : l'efficacité de déclenchement n'est pas dépendante de la masse du \zprime, et  est compatible entre \zprime et \ttbar. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
+Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont disponibles pour toutes les analyses, et son calculés avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, pour chacune des catégories de l'analyse et séparément pour chaque masse de signal et le bruit de fond \ttbar : l'efficacité de déclenchement n'est pas dépendante de la masse du \zprime, et  est compatible entre \zprime et \ttbar. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
 
 % \begin{figure}[tbp] \centering
 %     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_lepton_zoom.pdf}}
@@ -386,7 +386,7 @@ Les \cref{tab:eff_narrow_1b,tab:eff_narrow_2b} présentent les efficacités de s
 
 \bigskip
 
-Afin d'obtenir l'efficacité de sélection d'un éventuel signal sur les données, des facteurs de correction sont appliqués pour tenir compte des différences de performances de l'algorithme d'étiquetage des \Pbottom ainsi que l'efficacité d'identification et d'isolation des leptons entre la simulation et les données. Ces facteurs de corrections sont calculés centralement par la collaboration, et dépendent de l'impulsion transverse et de la pseudo-rapidité des objets physiques concernés. Pour obtenir un facteur de correction global à appliquer aux efficacités de sélection, les valeurs centrales sont combinées en tenant compte des spectres en \pt et \aeta des objets physique du signal. On obtient au final les facteurs de corrections suivants, définis par le rapport $\epsilon_{\text{données}} \, / \, \epsilon_{\text{MC}}$ :
+Afin d'obtenir l'efficacité de sélection d'un éventuel signal sur les données, des facteurs de correction sont appliqués pour tenir compte des différences de performances de l'algorithme d'étiquetage des \Pbottom ainsi que l'efficacité d'identification et d'isolation des leptons entre la simulation et les données. Ces facteurs de corrections sont disponibles pour toutes les analyses, et dépendent de l'impulsion transverse et de la pseudo-rapidité des objets physiques concernés. Pour obtenir un facteur de correction global à appliquer aux efficacités de sélection, les valeurs centrales sont combinées en tenant compte des spectres en \pt et \aeta des objets physique du signal. On obtient au final les facteurs de corrections suivants, définis par le rapport $\epsilon_{\text{données}} \, / \, \epsilon_{\text{MC}}$ :
 \begin{itemize}
   \item Identification et isolation des muons : \num{0.992 \pm 0.005}.
   \item Identification et isolation des électrons : \num{0.982 \pm 0.003}.
@@ -399,7 +399,7 @@ Pour détecter d'éventuelles résonances dans le spectre de masse invariante de
 
 \smallskip
 
-Il faut ensuite être capable de comparer le spectre \mtt reconstruit à l'aide des données collectées aux prédictions théoriques du Modèle Standard. Une première méthode consiste à estimer chacun ou une partie des bruits de fond en utilisant la simulation. Cette méthode nécessite d'avoir une excellente connaissance des générateurs d'événements, et introduit de nombreuses sources d'erreurs systématiques. Afin de réduire ces erreurs, il est possible d'estimer le bruit de fond directement sur les données, en utilisant une interpolation et la connaissance de la forme des distributions. On s'affranchit ainsi de toutes les incertitudes liées à l'utilisation de la simulation pour modéliser les bruits de fond. C'est cette méthode qui est utilisée dans l'analyse, la simulation étant utilisée uniquement pour obtenir la forme du signal, ainsi que l'efficacité de sélection. On sélectionne uniquement la région $\mtt > \SI{550}{\GeV}$ : la tâche se réduit alors à la recherche d'un signal résonant sur un fond strictement décroissant.
+Il faut ensuite être capable de comparer le spectre \mtt reconstruit à l'aide des données collectées aux prédictions théoriques du Modèle Standard. Une première méthode consiste à estimer chacun ou une partie des bruits de fond en utilisant la simulation. Cette méthode nécessite d'avoir une excellente connaissance des générateurs d'événements, et introduit de nombreuses sources d'erreurs systématiques. Afin de réduire ces erreurs, il est possible d'estimer le bruit de fond directement sur les données, en utilisant une interpolation et la connaissance de la forme des distributions. On s'affranchit ainsi de toutes les incertitudes liées à l'utilisation de la simulation pour modéliser les bruits de fond. C'est cette méthode qui est utilisée dans l'analyse, la simulation étant utilisée uniquement pour obtenir la forme du signal, ainsi que l'efficacité de sélection. On sélectionne uniquement la région $\mtt > \SI{550}{\GeV}$ afin de n'avoir qu'un fond strictement décroissant.
 
 \smallskip
 
@@ -452,7 +452,7 @@ Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ re
 
 \subsubsection{L'ajustement cinématique} \label{sec:zprime_kf}
 
-Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Cette section complète cette étude en incluant des événements \ttbar produits par des processus de nouvelle physique, plus particulièrement des \zprime.
+Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Bien qu'on ai vu que la résolution était dégradée, cette section complète cette étude en incluant des événements \ttbar produits par des processus de nouvelle physique, plus particulièrement des \zprime.
 
 \medskip
 
@@ -491,7 +491,7 @@ Les \cref{tab:sel_perf_mu,tab:sel_perf_e} résument le nombre d'événements de 
   2 jets étiquetés \Pbottom & 43774 & 821 & 104 & 1848 & \num{46547 \pm 133} & 48653 \\
   + $\mtt > \SI{550}{\GeV}$ & 20190 & 559 & 54 & 1102 & \num{21905 \pm 101} & 22561 \\ \bottomrule
 \end{tabular}
-\caption{Nombre d'événements de fonds attendus pour une luminosité de \SI{19.6}{\invfb} et pour le canal semi-muonique, après application de tous les facteurs de corrections sur la simulation. L'incertitude est uniquement statistique.}
+\caption{Nombre d'événements de fonds attendus pour une luminosité de \SI{19.6}{\invfb} et pour le canal semi-muonique, après application de tous les facteurs de corrections sur la simulation. L'incertitude est uniquement statistique, et la simulation est normalisée grâce aux sections efficaces de production théoriques.}
 \label{tab:sel_perf_mu}
 \end{table}
 
@@ -503,7 +503,7 @@ Les \cref{tab:sel_perf_mu,tab:sel_perf_e} résument le nombre d'événements de 
   2 jets étiquetés \Pbottom & 43213 & 747 & 137 & 1834 & \num{445932 \pm 141} & 43088 \\
   + $\mtt > \SI{550}{\GeV}$ & 17536 & 433 & 67 & 985 & \num{19459 \pm 93} & 20291 \\ \bottomrule
 \end{tabular}
-\caption{Nombre d'événements de fonds attendus pour une luminosité de \SI{19.6}{\invfb} et pour le canal semi-électronique, après application de tous les facteurs de corrections sur la simulation. L'incertitude est uniquement statistique.}
+\caption{Nombre d'événements de fonds attendus pour une luminosité de \SI{19.6}{\invfb} et pour le canal semi-électronique, après application de tous les facteurs de corrections sur la simulation. L'incertitude est uniquement statistique, et la simulation est normalisée grâce aux sections efficaces de production théoriques.}
 \label{tab:sel_perf_e}
 \end{table}
 
@@ -688,10 +688,10 @@ On utilise une méthode bayésienne afin de quantifier la sensibilité de notre 
 \end{align*}
 où $\theta$ symbolise l'ensemble des paramètres libres de l'ajustement (face à son importance, la section efficace $\sigma$ est considérée à part des autres paramètres), $\mathcal{L}(\mtt \mid \sigma, \theta)$ est la fonction de vraisemblance, et $\pi(\sigma, \theta)$ le \emph{prior}, une densité de probabilité qui représente notre connaissance des paramètres avant l'ajustement. On impose à la section efficace d'être positive
 \begin{align*}
-\pi(\sigma) = \begin{cases} 1 &\mbox{si } \sigma \geq 0 \\
+\pi(\sigma) = \begin{cases} \frac{1}{\sigma_\text{max} - \sigma_\text{min}} &\mbox{si } \sigma \geq 0 \\
 0 & \mbox{si } \sigma < 0 \end{cases}
 \end{align*}
-et on assigne aux autres paramètres un \emph{prior} plat ($\pi(\theta) = 1$).
+et on assigne aux autres paramètres un \emph{prior} plat ($\pi(\theta) = \frac{1}{\theta_\text{max} - \theta_\text{min}}$). Les valeurs "min" et "max" représentent l'intervalle des valeurs autorisées pour les \emph{prior}.
 
 \medskip
 
@@ -722,7 +722,7 @@ La limite supérieure est définie comme la borne supérieur de l'intégrale :
 
 \subsubsection{Erreurs systématiques}
 
-Des erreurs systématiques peuvent modifier la mesure de la section efficace, en affectant l'efficacité de sélection ou le nombre d'événements de signal attendu. Les sources suivantes d'incertitudes systématiques sont considérées dans l'analyse :
+Des erreurs systématiques peuvent modifier la mesure de la section efficace, en affectant l'efficacité de sélection ou le nombre d'événements de signal attendu. Toutes ces erreurs sont considérées comme des paramètres de nuisances et sont introduites dans le calcul du \emph{posterior} en utilisant des \emph{prior} log-normal. Les sources suivantes d'incertitudes systématiques sont considérées dans l'analyse :
 
 \begin{table}[p] \centering
   \begin{tabular}{@{}ccccc@{}} \toprule
@@ -755,7 +755,7 @@ Des erreurs systématiques peuvent modifier la mesure de la section efficace, en
   \item[Densités de probabilité partonique] Les fonctions de densité de probabilité partonique ne sont connues qu'avec une certaine précision. Les valeurs propres de ces fonctions sont modifiées dans leurs incertitudes lors la simulation du signal, et l'analyse est refaite avec la nouvelle fonction de densité partonique. L'effet sur le nombre d'événements de signal est négligeable par rapport aux autres erreurs systématiques, et n'est pas inclus dans la liste des incertitudes systématiques.
 \end{description}
 
-Toutes ces erreurs systématiques sont considérées comme des paramètres de nuisances et sont introduites dans le calcul du \emph{posterior} en utilisant des \emph{prior} log-normal. À titre d'exemple, le \cref{tab:syst} résume les valeurs des erreurs systématiques pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites.
+À titre d'exemple, le \cref{tab:syst} résume les valeurs des erreurs systématiques pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites.
 
 \section{Résultats}
 
@@ -787,7 +787,7 @@ On cherche à calculer deux types de quantités :
     \label{fig:limits_zprime}
 \end{figure}
 
-On compare ensuite les limites attendues et observées sur les \cref{fig:limits_zprime,fig:limits_kk}. Les limites observées vont fluctuer autour des limites attendues, et un désaccord entre ces limites de plus de 2$\sigma$ (la limite observée est en dehors de l'intervalle de confiance à \SI{95}{\%}) serait soit le signe qu'un signal est présent dans les données, mais pas dans les prédictions du Modèle Standard, et qu'il est très peu probable que ce signal soit uniquement une fluctuation statistique\footnote{Il est a noter que dans ce cas, l'étape précédente d'extraction du nombre d'événements de signal aurait mis en évidence un excès d'événements par rapport à la prédiction théorique.}, soit le signe d'un problème de modélisation du fond ou du signal par l'analyse. Comme on peut le voir sur les courbes de limites, la limite supérieure sur la section efficace du signal est pleinement compatible avec l'hypothèse d'absence de signal.
+On compare ensuite les limites attendues et observées sur les \cref{fig:limits_zprime,fig:limits_kk}. Les limites observées vont fluctuer autour des limites attendues, et un désaccord entre ces limites de plus de 2$\sigma$ (la limite observée est en dehors de l'intervalle de confiance à \SI{95}{\%}) serait le signe d'une déviation dans les données qui s'éloigne des prédictions du Modèle Standard\footnote{Il est a noter que dans ce cas, l'étape précédente d'extraction du nombre d'événements de signal aurait mis en évidence un excès d'événements par rapport à la prédiction théorique.}, soit le signe d'un problème de modélisation du fond ou du signal par l'analyse. Comme on peut le voir sur les courbes de limites, la limite supérieure sur la section efficace du signal est pleinement compatible avec l'hypothèse d'absence de signal.
 
 \begin{figure}[tbp] \centering
     \includegraphics[width=0.8\textwidth]{chapitre7/figs/low-mass-limits-kk.png}
