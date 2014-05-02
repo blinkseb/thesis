@@ -9,7 +9,7 @@ En utilisant le quadrivecteur énergie-impulsion ($p = \left(E,\,\vec{p}\right)$
   m^2 &= \norm{p}^2 = E^2 - \norm{\vec{p}}^2
 \end{align*}
 
-Concentrons nous uniquement sur la désintégration semi-leptonique de paires \ttbar, c'est-à-dire un quark top qui se désintègre en \Plepton{}\Pneutrino{}\Pbottom, et le deuxième en \Pbottom{}\Pquark{}\APquark (voir \cref{fig:top_pair_decay_semileptonic})\footnote{Ce choix particulier sera expliqué en détail dans le chapitre suivant.}. Toutes les particules peuvent être reconstruites, excepté le neutrino. En effet, n'interagissant que très faiblement avec la matière, les neutrinos traversent le détecteur sans laisser de dépôts dans les sous-détecteurs. Le seul moyen d'identifier les neutrinos est d'utiliser l'énergie transverse manquante. En faisant le bilan d'énergie de la collision dans le plan transverse, le neutrino apparait comme de l'énergie manquante. Dans le cas d'une désintégration \ttbar semi-leptonique, on identifie la totalité de l'énergie transverse manquante comme venant du neutrino.
+Concentrons nous uniquement sur la désintégration semi-leptonique de paires \ttbar, c'est-à-dire un quark top qui se désintègre en \Plepton{}\Pneutrino{}\Pbottom, et le deuxième en \Pbottom{}\Pquark{}\APquark (voir \cref{fig:top_pair_decay_semileptonic})\footnote{Ce choix particulier sera expliqué en détail dans le chapitre suivant.}. Toutes les particules peuvent être reconstruites, excepté le neutrino. En effet, n'interagissant que très faiblement avec la matière, les neutrinos traversent le détecteur sans laisser de dépôts dans les sous-détecteurs. Le seul moyen d'identifier les neutrinos est d'utiliser l'énergie transverse manquante, à travers le bilan énergétique de l'événement dans le plan transverse. Dans le cas d'une désintégration \ttbar semi-leptonique, on identifie la totalité de l'énergie transverse manquante comme venant du neutrino.
 
 Afin de reconstruire la masse invariante du système \ttbar, il faut être capable de reconstruire la cinématique de chaque produit de la désintégration. On peut ensuite reconstruire la masse invariante \ttbar :
 \begin{align} \label{eq:invariant_mass_tt}
@@ -18,7 +18,7 @@ Afin de reconstruire la masse invariante du système \ttbar, il faut être capab
 
 Deux problèmes majeurs se posent :
 \begin{itemize}
-    \item L'énergie transverse manquante est utilisée pour reconstruire le neutrino. Comme le bilan d'énergie ne peut être effectué que dans le plan transverse, seule l'impulsion transverse du neutrino est définie, c'est-à-dire $p_x^{\Pnu}$ et $p_y^{\Pnu}$. Il faut donc trouver un moyen de reconstruire $p_z^{\Pnu}$ qui sera utilisé dans le calcul de la masse invariante \ttbar. C'est l'objet de la \cref{sec:neutrino}.
+    \item Comme le bilan d'énergie ne peut être effectué que dans le plan transverse, seule l'impulsion transverse du neutrino est définie, c'est-à-dire $p_x^{\Pnu}$ et $p_y^{\Pnu}$. Il faut donc trouver un moyen de reconstruire $p_z^{\Pnu}$ qui sera utilisé dans le calcul de la masse invariante \ttbar. C'est l'objet de la \cref{sec:neutrino}.
     \item 4 jets composent l'état final d'une désintégration \ttbar. Il faut donc être capable de correctement identifier ces jets parmi les nombreux jets de \pu ou de radiations dans l'événement. Pour cela, diverses techniques peuvent être employées, décrites \cref{sec:chi2}.
 \end{itemize}
 
@@ -294,7 +294,7 @@ Afin d'améliorer le potentiel de découverte, il est intéressant d'améliorer 
 
 \bigskip
 
-Pour un événement \ttbar, les objets reconstruits (leptons, jets, ...) doivent vérifier certaines contraintes cinématiques, telles que la conservation de l'énergie ou reproduire les masses invariantes des particules. Néanmoins, l'impulsion et l'énergie des particules utilisées pour reconstruire l'événement \ttbar ne sont connues qu'avec des incertitudes, liées à la résolution expérimentale et aux techniques de reconstruction.
+Pour un événement \ttbar, les objets reconstruits (leptons, jets, \met) doivent vérifier certaines contraintes cinématiques, telles que la conservation de l'énergie ou reproduire les masses invariantes des particules. Néanmoins, l'impulsion et l'énergie des particules utilisées pour reconstruire l'événement \ttbar ne sont connues qu'avec des incertitudes, liées à la résolution expérimentale et aux techniques de reconstruction.
 %Ces incertitudes peuvent conduire à un non-respect des contraintes d'un événement \ttbar.
 
 \medskip

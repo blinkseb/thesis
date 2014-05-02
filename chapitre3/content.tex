@@ -90,18 +90,40 @@ Le \emph{particle-flow} permet de reconstruire les 5 types de particules stables
 
 L'impulsion des hadrons est mesurée avec une résolution bien meilleure par le trajectographe que par les calorimètres. Comme près de \sfrac{2}{3} de l'énergie d'un jet est due à la présence de hadrons chargés, le trajectographe joue un rôle majeur dans la performance du \emph{particle-flow}.
 
+\begin{figure}[tbp] \centering
+  \subcaptionbox{\label{fig:tracking_eff_mu}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/iterative_tracking_mu.pdf}}\hfill
+  \subcaptionbox{\label{fig:tracking_eff_pi}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/iterative_tracking_pi.pdf}}
+  \caption{Efficacité de reconstruction des trajectoires pour des muons (\subref{fig:tracking_eff_mu}) et pour des pions (\subref{fig:tracking_eff_pi}).}
+  \label{fig:iterative_tracking_eff}
+\end{figure}
+
 Afin de reconstruire les trajectoires des particules avec une grande efficacité, tout en conservant un taux de faux minimal, une procédure itérative \citep{cms_tracks}, basée sur un filtre de Kalman (KF), est employée. La reconstruction commence en utilisant seulement les \emph{hits} des deux premières couches du détecteur à pixels, ainsi que la position du vertex primaire. C'est ce qu'on appelle la graine de l'algorithme. On cherche ensuite à compléter la trajectoire en utilisant les \emph{hits} des autres couches du trajectographe. Les contraintes lors de cette première étape sont vraiment fortes, ce qui conduit à une efficacité de reconstruction moyenne, mais à un très faible taux de faux.
 
 Avant l'étape suivante, les \emph{hits} associés de façon certaine à une trajectoire sont enlevés de la liste des \emph{hits} disponibles, et on réitère ensuite la même procédure en relâchant un peu les contraintes, ce qui permet d'améliorer l'efficacité de reconstruction, tout en gardant un taux de faux très faible grâce à la réduction du nombre de combinaison. Après la troisième itération, on obtient une efficacité de reconstruction de \SI{99.5}{\%} pour les muons isolés et de plus de \SI{90}{\%} pour les hadrons chargés. Pour les quatrième et cinquième itérations, la contrainte sur le point d'interaction est relâchée, ce qui permet de reconstruire les trajectoires des hadrons chargés secondaires ayant un vertex d'interaction déplacé.
 
 Grâce à cet algorithme de trajectographie itérative, la trajectoire d'une particule chargée ne laissant que 3 \emph{hits}, avec un $p_T$ de seulement \SI{150}{\MeV} et un vertex de production éloigné de plus de \SI{50}{\cm} de l'axe du faisceau est reconstruite avec un taux de faux de l'ordre du pourcent. On peut voir figure \ref{fig:iterative_tracking_eff} l'efficacité de reconstruction des trajectoires grâce à l'utilisation de l'algorithme de trajectographie itératif.
 
-\begin{figure} \centering
-  \subcaptionbox{\label{fig:tracking_eff_mu}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/iterative_tracking_mu.pdf}}\hfill
-  \subcaptionbox{\label{fig:tracking_eff_pi}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre3/figs/iterative_tracking_pi.pdf}}
-  \caption{Efficacité de reconstruction des trajectoires pour des muons (\subref{fig:tracking_eff_mu}) et pour des pions (\subref{fig:tracking_eff_pi}).}
-  \label{fig:iterative_tracking_eff}
+\subsubsection{Vertex d'interaction : reconstruction et \pu}
+
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\label{fig:res_pv_x}}[0.32\textwidth]{\includegraphics[width=0.32\textwidth]{chapitre3/figs/ResXpaper.pdf}}
+    \subcaptionbox{\label{fig:res_pv_y}}[0.32\textwidth]{\includegraphics[width=0.32\textwidth]{chapitre3/figs/ResYpaper.pdf}}
+    \subcaptionbox{\label{fig:res_pv_z}}[0.32\textwidth]{\includegraphics[width=0.32\textwidth]{chapitre3/figs/ResZpaper.pdf}}
+    \caption{Comparaison entre la résolution de la reconstruction du vertex primaire sur les données 2010 et sur la simulation, selon l'axe $x$ (\subref{fig:res_pv_x}), selon l'axe $y$ (\subref{fig:res_pv_y}) et selon l'axe $z$ (\subref{fig:res_pv_z}), en fonction du nombre de traces.}
+    \label{fig:res_pv}
 \end{figure}
+
+La reconstruction des vertex d'interactions utilise les traces précédemment reconstruites. Deux étapes sont nécessaires :
+\begin{itemize}
+  \item Les traces sont agglomérées en "candidats vertex" si la différence entre leurs coordonnées $z$ au point le plus proche de l'axe du faisceau est inférieure à \SI{2}{\mm}.
+  \item Un algorithme d'ajustement \citep{Frühwirth:1027031} itère sur tous les agrégats de traces et calcule la position du vertex d'interaction, ainsi que des indicateurs sur la qualité de l'ajustement ($chi^2$). Lors de l'ajustement, des poids variant entre 0 et 1 sont assignées aux traces de l'agrégat, suivant leur proximité avec l'axe du faisceau.
+\end{itemize}
+
+À cause de la présence de \pu, plusieurs vertex d'interaction vont être reconstruits, distribués le long de l'axe du faisceau. Parmi ces vertex, le vertex primaire est identifié comme celui dont la somme quadratique de l'impulsion transverse des traces qui le composent est la plus grande. La \cref{fig:res_pv} présente la résolution de la reconstruction du vertex primaire, selon l'axe $x$, $y$ et $z$.
+
+\medskip
+
+On peut utiliser les autres vertex afin de réduire l'impact du \pu sur les analyses de physiques. Il est en effet possible de savoir si un hadron chargé provient de la collision principale ou non, selon le vertex d'interaction auquel sa trace est attachée. On identifie ainsi tous les hadrons chargés provenant d'un vertex secondaire comme du \pu. Ces hadrons sont alors supprimés du processus de reconstruction de l'événement.
 
 \subsubsection{Agglomération calorimétrique}
 
@@ -332,7 +354,7 @@ Les deux algorithmes précédemment mentionnés itèrent sur la collection de pa
 \end{align*}
 où $k_{T, i}$ est l'impulsion transverse de la particule $i$ par rapport à l'axe du faisceau, $\Delta R_{ij}$ la distance entre $i$ et $j$ dans le plan ($\eta$, $\phi$), et $R$ une distance, choisie par l'utilisateur, symbolisant la largeur du jet. Pour l'algorithme \emph{anti-$k_T$}, on a $n = -2$, tandis que pour C-A, on a $n = 1$. $d_{iB}$ est un estimateur de la distance entre la particule $i$ et le faisceau.
 
-L'algorithme cherche la valeur minimum $d_{min}$ entre tous les $d_{ij}$ et $d_{iB}$. Si le minimum est obtenu pour une valeur de $d_{ij}$, les particules $i$ et $j$ sont fusionnées (leurs quadrivecteurs sont sommés), et l'algorithme recommence. Au contraire, si le minimum est obtenu pour $d_iB$, la particule $i$ (souvent résultant de la fusion de plusieurs autres particules lors des itérations précédentes de l'algorithme) est considérée comme un jet et enlevée de la liste des particules. L'algorithme stoppe quand aucune particule ne reste.
+L'algorithme cherche la valeur minimum $d_{min}$ entre tous les $d_{ij}$ et $d_{iB}$. Si le minimum est obtenu pour une valeur de $d_{ij}$, les particules $i$ et $j$ sont fusionnées (leurs quadrivecteurs sont sommés), et l'algorithme recommence. Au contraire, si le minimum est obtenu pour $d_iB$, la particule $i$ (souvent résultant de la fusion de plusieurs autres particules lors des itérations précédentes de l'algorithme) est considérée comme un jet et enlevée de la liste des particules. L'algorithme s'arrête quand aucune particule ne reste.
 
 La seule différence entre ces deux algorithmes vient de la façon dont le choix des particules à grouper est fait. Pour l'algorithme \emph{anti-$k_T$}, le poids de chaque paire est proportionnel à $\text{min}\left( 1 / k^2_{T,i}, 1 / k^2_{T,j} \right)$, ce qui revient à fusionner les particules de grandes impulsions les plus proches en premier. Dans le cas de l'algorithme C-A, le poids est uniquement proportionnel à la distance entre les paires : les particules les plus proches sont fusionnées en premier. On peut voir \cref{fig:akt_ca} un exemple de reconstruction des jets sur un même événement par les deux algorithmes.
 
@@ -365,11 +387,28 @@ La calibration des jets est effectuée en différentes étapes, présentées en 
 \end{figure}
 
 
-Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les jets qu'ils forment. Ces propriétés incluent, entre autre, leur grande masse et leur grand temps de vie. Plusieurs algorithmes sont disponibles dans CMS permettant d'identifier les jets formés par un quark $b$ (\emph{b-tagging}, pour étiquetage des $b$), chacun exploitant une spécificité des hadrons $B$. L'algorithme actuellement utilisé par la collaboration CMS est l'algorithme \emph{Combined Secondary Vertex} (CSV, vertex secondaire combiné), qui est une combinaison de plusieurs algorithmes.
+Les propriétés des hadrons $B$ peuvent être utilisées pour identifier les jets qu'ils forment. Ces propriétés incluent, entre autre, leur grande masse et leur grand temps de vie. Plusieurs algorithmes sont disponibles dans CMS permettant d'identifier les jets formés par un quark $b$ (\emph{b-tagging}, pour étiquetage des $b$), chacun exploitant une spécificité des hadrons $B$. L'algorithme actuellement utilisé par la collaboration CMS est l'algorithme \emph{Combined Secondary Vertex} (CSV, vertex secondaire combiné) \citep{1748-0221-8-04-P04013}, qui est une combinaison de plusieurs algorithmes.
 
-Cet algorithme exploite toutes les variables connues pour discriminer les jets de $b$, telles que des informations sur des vertex déplacés, la cinématique du jet, etc. Une analyse multivariée (MVA) permet ensuite de fournir un discriminant, et trois points de fonctionnement sont définis, chacun augmentant l'efficacité de correctement étiqueter un jet de $b$, mais au détriment d'un taux de faux plus important (voir \cref{fig:btag_perf}). Pour le point de fonctionnement moyen, l'efficacité de bien étiqueter un jet de $b$ est \tilde\SI{70}{\%}, tandis que la probabilité d'étiqueter comme $b$ un jet d'une autre saveur est \tilde{1}{\%}.
+Cet algorithme exploite toutes les variables connues pour discriminer les jets de $b$, entre autres :
+\begin{itemize}
+  \item Une quantité importante est le paramètre d'impact, définit comme la distance entre le vertex primaire et le point de la trace le plus proche du vertex primaire. Les jets de \Pbottom tendent à avoir un paramètre d'impact plus grand que les autres jets.
+  \item À cause de leur grand temps de vie, les hadrons \PB vont se déplacer avant de ce désintégrer, donnant lieu à un vertex secondaire qui n'est pas dans l'axe du faisceau. La présence d'un tel vertex est un fort indicateur de la présence d'un jet de \Pbottom.
+  \item Des variables cinématiques liées au vertex secondaire sont aussi utilisées, comme la masse du vertex, le temps de vol, le nombre de traces associées au vertex ou le paramètre d'impact de la première trace qui donne une masse supérieure à celle du quark \Pcharm.
+\end{itemize}
+
+Ces variables sont utilisées dans une analyse multivariée (MVA) qui permet ensuite de fournir un discriminant. Trois points de fonctionnement sont définis, chacun augmentant l'efficacité de correctement étiqueter un jet de $b$, mais au détriment d'un taux de faux plus important (voir \cref{fig:btag_perf}). Pour le point de fonctionnement moyen, l'efficacité de bien étiqueter un jet de $b$ est \tilde\SI{70}{\%}, tandis que la probabilité d'étiqueter comme $b$ un jet d'une autre saveur est \tilde{1}{\%}.
+
+\medskip
+
+L'efficacité de l'algorithme sur les données est évaluée en utilisant des jets contenant un muon, provenant de la désintégration du \Pbottom. En effet, ces muons ont tendances à avoir une plus grande impulsion transverse que les muons provenant d'autres processus. De même, le paramètre d'impact de la trace du muon est significativement plus grand lorsque le muon provient de la désintégration d'un \Pbottom. Ces variables sont utilisées pour construire un lot d'événements enrichie en jets de \Pbottom.
+
+\medskip
+
+Afin de prendre en compte les différences de performances de l'algorithme d'étiquetage des jets de \Pbottom entre les données et la simulation, des facteurs de corrections sont appliqués à la simulation, qui dépendent de la valeur du jet étiqueté comme \Pbottom. Pour CSVM, ces facteurs de corrections varient entre \SI{5}{\percent} pour les jets correctement étiquetés et \SI{17}{\percent} pour les jets légers incorrectement étiquetés \Pbottom.
 
 \subsection{L'énergie transverse manquante} \label{sec:met}
+
+Par définition, les collisions au sein de CMS se déroulent le long de l'axe $z$. L'impulsion dans le plan ($x$, $y$) est donc nulle. Par conservation de l'impulsion, ce bilan doit rester nul après reconstruction de l'événement : un bilan non nul signifie que des particules n'ont pas été correctement reconstruites. C'est typiquement le cas des neutrinos, qui n'interagissent que très peu avec la matière, et ne sont par conséquent jamais détectés.
 
 \begin{figure}[tbp]
     \centering
@@ -377,8 +416,6 @@ Cet algorithme exploite toutes les variables connues pour discriminer les jets d
     \caption{Résolution de l'énergie transverse manquante \emph{particle-flow} et calorimétrique en fonction de la somme scalaire de l'énergie transverse de toutes les particules dans l'événement ($\sum E_T$), obtenue sur les données 2010. \citep{cms_pf_jets}.}
     \label{fig:met_resolution}
 \end{figure}
-
-Par définition, les collisions au sein de CMS se déroulent le long de l'axe $z$. L'impulsion dans le plan ($x$, $y$) est donc nulle. Par conservation de l'impulsion, ce bilan doit rester nul après reconstruction de l'événement : un bilan non nul signifie que des particules n'ont pas été correctement reconstruites. C'est par exemple le cas des neutrinos, qui n'interagissent que très peu avec la matière, et ne sont par conséquent jamais détectés.
 
 Afin de quantifier cette perte d'énergie, on introduit le vecteur énergie transverse manquante. La norme de ce vecteur est communément appelée énergie transverse manquante (MET), symbolisée par \met. A l'aide de l'algorithme de \emph{particle-flow}, on définit le vecteur énergie transverse manquante comme l'opposé de la somme vectorielle des impulsions transverses de toutes les particules de l'événement. La résolution sur la mesure de \met est très importante, puisque de nombreux modèles de nouvelle physique prédisent des particules qui interagissent peu voire pas avec la matière : l'énergie manquante est alors le seul moyen de pouvoir les mettre en évidence. On présente \cref{fig:met_resolution} la résolution de \met reconstruite grâce au \emph{particle-flow}, obtenue sur les données 2010. À titre de comparaison, la résolution de \met reconstruite seulement à l'aide des dépôts calorimétriques (calomet) est aussi présentée dans la même figure.
 

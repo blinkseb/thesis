@@ -27,13 +27,7 @@ Chaque niveau est décrit en détails ci-dessous.
 
 \subsection[Les corrections de niveau 1]{Les corrections de niveau 1 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l1}
 
-On a déjà vu lors du \cref{chap:detecteur} que le \pu entraînait une activité supplémentaire dans le détecteur. Cela se traduit directement par une augmentation de l'énergie des jets reconstruits, puisque certaines particules agglomérées au sein d'un jet proviennent en réalité des interactions parasites plutôt que de l'événement dur.
-
-\medskip
-
-Grâce à l'algorithme du \pf, il est possible de réduire l'impact du \pu sur la reconstruction des jets en appliquant un filtre spécial chargé d'éliminer les hadrons chargés provenant des interactions secondaires. On a en effet vu \cref{sec:pileup} que le \pu venait des collisions parasites d'autres protons. Pour les particules chargées, il est possible d'utiliser le trajectographe pour déterminer très précisément la position des vertex d'interaction. Seules les particules provenant du vertex primaire sont intéressantes. On élimine ainsi les hadrons chargés provenant des vertex de \pu.
-
-Ce n'est cependant pas suffisant pour totalement supprimer la contribution du \pu, puisque environ \SI{40}{\%} de l'énergie d'un jet provient de hadrons neutres ou de photons (voir \cref{fig:pf_jets_composition}).
+On a déjà vu lors du \cref{chap:detecteur} que le \pu entraînait une activité supplémentaire dans le détecteur. Cela se traduit directement par une augmentation de l'énergie des jets reconstruits, puisque certaines particules agglomérées au sein d'un jet proviennent en réalité des interactions parasites plutôt que de l'événement dur. Grâce à l'algorithme du \pf, il est possible d'éliminer les hadrons chargés provenant du \pu. Ce n'est cependant pas suffisant pour totalement supprimer la contribution du \pu, puisque environ \SI{40}{\%} de l'énergie d'un jet provient de hadrons neutres ou de photons (voir \cref{fig:pf_jets_composition}).
 
 \bigskip
 
@@ -223,7 +217,7 @@ L'application des corrections résiduelles permet de corriger les dernières dif
   \label{fig:gamma_jet_diagrams}
 \end{figure}
 
-On utilise pour cela des processus comportant uniquement deux particules dans l'état final : une particule dont on connaît très bien les propriétés (boson \PZ, photon, \ldots), qui sera notre sonde, et un jet. On utilise ensuite les propriétés de la sonde pour déterminer celles du jet. Par la suite, seuls les événements \Pphoton + jets seront abordés.
+On utilise pour cela des processus comportant uniquement deux particules dans l'état final : une particule dont on connaît très bien les propriétés (typiquement un boson \PZ ou un photon), qui sera notre sonde, et un jet. On utilise ensuite les propriétés de la sonde pour déterminer celles du jet. Par la suite, seuls les événements \Pphoton + jets seront abordés.
 
 \bigskip
 
@@ -259,9 +253,9 @@ et on définit la réponse $R$ par la relation
 
 Cette méthode est très simple et performante. Néanmoins, elle est très sensible au \pu, ainsi qu'aux radiations dans l'état final. En effet, la présence d'autres jets dans l'état final vont venir perturber la balance entre le jet et le photon. Il est cependant possible de restaurer cet équilibre, en utilisant une extrapolation.
 
-\paragraph{L'extrapolation}
+\bigskip
 
-La balance entre le photon et le jet est perturbée par la présence de jets additionnels dans l'événement, provenant de radiations dans l'état final. On définit $\alpha$ comme le rapport entre l'impulsion transverse du second jet de l'événement et l'impulsion transverse du photon,
+On définit $\alpha$ comme le rapport entre l'impulsion transverse du second jet de l'événement et l'impulsion transverse du photon,
 \begin{align*}
     \alpha &= \frac{p_T^{\text{\ordinalnum{2} jet}}}{p_T^\gamma}
 \end{align*}
@@ -407,7 +401,7 @@ Finalement, la simulation des événements multi-jets et $\gamma$ + jets a été
 
 \bigskip
 
-On présente \cref{fig:pt_photon_jet} une comparaison entre la simulation et les données pour l'impulsion transverse du photon, du premier jet de l'événement, du second, ainsi que l'énergie transverse manquante. Les distributions sont normalisées au nombre d'événements dans les données, et l'incertitude sur la simulation comprend l'incertitude statistique, l'incertitude sur la luminosité de \SI{2.6}{\%}, ainsi qu'une incertitude de \SI{10}{\%} sur la valeur des sections efficaces de production \Pphoton + jets et multi-jets. On constate quelques désaccords dans les \cref{pt_first_jet,met}. On considère néanmoins que l'accord est suffisant pour notre analyse, puisque aucune erreur systématique n'est présente dans ces distributions, et qu'à aucun moment ces comparaisons ne sont utilisées dans l'analyse.
+On présente \cref{fig:pt_photon_jet} une comparaison entre la simulation et les données pour l'impulsion transverse du photon, du premier jet de l'événement, du second, ainsi que l'énergie transverse manquante. Les distributions sont normalisées au nombre d'événements dans les données, et l'incertitude sur la simulation comprend l'incertitude statistique, l'incertitude sur la luminosité de \SI{2.6}{\%}, ainsi qu'une incertitude de \SI{10}{\%} sur la valeur des sections efficaces de production \Pphoton + jets et multi-jets. On constate quelques désaccords dans les \cref{pt_first_jet,met}. On considère néanmoins que l'accord est suffisant pour notre analyse : aucune erreur systématique n'est présente dans ces distributions, et ces comparaisons ne sont utilisées à aucun moment pour produire les résultats finaux de l'analyse.
 
 \subsection{Stratégie d'analyse} \label{sec:jetmet_strategy}
 
@@ -456,7 +450,7 @@ Les événements sélectionnés sont classés suivant l'impulsion transverse du 
   \label{tab:triggers_jetmet}
 \end{table}
 
-À \SI{8}{\TeV} et à l'arbre, un processus $\Pphoton$ + 1 / 2 jets a une section efficace de \SI[allow-number-unit-breaks]{99668 \pm 236}{\pb}. À cause de cette section efficace élevée, les chemins de déclenchement demandant simplement un photon possèdent un facteur de \emph{prescale}. Le seul qui ne l'est pas demande ainsi un photon d'au moins \SI{150}{\GeV}. Afin d'éviter tout biais possible dans l'analyse, chaque classe en \ptg{} a été choisie de façon à être associée de façon exclusive à un chemin de déclenchement précis, tout en ayant, si possible, une efficacité de déclenchement maximale. Par exemple, pour la classe 100 - \SI{125}{\GeV}, on demande à ce que l'événement ait déclenché le chemin demandant un photon d'au moins \SI{90}{\GeV} (\texttt{HLT\_Photon90}). Les \SI{10}{\GeV} de différence entre le seuil du déclencheur et la classe en \pt permettent de tenir compte des possibles corrections en énergie entre le photon reconstruit au niveau HLT et le photon \pf. À partir de \SI{155}{\GeV} (ou \SI{180}{\GeV} pour une période spécifique de prise de données), tous les événements doivent déclencher le premier chemin ayant un facteur de \emph{prescale} de 1. Le \cref{tab:triggers_jetmet} résume les chemins de déclenchement associés à chaque classe en \ptg. Les chemins de déclenchement ayant changé pendant la période de prise de données (notamment avec l'apparition puis la disparition du déclencheur \texttt{HLT\_Photon150}), deux tableaux sont présents, un pour chaque période de prise de données.
+À \SI{8}{\TeV} et à l'arbre, un processus $\Pphoton$ + 1 / 2 jets a une section efficace de \SI[allow-number-unit-breaks]{99668 \pm 236}{\pb}. À cause de cette section efficace élevée, les chemins de déclenchement demandant simplement un photon possèdent un facteur de \emph{prescale}. Le seul qui ne l'est pas demande ainsi un photon d'au moins \SI{150}{\GeV}. Afin d'éviter tout biais possible dans l'analyse, chaque classe en \ptg{} a été choisie de façon à être associée exclusivement à un chemin de déclenchement précis, tout en ayant, si possible, une efficacité de déclenchement maximale. Par exemple, pour la classe 100 - \SI{125}{\GeV}, on demande à ce que l'événement ait déclenché le chemin demandant un photon d'au moins \SI{90}{\GeV} (\texttt{HLT\_Photon90}). Les \SI{10}{\GeV} de différence entre le seuil du déclencheur et la classe en \pt permettent de tenir compte des possibles corrections en énergie entre le photon reconstruit au niveau HLT et le photon \pf. À partir de \SI{155}{\GeV} (ou \SI{180}{\GeV} pour une période spécifique de prise de données), tous les événements doivent déclencher le premier chemin ayant un facteur de \emph{prescale} de 1. Le \cref{tab:triggers_jetmet} résume les chemins de déclenchement associés à chaque classe en \ptg. Les chemins de déclenchement ayant changé pendant la période de prise de données (notamment avec l'apparition puis la disparition du déclencheur \texttt{HLT\_Photon150}), deux tableaux sont présents, un pour chaque période de prise de données.
 
 Les facteurs de \emph{prescale} des chemins de déclenchement vont aussi affecter les distributions de \pu associées. Ainsi, lors de la procédure de repondération du \pu sur la simulation, il faut tenir compte du déclencheur associé à l'événement. En fonction de l'impulsion transverse du photon dans les événements simulés, on détermine quel chemin de déclenchement l'événement aurait dû déclencher sur les données pour passer la sélection, et on utilise cette information pour obtenir le profil de \pu correspondant. On présente \cref{fig:pu_jetmet} une comparaison entre deux profils de \pu, obtenus pour deux chemins de déclenchement différents. On voit très clairement la différence entre les deux profils.
 
@@ -713,7 +707,7 @@ On constate que les résultats des trois analyses sont compatibles entre eux. On
 
 Les corrections résiduelles déterminées, on peut maintenant vérifier l'effet produit. Pour cela, on recommence l'analyse en corrigeant les jets avec tous les niveaux de corrections disponibles, et on extrait les nouveaux ratios des réponses. Si tout est parfait, on s'attend à obtenir des ratios proche de 1.
 
-La \cref{fig:comp_mpf_residuals} présente la distribution des réponses pour une classe en \ptg entre 210 - \SI{250}{\GeV} pour la méthode MPF, sans corrections résiduelles (\subref{fig:mpf_no_residuals_eta013_pt_210_250}) et avec (\subref{fig:mpf_residuals_eta013_pt_210_250}). On constate bien une amélioration de la réponse moyenne sur les données grâce à l'ajour des corrections résiduelles : le décalage observé précédemment entre les distributions des réponses données et simulation a disparu. Afin de confirmer cette observation, on peut voir \cref{fig:comp_mpf_residuals_2} les distributions des réponses moyennes après application des corrections résiduelles. Comme prévu, le ratio est amélioré par rapport au \cref{tab:res_mpf}, ce qui permet de valider nos corrections. Le ratio n'est cependant pas égal à 1, mais cet écart est néanmoins couvert par les erreurs systématiques détaillées \cref{sec:jec_uncertainties}.
+La \cref{fig:comp_mpf_residuals} présente la distribution des réponses pour une classe en \ptg entre 210 - \SI{250}{\GeV} pour la méthode MPF, sans corrections résiduelles (\subref{fig:mpf_no_residuals_eta013_pt_210_250}) et avec (\subref{fig:mpf_residuals_eta013_pt_210_250}). On constate bien une amélioration de la réponse moyenne sur les données grâce à l'ajout des corrections résiduelles : le décalage observé précédemment entre les distributions des réponses données et simulation a disparu. Afin de confirmer cette observation, on peut voir \cref{fig:comp_mpf_residuals_2} les distributions des réponses moyennes après application des corrections résiduelles. Comme prévu, le ratio est amélioré par rapport au \cref{tab:res_mpf}, ce qui permet de valider nos corrections. Le ratio n'est cependant pas égal à 1, mais cet écart est néanmoins couvert par les erreurs systématiques détaillées \cref{sec:jec_uncertainties}.
 
 \begin{figure}[tbp]
     \centering
