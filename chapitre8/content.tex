@@ -250,7 +250,7 @@ La distribution de masse invariante \mtt du signal après sélection et reconstr
 
 \section{Performance de la sélection}
 
-\subsection{Efficacité des chemins de déclenchements}
+\subsection{Efficacité des chemins de déclenchement}
 
 A cause du changement de coupure sur l'impulsion transverse, il est possible d'utiliser les efficacités des chemins de déclenchement calculées centralement par la collaboration directement sur les données. Pour le canal semi-muonique, l'efficacité moyenne obtenue est de \SI{89,5}{\percent}, et de \SI{94,3}{\percent} pour le canal semi-électronique. Si l'on compare ces valeurs aux efficacités obtenues dans l'analyse \zprime (voir \cref{sec:zp_eff_hlt}), on remarque que les efficacités obtenues centralement sont légèrement plus faibles, à cause des coupures sur l'impulsion transverse des jets plus lâches.
 
@@ -302,9 +302,9 @@ où $N_A$ est le nombre d'événements positifs et $N_B$ le nombre d'événement
   \label{tab:eff_pseudoscalar}
 \end{table}
 
-Les efficacités de sélection sont résumées dans les \cref{tab:eff_scalar,tab:eff_pseudoscalar}. On constate que ces efficacités sont plus faibles que celles obtenues dans l'analyse \zprime (voir \cref{sec:zprime_eff_sel}), à cause de la présence d'interférences. En effet, un événement auquel le générateur assigne un poids négatif contribue à la partie destructive de l'interférence. Après reconstruction, deux phénomènes peuvent se produire :
+Les efficacités de sélection sont résumées dans les \cref{tab:eff_scalar,tab:eff_pseudoscalar}. On constate que ces efficacités sont plus faibles que celles obtenues dans l'analyse \zprime (voir \cref{sec:zprime_eff_sel}), à cause de la présence d'interférences. En effet, un événement auquel le générateur assigne un poids négatif devrait contribuer au déficit. Après reconstruction, deux phénomènes peuvent se produire :
 \begin{itemize}
-    \item L'événement est reconstruit avec une masse invariante correcte, et contribue à la partie destructive de l'interférence.
+    \item L'événement est reconstruit avec une masse invariante correcte, et contribue au déficit.
     \item L'événement est reconstruit avec une masse invariante différente de la masse invariante générée. Dans ce cas, il est possible d'obtenir l'effet inverse : au lieu de contribuer au déficit, l'événement va venir atténuer l'excès. L'inverse est également possible : un événement censé contribuer à l'excès peut venir atténuer le déficit à cause d'une mauvaise reconstruction.
 \end{itemize}
 
@@ -402,7 +402,7 @@ La présence d'incertitudes systématiques impacte le nombre d'événements atte
 
 \subsection{Incertitudes systématiques} \label{sec:higgs_syst}
 
-Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est important de noter que ces incertitudes affectent à la fois les distributions de signal et des bruits de fonds.
+Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est important de noter que ces incertitudes affectent à la fois les distributions du signal et des bruits de fond.
 
 \begin{description}
   \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{2.6}{\percent}) est considérée comme une source d'incertitude systématique, impactant la normalisation des échantillons.

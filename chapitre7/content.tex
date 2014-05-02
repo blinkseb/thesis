@@ -8,13 +8,13 @@ Plus spécifiquement, cette analyse se concentre sur la recherche de \zprime, bo
 
 \section{Signaux et bruits de fonds}
 
-On modélise le signal par une résonance générique, dont la largeur est libre, tout comme la section efficace. Afin de couvrir une vaste gamme de modèles théoriques, deux types de résonances sont modélisées :
+Pour la recherche de \zprime, on modélise le signal par une résonance générique, dont la largeur est libre, tout comme la section efficace. Afin de couvrir une vaste gamme de modèles théoriques, deux types de résonances sont modélisées :
 \begin{itemize}
     \item Une résonance dont la largeur $\Gamma = \num{0.01} \, \mzp$ est plus faible que la résolution expérimentale sur la reconstruction de la masse invariante \ttbar, qu'on appelle résonance étroite.
     \item Une résonance dont la largeur $\Gamma = \num{0.10} \, \mzp$ est équivalente à la résolution expérimentale sur la reconstruction de la masse invariante \ttbar, qu'on appelle résonance large.
 \end{itemize}
 
-Chaque échantillon de signal est généré à l'aide de \texttt{MadGraph\;4}, en utilisant un modèle de \zprime générique. Dans ce modèle, le \zprime possède les même couplages fermioniques que le boson \PZ du Modèle Standard, et le rapport d'embranchement en \ttbar est fixé à \SI{100}{\%}. Plusieurs masses sont générées, allant de \SI{500}{\GeV} à \SI{2}{\TeV}, par pas de \SI{250}{\GeV} (sauf $\mzp = \SI{1750}{\GeV}$).
+Chaque échantillon de signal est généré à l'aide de \texttt{MadGraph\;4}, en utilisant un modèle de \zprime générique. Dans ce modèle, le \zprime possède les même couplages fermioniques que le boson \PZ du Modèle Standard, et le rapport d'embranchement en \ttbar est fixé à \SI{100}{\%}. Plusieurs masses sont générées, allant de \SI{500}{\GeV} à \SI{2}{\TeV}, par pas de \SI{250}{\GeV} (sauf $\mzp = \SI{1750}{\GeV}$). Afin de simuler les effets d'ordres supérieurs, la simulation est effectuée en ajoutant au maximum 4 partons supplémentaires lors de la génération de l'événement dur.
 
 \smallskip
 
@@ -202,7 +202,7 @@ Des filtres ont ainsi été développés afin de supprimer les événements cont
 
 % On souhaite sélectionner des événements ayant un lepton isolé ainsi qu'au moins 4 jets. Afin de baisser au maximum les seuils en impulsion transverse sur les chemins de déclenchements, on demande aux données d'avoir activé les chemins de déclenchements demandant un lepton isolé et au moins 3 jets centraux ($\aeta < \num{2.5}$). On arrive ainsi à obtenir
 
-On considère pour l'analyse la totalité des données collectées par CMS en 2012 (\SI{19.6}{\invfb}), et plus particulièrement les événements ayant activé des chemins de déclenchements demandant un muon isolé d'au moins \SI{17}{\GeV} ou un électron isolé d'au moins \SI{25}{\GeV}, accompagnés d'au moins trois jets d'au moins \SI{30}{\GeV}. Les conditions de prises de données ayant changé pendant l'année 2012, les seuils sur l'impulsion transverse des jets des chemins de déclenchements ont dû être ajustés. Ainsi, on demande au final 4 chemins différents pour le canal semi-muonique et 4 pour le canal semi-électronique. Dans les figures qui suivent, ces chemins ont pour alias respectivement \texttt{HLT\_MuX} (\texttt{HLT\_EleX}), X = A, B, C et D.
+On considère pour l'analyse la totalité des données collectées par CMS en 2012 (\SI{19.6}{\invfb}), et plus particulièrement les événements ayant activé des chemins de déclenchement demandant un muon isolé d'au moins \SI{17}{\GeV} ou un électron isolé d'au moins \SI{25}{\GeV}, accompagnés d'au moins trois jets d'au moins \SI{30}{\GeV}. Les conditions de prises de données ayant changé pendant l'année 2012, les seuils sur l'impulsion transverse des jets des chemins de déclenchement ont dû être ajustés. Ainsi, on demande au final 4 chemins différents pour le canal semi-muonique et 4 pour le canal semi-électronique. Dans les figures qui suivent, ces chemins ont pour alias respectivement \texttt{HLT\_MuX} (\texttt{HLT\_EleX}), X = A, B, C et D.
 
 \bigskip
 
@@ -229,12 +229,12 @@ Les événements passant la sélection sont ensuite classés en 4 catégories, s
 
 \section{Performances de la sélection}
 
-\subsection{Efficacité des chemins de déclenchements} \label{sec:zp_eff_hlt}
+\subsection{Efficacité des chemins de déclenchement} \label{sec:zp_eff_hlt}
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_fourthJet_zoom.pdf}}
     \subcaptionbox{Canal semi-électronique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_fourthJet_zoom.pdf}}
-    \caption{Efficacité des chemins de déclenchements en fonction de l'impulsion transverse du quatrième jet.}
+    \caption{Efficacité des chemins de déclenchement en fonction de l'impulsion transverse du quatrième jet.}
     \label{fig:trig_eff}
 \end{figure}
 
@@ -248,7 +248,7 @@ $\epsilon$ ($\mzp = \SI{1250}{\GeV}$)& \num{0.889\pm 0.008} & \num{0.908\pm 0.00
 $\epsilon$ ($\mzp = \SI{1500}{\GeV}$)& \num{0.900\pm 0.008} & \num{0.908\pm 0.008} & \num{0.904\pm 0.008} & \num{0.930\pm 0.007} \\
 $\epsilon$ (\ttbar)& \num{0.891\pm 0.006} & \num{0.912\pm 0.006} & \num{0.915\pm 0.006} & \num{0.929\pm 0.006} \\ \hline
 \end{tabular}
-\caption{Efficacités des chemins de déclenchements pour le canal semi-muonique, et au moins 2 jets étiquetés \Pbottom.}
+\caption{Efficacités des chemins de déclenchement pour le canal semi-muonique, et au moins 2 jets étiquetés \Pbottom.}
 \label{tab:HLT_mu_eff_2btag}
 \end{table}
 
@@ -261,7 +261,7 @@ $\epsilon$ ($\mzp = \SI{1250}{\GeV}$)& \num{0.899\pm 0.008} & \num{0.904\pm 0.00
 $\epsilon$ ($\mzp = \SI{1500}{\GeV}$)& \num{0.902\pm 0.007} & \num{0.910\pm 0.008} & \num{0.919\pm 0.007} & \num{0.925\pm 0.007} \\
 $\epsilon$ (\ttbar)& \num{0.883\pm 0.006} & \num{0.915\pm 0.006} & \num{0.913\pm 0.006} & \num{0.919\pm 0.006} \\ \hline
 \end{tabular}
-\caption{Efficacités des chemins de déclenchements pour le canal semi-muonique, et exactement 1 jet étiqueté \Pbottom.}
+\caption{Efficacités des chemins de déclenchement pour le canal semi-muonique, et exactement 1 jet étiqueté \Pbottom.}
 \label{tab:HLT_mu_eff_1btag}
 \end{table}
 
@@ -274,7 +274,7 @@ $\epsilon$ ($\mzp = \SI{1250}{\GeV}$)& \num{0.958\pm 0.005} & \num{0.957\pm 0.00
 $\epsilon$ ($\mzp = \SI{1500}{\GeV}$)& \num{0.955\pm 0.006} & \num{0.954\pm 0.006} & \num{0.950\pm 0.006} & \num{0.963\pm 0.005} \\
 $\epsilon$ (\ttbar)& \num{0.956\pm 0.005} & \num{0.960\pm 0.004} & \num{0.958\pm 0.004} & \num{0.973\pm 0.004}  \\ \hline
 \end{tabular}
-\caption{Efficacités des chemins de déclenchements pour le canal semi-électronique, et au moins 2 jets étiquetés \Pbottom.}
+\caption{Efficacités des chemins de déclenchement pour le canal semi-électronique, et au moins 2 jets étiquetés \Pbottom.}
 \label{tab:HLT_el_eff_2btag}
 \end{table}
 
@@ -287,11 +287,11 @@ $\epsilon$ ($\mzp = \SI{1250}{\GeV}$)& \num{0.958\pm 0.005} & \num{0.947\pm 0.00
 $\epsilon$ ($\mzp = \SI{1500}{\GeV}$)& \num{0.945\pm 0.005} & \num{0.932\pm 0.006} & \num{0.946\pm 0.006} & \num{0.960\pm 0.005} \\
 $\epsilon$ (\ttbar)& \num{0.956\pm 0.005} & \num{0.954\pm 0.004} & \num{0.957\pm 0.004} & \num{0.968\pm 0.004} \\ \hline
 \end{tabular}
-\caption{Efficacités des chemins de déclenchements pour le canal semi-électronique, et exactement 1 jet étiqueté \Pbottom.}
+\caption{Efficacités des chemins de déclenchement pour le canal semi-électronique, et exactement 1 jet étiqueté \Pbottom.}
 \label{tab:HLT_el_eff_1btag}
 \end{table}
 
-Afin d'estimer au mieux l'efficacité des chemins de déclenchements utilisés par l'analyse, chaque chemin a été simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
+Afin d'estimer au mieux l'efficacité des chemins de déclenchement utilisés par l'analyse, chaque chemin a été simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
 
 Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont calculés centralement par la collaboration avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, pour chacune des catégories de l'analyse et séparément pour chaque masse de signal et le bruit de fond \ttbar : l'efficacité de déclenchement n'est pas dépendante de la masse du \zprime, et  est compatible entre \zprime et \ttbar. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
 
@@ -863,7 +863,7 @@ Le même type de recherche a aussi été mené au Tevatron par les expérience C
 
 \section{Conclusion}
 
-Les résultats de la recherche de résonances de spin 1 dans le spectre de masse \ttbar ont été présentés tout au long de ce chapitre. Ces résultats, validés par la collaboration, ont été publiés au sein de la revue \emph{Physical Review Letters} \citep{Chatrchyan:1599045}, signe du grand intérêt porté par la communauté scientifique dans la recherche de nouvelle physique dans le secteur du quark top. La combinaison avec les analyses boostées semi- et tout-hadroniques permettent d'obtenir les limites d'exclusions les plus hautes jamais posées sur la recherche de résonances de spin 1 se désintégrant en \ttbar à ce jour. Les \zprime leptophobiques dans le modèle topcolor sont exclus pour des masses inférieures à \SI{2.1}{\TeV} dans l'hypothèse de résonances étroites et \SI{2.7}{\TeV} dans l'hypothèse de résonances larges. Dans un modèle plus particulier de résonances de Kaluza-Klein du gluon, les masses inférieures à \SI{2.5}{\TeV} sont exclues.
+Les résultats de la recherche de résonances de spin 1 dans le spectre de masse \ttbar ont été présentés tout au long de ce chapitre. Ces résultats, validés par la collaboration, ont été publiés au sein de la revue \emph{Physical Review Letters} \citep{Chatrchyan:1599045}, signe du grand intérêt porté par la communauté scientifique dans la recherche de nouvelle physique dans le secteur du quark top. La combinaison avec les analyses boostées semi- et tout-hadroniques permet d'obtenir les limites d'exclusions les plus hautes jamais posées sur la recherche de résonances de spin 1 se désintégrant en \ttbar à ce jour. Les \zprime leptophobiques dans le modèle topcolor sont exclus pour des masses inférieures à \SI{2.1}{\TeV} dans l'hypothèse de résonances étroites et \SI{2.7}{\TeV} dans l'hypothèse de résonances larges. Dans un modèle plus particulier de résonances de Kaluza-Klein du gluon, les masses inférieures à \SI{2.5}{\TeV} sont exclues.
 
 \bigskip
 

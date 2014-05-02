@@ -19,7 +19,7 @@ CMS a adopté une approche factorisée afin de corriger convenablement ces effet
     \item[Niveau 2 et 3] Ces niveaux permettent de corriger les variations d'efficacité de la reconstruction des jets, en fonction de l'angle et l'impulsion transverse des jets.
 \end{description}
 
-Ces corrections sont appliquées à la fois aux données collectées et à la simulation. Néanmoins, il est apparu que la simulation ne reproduisait pas (encore) parfaitement la réalité. Il a donc été décidé d'ajouter un quatrième niveau de correction, nommé corrections résiduelles, appliqué uniquement aux données, qui permet de corriger des dernières différences qui subsistent entre données et simulation.
+Ces corrections sont appliquées à la fois aux données collectées et à la simulation. Pour prendre en compte les différences qui subsistent entre les données et la simulation, un quatrième niveau de correction existe. Ces corrections, appelées corrections résiduelles, sont appliquées uniquement aux données.
 
 \medskip
 
@@ -65,7 +65,7 @@ où $\rho_0$ est la contribution à la densité d'énergie de l'événement sous
 
 \bigskip
 
-Après application des corrections de niveau 1, la réponse des jets, définie comme le rapport en l'impulsion transverse du jet sur l'impulsion transverse vraie\footnote{L'impulsion transverse vraie d'un jet est la valeur de l'impulsion transverse dans le cas où le jet est parfaitement reconstruit. Cette valeur est déterminée en agglomérant les particules directement en sortie du générateur, plutôt que les particules après reconstruction.}, n'est plus dépendante du nombre de vertex primaires, comme on peut le voir \cref{fig:jec_l1_effect}.
+Après application des corrections de niveau 1, la réponse des jets, définie comme le rapport en l'impulsion transverse du jet sur l'impulsion transverse vraie\footnote{L'impulsion transverse vraie d'un jet est la valeur de l'impulsion transverse dans le cas où le jet est parfaitement reconstruit. Cette valeur est déterminée en agglomérant les particules visibles dans le détecteur directement en sortie du générateur, plutôt que les particules après reconstruction.}, n'est plus dépendante du nombre de vertex primaires, comme on peut le voir \cref{fig:jec_l1_effect}.
 
 \subsection[Les corrections de niveau 2 et 3]{Les corrections de niveau 2 et 3 \citep{1748-0221-6-11-P11002}} \label{sec:jec_l2l3}
 
@@ -108,7 +108,7 @@ Ces facteurs de corrections ont été déterminés sur des événements multi-je
 
 \subsection[Les corrections résiduelles]{Les corrections résiduelles \citep{1748-0221-6-11-P11002}} \label{sec:jec_res}
 
-Les corrections précédentes sont toutes dérivées à l'aide de la simulation. Malheureusement, cette simulation n'est pas parfaite, et des différences existent entre la réponse des jets dans la simulation et dans les données collectées. On applique ainsi un autre niveau de corrections, uniquement sur les données, afin de corriger des dernières différences entre données et simulation. Ces corrections, dépendantes de \aeta et du $p_T$ des jets, sont déterminées à l'aide d'événements $\PZ \rightarrow \left[ \Pmuon \APmuon \, | \, \Pelectron \APelectron \right] $ + jets ou $\Pphoton$ + jets, ainsi que des événements di-jets pour la dépendance en \aeta.
+Les corrections précédentes sont toutes dérivées à l'aide de la simulation. Des différences existent entre la réponse des jets dans la simulation et dans les données collectées. On applique ainsi un autre niveau de corrections, uniquement sur les données, afin de corriger des dernières différences entre données et simulation. Ces corrections, dépendantes de \aeta et du $p_T$ des jets, sont déterminées à l'aide d'événements $\PZ \rightarrow \left[ \Pmuon \APmuon \, | \, \Pelectron \APelectron \right] $ + jets ou $\Pphoton$ + jets, ainsi que des événements di-jets pour la dépendance en \aeta.
 
 La détermination des corrections résiduelles à l'aide d'événement $\Pphoton$ + jets est décrite en détail dans la \cref{sec:jetmet_gamma_jet}.
 
@@ -401,7 +401,7 @@ Finalement, la simulation des événements multi-jets et $\gamma$ + jets a été
 
 \bigskip
 
-On présente \cref{fig:pt_photon_jet} une comparaison entre la simulation et les données pour l'impulsion transverse du photon, du premier jet de l'événement, du second, ainsi que l'énergie transverse manquante. Les distributions sont normalisées au nombre d'événements dans les données, et l'incertitude sur la simulation comprend l'incertitude statistique, l'incertitude sur la luminosité de \SI{2.6}{\%}, ainsi qu'une incertitude de \SI{10}{\%} sur la valeur des sections efficaces de production \Pphoton + jets et multi-jets. On constate quelques désaccords dans les \cref{pt_first_jet,met}. On considère néanmoins que l'accord est suffisant pour notre analyse : aucune erreur systématique n'est présente dans ces distributions, et ces comparaisons ne sont utilisées à aucun moment pour produire les résultats finaux de l'analyse.
+On présente \cref{fig:pt_photon_jet} une comparaison entre la simulation et les données pour l'impulsion transverse du photon, du premier jet de l'événement, du second, ainsi que l'énergie transverse manquante. Les distributions sont normalisées au nombre d'événements dans les données, et l'incertitude sur la simulation comprend l'incertitude statistique, l'incertitude sur la luminosité de \SI{2.6}{\%}, ainsi qu'une incertitude de \SI{10}{\%} sur la valeur des sections efficaces de production \Pphoton + jets et multi-jets. On constate quelques désaccords dans les \cref{pt_first_jet,met}, en particulier dans la région où $\ptfjet < \SI{175}{\GeV}$, valeur de la coupure sur l'impulsion transverse du photon, à très bas $\ptsjet$ et à haute \met, où le nombre d'événements est assez réduit. On rappelle qu'aucune incertitude systématique n'est prise en compte dans cette étude et que les incertitudes présentées dans les distributions sont uniquement statistiques. Ces comparaisons n'étant utilisées à aucun moment pour produire les résultats finaux de l'analyse, on considère cet accord comme suffisant.
 
 \subsection{Stratégie d'analyse} \label{sec:jetmet_strategy}
 
@@ -850,7 +850,7 @@ On extrait maintenant la réponse par saveur sur les données et sur la simulati
 
   % Cette étude préliminaire ouvre la voix à des corrections résiduelles dépendantes de la saveur dans CMS. Le nombre d'événements disponible après sélection n'est cependant pas encore suffisant pour pouvoir réaliser une étude en différentes classes en impulsion transverse et \aeta, qui pourrait mettre en évidence une dépendance de la réponse en fonction de la saveur.
 
-L'effet de la saveur des jets sur la réponse ne semblent pas être perceptible au travers des événements \Pgamma + jets. La méthode employée dans cette étude permet de reproduire la réponse observée sur les données à l'aide de la simulation, et reproduit également les réponses obtenues à l'aide de la vérité Monte-Carlo. La seule difficulté vient de la réponse des gluons, surestimée d'environ \tilde\SI{2}{\percent}, ordre de grandeur des erreurs systématiques associées à la saveur. Cette étude préliminaire pourrait ainsi servir à valider ces erreurs systématiques, en s'assurant que les différences de réponses sont couvertes par ces erreurs. Cela semble être le cas, mais il est nécessaire d'effectuer une étude complète en tenant compte des incertitudes systématiques avant de pouvoir réellement conclure.
+L'effet de la saveur des jets sur la réponse ne semble pas être perceptible au travers des événements \Pgamma + jets. La méthode employée dans cette étude permet de reproduire la réponse observée sur les données à l'aide de la simulation, et reproduit également les réponses obtenues à l'aide de la vérité Monte-Carlo. La seule difficulté vient de la réponse des gluons, surestimée d'environ \tilde\SI{2}{\percent}, ordre de grandeur des erreurs systématiques associées à la saveur. Cette étude préliminaire pourrait ainsi servir à valider ces erreurs systématiques, en s'assurant que les différences de réponses sont couvertes par ces erreurs. Cela semble être le cas, mais il est nécessaire d'effectuer une étude complète en tenant compte des incertitudes systématiques avant de pouvoir réellement conclure.
 
 \section{Conclusion}
 
@@ -863,3 +863,5 @@ Les événements \Pphoton + jets sont de puissants outils pour déterminer les f
 \bigskip
 
 La dernière partie de ce chapitre est consacrée à l'étude préliminaire de la réponse en fonction de la saveur dans la détermination des corrections résiduelles. Aucune dépendance n'a été trouvé, mais le nombre d'événements disponible n'est pas encore suffisant pour réaliser une étude dépendante de l'impulsion transverse et de \aeta. Il semble cependant que la dépendance en saveur des réponses soit correctement couverte par les erreurs systématiques.
+
+Dans le cas où dans le futur on observe une dépendance sensible, cette méthode pourrait ouvrir la possibilité d'une extraction de corrections en énergie des jets en fonction de leur saveur.
