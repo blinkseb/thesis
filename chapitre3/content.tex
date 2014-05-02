@@ -113,10 +113,10 @@ Grâce à cet algorithme de trajectographie itérative, la trajectoire d'une par
     \label{fig:res_pv}
 \end{figure}
 
-La reconstruction des vertex d'interactions utilise les traces précédemment reconstruites. Deux étapes sont nécessaires :
+La reconstruction des vertex d'interaction utilise les traces précédemment reconstruites. Deux étapes sont nécessaires :
 \begin{itemize}
   \item Les traces sont agglomérées en "candidats vertex" si la différence entre leurs coordonnées $z$ au point le plus proche de l'axe du faisceau est inférieure à \SI{2}{\mm}.
-  \item Un algorithme d'ajustement \citep{Frühwirth:1027031} itère sur tous les agrégats de traces et calcule la position du vertex d'interaction, ainsi que des indicateurs sur la qualité de l'ajustement ($chi^2$). Lors de l'ajustement, des poids variant entre 0 et 1 sont assignées aux traces de l'agrégat, suivant leur proximité avec l'axe du faisceau.
+  \item Un algorithme d'ajustement \citep{Frühwirth:1027031} itère sur tous les agrégats de traces et calcule la position du vertex d'interaction, ainsi que des indicateurs sur la qualité de l'ajustement ($\chi^2$). Lors de l'ajustement, des poids variant entre 0 et 1 sont assignés aux traces de l'agrégat, suivant leur proximité avec l'axe du faisceau.
 \end{itemize}
 
 À cause de la présence de \pu, plusieurs vertex d'interaction vont être reconstruits, distribués le long de l'axe du faisceau. Parmi ces vertex, le vertex primaire est identifié comme celui dont la somme quadratique de l'impulsion transverse des traces qui le composent est la plus grande. La \cref{fig:res_pv} présente la résolution de la reconstruction du vertex primaire, selon l'axe $x$, $y$ et $z$.

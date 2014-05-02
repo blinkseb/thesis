@@ -223,8 +223,8 @@ On utilise pour cela des processus comportant uniquement deux particules dans l'
 
 On présente \cref{fig:gamma_jet_diagrams} deux diagrammes de Feynman représentant la production d'un photon accompagné d'un ou deux jets. L'impulsion dans le plan transverse étant nulle au moment de la collision, on a dans l'état final
 \begin{align*}
-  \vec{p}_T &= 0 = \vec{p}_{T}^{\Pphoton} + \vec{p}_T^\text{jet}\\
-  \norm{\vec{p}_T^{\Pphoton}} &= \norm{\vec{p}_T^{\text{jet}}}
+  \vec{p}_T &= 0 = \vec{p}_{T}^{\Pphoton} + \sum \vec{p}_T^\text{jet}\\
+  \norm{\vec{p}_T^{\Pphoton}} &= \norm{\sum  \vec{p}_T^{\text{jet}}}
 \end{align*}
 
 Ainsi, il est suffisant de connaître l'impulsion transverse de la sonde pour déterminer l'impulsion transverse du jet. L'utilisation du photon comme sonde comporte certains avantages :
@@ -565,17 +565,6 @@ On présente \cref{fig:balancing_resp} les distributions des réponses moyennes 
  \label{tab:res_balancing_extrap}
 \end{table}
 
-
-\begin{figure}[p!]
-    \centering
-    \subcaptionbox{\label{fig:bal_extrap_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta008_balancing_extrap.pdf}}\hfill
-    \subcaptionbox{\label{fig:bal_extrap_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta0813_balancing_extrap.pdf}}
-    \subcaptionbox{\label{fig:bal_extrap_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1319_balancing_extrap.pdf}}\hfill
-    \subcaptionbox{\label{fig:bal_extrap_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1925_balancing_extrap.pdf}}
-    \caption{Réponses moyennes pour la méthode de la balance, avec extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:bal_extrap_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:bal_extrap_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:bal_extrap_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:bal_extrap_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
-    \label{fig:balancing_extrap_resp}
-\end{figure}
-
 \bigskip
 
 On présente dans le \cref{tab:res_balancing} un résumé des ratios et des facteurs de correction extraits pour chaque classe en \aeta. Le ratio est stable dans le tonneau ($\aeta < \num{2.1}$), avec un facteur de correction d'environ \SI{4}{\%}. Dans les bouchons, le ratio chute jusqu'à des facteurs de correction atteignant \SI{23}{\%}. Au delà de \SI{3.2}{\radian}, l'absence de trajectographe empêche la bonne reconstruction des hadrons chargés, et la réponse devient très mauvaise.
@@ -606,6 +595,16 @@ Pour la méthode de la balance, on sépare la réponse de la simulation en deux 
 \begin{align*}
   R_m &= \frac{\ptfjet}{\ptg} = \underbrace{ \frac{\ptfjet}{p_T^{\text{\ordinalnum{1} jet généré}}} }_{\text{intrinsèque}} \; \times \; \underbrace{ \frac{p_T^{\text{\ordinalnum{1} jet généré}}}{\ptg} }_{\text{déséquilibre}}
 \end{align*}
+
+\begin{figure}[p!]
+    \centering
+    \subcaptionbox{\label{fig:bal_extrap_eta008}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta008_balancing_extrap.pdf}}\hfill
+    \subcaptionbox{\label{fig:bal_extrap_eta0813}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta0813_balancing_extrap.pdf}}
+    \subcaptionbox{\label{fig:bal_extrap_eta1319}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1319_balancing_extrap.pdf}}\hfill
+    \subcaptionbox{\label{fig:bal_extrap_eta1925}}[0.45\textwidth]{\includegraphics[width=0.45\textwidth]{chapitre4/figs/resp_balancing_extrap/response_eta1925_balancing_extrap.pdf}}
+    \caption{Réponses moyennes pour la méthode de la balance, avec extrapolation, pour $\aeta < \num{0.8}$ (\subref{fig:bal_extrap_eta008}), $\num{0.8} \leq \aeta < \num{1.3}$ (\subref{fig:bal_extrap_eta0813}), $\num{1.3} \leq \aeta < \num{1.9}$ (\subref{fig:bal_extrap_eta1319}), et $\num{1.9} \leq \aeta < \num{2.5}$ (\subref{fig:bal_extrap_eta1925}). Le ratio entre les données et la simulation est présenté sous chaque distribution, accompagné d'une interpolation linéaire constante (ligne orange). La bande jaune représente l'erreur sur cette interpolation.}
+    \label{fig:balancing_extrap_resp}
+\end{figure}
 
 %\afterpage{\clearpage}
 
@@ -657,7 +656,7 @@ On présente les distributions des réponses moyennes obtenues avec la méthode 
 
 Par rapport à la méthode de la balance, on constate deux améliorations. Premièrement, les ratios sont plus proches de l'unité, avec des incertitudes comparables. Deuxièmement, ces ratios sont plus stables en fonction de \aeta, particulièrement à haut \aeta, là où le nombre d'événements est réduit.
 
-\begin{figure}[p!]
+\begin{figure}[tbp]
     \centering
     \subcaptionbox{\label{fig:npv_bal_eta013}}[0.4\textwidth]{\includegraphics[width=0.4\textwidth]{chapitre4/figs/resp_vs_npv/resp_balancing_eta013_vs_npv_FITLINE.pdf}}\qquad
     \subcaptionbox{\label{fig:npv_mpf_eta013}}[0.4\textwidth]{\includegraphics[width=0.4\textwidth]{chapitre4/figs/resp_vs_npv/resp_mpf_eta013_vs_npv_FITLINE.pdf}}
@@ -669,14 +668,14 @@ Ces résultats étaient prévisibles : on a vu précédemment que la méthode é
 
 \subsubsection{Résolution}
 
-Comme évoqué précédemment, on extrait en plus des réponses la résolution sur la réponse des jets. Ces résolutions ne sont pas utilisées dans l'analyse, mais il est néanmoins intéressant de voir les performances de chaque méthode d'extraction de la réponse. La \cref{fig:resolutions} présente les résolutions sur les réponses pour les méthodes de la balance et MPF, pour la classe $\aeta < \num{1.3}$. On constate que la différence de résolution entre les données et la simulation est d'environ \SI{20}{\percent} pour la méthode de la balance, et de seulement \tilde\SI{5}{\percent} pour la méthode MPF.
-
 \begin{figure}[tbp] \centering
     \subcaptionbox{Méthode de la balance}[0.4\textwidth]{\includegraphics[width=0.4\textwidth]{chapitre4/figs/reso_balancing/resolution_eta013_balancing.pdf}} \qquad
     \subcaptionbox{Méthode MPF}[0.4\textwidth]{\includegraphics[width=0.4\textwidth]{chapitre4/figs/reso_mpf/resolution_eta013_mpf.pdf}}
     \caption{Résolutions sur la réponse des jets pour les méthodes de la balance et MPF, pour $\aeta < \num{1.3}$.}
     \label{fig:resolutions}
 \end{figure}
+
+Comme évoqué précédemment, on extrait en plus des réponses la résolution sur la réponse des jets. Ces résolutions ne sont pas utilisées dans l'analyse, mais il est néanmoins intéressant de voir les performances de chaque méthode d'extraction de la réponse. La \cref{fig:resolutions} présente les résolutions sur les réponses pour les méthodes de la balance et MPF, pour la classe $\aeta < \num{1.3}$. On constate que la différence de résolution entre les données et la simulation est d'environ \SI{20}{\percent} pour la méthode de la balance, et de seulement \tilde\SI{5}{\percent} pour la méthode MPF.
 
 \subsection{Extraction des corrections résiduelles}
 
@@ -827,14 +826,14 @@ L'étude de la réponse en fonction de la saveur des jets à l'aide des événem
 
 \subsection{Résultats}
 
-La première étape de l'analyse consiste à vérifier la validité de la méthode. On utilise les mêmes événements que pour l'extraction des corrections résiduelles, avec la même sélection. On extrait la réponse pour chacune des zones enrichies, en se limitant uniquement à la méthode MPF, plus performante que les autres méthodes. En utilisant l'\cref{eq:resp_flavor}, on calcule la réponse pour chaque saveur, en utilisant les fractions de jets dans chaque zone enrichie dérivées à l'aide de la simulation. Le résultat obtenu est ensuite comparé à la réponse en saveur calculée en utilisant la vérité Monte Carlo. Cette confrontation est présentée \cref{fig:2d_mc_vs_mc}. Les réponses des jets légers, \Pcharm et \Pbottom sont bien reproduites, alors que la réponse des jets de gluons est légèrement surestimée (\tilde \SI{2}{\%}). C'est en effet la catégorie pour laquelle il est le plus difficile d'obtenir une zone réellement enrichie, ce qui rend la méthode présentée ci-dessus moins performante. Cette différence est cependant couverte par les erreurs systématiques associées à la saveur, et on estime donc que ces résultats permettent de valider notre méthode d'extraction des réponses.
-
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.60\textwidth]{chapitre4/figs/flavor/gammajet_flavors.pdf}
   \caption{Composition en saveur des jets pour des événements \Pphoton + jets.}
   \label{fig:gjet_flavor}
 \end{figure}
+
+La première étape de l'analyse consiste à vérifier la validité de la méthode. On utilise les mêmes événements que pour l'extraction des corrections résiduelles, avec la même sélection. On extrait la réponse pour chacune des zones enrichies, en se limitant uniquement à la méthode MPF, plus performante que les autres méthodes. En utilisant l'\cref{eq:resp_flavor}, on calcule la réponse pour chaque saveur, en utilisant les fractions de jets dans chaque zone enrichie dérivées à l'aide de la simulation. Le résultat obtenu est ensuite comparé à la réponse en saveur calculée en utilisant la vérité Monte Carlo. Cette confrontation est présentée \cref{fig:2d_mc_vs_mc}. Les réponses des jets légers, \Pcharm et \Pbottom sont bien reproduites, alors que la réponse des jets de gluons est légèrement surestimée (\tilde \SI{2}{\%}). C'est en effet la catégorie pour laquelle il est le plus difficile d'obtenir une zone réellement enrichie, ce qui rend la méthode présentée ci-dessus moins performante. Cette différence est cependant couverte par les erreurs systématiques associées à la saveur, et on estime donc que ces résultats permettent de valider notre méthode d'extraction des réponses.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{\label{fig:2d_mc_vs_mc}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre4/figs/flavor/Mean_ptPhot_100_800_withRatio_MC_MCtruth.pdf}}

@@ -48,31 +48,7 @@ Lors de la génération du signal, le rapport d'embranchement en \ttbar est fix�
 
 Cette analyse se concentre sur les désintégrations semi\-/leptoniques des paires \ttbar. Les bruits de fonds considérés sont résumés dans le \cref{tab:backgrounds_higgs}.
 
-\begin{table} \centering
-  \begin{tabular}{@{}ccc@{}} \toprule
-    Processus & Section efficace (\si{\pb}) & Luminosité équivalente (\si{\invfb}) \\ \midrule
-    \ttbar & \num{245.8} (NNLO) & \num{84.3} \\
-    \PW + jets & \num{37509} (NNLO) & \num{1.5} \\
-    \PZ + jets & \num{3504} (NNLO) & \num{8.7} \\
-    Top célibataire (voie s) & \num{5,6} (NNLO appr.) & \num{72.0} \\
-    Top célibataire (voie t) & \num{87,1} (NNLO appr.) & \num{65.4} \\
-    Top célibataire (voie t\PW) & \num{22.4} (NNLO appr.) & \num{44.3} \\
-    Di-bosons & \num{97,2} (NLO) & \num{30.7} \\
-    \bottomrule
-  \end{tabular}
-  \caption{Section efficace et luminosité équivalente pour chacun des bruits de fond considérés.}
-  \label{tab:backgrounds_higgs}
-\end{table}
-
-% \bigskip
-
-% Afin de reproduire correctement les conditions de \pu des données, les événements dans la simulation sont pondérés de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
-
-\subsection{Génération du signal}
-
-Les états initiaux et finaux de la production de \sz sont identiques à ceux du mode de production dominant de quarks top Modèle Standard au LHC. Comme évoqué brièvement \cref{sec:2hdm}, la production de \sz va interférer avec celle du Modèle Standard, ne conduisant pas simplement à un pic dans la masse invariante dans le spectre \mtt, mais à une structure plus compliquée de type pic - trou. Les \cref{eq:sigma_scalar,eq:sigma_pscalar} (adaptées de \citep{Dicus:1994bm}) présentent respectivement les sections efficaces théoriques pour un scalaire et un pseudo-scalaire dans le modèle 2HDM. La somme des termes de signal et d'interférence est représentée sur la \cref{fig:theo_sigma}, pour différents points de masse. La présence d'une telle particule donne lieu à deux effets localisés : un excès et un déficit d'événements par rapport à la prédiction du Modèle Standard. L'effet des interférences est non négligeable, le déficit étant parfois plus important que l'excès. La contribution du signal et de l'interférence à l'excès et au déficit est présentée sur la \cref{fig:signal_interference}.
-
-\begin{eq}
+\begin{eq}[p!]
     \begin{align*}
       \hat{s} &= \mtt^2 \; , \qquad \beta = \sqrt{ 1 - \frac{4 \mt^2}{\hat{s}} }, \qquad y_t = \ln\left( \frac{1 + \beta}{1 - \beta} \right), \qquad \Gamma_{\sz} = \frac{3 G_F \mt^2 \hat{s}\beta^3}{4 \pi \msz \sqrt{2}} \\
       \begin{split}
@@ -96,6 +72,30 @@ Les états initiaux et finaux de la production de \sz sont identiques à ceux du
     \caption{Section efficace de production pour un \sz pseudo\-/scalaire, adaptée de \citep{Dicus:1994bm}.}
     \label{eq:sigma_pscalar}
 \end{eq}
+
+\begin{table} \centering
+  \begin{tabular}{@{}ccc@{}} \toprule
+    Processus & Section efficace (\si{\pb}) & Luminosité équivalente (\si{\invfb}) \\ \midrule
+    \ttbar & \num{245.8} (NNLO) & \num{84.3} \\
+    \PW + jets & \num{37509} (NNLO) & \num{1.5} \\
+    \PZ + jets & \num{3504} (NNLO) & \num{8.7} \\
+    Top célibataire (voie s) & \num{5,6} (NNLO appr.) & \num{72.0} \\
+    Top célibataire (voie t) & \num{87,1} (NNLO appr.) & \num{65.4} \\
+    Top célibataire (voie t\PW) & \num{22.4} (NNLO appr.) & \num{44.3} \\
+    Di-bosons & \num{97,2} (NLO) & \num{30.7} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Section efficace et luminosité équivalente pour chacun des bruits de fond considérés.}
+  \label{tab:backgrounds_higgs}
+\end{table}
+
+% \bigskip
+
+% Afin de reproduire correctement les conditions de \pu des données, les événements dans la simulation sont pondérés de telle sorte que la distribution du nombre d'interactions par croisement de faisceau soit identique dans les données et la simulation.
+
+\subsection{Génération du signal}
+
+Les états initiaux et finaux de la production de \sz sont identiques à ceux du mode de production dominant de quarks top Modèle Standard au LHC. Comme évoqué brièvement \cref{sec:2hdm}, la production de \sz va interférer avec celle du Modèle Standard, ne conduisant pas simplement à un pic dans la masse invariante dans le spectre \mtt, mais à une structure plus compliquée de type pic - trou. Les \cref{eq:sigma_scalar,eq:sigma_pscalar} (adaptées de \citep{Dicus:1994bm}) présentent respectivement les sections efficaces théoriques pour un scalaire et un pseudo-scalaire dans le modèle 2HDM. La somme des termes de signal et d'interférence est représentée sur la \cref{fig:theo_sigma}, pour différents points de masse. La présence d'une telle particule donne lieu à deux effets localisés : un excès et un déficit d'événements par rapport à la prédiction du Modèle Standard. L'effet des interférences est non négligeable, le déficit étant parfois plus important que l'excès. La contribution du signal et de l'interférence à l'excès et au déficit est présentée sur la \cref{fig:signal_interference}.
 
 \begin{figure}[tbp] \centering
     \subcaptionbox{Scalaire}[0.48\textwidth]{\includegraphics[width=0.48\textwidth,angle=-90,origin=c]{chapitre8/figs/S0/theory_scalar.pdf}} \hfill
@@ -181,17 +181,26 @@ Le signal est généré à l'aide de \texttt{MadGraph\;5}. Le code généré et 
 
 Afin de valider cette méthode, qui consiste a modifier l’élément de matrice, on procède aussi à une génération complète, où le signal et le bruit de fond sont générés ensemble et à laquelle on soustrait le bruit de fond généré séparément. Les distributions de masse invariante \mtt obtenues dans chacun des cas sont présentées sur la \cref{fig:mtt_check} pour un \sz scalaire de masse $\msz = \SI{500}{\GeV}$. Les deux générations donnent des résultats comparables, ce qui permet de valider notre méthode de génération du signal. Il est également intéressant de constater que les erreurs statistiques sont réduites d'un facteur \tilde8, et ce en générant un nombre d'événements 100 fois inférieur.
 
-\begin{figure}[tbp]
+\begin{figure}[t!]
     \centering
     \includegraphics[width=0.6\textwidth]{chapitre8/figs/plot_overlaid_500_cpl1_S_i_B_plus_S_i_B_minus_B_more_stat.pdf}
     \caption{Distribution de masse invariante \mtt pour un \sz scalaire de masse $\msz = \SI{500}{\GeV}$, avec interférences. La distribution rouge est obtenue en générant le signal et le bruit de fond ensemble, puis en soustrayant le bruit de fond généré séparément. La distribution bleue est obtenue en générant uniquement le signal et les interférences, en modifiant le calcul de l'élément de matrice.}
     \label{fig:mtt_check}
 \end{figure}
 
+\begin{figure}[b!] \centering
+    \subcaptionbox{Pseudo-scalaire, $\msz = \SI{400}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/plot_400_cpl1_pseudoscalar_normalized.pdf}} \hfill
+    \subcaptionbox{Scalaire, $\msz = \SI{800}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/plot_800_cpl1_normalized.pdf}}
+    \caption{Distributions de masse invariante pour la désintégration $\sz \rightarrow \ttbar$, après la génération des événements par \texttt{MadGraph}.}
+    \label{fig:gen_higgs}
+\end{figure}
+
 \bigskip
 
 Chaque échantillon de signal utilisé dans cette analyse est généré à l'aide de la méthode alternative. On peut voir sur la \cref{fig:gen_higgs} les distributions de masse invariante pour un \sz scalaire et pseudo-scalaire après la génération. On note quelques différences avec les prédictions théoriques (\cref{fig:theo_sigma}), imputables aux densités de probabilités partoniques, utilisées lors de la génération des événements. Les sections efficaces de production à l'arbre prédites par \texttt{MadGraph} pour une production signal + interférences sont résumées dans le \cref{tab:cross_sections}. Ces sections efficaces doivent être interprétées comme $\sigma - \sigma_\text{\ttbar}$, et elles sont proportionnelles au nombre d'événements observés, intégrés sur le spectre \mtt. L'excès et le déficit contribuent donc avec un signe opposé aux sections efficaces. Cependant, dans l'étude de la distribution \mtt, la présence de l'un et de l'autre permet d'observer un éventuel signal. Il n'est donc pas aisé d'interpréter les valeurs dans le \cref{tab:cross_sections} en terme de sensibilité à la présence de nouvelle physique.
-\begin{table}[tbp] \centering
+
+
+\begin{table}[t] \centering
     \begin{tabular}{cccccc} \toprule
      & \SI{400}{\GeV} & \SI{500}{\GeV} & \SI{600}{\GeV} & \SI{700}{\GeV} & \SI{800}{\GeV} \\ \midrule
      $\sigma_{\text{scalaire}}$ & \SI{0.5289}{\pb} & \SI{0.3023}{\pb} & \SI{0.1891}{\pb} & \SI{0.1295}{\pb} & \SI{0.0944}{\pb} \\
@@ -201,14 +210,6 @@ Chaque échantillon de signal utilisé dans cette analyse est généré à l'aid
     \caption{Sections efficaces de production à l'arbre d'un Higgs scalaire ou pseudo-scalaire telles que prédites par \texttt{MadGraph}, pour un rapport d'embranchement en \ttbar de \SI{100}{\percent}, dans le cas d'une génération signal + interférences.}
     \label{tab:cross_sections}
 \end{table}
-
-
-\begin{figure}[tbp] \centering
-    \subcaptionbox{Pseudo-scalaire, $\msz = \SI{400}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/plot_400_cpl1_pseudoscalar_normalized.pdf}} \hfill
-    \subcaptionbox{Scalaire, $\msz = \SI{800}{\GeV}$}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre8/figs/S0/plot_800_cpl1_normalized.pdf}}
-    \caption{Distributions de masse invariante pour la désintégration $\sz \rightarrow \ttbar$, après la génération des événements par \texttt{MadGraph}.}
-    \label{fig:gen_higgs}
-\end{figure}
 
 \section{Sélection et reconstruction des événements}
 
@@ -235,8 +236,6 @@ Les événements passant la sélection sont ensuite classés en 4 catégories, s
   \end{tabular}
 \end{center}
 
-\subsection{Reconstruction des événements}
-
 Les techniques utilisées pour reconstruire l'événement \ttbar sont détaillées dans le \cref{chap:mtt_reco}.
 
 Au moment de la génération du signal, un poids est associé à chaque événement. Ce poids peut être positif ou négatif selon si l'événement est un excès ou un déficit par rapport à la prédiction du Modèle Standard. Le fait qu'un événement puisse posséder un poids négatif affecte directement l'efficacité de sélection. Ce problème sera discuté en détails dans la \cref{sec:higgs_sel_eff}.
@@ -258,13 +257,6 @@ A cause du changement de coupure sur l'impulsion transverse, il est possible d'u
 
 \subsection{Efficacité de la sélection} \label{sec:higgs_sel_eff}
 
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=0.6\textwidth]{chapitre8/figs/interferences.pdf}
-    \caption{Exemple d'interférence produit par un processus de nouvelle physique sur un prédiction Modèle Standard. La zone A correspond à un excès d'événement, et la zone B à un déficit d'événement par rapport au Modèle Standard.}
-    \label{fig:int_eff}
-\end{figure}
-
 La présence de poids négatifs nous oblige à modifier la façon dont on calcule l'efficacité de sélection. Si on définit l'efficacité de sélection comme le rapport entre le nombre d'événements sélectionnés (équivalent à l'intégrale de la distribution de masse invariante) et le nombre d'événements générés, on obtient sur le signal et ses interférences
 \begin{align*}
   \epsilon &= \frac{N_A - N_B}{N_\text{généré}}
@@ -273,6 +265,12 @@ où $N_A$ est le nombre d'événements positifs et $N_B$ le nombre d'événement
 \begin{align*}
   \epsilon &= \frac{N_A + N_B}{N_\text{généré}}.
 \end{align*}
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chapitre8/figs/interferences.pdf}
+    \caption{Exemple d'interférence produit par un processus de nouvelle physique sur un prédiction Modèle Standard. La zone A correspond à un excès d'événement, et la zone B à un déficit d'événement par rapport au Modèle Standard.}
+    \label{fig:int_eff}
+\end{figure}
 
 \begin{table}[p] \centering
   \begin{tabular}{ccccccc} \toprule
@@ -341,7 +339,7 @@ En analogie avec l'analyse \zprime, plusieurs fonctions analytiques ont été te
 
 Au lieu d'estimer le bruit de fond directement sur les données, la simulation est utilisée pour décrire le spectre de masse invariante \mtt du Modèle Standard. Il est ainsi aisé de décrire toute la gamme de masse, puisque aucune fonction analytique n'est nécessaire. En contre\-/partie, cette méthode introduit plusieurs incertitudes systématiques qui n'étaient pas présentes dans l'analyse \zprime. Ces nouvelles incertitudes sont décrites dans la \cref{sec:higgs_syst}.
 
-\subsection{Comparaisons données / simulation}
+\section{Comparaisons données / simulation}
 
 Les comparaisons entre les données et la simulation sont visibles sur la \cref{fig:higgs_data_mc}, pour \mtt et pour chacune des catégories de l'analyse. La simulation est normalisée aux valeurs de sorties d'un ajustement sur les données par la méthode du maximum de vraisemblance, présenté dans la \cref{sec:higgs_stat}. La zone hachurée grise correspond aux incertitudes statistiques et systématiques. Les comparaisons pour d'autres variables sont disponibles dans l'\cref{an:higgs_data_mc}. La valeur de chaque facteur de correction est résumé dans le \cref{tab:higgs_corr}.
 
@@ -418,7 +416,7 @@ Ici, $k$ court sur tous les bruits de fonds considérés, $B_{k, i}$ est le nomb
 
 La présence d'incertitudes systématiques impacte le nombre d'événements attendus $\lambda_i$. Un paramètre de nuisance est ajouté à la fonction de vraisemblance pour chaque source d'incertitude systématique. Pour les paramètres de nuisances impactant seulement la normalisation, un coefficient est ajouté avec un \emph{prior} log-normal. Pour les paramètres impactant à la fois la forme et la normalisation, un coefficient est ajouté avec un \emph{prior} gaussien : la valeur de ce coefficient est utilisée afin d'interpoler la forme de la distribution entre la forme nominale et les formes obtenues en appliquant une variation de $\pm 1 \sigma$ sur le paramètre d'intérêt de l'incertitude systématique.
 
-\subsection{Incertitudes systématiques} \label{sec:higgs_syst}
+\section{Incertitudes systématiques} \label{sec:higgs_syst}
 
 Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est important de noter que ces incertitudes affectent à la fois les distributions du signal et des bruits de fond. Pour chaque source, les distributions de signal et de bruit de fond sont déterminées à nouveau et l'effet propagé au résultat.
 
