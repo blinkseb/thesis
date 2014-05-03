@@ -23,6 +23,9 @@
 
 \setboolean{@drafting}{false}
 
+\newboolean{linenumbers} % enable backrefs in the bibliography
+\setboolean{linenumbers}{true}
+
 \newboolean{enable-backrefs} % enable backrefs in the bibliography
 \setboolean{enable-backrefs}{true} % true false
 
@@ -617,3 +620,26 @@
 \usepackage[absolute]{textpos}
 \setlength{\TPHorizModule}{\textwidth} % échelle horizontale
 \setlength{\TPVertModule}{\textheight} % échelle verticale identique à l'horizontale
+
+\ifthenelse{\boolean{linenumbers}}{% 
+\usepackage[switch]{lineno}
+\setlength\linenumbersep{1cm}
+% Remove this when line numbers are not shown
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+}{\relax}

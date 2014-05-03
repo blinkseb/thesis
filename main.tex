@@ -23,11 +23,15 @@
 
 \pagestyle{scrheadings} % Show chapter titles as headings
 
-\listoffixmes
+%\listoffixmes
 
 \cleardoublepage\include{FrontBackMatter/contents} % Contents, list of figures/tables/listings and acronyms
 
 \pagenumbering{arabic}
+
+\ifthenelse{\boolean{linenumbers}}{%
+\linenumbers
+}{\relax}
 
 \cleardoublepage\include{introduction/content}
 
@@ -46,6 +50,10 @@
 
 \cleardoublepage\input{annexes/zprime_limits}
 \cleardoublepage\input{annexes/data_mc_higgs}
+
+\ifthenelse{\boolean{linenumbers}}{%
+\nolinenumbers
+}{\relax}
 
 \cleardoublepage\include{FrontBackMatter/bibliography} % Bibliography
 
