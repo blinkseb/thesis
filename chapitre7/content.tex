@@ -41,7 +41,7 @@ L'analyse se concentre exclusivement sur le canal de désintégration des paires
     \item L'absence de neutrino dans le canal tout-hadronique est compensé par la nécessité de correctement sélectionner les 6 bons jets provenant de la désintégration \ttbar dans un environnement hadronique.
 \end{itemize}
 
-Expérimentalement, une telle désintégration se traduit par la présence d'un lepton isolé, de 4 jets, et de l'énergie transverse manquante (neutrino). Tous les processus physique du Modèle Standard produisant des états finaux similaires sont considérés comme des bruits de fond, le plus important étant la production de paires \ttbar du Modèle Standard, bruit de fond irréductible. Les autres bruits de fond considérés sont :
+Expérimentalement, une telle désintégration se traduit par la présence d'un lepton isolé, de 4 jets, et de l'énergie transverse manquante (neutrino). Tous les processus physiques du Modèle Standard produisant des états finaux similaires sont considérés comme des bruits de fond, le plus important étant la production de paires \ttbar du Modèle Standard, bruit de fond irréductible. Les autres bruits de fond considérés sont :
 \begin{itemize}
     \item La production d'un boson \PW avec des jets associés (\PW + jets).
     \item La production d'un boson \PZ avec des jets associés (\PZ + jets) : un des leptons provenant de la désintégration du \PZ est mal identifié.
@@ -234,7 +234,7 @@ Les événements passant la sélection sont ensuite classés en 4 catégories, s
 \begin{figure}[tbp] \centering
     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_fourthJet_zoom.pdf}}
     \subcaptionbox{Canal semi-électronique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_el_fourthJet_zoom.pdf}}
-    \caption{Efficacité des chemins de déclenchement en fonction de l'impulsion transverse du quatrième jet.}
+    \caption{Efficacités des chemins de déclenchement en fonction de l'impulsion transverse du quatrième jet.}
     \label{fig:trig_eff}
 \end{figure}
 
@@ -293,7 +293,7 @@ $\epsilon$ (\ttbar)& \num{0.956\pm 0.005} & \num{0.954\pm 0.004} & \num{0.957\pm
 
 Afin d'estimer au mieux l'efficacité des chemins de déclenchement utilisés par l'analyse, chaque chemin a été simulé individuellement pour chaque point de signal considéré. Il est ainsi possible d'évaluer l'efficacité de chaque chemin.
 
-Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont disponibles pour toutes les analyses, et son calculés avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, pour chacune des catégories de l'analyse et séparément pour chaque masse de signal et le bruit de fond \ttbar : l'efficacité de déclenchement n'est pas dépendante de la masse du \zprime, et  est compatible entre \zprime et \ttbar. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
+Un facteur de correction additionnel est appliqué à chaque efficacité pour tenir compte des différences de performances entre la simulation des chemins et les données. Ces facteurs sont disponibles pour toutes les analyses, et sont calculés avec une sélection identique pour les leptons, mais légèrement différente (plus lâche) pour les jets. La \cref{fig:trig_eff} présente un exemple de courbes d'efficacités pour les chemins de déclenchement utilisés dans l'analyse. On peut constater que les coupures appliquées sur les jets permettent d'être sur le plateau d'efficacité des chemins. On peut ainsi utiliser une efficacité non dépendante de l'impulsion transverse des objets. Les \cref{tab:HLT_mu_eff_2btag,tab:HLT_mu_eff_1btag,tab:HLT_el_eff_2btag,tab:HLT_el_eff_1btag} résument les efficacités obtenues pour chaque chemin de déclenchement, pour chacune des catégories de l'analyse et séparément pour chaque masse de signal et le bruit de fond \ttbar : l'efficacité de déclenchement n'est pas dépendante de la masse du \zprime, et  est compatible entre \zprime et \ttbar. Pour le canal semi-muonique, l'efficacité moyenne est d'environ \SI{90}{\%}, et environ \SI{95}{\%} pour le canal semi-électronique.
 
 % \begin{figure}[tbp] \centering
 %     \subcaptionbox{Canal semi-muonique}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre7/figs/HLT/HLTturnon_mu_lepton_zoom.pdf}}
@@ -328,7 +328,7 @@ Un facteur de correction additionnel est appliqué à chaque efficacité pour te
     $\epsilon$, semi-$\mu$ & \num{0.55 \pm 0.02} & \num{1.60 \pm 0.03} & \num{1.87 \pm 0.03} & \num{1.86 \pm 0.03} & \num{1.63 \pm 0.03} & \num{1.13 \pm 0.02} \\
     $\epsilon$, semi-e & \num{0.47 \pm 0.01} & \num{1.43 \pm 0.03} & \num{1.74 \pm 0.03} & \num{1.80 \pm 0.03} & \num{1.61 \pm 0.03} & \num{1.22 \pm 0.03} \\ \bottomrule
   \end{tabular}
-  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances étroites, en demandant exactement 1 jet étiqueté \Pbottom. Ces efficacités sont calculés par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
+  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances étroites, en demandant exactement 1 jet étiqueté \Pbottom. Ces efficacités sont calculées par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
   \label{tab:eff_narrow_1b}
 \end{table}
 
@@ -338,7 +338,7 @@ Un facteur de correction additionnel est appliqué à chaque efficacité pour te
     $\epsilon$, semi-$\mu$ & \num{0.51 \pm 0.01} & \num{1.62 \pm 0.03} & \num{1.90 \pm 0.03} & \num{1.67 \pm 0.03} & \num{1.38 \pm 0.03} & \num{0.81 \pm 0.02} \\
     $\epsilon$, semi-e & \num{0.43 \pm 0.01} & \num{1.46 \pm 0.03} & \num{1.68 \pm 0.03} & \num{1.57 \pm 0.03} & \num{1.32 \pm 0.03} & \num{0.81 \pm 0.02} \\ \bottomrule
   \end{tabular}
-  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances étroites, en demandant au moins 2 jets étiquetés \Pbottom. Ces efficacités sont calculés par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
+  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances étroites, en demandant au moins 2 jets étiquetés \Pbottom. Ces efficacités sont calculées par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
   \label{tab:eff_narrow_2b}
 \end{table}
 
@@ -348,7 +348,7 @@ Un facteur de correction additionnel est appliqué à chaque efficacité pour te
     $\epsilon$, semi-$\mu$ & \num{0.66 \pm 0.02} & \num{1.57 \pm 0.03} & \num{1.89 \pm 0.03} & \num{1.81 \pm 0.03} & \num{1.65 \pm 0.03} & \num{1.31 \pm 0.03} \\
     $\epsilon$, semi-e & \num{0.48 \pm 0.02} & \num{1.25 \pm 0.02} & \num{1.63 \pm 0.03} & \num{1.60 \pm 0.03} & \num{1.66 \pm 0.03} & \num{1.28 \pm 0.03} \\ \bottomrule
   \end{tabular}
-  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances larges, en demandant exactement 1 jet étiqueté \Pbottom. Ces efficacités sont calculés par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
+  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances larges, en demandant exactement 1 jet étiqueté \Pbottom. Ces efficacités sont calculées par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
   \label{tab:eff_large_1b}
 \end{table}
 
@@ -358,7 +358,7 @@ Un facteur de correction additionnel est appliqué à chaque efficacité pour te
     $\epsilon$, semi-$\mu$ & \num{0.62 \pm 0.02} & \num{1.60 \pm 0.03} & \num{1.81 \pm 0.03} & \num{1.64 \pm 0.03} & \num{1.40 \pm 0.03} & \num{1.07 \pm 0.02} \\
     $\epsilon$, semi-e & \num{0.48 \pm 0.02} & \num{1.38 \pm 0.03} & \num{1.55 \pm 0.03} & \num{1.52 \pm 0.04} & \num{1.35 \pm 0.04} & \num{1.02 \pm 0.02} \\ \bottomrule
   \end{tabular}
-  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances larges, en demandant au moins 2 jets étiquetés \Pbottom. Ces efficacités sont calculés par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
+  \caption{Efficacités de sélection du signal pour différentes masses de \zprime dans l'hypothèse de résonances larges, en demandant au moins 2 jets étiquetés \Pbottom. Ces efficacités sont calculées par rapport à la désintégration $\zprime \rightarrow \ttbar$ inclusive.}
   \label{tab:eff_large_2b}
 \end{table}
 
@@ -368,7 +368,7 @@ Un facteur de correction additionnel est appliqué à chaque efficacité pour te
     $\epsilon$, semi-$\mu$ & \num{1.26 \pm 0.04} & \num{1.55 \pm 0.04} & \num{1.53 \pm 0.03} & \num{1.48 \pm 0.04} & \num{1.20 \pm 0.03} \\
     $\epsilon$, semi-e & \num{1.09 \pm 0.03} & \num{1.36 \pm 0.04} & \num{1.50 \pm 0.03} & \num{1.33 \pm 0.04} & \num{1.25 \pm 0.04} \\ \bottomrule
   \end{tabular}
-  \caption{Efficacités de sélection du signal pour différentes masses de \kkglu, en demandant exactement 1 jet étiqueté \Pbottom. Ces efficacités sont calculés par rapport à la désintégration $\kkg \rightarrow \ttbar$ inclusive.}
+  \caption{Efficacités de sélection du signal pour différentes masses de \kkglu, en demandant exactement 1 jet étiqueté \Pbottom. Ces efficacités sont calculées par rapport à la désintégration $\kkg \rightarrow \ttbar$ inclusive.}
   \label{tab:eff_kk_1b}
 \end{table}
 
@@ -378,7 +378,7 @@ Un facteur de correction additionnel est appliqué à chaque efficacité pour te
     $\epsilon$, semi-$\mu$ & \num{1.25 \pm 0.04} & \num{1.47 \pm 0.04} & \num{1.40 \pm 0.03} & \num{1.26 \pm 0.04} & \num{1.02 \pm 0.03} \\
     $\epsilon$, semi-e & \num{1.08 \pm 0.03} & \num{1.38 \pm 0.04} & \num{1.35 \pm 0.03} & \num{1.27 \pm 0.04} & \num{0.96 \pm 0.03} \\ \bottomrule
   \end{tabular}
-  \caption{Efficacités de sélection du signal pour différentes masses de \kkglu, en demandant au moins 2 jets étiquetés \Pbottom. Ces efficacités sont calculés par rapport à la désintégration $\kkg \rightarrow \ttbar$ inclusive.}
+  \caption{Efficacités de sélection du signal pour différentes masses de \kkglu, en demandant au moins 2 jets étiquetés \Pbottom. Ces efficacités sont calculées par rapport à la désintégration $\kkg \rightarrow \ttbar$ inclusive.}
   \label{tab:eff_kk_2b}
 \end{table}
 
@@ -386,7 +386,7 @@ Les \cref{tab:eff_narrow_1b,tab:eff_narrow_2b} présentent les efficacités de s
 
 \bigskip
 
-Afin d'obtenir l'efficacité de sélection d'un éventuel signal sur les données, des facteurs de correction sont appliqués pour tenir compte des différences de performances de l'algorithme d'étiquetage des \Pbottom ainsi que l'efficacité d'identification et d'isolation des leptons entre la simulation et les données. Ces facteurs de corrections sont disponibles pour toutes les analyses, et dépendent de l'impulsion transverse et de la pseudo-rapidité des objets physiques concernés. Pour obtenir un facteur de correction global à appliquer aux efficacités de sélection, les valeurs centrales sont combinées en tenant compte des spectres en \pt et \aeta des objets physique du signal. On obtient au final les facteurs de corrections suivants, définis par le rapport $\epsilon_{\text{données}} \, / \, \epsilon_{\text{MC}}$ :
+Afin d'obtenir l'efficacité de sélection d'un éventuel signal sur les données, des facteurs de correction sont appliqués pour tenir compte des différences de performances de l'algorithme d'étiquetage des \Pbottom ainsi que l'efficacité d'identification et d'isolation des leptons entre la simulation et les données. Ces facteurs de corrections sont disponibles pour toutes les analyses, et dépendent de l'impulsion transverse et de la pseudo-rapidité des objets physiques concernés. Pour obtenir un facteur de correction global à appliquer aux efficacités de sélection, les valeurs centrales sont combinées en tenant compte des spectres en \pt et \aeta des objets physiques du signal. On obtient au final les facteurs de corrections suivants, définis par le rapport $\epsilon_{\text{données}} \, / \, \epsilon_{\text{MC}}$ :
 \begin{itemize}
   \item Identification et isolation des muons : \num{0.992 \pm 0.005}.
   \item Identification et isolation des électrons : \num{0.982 \pm 0.003}.
@@ -452,7 +452,7 @@ Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ re
 
 \subsubsection{L'ajustement cinématique} \label{sec:zprime_kf}
 
-Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Bien qu'on ai vu que la résolution était dégradée, cette section complète cette étude en incluant des événements \ttbar produits par des processus de nouvelle physique, plus particulièrement des \zprime.
+Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Bien qu'on ait vu que la résolution était dégradée, cette section complète cette étude en incluant des événements \ttbar produits par des processus de nouvelle physique, plus particulièrement des \zprime.
 
 \medskip
 
@@ -507,7 +507,7 @@ Les \cref{tab:sel_perf_mu,tab:sel_perf_e} résument le nombre d'événements de 
 \label{tab:sel_perf_e}
 \end{table}
 
-Le nombre d'événements de fond attendus est systématiquement plus bas que le nombre d'événement observés sur les données. Cette différence peut être expliquée par le fait que le fond multi-jets n'est pas pris en compte dans les chiffres présentés ci-dessous. Afin de conforter cette hypothèse, la distribution de l'énergie manquante pour le canal semi-électronique est présentée sur la \cref{fig:data_mc_met}. Sur cette distribution, le désaccord entre la simulation et les données est principalement visible à bas \met, là où les événements multi-jets sont principalement localisés. En appliquant une coupure supplémentaire sur \met, $\met > \SI{80}{\GeV}$, le nombre d'événements de fond attendus dans ce canal devient \num{16682 \pm 136}, à comparer aux \num{16634} événements de données observés. Le désaccord observé est donc dû à l'absence du fond simulé multi-jets.
+Le nombre d'événements de fond attendus est systématiquement plus bas que le nombre d'événements observés sur les données. Cette différence peut être expliquée par le fait que le fond multi-jets n'est pas pris en compte dans les chiffres présentés ci-dessous. Afin de conforter cette hypothèse, la distribution de l'énergie manquante pour le canal semi-électronique est présentée sur la \cref{fig:data_mc_met}. Sur cette distribution, le désaccord entre la simulation et les données est principalement visible à bas \met, là où les événements multi-jets sont principalement localisés. En appliquant une coupure supplémentaire sur \met, $\met > \SI{80}{\GeV}$, le nombre d'événements de fond attendus dans ce canal devient \num{16682 \pm 136}, à comparer aux \num{16634} événements de données observés. Le désaccord observé est donc dû à l'absence du fond simulé multi-jets.
 
 \begin{figure}[tbp]
   \centering
@@ -518,7 +518,7 @@ Le nombre d'événements de fond attendus est systématiquement plus bas que le 
 
 \section{Analyse statistique} \label{sec:stat}
 
-On souhaite extraire le nombre d'événements de signal présent dans les données. On définit pour cela deux densités de probabilités (PDF), une permettant de décrire le bruit de fond, et une permettant de décrire la résonance. Ces deux fonctions sont ensuite sommées afin de fournir une PDF globale, utilisée ensuite pour ajuster les données. La procédure d'ajustement est décrite dans la prochaine section, et le choix des PDFs associées au fond et signal dans les sections suivantes.
+On souhaite extraire le nombre d'événements de signal présent dans les données. On définit pour cela deux densités de probabilités (PDF), une permettant de décrire le bruit de fond, et une permettant de décrire la résonance. Ces deux fonctions sont ensuite sommées afin de fournir une PDF globale, utilisée ensuite pour ajuster les données. La procédure d'ajustement est décrite dans la prochaine section, et le choix des PDFs associées au fond et au signal dans les sections suivantes.
 
 \subsection{Structure de l'ajustement}
 
@@ -567,7 +567,7 @@ La \cref{fig:signal_pdf} présente les distributions de masse invariante pour un
 
 \subsection{Choix de la PDF du fond} \label{sec:zp_bkg_pdf}
 
-Le signal se manifeste sous la forme d'une résonance dans un spectre de masse décroissant. On cherche ainsi une fonction analytique strictement décroissante. Parmi plusieurs formes, on sélectionne la fonction qui biaise le moins l'analyse : en cas de présence de signal, la fonction décrivant le fond ne doit pas être en mesure d'absorber ce signal. Pour cela, plusieurs études ont été effectuée, décrites dans la suite de cette section.
+Le signal se manifeste sous la forme d'une résonance dans un spectre de masse décroissant. On cherche ainsi une fonction analytique strictement décroissante. Parmi plusieurs formes, on sélectionne la fonction qui biaise le moins l'analyse : en cas de présence de signal, la fonction décrivant le fond ne doit pas être en mesure d'absorber ce signal. Pour cela, plusieurs études ont été effectuées, décrites dans la suite de cette section.
 
 \medskip
 
@@ -591,13 +591,13 @@ Lors de l'ajustement sur les données, la même fonction est utilisée pour chac
 \label{tab:chi2}
 \end{table}
 
-Les trois fonctions sélectionnées décrivent les données de façon équivalente : la valeur du $\chi^2$ de l'ajustement pour chaque fonction est présentée dans le \cref{tab:chi2}\footnote{Un résultat équivalent est obtenu en utilisant la simulation en lieu et place des données pour l'ajustement.}. Afin de déterminer laquelle de ces fonctions biaise le moins l'analyse, un jeu de 500 pseudo\-/expériences est généré à l'aide de chaque fonction. Chaque pseudo\-/expériences représente un spectre de masse \ttbar, auquel on ajoute en plus un nombre d'événement de signal correspondant à une fluctuation de 2$\sigma$. On dispose ainsi de 3 jeux de 500 pseudo\-/expériences, ce qui nous permet de simuler le fait que l'on n'a pas connaissance de la vraie forme analytique du spectre de masse \ttbar. L'étape suivante est simple : on cherche la fonction qui, lors de l'ajustement signal + fond, permet de trouver le nombre d'événement de signal le plus proche de celui généré, et ce peu importe la fonction ayant servi à générer les données. On ajuste ainsi chaque jeu de pseudo\-/expériences généré avec chacune des 3 fonctions.
+Les trois fonctions sélectionnées décrivent les données de façon équivalente : la valeur du $\chi^2$ de l'ajustement pour chaque fonction est présentée dans le \cref{tab:chi2}\footnote{Un résultat équivalent est obtenu en utilisant la simulation en lieu et place des données pour l'ajustement.}. Afin de déterminer laquelle de ces fonctions biaise le moins l'analyse, un jeu de 500 pseudo\-/expériences est généré à l'aide de chaque fonction. Chaque pseudo\-/expériences représente un spectre de masse \ttbar, auquel on ajoute en plus un nombre d'événements de signal correspondant à une fluctuation de 2$\sigma$. On dispose ainsi de 3 jeux de 500 pseudo\-/expériences, ce qui nous permet de simuler le fait que l'on n'a pas connaissance de la vraie forme analytique du spectre de masse \ttbar. L'étape suivante est simple : on cherche la fonction qui, lors de l'ajustement signal + fond, permet de trouver le nombre d'événements de signal le plus proche de celui généré, et ce peu importe la fonction ayant servi à générer les données. On ajuste ainsi chaque jeu de pseudo\-/expériences généré avec chacune des 3 fonctions.
 
 Pour chaque ajustement réalisé, on estime le biais grâce au \emph{pull} \citep{pulls}, défini par :
 \begin{align*}
   p &= \frac{N^S_\text{mesuré} - N^S_{0}}{\sigma_{N^S_\text{mesuré}}}
 \end{align*}
-où $N^S_\text{mesuré}$ est le nombre d'événements de signal extrait par l'ajustement, $N^S_{0}$ le nombre d'événements de signal injecté lors de la génération des pseudo-expérien\-ces, et $\sigma_{N^S_\text{mesuré}}$ l'incertitude sur l'estimation de $N^S_\text{mesuré}$ par l'ajustement. Il est alors possible d'obtenir une distribution de \emph{pull} en calculant cet estimateur pour chaque pseudo\-/expériences. Lorsque l'ajustement est non biaisé, la distribution des \emph{pull} est une gaussienne de moyenne 0 et d'écart-type 1.
+où $N^S_\text{mesuré}$ est le nombre d'événements de signal extrait par l'ajustement, $N^S_{0}$ le nombre d'événements de signal injecté lors de la génération des pseudo-expérien\-ces, et $\sigma_{N^S_\text{mesuré}}$ l'incertitude sur l'estimation de $N^S_\text{mesuré}$ par l'ajustement. Il est alors possible d'obtenir une distribution de \emph{pull} en calculant cet estimateur pour chaque pseudo\-/expérience. Lorsque l'ajustement est non biaisé, la distribution des \emph{pull} est une gaussienne de moyenne 0 et d'écart-type 1.
 
 \begin{figure}[tbp]
   \centering
@@ -613,7 +613,7 @@ où $N^S_\text{mesuré}$ est le nombre d'événements de signal extrait par l'aj
   \label{fig:pulls}
 \end{figure}
 
-Au final, on obtient 9 distributions de \emph{pull}, une pour chaque couple \enquote{fonction ayant générée les pseudo\-/expériences / fonction ayant ajustée les pseudo\-/expériences}. Une représentation schématique est visible sur la \cref{fig:pull_matrix}. On souhaite cependant obtenir un unique estimateur par fonction. On somme donc les distributions de \emph{pull} de chaque couple où la même fonction a servi à l'ajustement, en excluant le couple où la même fonction a servi à la génération et à l'ajustement, non biaisé. Autrement dit, si on se réfère à la \cref{fig:pull_matrix}, on somme les distributions associées à chaque ligne, en excluant la diagonale.
+Au final, on obtient 9 distributions de \emph{pull}, une pour chaque couple \enquote{fonction ayant généré les pseudo\-/expériences / fonction ayant ajusté les pseudo\-/expériences}. Une représentation schématique est visible sur la \cref{fig:pull_matrix}. On souhaite cependant obtenir un unique estimateur par fonction. On somme donc les distributions de \emph{pull} de chaque couple où la même fonction a servi à l'ajustement, en excluant le couple où la même fonction a servi à la génération et à l'ajustement, non biaisé. Autrement dit, si on se réfère à la \cref{fig:pull_matrix}, on somme les distributions associées à chaque ligne, en excluant la diagonale.
 
 Les résultats de cette étude sont visibles \cref{fig:pulls} pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites. Chaque distribution est ajustée avec une fonction gaussienne de laquelle on extrait la moyenne, décrivant le biais sur le nombre d'événement de signal de la fonction utilisée pour l'ajustement des pseudo\-/expériences.
 

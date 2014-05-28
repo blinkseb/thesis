@@ -148,7 +148,7 @@ Pour pouvoir évaluer les performances de l'algorithme de tri par $\chi^2$, il e
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.48\textwidth]{chapitre6/figs/chi2/jet_selection_efficiency.pdf}
-  \caption{ Évolution de l'efficacité d'obtenir un événement associé en fonction de la masse invariante \ttbar généré pour l'algorithme de tri par $\chi^2$ (\textcolor{rouge_grandmere}{rouge}) ou en sélectionnant simplement les 4 jets de plus haute impulsions (\textcolor{bleu_gris}{gris}).}
+  \caption{ Évolution de l'efficacité d'obtenir un événement associé en fonction de la masse invariante \ttbar généré pour l'algorithme de tri par $\chi^2$ (\textcolor{rouge_grandmere}{rouge}) ou en sélectionnant simplement les 4 jets de plus hautes impulsions (\textcolor{bleu_gris}{gris}).}
   \label{fig:chi2_vs_jets}
 \end{figure}
 
@@ -196,7 +196,7 @@ La \cref{fig:mtt_reso_chi2} présente la résolution obtenue avec l'utilisation 
 
 \bigskip
 
-Les résultats de cette étude montrent que l'algorithme de tri par $\chi^2$ est le plus performant en terme de résolution, au détriment d'une légère perte de linéarité de la reconstruction en fonction de masse invariante générée. Plusieurs études ont été menées afin de voir s'il était possible d'améliorer les performances de la reconstruction, présentées dans la \cref{sec:reco_tests}. Aucune de ces améliorations potentielles n'a été retenues.
+Les résultats de cette étude montrent que l'algorithme de tri par $\chi^2$ est le plus performant en terme de résolution, au détriment d'une légère perte de linéarité de la reconstruction en fonction de masse invariante générée. Plusieurs études ont été menées afin de voir s'il était possible d'améliorer les performances de la reconstruction, présentées dans la \cref{sec:reco_tests}. Aucune de ces améliorations potentielles n'a été retenue.
 
 \section{Possibles améliorations étudiées (mais non retenues)} \label{sec:reco_tests}
 
@@ -214,7 +214,7 @@ Un arbre de décision est un algorithme de classification des événements utili
 
 Afin de construire un tel arbre, une phase d'entrainement est nécessaire. Cet entrainement est réalisé à la fois sur des événements classés comme "signal" et sur des événements classés comme "fond". Un des principaux problèmes de cet algorithme est son instabilité vis-à-vis des fluctuations statistiques dans l'échantillon utilisé pour l'entrainement. Par exemple, si deux variables font preuve d'un pouvoir de discrimination similaire, une fluctuation statistique pourrait décider l'algorithme à utiliser la première variable au lieu de la deuxième.
 
-Le problème est contourné en construisant une "forêt" d'arbres de décision. La classification d'un événement en "signal" ou "fond" est déterminée par le résultat majoritaire sur tous les arbres. L'entrainement de chaque arbre est réalisé sur le même échantillon. La seule différence vient de l'application d'un poids particulier à chaque événement : les événements mals classés durant l'entrainement de l'arbre de décision auront un poids plus grand lors de l'entrainement de l'arbre suivant. Cette technique est appelé \emph{boost} \citep{Freund1997119} et permet de stabiliser l'algorithme.
+Le problème est contourné en construisant une "forêt" d'arbres de décision. La classification d'un événement en "signal" ou "fond" est déterminée par le résultat majoritaire sur tous les arbres. L'entrainement de chaque arbre est réalisé sur le même échantillon. La seule différence vient de l'application d'un poids particulier à chaque événement : les événements mal classés durant l'entrainement de l'arbre de décision auront un poids plus grand lors de l'entrainement de l'arbre suivant. Cette technique est appelé \emph{boost} \citep{Freund1997119} et permet de stabiliser l'algorithme.
 
 \begin{figure}[t!] \centering
     \subcaptionbox{Vue schématique d'un arbre de décision. En commençant au nœud racine, une suite de sélections binaires est appliquée en utilisant le discriminant $x_i$, qui peut varier ou non à chaque nœud de la sélection. A la fin de chaque branche de sélection, l'événement est classé comme "signal" (S) ou comme "fond" (B). \label{fig:bdt}}[0.48\textwidth]{\includegraphics[width=0.48\textwidth]{chapitre6/figs/BDT.pdf}} \hfill
@@ -224,9 +224,9 @@ Le problème est contourné en construisant une "forêt" d'arbres de décision. 
 
 \subsubsection{Réseau de neurones}
 
-Un neurone, par analogie au cerveau, est une entité de calcul autonome. Cette entité reçoit des valeurs d'entrée de plusieurs sources, et réponds avec une valeur de sortie grâce à la fonction de transfert qui lui est assignée. En regroupant plusieurs neurones et en les interconnectant, on forme un réseau de neurones, qui permet de traiter des informations complexes.
+Un neurone, par analogie au cerveau, est une entité de calcul autonome. Cette entité reçoit des valeurs d'entrée de plusieurs sources, et répond avec une valeur de sortie grâce à la fonction de transfert qui lui est assignée. En regroupant plusieurs neurones et en les interconnectant, on forme un réseau de neurones, qui permet de traiter des informations complexes.
 
-Un réseau de neurones est typiquement organisé en plusieurs couches. La première couche traite l'information d'entrée, et transmet une réponse à une deuxième couche. L'opération est réitérée autant de fois qu'il y a de couche de neurones. Finalement, un neurone de sortie permet au réseau de répondre avec une unique valeur de sortie, typiquement un nombre. Lors de la phase d'entraînement, les poids assignés à la réponse de chaque neurone (et donc à la valeur d'entrée des autres neurones) varie jusqu'à obtenir une réponse satisfaisante. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
+Un réseau de neurones est typiquement organisé en plusieurs couches. La première couche traite l'information d'entrée, et transmet une réponse à une deuxième couche. L'opération est réitérée autant de fois qu'il y a de couches de neurones. Finalement, un neurone de sortie permet au réseau de répondre avec une unique valeur de sortie, typiquement un nombre. Lors de la phase d'entraînement, les poids assignés à la réponse de chaque neurone (et donc à la valeur d'entrée des autres neurones) varie jusqu'à obtenir une réponse satisfaisante. La \cref{fig:nn} présente une vue schématique d'un réseau de neurones.
 
 On assigne aux neurones de la première et dernière couche une fonction de transfert linéaire :
 \begin{align*}
@@ -301,7 +301,7 @@ Pour un événement \ttbar, les objets reconstruits (leptons, jets, \met) doiven
 
 % L'idée de l'ajustement cinématique est simple : faire varier les quantités physiques des objets sélectionnées, dans leurs incertitudes, afin de respecter au mieux les con\-traintes d'un événement \ttbar. On utilise pour cela la méthode des multiplicateurs de Lagrange afin de trouver les valeurs optimales des quantités physiques des particules sélectionnées sous diverses contraintes.
 % L'idée de l'ajustement cinématique est simple : on utilise la connaissance de la cinématique d'un événement \ttbar afin d'améliorer la résolution des objets physiques. Les quantités physiques de chaque objet sont optimisées afin de respecter au mieux les contraintes d'un événement \ttbar.
-L'ajustement cinématique impose les contraintes liées à la connaissance de la cinématique d'un événement \ttbar aux objets reconstruis, et les faisant varier d'une façon compatible à leur résolution expérimentale, afin d'améliorer leur précision.
+L'ajustement cinématique impose les contraintes liées à la connaissance de la cinématique d'un événement \ttbar aux objets reconstruits, et les faisant varier d'une façon compatible à leur résolution expérimentale, afin d'améliorer leur précision.
 
 \bigskip
 
