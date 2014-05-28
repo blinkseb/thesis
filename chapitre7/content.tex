@@ -715,7 +715,7 @@ Le nombre de dimensions de l'intégrale est souvent trop important pour qu'elle 
 \smallskip
 
 Le \emph{posterior} peut également être utilisé afin d'établir un intervalle de confiance. Il est ainsi possible de définir une limite supérieure $\sigma_\text{up}$ sur la section efficace à un certain niveau de confiance $1 - \alpha$ (habituellement \SI{95}{\percent}) : en refaisant l'expérience plusieurs fois, la probabilité d'obtenir une section efficace supérieure à $\sigma_\text{up}$ est égale $ \alpha$.
-La limite supérieure est définie comme la borne supérieur de l'intégrale :
+La limite supérieure est définie comme la borne supérieure de l'intégrale :
 \begin{align*}
   1 - \alpha = \int \limits_{-\infty}^{\sigma_{\text{up}}} p(\sigma \mid \mtt) \; \mathrm{d} \sigma
 \end{align*}
@@ -752,7 +752,7 @@ Des erreurs systématiques peuvent modifier la mesure de la section efficace, en
   \item[Facteurs de corrections] Les incertitudes sur les facteurs de corrections liés à l’identification et à l’isolation des leptons, à l’algorithme d’étiquetage des jets de b ainsi qu’aux performances des chemins de déclenchement sont sommées en quadratique et considérées comme une source d’incertitude systématique impactant l'efficacité de la sélection.
   \item[Corrections des jets] Les incertitudes sur les corrections en énergie et résolution des jets sont considérées comme une source d’incertitude systématique. Afin d'en tenir compte, les facteurs de corrections des jets sont modifiés de \pm{} leur incertitude, et l'analyse complète est refaite. La variation de la section efficace du signal extraite à l'aide de l'ajustement est considérée comme incertitude systématique.
   \item[Modélisation du signal] On utilise une interpolation par noyaux gaussiens pour décrire la PDF du signal, déterminée sur des événements de signal simulés. Cette PDF est fixée pendant l'ajustement. Afin d'évaluer l'effet systématique du choix de cette description du signal sur $N_S$, on génère environ 150 pseudo\-/expériences pour chaque point de masse à partir de l'interpolation du signal. Pour chaque pseudo\-/expérience, on extrait une nouvelle PDF pour le signal (voir \cref{fig:keys_syst}), qu'on utilise pour extraire une nouvelle valeur de $N_S$. On obtient ainsi une distribution de $N_S$, dont on utilise la moyenne quadratique (RMS) comme erreur systématique liée au choix de PDF du signal.
-  \item[Densités de probabilité partonique] Les fonctions de densité de probabilité partonique ne sont connues qu'avec une certaine précision. Les valeurs propres de ces fonctions sont modifiées dans leurs incertitudes lors la simulation du signal, et l'analyse est refaite avec la nouvelle fonction de densité partonique. L'effet sur le nombre d'événements de signal est négligeable par rapport aux autres erreurs systématiques, et n'est pas inclus dans la liste des incertitudes systématiques.
+  \item[Densités de probabilité partonique] Les fonctions de densité de probabilité partonique ne sont connues qu'avec une certaine précision. Les valeurs propres de ces fonctions sont modifiées dans leurs incertitudes lors de la simulation du signal, et l'analyse est refaite avec la nouvelle fonction de densité partonique. L'effet sur le nombre d'événements de signal est négligeable par rapport aux autres erreurs systématiques, et n'est pas inclus dans la liste des incertitudes systématiques.
 \end{description}
 
 À titre d'exemple, le \cref{tab:syst} résume les valeurs des erreurs systématiques pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites.
@@ -769,7 +769,7 @@ Des erreurs systématiques peuvent modifier la mesure de la section efficace, en
 \begin{figure}[p!]
   \centering
   \includegraphics[width=0.7\textwidth]{chapitre7/figs/posterior_plot_expected_750.pdf}
-  \caption{Distribution des limites supérieures extraites obtenus sur environ 500 pseudo\-/expériences. La ligne rouge correspond à la limite attendue, médiane de la distribution. Les zones en gris foncé et gris clair correspondent respectivement aux intervalles de confiance à 68 et \SI{95}{\%} sur la limite attendue.}
+  \caption{Distribution des limites supérieures extraites obtenues sur environ 500 pseudo\-/expériences. La ligne rouge correspond à la limite attendue, médiane de la distribution. Les zones en gris foncé et gris clair correspondent respectivement aux intervalles de confiance à 68 et \SI{95}{\%} sur la limite attendue.}
   \label{fig:posterior_mc}
 \end{figure}
 
@@ -791,7 +791,7 @@ On compare ensuite les limites attendues et observées sur les \cref{fig:limits_
 
 \begin{figure}[tbp] \centering
     \includegraphics[width=0.8\textwidth]{chapitre7/figs/low-mass-limits-kk.png}
-    \caption{Courbes de limites pour des gluons de Kaluza-Klein. La ligne rouge correspond aux limites observées, la ligne noire aux limites attendues, la bande gris clair à l'intervalle de confiance à \SI{68}{\percent} et la bande gris foncé à l'intervalle de confiance à \SI{95}{\%}. La ligne bleue correspond aux prédictions théorique pour ds gluons de Kaluza-Klein dans le modèle Randall-Sundrum \citep{Agashe:2006hk}, multipliées par un facteur \num{1.3} pour obtenir une section efficace aux ordres supérieurs.}
+    \caption{Courbes de limites pour des gluons de Kaluza-Klein. La ligne rouge correspond aux limites observées, la ligne noire aux limites attendues, la bande gris clair à l'intervalle de confiance à \SI{68}{\percent} et la bande gris foncé à l'intervalle de confiance à \SI{95}{\%}. La ligne bleue correspond aux prédictions théoriques   pour des gluons de Kaluza-Klein dans le modèle Randall-Sundrum \citep{Agashe:2006hk}, multipliées par un facteur \num{1.3} pour obtenir une section efficace aux ordres supérieurs.}
     \label{fig:limits_kk}
 \end{figure}
 
