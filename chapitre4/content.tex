@@ -251,7 +251,7 @@ et on définit la réponse $R$ par la relation
     R &= \frac{p_T^\text{jet}}{p_T^{\Pphoton}}
 \end{align*}
 
-Cette méthode est très simple et performante. Néanmoins, elle est très sensible au \pu, ainsi qu'aux radiations dans l'état final. En effet, la présence d'autres jets dans l'état final vont venir perturber la balance entre le jet et le photon. Il est cependant possible de restaurer cet équilibre, en utilisant une extrapolation.
+Cette méthode est très simple et performante. Néanmoins, elle est très sensible au \pu, ainsi qu'aux radiations dans l'état final. En effet, la présence d'autres jets dans l'état final va venir perturber l'équilibre entre le jet et le photon. Il est cependant possible de restaurer cet équilibre, en utilisant une extrapolation.
 
 \bigskip
 
@@ -293,7 +293,7 @@ Cette méthode est utilisée pour produire les corrections officielles. La méth
 
 Pour déterminer les corrections résiduelles, on sélectionne sur les données des événements contenant un unique photon, ainsi qu'un ou deux jets. Le principal bruit de fond est dû aux événements multi-jets où un jet est incorrectement identifié comme un photon. On étudie les performances de notre sélection sur des événement \Pphoton + jets simulés, considérés comme notre signal, ainsi que sur des événements multi-jets, le bruit de fond.
 
-Afin d'éliminer une grande partie du bruit de fond, une sélection est appliquée. La première étape consiste à sélectionner des événements contenant uniquement un seul photon. On utilise pour cela une méthode d'identification des photons. Suivant les besoin des analyses, cette méthode peut être optimisée pour obtenir une grande efficacité de sélection et une faible pureté (beaucoup d'événements sont sélectionnés, mais certains ne sont pas des vrais photons) ou au contraire une grande pureté et une faible efficacité (moins d'événements sont sélectionnés, mais la probabilité qu'ils ne soient pas de vrais photons est très faible).
+Afin d'éliminer une grande partie du bruit de fond, une sélection est appliquée. La première étape consiste à sélectionner des événements contenant uniquement un seul photon. On utilise pour cela une méthode d'identification des photons. Suivant les besoins des analyses, cette méthode peut être optimisée pour obtenir une grande efficacité de sélection et une faible pureté ou au contraire une grande pureté et une faible efficacité.
 
 On souhaite obtenir les événements les plus purs possibles. On choisit donc le point de fonctionnement offrant la plus grande pureté (\tilde\SI{96}{\%} des photons sont des vrais photons), mais une efficacité plus faible ($\tilde \SI{70}{\%}$). Cette identification est définie de la façon suivante :
 
@@ -387,7 +387,7 @@ Sur les données, on demande à ce que les événements aient passé les chemins
 
 \smallskip
 
-Finalement, la simulation des événements multi-jets et $\gamma$ + jets a été effectuée pendant la prise de données. À cette époque, le profil de \pu n'était pas encore connu précisément, et une estimation de ce profil a été utilisée pour la simulation. On repondère donc le profil de \pu de la simulation pour qu'il corresponde à celui observé sur les données collectées.
+Finalement, la simulation des événements multi-jets et $\gamma$ + jets a été effectuée pendant la prise de données. À cette époque, le profil de \pu n'était pas encore connu précisément, et une estimation de ce profil a été utilisée pour la simulation. On repondère donc le profil de \pu de la simulation pour qu'il corresponde à celui observé.
 
 \begin{figure}[p]
     \centering
@@ -510,7 +510,7 @@ On présente par la suite les résultats obtenus avec les méthodes de la balanc
 
 \subsubsection{Méthode de la balance, sans extrapolation}
 
-On présente \cref{fig:balancing_resp} les distributions des réponses moyennes pour différentes classes en \aeta. Le ratio entre les données et la simulation accompagne ces distributions, ce qui permet d'extraire les facteurs de corrections. Pour ce faire, une interpolation linéaire par une constante est dérivée à l'aide des divers ratios.
+On présente \cref{fig:balancing_resp} les distributions des réponses moyennes pour différentes classes en \aeta. Le ratio entre les données et la simulation accompagne ces distributions, ce qui permet d'extraire les facteurs de corrections. Pour ce faire, une interpolation linéaire par une constante est dérivée à l'aide des divers rapports.
 % On trouve aussi \cref{fig:balancing_reso} les distributions des résolutions pour les mêmes classes en \aeta. Même si ces résolutions ne sont pas utilisées pour dériver les corrections résiduelles, elles sont intéressantes pour se rendre compte des performances de reconstruction des algorithmes. On s'aperçoit d'ailleurs que les jets sont mieux reconstruits sur la simulation que sur les données. Cet effet donne lieu à une autre série de corrections pour la résolution, qui vise à dégrader la résolution des jets sur la simulation pour correspondre à celle des données.
 
 \begin{figure}[p]
