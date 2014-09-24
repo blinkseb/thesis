@@ -8,7 +8,7 @@ Double_t WH(Double_t* x, Double_t* par)
 {
   Double_t xx = x[0]*x[0];
   Double_t beta = TMath::Sqrt(1-4*MTOP*MTOP/xx);
-  return 3*GF*MTOP*MTOP*xx*pow(beta,3)/(4*TMath::Pi()*TMath::Sqrt(2)*par[0]);
+  return 3*GF*MTOP*MTOP*par[0]*pow(beta,3)/(4*TMath::Pi()*TMath::Sqrt(2));
 }
 
 Double_t BW(Double_t* x, Double_t* par)

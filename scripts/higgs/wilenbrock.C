@@ -8,7 +8,7 @@ Double_t WH(Double_t* x, Double_t* par)
 {
   Double_t xx = x[0]*x[0];
   Double_t beta = TMath::Sqrt(1-4*MTOP*MTOP/xx);
-  return 3*GF*MTOP*MTOP*xx*pow(beta,3)/(4*TMath::Pi()*TMath::Sqrt(2)*par[0]);
+  return 3*GF*MTOP*MTOP*par[0]*pow(beta,3)/(4*TMath::Pi()*TMath::Sqrt(2));
 }
 
 Double_t BW(Double_t* x, Double_t* par)
@@ -104,28 +104,28 @@ void wilenbrock()
   func->GetXaxis()->SetTitle("m_{t#bar{t}}");
   func->GetYaxis()->SetTitle("#sigma(#hat{s}) - #sigma_{QCD}(#hat{s})");
   TF1* func2 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=500;
+  m=500;
   func2->SetParameter(0,m);
   func2->SetLineColor(TColor::GetColor("#C02942"));
   func2->SetLineWidth(2);
   func2->SetNpx(500);
   func2->Draw("SAME");
   TF1* func3 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=600;
+  m=600;
   func3->SetParameter(0,m);
   func3->SetLineColor(TColor::GetColor("#53777A"));
   func3->SetLineWidth(2);
   func3->SetNpx(500);
   func3->Draw("SAME");
   TF1* func4 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=700;
+  m=700;
   func4->SetParameter(0,m);
   func4->SetLineColor(TColor::GetColor("#D95B43"));
   func4->SetLineWidth(2);
   func4->SetNpx(500);
   func4->Draw("SAME");
   TF1* func5 = new TF1("Signal + Interferences",Somme,350,900,1);
-  double m=800;
+  m=800;
   func5->SetParameter(0,m);
   func5->SetLineColor(TColor::GetColor("#ECD078"));
   func5->SetLineWidth(2);
