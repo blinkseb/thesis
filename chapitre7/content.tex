@@ -62,7 +62,7 @@ Expérimentalement, une telle désintégration se traduit par la présence d'un 
   \label{tab:backgrounds}
 \end{table}
 
-D'autres processus entrent aussi dans la composition du bruit de fond, tels que les événements multi-jets ou di-bosons (\PW{}\PW, \PZ{}\PZ, \PW{}\PZ). Après notre sélection, le nombre d'événements provenant de ces fonds est très largement minoritaire face aux autres fonds. Ils ne sont donc pas inclus dans notre analyse. Le \cref{tab:backgrounds} liste les sections efficaces de production les plus précises disponibles pour chaque bruit de fond considéré, ainsi que la luminosité équivalente disponible pour l'analyse, définie par $\mathcal{L_\text{equiv}} = N_\text{généré} \, / \, \sigma$. Ces sections efficaces sont utilisées pour normaliser les distributions des bruits de fond.
+D'autres processus entrent aussi dans la composition du bruit de fond, tels que les événements multi-jets ou di-bosons (\PW{}\PW, \PZ{}\PZ, \PW{}\PZ). Après notre sélection, le nombre d'événements provenant de ces fonds est cependant très largement minoritaire face aux autres fonds. Ils ne sont donc pas inclus dans notre analyse. Le \cref{tab:backgrounds} liste les sections efficaces de production les plus précises disponibles pour chaque bruit de fond considéré, ainsi que la luminosité équivalente disponible pour l'analyse, définie par $\mathcal{L_\text{equiv}} = N_\text{généré} \, / \, \sigma$. Ces sections efficaces sont utilisées pour normaliser les distributions des bruits de fond.
 
 \bigskip
 
@@ -74,7 +74,7 @@ On souhaite sélectionner des événements compatibles avec la désintégration 
 
 \medskip
 
-Chaque événement est catégorisé selon la saveur du lepton. On définit ainsi le canal semi-muonique (semi-$\mu$), lorsque le lepton isolé est un muon, et le canal semi-électronique (semi-e) lorsque c'est un électron. Le tau n'est pas considéré en tant que tel, puisqu'il nécessite des techniques d'identifications et de reconstructions spéciales. Néanmoins, s'il se désintègre en électron ou en muon, l'événement est alors considéré comme un événement de signal.
+Chaque événement est catégorisé selon la saveur du lepton. On définit ainsi le canal semi-muonique (semi-$\mu$), lorsque le lepton isolé est un muon, et le canal semi-électronique (semi-e) lorsque c'est un électron. Le tau n'est pas considéré en tant que tel, puisqu'il nécessite des techniques d'identifications et de reconstructions spéciales. Néanmoins, s'il se désintègre en électron ou en muon (environ \SI{5}{\percent} des désintégrations \ttbar), l'événement est alors considéré comme un événement de signal.
 
 \subsection{Identification des objets}
 
@@ -153,11 +153,18 @@ $\Delta \eta_{IN}$ est la différence entre $\eta$ de l'agrégat calorimétrique
 
 Les jets sont reconstruits à l'aide de l'algorithme anti-$k_T$, avec une largeur de cône $R = \num{0.5}$ (voir \cref{sec:jet_reco}). Toutes les particules \pf n'étant ni des leptons isolés, ni du \pu, sont utilisées dans l'agglomération des jets. Les corrections de niveaux 1, 2 et 3 sont appliquées, ainsi que les corrections résiduelles sur les données uniquement (plus de détails dans les \cref{sec:jec_l1,sec:jec_l2l3,sec:jec_res}).
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.53\textwidth]{chapitre7/figs/jetResolutionSmearingFactors.pdf}
+  \caption{Facteurs de corrections permettant de dégrader la résolution des jets, déterminées sur des événements di-jets.}
+  \label{fig:jet_res_factors}
+\end{figure}
+
 On a évoqué rapidement dans le \cref{chap:jetmet} que la résolution des jets sur la simulation était meilleure que celle des jets reconstruits sur les données. On applique une série de corrections afin de dégrader la résolution des jets sur la simulation, afin de correspondre mieux à celle des données. L'impulsion transverse des jets est corrigée par un facteur $C$, défini par :
 \begin{align*}
-  C &= \max\left(0, 1 + \left[ 1 - \frac{\pt^\text{gen}}{\pt^\text{jet}} \right] \, f(\pt, \eta)\right)
+  C &= \max\left(0, 1 + \left[ 1 - \frac{\pt^\text{gen}}{\pt^\text{jet}} \right] \, f(\eta)\right)
 \end{align*}
-où $\pt^\text{jet}$ est l'impulsion transverse du jet, $\pt^\text{gen}$ est l'impulsion transverse du jet généré, et $f(\pt, \eta)$ un facteur de correction permettant de dégrader la résolution des jets. Les corrections en énergie et en résolution des jets sont propagées à l'énergie transverse manquante (voir \cref{sec:jetmet_sel}, \cpageref{page:met_propagation} pour plus de détails).
+où $\pt^\text{jet}$ est l'impulsion transverse du jet, $\pt^\text{gen}$ est l'impulsion transverse du jet généré, et $f(\eta)$ un facteur de correction permettant de dégrader la résolution des jets. Les corrections en énergie et en résolution des jets sont propagées à l'énergie transverse manquante (voir \cref{sec:jetmet_sel}, \cpageref{page:met_propagation} pour plus de détails).
 
 L'algorithme utilisé pour l'étiquetage des jets de \Pbottom est présenté en détail \cref{sec:b_tagging}. Afin d'éliminer les jets provenant des bruits des détecteurs, une sélection lâche est appliquée, demandant que la fraction d'énergie hadronique du jet soit inférieure à \SI{99}{\percent}, et que le nombre de particules constituant le jet soit au moins égal à 2. Cette sélection a une efficacité supérieure à \SI{99}{\%}.
 
@@ -452,7 +459,7 @@ Parmi les événements associables, l'efficacité de l'algorithme de $\chi^2$ re
 
 \subsubsection{L'ajustement cinématique} \label{sec:zprime_kf}
 
-Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Bien qu'on ait vu que la résolution était dégradée, cette section complète cette étude en incluant des événements \ttbar produits par des processus de nouvelle physique, plus particulièrement des \zprime.
+Les performances de l'ajustement cinématique ont été détaillées dans le \cref{chap:mtt_reco} pour des événements \ttbar Modèle Standard. Bien qu'il ait été montré précédemment que la résolution était dégradée, cette section complète cette étude en incluant des événements \ttbar produits par des processus de nouvelle physique, plus particulièrement des \zprime.
 
 \medskip
 
@@ -527,7 +534,7 @@ On dispose de deux PDFs, décrivant respectivement le fond et le signal. Ces PDF
   \mathcal{L}(\mtt \mid \theta) &= \prod\limits_{i = 0}^B \left( \frac{\mu_i(\mtt^i \mid \theta)^{n_i} \, e^{- \mu_i(\mtt^i \mid \theta)}}{n_i!} \right) \\
   \mu_i(\mtt^i \mid \theta) &= N_S^i \; f_S(\mtt^i \mid \theta) + N_B^i \; f_B(\mtt^i \mid \theta)
 \end{align*}
-où $\theta$ symbolise l'ensemble des paramètres libres des PDFs, $B$ le nombre de classes en \mtt, $n_i$ le nombre d'événements dans la classe $i$, $N_S$ ($N_B$) le nombre d'événements de signal (de fond), et $f_S(\mtt^i \mid \theta)$ ($\;f_B(\mtt^i \mid \theta)\;$) la PDF décrivant le signal (le fond). Maximiser $\mathcal{L}$ permet d'obtenir les valeurs $\hat{\theta}$, $\hat{N_S}$ et $\hat{N_B}$ les plus probables, c'est-à-dire qui permettent d'obtenir la description optimale des données. Le nombre de classes en \mtt est fixé de façon à ce que chaque classe ait une largeur de \SI{4}{\GeV}.
+où $\theta$ symbolise l'ensemble des paramètres libres des PDFs, $B$ le nombre de classes en \mtt, $n_i$ le nombre d'événements dans la classe $i$, $N_S$ ($N_B$) le nombre d'événements de signal (de fond) attendu, et $f_S(\mtt^i \mid \theta)$ ($\;f_B(\mtt^i \mid \theta)\;$) la PDF décrivant le signal (le fond). Maximiser $\mathcal{L}$ permet d'obtenir les valeurs $\hat{\theta}$, $\hat{N_S}$ et $\hat{N_B}$ les plus probables, c'est-à-dire qui permettent d'obtenir la description optimale des données. Le nombre de classes en \mtt est fixé de façon à ce que chaque classe ait une largeur de \SI{4}{\GeV}.
 
 \medskip
 
@@ -591,7 +598,7 @@ Lors de l'ajustement sur les données, la même fonction est utilisée pour chac
 \label{tab:chi2}
 \end{table}
 
-Les trois fonctions sélectionnées décrivent les données de façon équivalente : la valeur du $\chi^2$ de l'ajustement pour chaque fonction est présentée dans le \cref{tab:chi2}\footnote{Un résultat équivalent est obtenu en utilisant la simulation en lieu et place des données pour l'ajustement.}. Afin de déterminer laquelle de ces fonctions biaise le moins l'analyse, un jeu de 500 pseudo\-/expériences est généré à l'aide de chaque fonction. Chaque pseudo\-/expériences représente un spectre de masse \ttbar, auquel on ajoute en plus un nombre d'événements de signal correspondant à une fluctuation de 2$\sigma$. On dispose ainsi de 3 jeux de 500 pseudo\-/expériences, ce qui nous permet de simuler le fait que l'on n'a pas connaissance de la vraie forme analytique du spectre de masse \ttbar. L'étape suivante est simple : on cherche la fonction qui, lors de l'ajustement signal + fond, permet de trouver le nombre d'événements de signal le plus proche de celui généré, et ce peu importe la fonction ayant servi à générer les données. On ajuste ainsi chaque jeu de pseudo\-/expériences généré avec chacune des 3 fonctions.
+Les trois fonctions sélectionnées décrivent les données de façon équivalente : la valeur du $\chi^2$ de l'ajustement pour chaque fonction est présentée dans le \cref{tab:chi2}\footnote{Un résultat équivalent est obtenu en utilisant la simulation en lieu et place des données pour l'ajustement.}. Afin de déterminer laquelle de ces fonctions biaise le moins l'analyse, un jeu de 500 pseudo\-/expériences est généré à l'aide de chaque fonction. Chaque pseudo\-/expérience représente un spectre de masse \ttbar, auquel on ajoute en plus un nombre d'événements de signal correspondant à une fluctuation de 2$\sigma$. On dispose ainsi de 3 jeux de 500 pseudo\-/expériences, ce qui nous permet de simuler le fait que l'on n'a pas connaissance de la vraie forme analytique du spectre de masse \ttbar. L'étape suivante est simple : on cherche la fonction qui, lors de l'ajustement signal + fond, permet de trouver le nombre d'événements de signal le plus proche de celui généré, et ce peu importe la fonction ayant servi à générer les données. On ajuste ainsi chaque jeu de pseudo\-/expériences généré avec chacune des 3 fonctions.
 
 Pour chaque ajustement réalisé, on estime le biais grâce au \emph{pull} \citep{pulls}, défini par :
 \begin{align*}
@@ -613,7 +620,7 @@ où $N^S_\text{mesuré}$ est le nombre d'événements de signal extrait par l'aj
   \label{fig:pulls}
 \end{figure}
 
-Au final, on obtient 9 distributions de \emph{pull}, une pour chaque couple \enquote{fonction ayant généré les pseudo\-/expériences / fonction ayant ajusté les pseudo\-/expériences}. Une représentation schématique est visible sur la \cref{fig:pull_matrix}. On souhaite cependant obtenir un unique estimateur par fonction. On somme donc les distributions de \emph{pull} de chaque couple où la même fonction a servi à l'ajustement, en excluant le couple où la même fonction a servi à la génération et à l'ajustement, non biaisé. Autrement dit, si on se réfère à la \cref{fig:pull_matrix}, on somme les distributions associées à chaque ligne, en excluant la diagonale.
+Au final, on obtient 9 distributions de \emph{pull}, une pour chaque couple \enquote{fonction ayant généré les pseudo\-/expériences / fonction ayant ajusté les pseudo\-/expériences}. Une représentation schématique est visible sur la \cref{fig:pull_matrix}. On souhaite cependant obtenir un unique estimateur par fonction. On somme donc les distributions de \emph{pull} de chaque couple où la même fonction a servi à l'ajustement, en excluant le couple où la même fonction a servi à la génération et à l'ajustement, non biaisé. Autrement dit, on somme les distributions associées à chaque ligne, en excluant la diagonale.
 
 Les résultats de cette étude sont visibles \cref{fig:pulls} pour un \zprime de masse $\mzp = \SI{750}{\GeV}$, dans l'hypothèse de résonances étroites. Chaque distribution est ajustée avec une fonction gaussienne de laquelle on extrait la moyenne, décrivant le biais sur le nombre d'événement de signal de la fonction utilisée pour l'ajustement des pseudo\-/expériences.
 
@@ -659,8 +666,8 @@ On effectue un ajustement simultané dans les quatre catégories de l'analyse, e
 \begin{tabular}{@{}cccccc@{}} \toprule
 
  & \SI{500}{\GeV} & \SI{750}{\GeV} & \SI{1000}{\GeV} & \SI{1250}{\GeV} & \SI{1500}{\GeV} \\ \midrule
- $\sigma_{\zprime}$ (\si{\pb}) -- résonance étroite & \num{-0.11 \pm 0.87} & \num{-0.17 \pm 0.28} & \num{0.13 \pm 0.19} & \num{-0.14 \pm 0.18} & \num{0.05 \pm 0.16} \\
- $\sigma_{\zprime}$ (\si{\pb}) -- résonance large & \num{-0.00 \pm 0.79} & \num{-0.15 \pm 0.31} & \num{0.12 \pm 0.22} & \num{-0.15 \pm 0.23} & \num{0.00 \pm 0.2} \\ \bottomrule
+ $\sigma_{\zprime}$ (\si{\pb}) -- rés. étroite & \num{-0.11 \pm 0.87} & \num{-0.17 \pm 0.28} & \num{0.13 \pm 0.19} & \num{-0.14 \pm 0.18} & \num{0.05 \pm 0.16} \\
+ $\sigma_{\zprime}$ (\si{\pb}) -- rés. large & \num{-0.00 \pm 0.79} & \num{-0.15 \pm 0.31} & \num{0.12 \pm 0.22} & \num{-0.15 \pm 0.23} & \num{0.00 \pm 0.2} \\ \bottomrule
 
 \end{tabular}
 \caption{Sections efficaces du signal extraites grâce à l'ajustement par la méthode du maximum de vraisemblance sur les données, dans le cas de \zprime. L'incertitude est purement statistique.}
@@ -672,7 +679,7 @@ On effectue un ajustement simultané dans les quatre catégories de l'analyse, e
 \begin{tabular}{@{}cccccc@{}} \toprule
 
  & \SI{500}{\GeV} & \SI{700}{\GeV} & \SI{1000}{\GeV} & \SI{1200}{\GeV} & \SI{1500}{\GeV} \\ \midrule
- $\sigma_{\kkglu}$ (\si{\pb}) & \num{-0.07 \pm 0.39} & \num{0.12 \pm 0.30} & \num{-0.04 \pm 0.29} & \num{0.12 \pm 0.30} & \num{-0.13 \pm 0.26} \\ \bottomrule
+ $\sigma_\text{\kkglu}$ (\si{\pb}) & \num{-0.07 \pm 0.39} & \num{0.12 \pm 0.30} & \num{-0.04 \pm 0.29} & \num{0.12 \pm 0.30} & \num{-0.13 \pm 0.26} \\ \bottomrule
 \end{tabular}
 \caption{Sections efficaces du signal extraites grâce à l'ajustement par la méthode du maximum de vraisemblance sur les données, dans le cas de gluons de Kaluza-Klein. L'incertitude est purement statistique.}
 \label{tab:cross_section_kk}
@@ -731,7 +738,7 @@ Des erreurs systématiques peuvent modifier la mesure de la section efficace, en
   JEC & \SI{1.08}{\percent} & \SI{1.08}{\percent} & \SI{1.08}{\percent} & \SI{1.08}{\percent} \\
   JER & \SI{0.07}{\percent} & \SI{0.07}{\percent} & \SI{0.07}{\percent} & \SI{0.07}{\percent} \\
   Repondération du \pu & \SI{0.05}{\percent} & \SI{0.05}{\percent} & \SI{0.05}{\percent} & \SI{0.05}{\percent} \\
-  PDF du signal & \SI{0.64}{\percent} & \SI{0.64}{\percent} & \SI{0.64}{\percent} & \SI{0.64}{\percent} \\
+  Modélisation du signal & \SI{0.64}{\percent} & \SI{0.64}{\percent} & \SI{0.64}{\percent} & \SI{0.64}{\percent} \\
   Efficacité & \SI{3.45}{\percent} & \SI{3.42}{\percent} & \SI{4.03}{\percent} & \SI{4.01}{\percent} \\
   \bottomrule
   \end{tabular}
@@ -747,7 +754,7 @@ Des erreurs systématiques peuvent modifier la mesure de la section efficace, en
 \end{figure}
 
 \begin{description}
-  \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{4.4}{\percent}) est considérée comme une source d'erreur systématique.
+  \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{4.4}{\percent}) est considérée comme une source d'erreur systématique, et n'est appliquée qu'au signal.
   \item[\pu] La section efficace des collisions \Pproton{}\Pproton{} utilisée lors du calcul des facteurs de repondération du \pu est variée de \pm{} \SI{5}{\percent}. La variation de la section efficace du signal extraite est considérée en tant qu'erreur systématique.
   \item[Facteurs de corrections] Les incertitudes sur les facteurs de corrections liés à l’identification et à l’isolation des leptons, à l’algorithme d’étiquetage des jets de b ainsi qu’aux performances des chemins de déclenchement sont sommées en quadratique et considérées comme une source d’incertitude systématique impactant l'efficacité de la sélection.
   \item[Corrections des jets] Les incertitudes sur les corrections en énergie et résolution des jets sont considérées comme une source d’incertitude systématique. Afin d'en tenir compte, les facteurs de corrections des jets sont modifiés de \pm{} leur incertitude, et l'analyse complète est refaite. La variation de la section efficace du signal extraite à l'aide de l'ajustement est considérée comme incertitude systématique.
@@ -797,7 +804,7 @@ On compare ensuite les limites attendues et observées sur les \cref{fig:limits_
 
 \medskip
 
-On superpose en plus sur les courbes de limites les prédictions théoriques de certains modèles particuliers. On considère dans le cas du \zprime un modèle topcolor, où le \zprime est leptophobique \citep{Harris:2011ez}, et pour les gluons de Kaluza-Klein, le modèle de Randall-Sundrum \citep{Agashe:2006hk}, utilisé pour la génération du signal. En comparant les limites observées et les prédictions théoriques, il est possible d'exclure certaines masses de résonances. En effet, si la prédiction théorique est plus grande que la limite observée, cela signifie que notre analyse est assez sensible pour détecter des résonances dans le spectre de masse \ttbar ayant cette section efficace. Le fait que rien ne soit observé permet ainsi d'exclure certaines masses pour un modèle particulier. Les exclusions réalisées par notre analyse sont résumées dans le tableau \cref{tab:limits}.
+On superpose sur les courbes de limites les prédictions théoriques de certains modèles particuliers. On considère dans le cas du \zprime un modèle topcolor, où le \zprime est leptophobique \citep{Harris:2011ez}, et pour les gluons de Kaluza-Klein, le modèle de Randall-Sundrum \citep{Agashe:2006hk}, utilisé pour la génération du signal. En comparant les limites observées et les prédictions théoriques, il est possible d'exclure certaines masses de résonances. En effet, si la prédiction théorique est plus grande que la limite observée, cela signifie que notre analyse est assez sensible pour détecter des résonances dans le spectre de masse \ttbar ayant cette section efficace. Le fait que rien ne soit observé permet ainsi d'exclure certaines masses pour un modèle particulier. Les exclusions réalisées par notre analyse sont résumées dans le tableau \cref{tab:limits}.
 
 \begin{table}[htbp] \centering
   \begin{tabular}{@{}cc@{}} \toprule
@@ -812,7 +819,7 @@ On superpose en plus sur les courbes de limites les prédictions théoriques de 
 
 \section{Combinaison et état de l'art}
 
-L'analyse présentée dans ce chapitre est optimisée pour les résonances non boostées, correspondant à une masse inférieure à \tilde\SI{1}{\TeV}. Afin d'être efficace même à haute masse, cette analyse est combinée avec une autre, cette fois ci optimisée pour les résonances boostées \citep{CMS:lhr}, afin d'obtenir les limites les plus basses possibles sur toute la gamme de masse considérée. Dans cette analyse, le lepton n'est plus nécessairement isolé, et il est nécessaire d'avoir au moins deux jets, dont un d'au moins \SI{170}{\GeV}. En effet, on s'attend dans ces régimes à ce que les jets provenant de la désintégration du \PW hadronique soient agglomérés au sein du même jet, et dans des cas encore plus boostés, à ce que tous les jets provenant de la désintégration du quark top hadronique soient agglomérés au sein du même jet. Il est donc nécessaire de relâcher la contrainte sur le nombre de jet sélectionné pour reconstruire efficacement ces événements.
+L'analyse présentée dans ce chapitre est optimisée pour les résonances non boostées, correspondant à une masse inférieure à \tilde\SI{1}{\TeV}. Afin d'être efficace même à haute masse, cette analyse est combinée avec une autre, cette fois ci optimisée pour les résonances boostées \citep{CMS:lhr}, afin d'obtenir les limites les plus basses possibles sur toute la gamme de masse considérée. Dans cette analyse, le lepton n'est plus nécessairement isolé, et il est nécessaire d'avoir au moins deux jets, dont un d'au moins \SI{170}{\GeV}. En effet, on s'attend dans ces régimes à ce que les jets provenant de la désintégration du \PW hadronique soient agglomérés au sein du même jet, et dans des cas encore plus boostés, à ce que tous les jets provenant de la désintégration du quark top hadronique soient agglomérés au sein du même jet. Il est donc nécessaire de relâcher la contrainte sur le nombre de jets sélectionnés pour reconstruire efficacement ces événements.
 
 \medskip
 
@@ -845,7 +852,7 @@ Il est intéressant de noter que, même si les analyses boostées sont meilleure
 
 \bigskip
 
-Le même type de recherche a aussi été mené au Tevatron par les expérience CDF et \dzero \citep{Aaltonen:2012af,Abazov:2011gv}. Ces analyses ne considèrent que le cas d'un \zprime étroit. Plus récemment, ATLAS a aussi publiée des résultats sur la recherche de résonances de spin 1 dans le spectre de masse \ttbar \citep{ATLAS-CONF-2013-052}. Il est à noter qu'ATLAS ne considère pas le cas de résonance large, et que l'analyse n'a pas encore été mise-à-jour avec toute la luminosité collectée par l'expérience : les comparaisons entre ATLAS et CMS ne sont donc pas réellement possibles. Le \cref{tab:comp_limits} résume les exclusions posées par les expériences ATLAS, CDF, CMS et \dzero, pour différents types de résonances de spin~1.
+Le même type de recherche a aussi été mené au Tevatron par les expérience CDF et \dzero \citep{Aaltonen:2012af,Abazov:2011gv}. Ces analyses ne considèrent que le cas d'un \zprime étroit. Plus récemment, ATLAS a aussi publiée des résultats sur la recherche de résonances de spin 1 dans le spectre de masse \ttbar \citep{ATLAS-CONF-2013-052}. Il est à noter qu'ATLAS ne considère pas le cas de résonance large, et que l'analyse n'a pas encore été mise-à-jour avec toute la luminosité collectée par l'expérience : les comparaisons entre ATLAS et CMS ne sont donc pas réellement significatives. Le \cref{tab:comp_limits} résume les exclusions posées par les expériences ATLAS, CDF, CMS et \dzero, pour différents types de résonances de spin~1.
 
 \begin{savenotes}
 \begin{table}[ht] \centering
