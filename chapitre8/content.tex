@@ -10,7 +10,7 @@ La recherche d'une particule de spin 0 comporte plusieurs difficultés, de la g�
 
 La production de particules de spin 0 se désintégrant exclusivement en \ttbar se fait par fusion de gluons, à l'aide d'une boucle de quarks top. Le diagramme de Feynman de cette production est visible sur la \cref{fig:f_signal_alone}. Le couplage $g_{\sz \ttbar}$ de la résonance aux quarks top est défini par
 \begin{align*}
-  g_{\sz \ttbar} &= \alpha \, i \frac{m_{\Ptop}}{v} + \beta \, \gfive \frac{m_{\Ptop}}{v}
+  g_{\sz \ttbar} &= \frac{m_{\Ptop}}{v} \left(i\alpha +  \beta \gfive \right)
 \end{align*}
 et comporte deux parties : une scalaire, proportionnelle à $\alpha$, et une pseudo\-/scalaire, proportionnelle à $\beta$. Ainsi, il est possible de générer des particules purement scalaires ($\alpha \neq 0$, $\beta = 0$), purement pseudo\-/scalaires ($\alpha = 0$, $\beta \neq 0$), voire un mélange d'états scalaires - pseudo\-/scalaires.
 
@@ -50,7 +50,7 @@ Cette analyse se concentre sur les désintégrations semi\-/leptoniques des pair
 
 \begin{eq}[p!]
     \begin{align*}
-      \hat{s} &= \mtt^2 \; , \qquad \beta = \sqrt{ 1 - \frac{4 \mt^2}{\hat{s}} }, \qquad y_t = \ln\left( \frac{1 + \beta}{1 - \beta} \right), \qquad \Gamma_{\sz} = \frac{3 G_F \mt^2 \hat{s}\beta^3}{4 \pi \msz \sqrt{2}} \\
+      \hat{s} &= \mtt^2 \; , \qquad \beta = \sqrt{ 1 - \frac{4 \mt^2}{\hat{s}} }, \qquad y_t = \ln\left( \frac{1 + \beta}{1 - \beta} \right), \qquad \Gamma_{\sz} = \frac{3 G_F \mt^2 \msz \beta^3}{4 \pi \sqrt{2}} \\
       \begin{split}
           \sigma(\hat{s}) &= \overbrace{\frac{ 3 \alpha_s^2 G_F^2 m_t^6 \beta^3 }{ 2048 \pi^3 } \frac{ 16 + 8 \beta^2\left(\pi^2 -y_t^2\right) + \beta^4\left(y_t^2 + \pi^2\right)^2 }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}^{\text{signal scalaire}} \\
           &- \underbrace{\frac{ \alpha_s^2 G_F m_t^4 \beta^2 }{ 32 \pi \sqrt{2} \hat{s} } y_t \frac{ \left(\hat{s} - m_{\sz}^2\right) \left(4 + \beta^2 \left(\pi^2 - y_t^2\right)\right) + 2 \pi \beta^2 m_{\sz} \Gamma_{\sz} y_t }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}_{\text{interférences}} \\
@@ -62,7 +62,7 @@ Cette analyse se concentre sur les désintégrations semi\-/leptoniques des pair
 \end{eq}
 \begin{eq}
     \begin{align*}
-      \hat{s} &= \mtt^2 \, , \qquad \beta = \sqrt{ 1 - \frac{4 \mt^2}{\hat{s}} }, \qquad y_t = \ln\left( \frac{1 + \beta}{1 - \beta} \right), \qquad \Gamma_{\sz} = \frac{3 G_F \mt^2 \hat{s}\beta}{4 \pi \msz \sqrt{2}} \\
+      \hat{s} &= \mtt^2 \, , \qquad \beta = \sqrt{ 1 - \frac{4 \mt^2}{\hat{s}} }, \qquad y_t = \ln\left( \frac{1 + \beta}{1 - \beta} \right), \qquad \Gamma_{\sz} = \frac{3 G_F \mt^2 \msz \beta}{4 \pi \sqrt{2}} \\
       \begin{split}
           \sigma(\hat{s}) &= \overbrace{\frac{ 3 \alpha_s^2 G_F^2 m_t^6 \beta }{ 2048 \pi^3 } \frac{ \left(y_t^2 + \pi^2\right)^2 }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}^{\text{signal pseudo-scalaire}} \\
                        &- \underbrace{\frac{ \alpha_s^2 G_F m_t^4 }{ 32 \pi \sqrt{2} \hat{s} } y_t \frac{ \left(\hat{s} - m_{\sz}^2\right) \left(\pi^2 - y_t^2\right) + 2 \pi m_{\sz} \Gamma_{\sz} y_t }{ \left(\hat{s} - m_{\sz}^2\right)^2 + m_{\sz}^2\Gamma_{\sz}^2 }}_{\text{interférences}} \\
@@ -421,7 +421,7 @@ La présence d'incertitudes systématiques impacte le nombre d'événements atte
 Plusieurs sources d'incertitudes sont considérées, listées ci-dessous. Il est important de noter que ces incertitudes affectent à la fois les distributions du signal et des bruits de fond. Pour chaque source, les distributions de signal et de bruit de fond sont déterminées à nouveau et l'effet propagé au résultat.
 
 \begin{description}
-  \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{2.6}{\percent}) est considérée comme une source d'incertitude systématique, impactant la normalisation des échantillons.
+  \item[Luminosité] L'incertitude sur la mesure de la luminosité (\SI{2.6}{\percent}) est considérée comme une source d'incertitude systématique, impactant la normalisation des échantillons\footnote{Cette incertitude est différente de l'analyse \zprime puisque la connaissance de la luminosité collectée par CMS s'est améliorée entre temps.}.
   \item[\pu] La section efficace des collisions \Pproton{}\Pproton{} utilisée lors du calcul des facteurs de repondération du \pu est variée de \pm{} \SI{5}{\percent}. La variation de la forme des distributions est considérée comme une source d'incertitude, impactant la forme et la normalisation des échantillons.
   \item[Facteurs de corrections] Les incertitudes sur les facteurs de corrections liés à l'identification et à l'isolation des leptons, à l'algorithme d'étiquetage des jets de \Pbottom ainsi qu'aux performances des chemins de déclenchement sont considérées comme des sources d'incertitudes systématiques, impactant la forme et la normalisation des échantillons.
   \item[Corrections des jets] Les incertitudes sur les corrections en énergie et résolution des jets sont considérées comme une source d'incertitudes systématiques, impactant la forme et la normalisation des échantillons.
