@@ -484,6 +484,13 @@ et la \emph{p-value} observée $p_\text{observée}$ comme la probabilité qu'une
   p_\text{observée} &= \frac{ \int \limits_{q_\text{obs}}^{+ \infty} f(q) \mathrm{d}q }{ \int f(q) \mathrm{d}q }.
 \end{align*}
 
+\begin{figure}[tbp] \centering
+    \subcaptionbox{\sz scalaire}[0.65\textwidth]{\includegraphics[width=0.65\textwidth,angle=-90,origin=c]{chapitre8/figs/pvalues_scalar.pdf}} \\
+    \subcaptionbox{\sz pseudo-scalaire}[0.65\textwidth]{\includegraphics[width=0.65\textwidth,angle=-90,origin=c]{chapitre8/figs/pvalues_pseudoscalar.pdf}}
+    \caption{Distributions des \pvalues pour chaque point de masse considéré. La ligne verte correspond aux \pvalues attendues et la ligne bleue aux \pvalues observées. Les bandes en vert foncé et vert clair correspondent respectivement aux intervalles de confiance à \SI{68}{\percent} et \SI{95}{\percent} sur la \pvalue attendue.}
+    \label{fig:pvalues_mass}
+\end{figure}
+
 La \cref{fig:pvalues} représente la distribution $f(q)$ obtenue après la génération des \num{100 000} pseudo\-/expériences, pour un \sz pseudo\-/scalaire de masse $\msz = \SI{500}{\GeV}$. La ligne bleue correspond à $q_0$, la ligne pointillée violette à $q_\text{obs}$ et les zones vertes et hachurée représentent respectivement l'intégrale de la distribution à partir de $q_0$ et à partir de $q_\text{obs}$. Une procédure similaire est utilisée afin d'extraire les intervalles de confiance à \SI{68}{\percent} et \SI{95}{\percent} sur la \emph{p-value} observée, en remplaçant simplement $q_0$ par les bornes de l'intervalle de confiance sur $q_0$.
 
 \bigskip
@@ -493,13 +500,6 @@ Cette procédure est appliquée pour chaque point de masse, dans le cas de réso
 \medskip
 
 Afin de pouvoir prétendre à une observation d'une déviation significative des prédictions théoriques, la signification statistique doit être d'au moins $3\sigma$. On constate que ce niveau de confiance n'est pas atteint par les \pvalues attendues : l'analyse n'est ainsi pas assez sensible pour être en mesure d'observer la présence d'un scalaire ou d'un pseudo\-/scalaire fortement couplé au quark top dans le modèle considéré.
-
-\begin{figure}[tbp] \centering
-    \subcaptionbox{\sz scalaire}[0.65\textwidth]{\includegraphics[width=0.65\textwidth,angle=-90,origin=c]{chapitre8/figs/pvalues_scalar.pdf}} \\
-    \subcaptionbox{\sz pseudo-scalaire}[0.65\textwidth]{\includegraphics[width=0.65\textwidth,angle=-90,origin=c]{chapitre8/figs/pvalues_pseudoscalar.pdf}}
-    \caption{Distributions des \pvalues pour chaque point de masse considéré. La ligne verte correspond aux \pvalues attendues et la ligne bleue aux \pvalues observées. Les bandes en vert foncé et vert clair correspondent respectivement aux intervalles de confiance à \SI{68}{\percent} et \SI{95}{\percent} sur la \pvalue attendue.}
-    \label{fig:pvalues_mass}
-\end{figure}
 
 \section{Conclusion et perspectives}
 

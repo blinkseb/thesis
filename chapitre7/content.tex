@@ -118,11 +118,10 @@ La \cref{fig:muon_id_eff} présente l'efficacité de cette sélection, qui varie
 
 \subsubsection{Électrons} \label{sec:sel_electron}
 
-De façon analogue aux muons, on définit également deux jeux de critères pour identifier les électrons, détaillés dans le tableau ci-dessous.
+De façon analogue aux muons, on définit également deux jeux de critères pour identifier les électrons, détaillés dans le \cref{tab:electron_sel}.
 
 \begin{table}[htbp] \centering
   \begin{tabular}{@{}ccc@{}} \toprule
-
   Variable & Électron lâche & Électron de qualité \\ \midrule
   & \multicolumn{2}{c}{électron \pf} \\
   $\Delta \eta_{IN}$ & \num{< 0.007} & \num{< 0.004} \\
@@ -136,8 +135,9 @@ De façon analogue aux muons, on définit également deux jeux de critères pour
   $\aeta$ & \num{< 2.5} & \num{< 2.5} \\
   $I_{\Pe}^\text{corrigé}$ (voir \cref{sec:lepton_isolation}) & \num{< 0.15} & \num{< 0.10} \\
   \bottomrule
-
   \end{tabular}
+  \caption{Critères de sélection des électrons.}
+  \label{tab:electron_sel}
 \end{table}
 
 $\Delta \eta_{IN}$ est la différence entre $\eta$ de l'agrégat calorimétrique et $\eta$ de la trace de l'électron, $\Delta \phi_{IN}$ entre la différence entre $\phi$ de l'agrégat calorimétrique et $\phi$ de la trace de l'électron, et $\sigma_{i\eta i\eta}$ et $H / E$ sont définis dans la \cref{sec:jetmet_sel}. L'efficacité de la sélection d'un électron de qualité est présentée dans la \cref{fig:electron_id_eff}, et varie entre \num{75} et \SI{90}{\percent} pour les électrons considérés par l'analyse. Pour les données, l'efficacité est calculée à l'aide d'une méthode \emph{tag and probe} sur des événements $\PZ \rightarrow \Pelectron\APelectron$.
@@ -156,7 +156,7 @@ Les jets sont reconstruits à l'aide de l'algorithme anti-$k_T$, avec une largeu
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.53\textwidth]{chapitre7/figs/jetResolutionSmearingFactors.pdf}
-  \caption{Facteurs de corrections permettant de dégrader la résolution des jets, déterminées sur des événements di-jets.}
+  \caption{Facteurs de corrections permettant de dégrader la résolution des jets, déterminés sur des événements di-jets.}
   \label{fig:jet_res_factors}
 \end{figure}
 
@@ -164,7 +164,7 @@ On a évoqué rapidement dans le \cref{chap:jetmet} que la résolution des jets 
 \begin{align*}
   C &= \max\left(0, 1 + \left[ 1 - \frac{\pt^\text{gen}}{\pt^\text{jet}} \right] \, f(\eta)\right)
 \end{align*}
-où $\pt^\text{jet}$ est l'impulsion transverse du jet, $\pt^\text{gen}$ est l'impulsion transverse du jet généré, et $f(\eta)$ un facteur de correction permettant de dégrader la résolution des jets. Les corrections en énergie et en résolution des jets sont propagées à l'énergie transverse manquante (voir \cref{sec:jetmet_sel}, \cpageref{page:met_propagation} pour plus de détails).
+où $\pt^\text{jet}$ est l'impulsion transverse du jet, $\pt^\text{gen}$ est l'impulsion transverse du jet généré, et $f(\eta)$ un facteur de correction permettant de dégrader la résolution des jets, visible sur la \cref{fig:jet_res_factors}. Les corrections en énergie et en résolution des jets sont propagées à l'énergie transverse manquante (voir \cref{sec:jetmet_sel}, \cpageref{page:met_propagation} pour plus de détails).
 
 L'algorithme utilisé pour l'étiquetage des jets de \Pbottom est présenté en détail \cref{sec:b_tagging}. Afin d'éliminer les jets provenant des bruits des détecteurs, une sélection lâche est appliquée, demandant que la fraction d'énergie hadronique du jet soit inférieure à \SI{99}{\percent}, et que le nombre de particules constituant le jet soit au moins égal à 2. Cette sélection a une efficacité supérieure à \SI{99}{\%}.
 
