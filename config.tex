@@ -26,6 +26,9 @@
 \newboolean{linenumbers} % enable backrefs in the bibliography
 \setboolean{linenumbers}{false}
 
+\newboolean{full_colors} % Enable colors for references and links
+\setboolean{full_colors}{true}
+
 \newboolean{enable-backrefs} % enable backrefs in the bibliography
 \setboolean{enable-backrefs}{true} % true false
 
@@ -173,9 +176,14 @@
     
     \renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
     \renewcommand{\sectionmark}[1]{\markright{\textsc{\MakeTextLowercase{\thesection}}\enspace\spacedlowsmallcaps{#1}}}
-    
-    \lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray}\vline}\color{halfgray}\hspace*{0.5em}\headmark\hfil}}
-    \rohead{\mbox{\hfil{\color{halfgray}\headmark\hspace{0.5em}}\rlap{\small{\color{halfgray}\vline}\kern1em\thepage}}}
+
+    \ifthenelse{\boolean{full_colors}}{%
+      \lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray}\vline}\color{halfgray}\hspace*{0.5em}\headmark\hfil}}
+      \rohead{\mbox{\hfil{\color{halfgray}\headmark\hspace{0.5em}}\rlap{\small{\color{halfgray}\vline}\kern1em\thepage}}}%
+    }{%
+      \lehead{\mbox{\llap{\small\thepage\kern1em\vline}\hspace*{0.5em}\headmark\hfil}}
+      \rohead{\mbox{\hfil{\headmark\hspace{0.5em}}\rlap{\small{\vline}\kern1em\thepage}}}%
+    }
     
     \renewcommand{\headfont}{\small}  
     
@@ -389,7 +397,7 @@
 \hypersetup{
  % Uncomment the line below to remove all links (to references, figures, tables, etc)
  %draft, 
- colorlinks=true, linktocpage=false, pdfstartpage=3, pdfstartview=FitV,
+ linktocpage=false, pdfstartpage=3, pdfstartview=FitV,
  % Uncomment the line below if you want to have black links (e.g. for printing black and white)
  %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV, 
  breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,
@@ -400,8 +408,14 @@
  pdftitle={Recherche de physique au-delà du Modèle Standard dans le secteur du quark top et calibration de l'échelle en énergie des jets avec l'expérience CMS du LHC},
  pdfauthor={Sébastien Brochet},
  pdfsubject={},
- pdfkeywords={LHC,CMS,quark top,topcolor,higgs,Z',new physics},
+ pdfkeywords={physique des hautes énergies, LHC, CMS, corrections en énergie des jets, photon + jets, quark top, paires top-antitop, Z', gluons de Kaluza-Klein, bosons de Higgs massifs},
  pdfcreator={XeTeX}
+}
+
+\ifthenelse{\boolean{full_colors}}{
+\hypersetup{colorlinks=true}
+}{
+\hypersetup{colorlinks=false,hidelinks=true}
 }
 
 \contentsmargin{2.5em}
